@@ -1,8 +1,8 @@
-import Header from './components/ui/Header'
+import Header from '../components/Header'
 
 export default function Home() {
   return (
-   <main>
+   <main className=' h-screen'>
     <Header/>
    </main>
   )
