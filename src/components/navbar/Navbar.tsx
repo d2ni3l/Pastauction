@@ -1,25 +1,34 @@
 import React from 'react'
 import Logo from '../Logo'
 import { Button } from '../ui/button'
+import Link from 'next/link'
 
 interface Navbar{
   transparent : boolean
+  bg?: string
+  attributes: boolean
+  logobg?: string
+
 }
 
-export default function navbar({transparent} : Navbar) {
+export default function navbar({transparent, bg, attributes, logobg} : Navbar) {
   return (
     <>
         
-<nav className={`fixed w-full z-20 top-0 left-0  ${transparent ? 'bg-transparent' : 'bg-gray-900'}` }>
+<nav className={`fixed w-full z-20 top-0 left-0  ${transparent ? 'bg-transparent' : `${bg}`}` }>
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-  <a href="https://flowbite.com/" className="flex items-center">
-      <Logo width={120} height={100}/>
-  </a>
+  
+      <Link href='/' className='flex items-center'>
+      <Logo width={120} height={140} backgroundColor={logobg}/>
+      </Link>
+ 
   
    
   
   
-  <div className="flex  gap-20">
+  {
+    attributes && (
+      <div className="flex  gap-20">
   <div className="items-center justify-between hidden w-full md:flex md:w-auto" >
     <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:border-0 ">
       <li>
@@ -40,9 +49,13 @@ export default function navbar({transparent} : Navbar) {
     </ul>
   </div>
 
-      <Button>Sign up</Button>
+      <Link href='/signup'><Button>Sign up</Button></Link>
   </div>
+    )
+  }
+
   </div>
+  
 </nav>
 
     </>

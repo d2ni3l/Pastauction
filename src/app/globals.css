@@ -83,3 +83,16 @@
   background-size: cover;
   background-position: center center;
 }
+
+.sign-background{
+  background-image: url('/images/signin.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+  
+}
+
+
+.hide-password{
+  -webkit-text-security: disc;
+}

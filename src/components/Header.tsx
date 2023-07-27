@@ -2,11 +2,11 @@ import React from "react";
 import Navbar from "./navbar/Navbar";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import bg from "../../public/images/Herobackground.png";
+import Link from 'next/link'
 export default function Header() {
   return (
     <>
-      <Navbar transparent />
+      <Navbar transparent attributes logobg="white" />
 
       <div className='w-screen h-screen background-home bg-black/30 flex items-center'>
         <div className='flex justify-center flex-col gap-10 mx-6 md:mx-16 lg:mx-24 '>
@@ -29,7 +29,7 @@ export default function Header() {
               placeholder='Your best email'
             />
             <div className='absolute right-10'>
-              <Button variant='rounded'><span className="px-6">Sign In</span></Button>
+              <Link href='/signup'><Button variant='rounded'><span className="px-6">Sign In</span></Button></Link>
             </div>
           </div>
 
@@ -43,6 +43,7 @@ export default function Header() {
            alt='youtube link'
            width='40'
            height='40'
+           className='mr-12'
            />
           </div>
         </div>
