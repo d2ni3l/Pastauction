@@ -12,10 +12,14 @@ export default function Logo({width, height, backgroundColor} : LogoProps) {
   return(
     <Image src='/logo.svg' alt='logo' width={width} height={height}/>
   ) 
-  }else {
+  }
+ 
+  if (backgroundColor === 'black') {
     return(
       <Image src='/logo-black.svg' alt='logo' width={width} height={height}/>
 
     )
   }
+
+ 
 }
