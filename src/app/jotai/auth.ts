@@ -1,4 +1,7 @@
 // global state
-import { atom } from 'jotai'
+import { useAtom } from 'jotai'
+import {atom} from 'jotai'
 
-export const countAtom = atom(0)
+
+
+export const signInAtom = atom({})

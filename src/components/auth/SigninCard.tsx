@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-
+import Link from 'next/link'
 import {
   Form,
   FormControl,
@@ -23,7 +23,8 @@ import { useForm } from "react-hook-form";
 import { registerSchema } from "../../app/validators/auth";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-
+import {useAtom} from 'jotai'
+import { signInAtom } from "@/app/jotai/auth";
 type Input = z.infer<typeof registerSchema>;
 export default function SigninCard() {
   const form = useForm<Input>({
@@ -35,9 +36,12 @@ export default function SigninCard() {
     },
   });
 
-  console.log(form.watch());
+ 
   const onSubmit = (data: Input) => {
-    console.log(data);
+    const [signInInfo, setSignInInfo] = useAtom(signInAtom)
+    setSignInInfo(data)
+    console.log(signInInfo)
+    
   };
   return (
     <>
@@ -130,10 +134,18 @@ export default function SigninCard() {
                   </FormItem>
                 )}
               />
-              <div className='flex justify-center items-center'>
+              <div className='flex justify-center items-center pt-5'>
                 <Button className='px-16' variant='blackWide' type='submit'>
                   Submit
                 </Button>
+              </div>
+              <div className='text-xs flex justify-center py-5 gap-2'>
+                <span className='text-gray-600'>Don't an account?</span>
+                <Link
+                  href='/auth/login'
+                  className='underline text-blue-400 cursor-pointer'>
+                  Login 
+                </Link>
               </div>
             </form>
           </Form>
