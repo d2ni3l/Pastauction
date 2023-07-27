@@ -48,9 +48,9 @@ export default function LoginCard() {
     <>
       <Card className='w-[380px] rounded-r-[60px]'>
         <CardHeader className='items-center'>
-          <CardTitle>Sign In </CardTitle>
+          <CardTitle className="font-medium py-2">Sign In </CardTitle>
           <CardDescription>
-            Start your journey with Pastauction!
+            Welcome back! Login to your account
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -143,12 +143,12 @@ export default function LoginCard() {
                   Sign In
                 </Button>
               </div>
-              <div className='text-xs flex justify-center py-5 gap-2'>
-                <span className='text-gray-600'>Have an account?</span>
+              <div className='text-xs flex justify-center py-5 gap-1'>
+                <span className='text-gray-600'>Don't have an account?</span>
                 <Link
                   href='/auth/signin'
                   className='underline text-blue-400 cursor-pointer'>
-                  Sign Up
+                  Sign up
                 </Link>
               </div>
             </form>

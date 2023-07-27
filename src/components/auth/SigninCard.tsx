@@ -4,12 +4,11 @@ import {
   Card,
   CardContent,
   CardDescription,
-
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import Link from 'next/link'
+import Link from "next/link";
 import {
   Form,
   FormControl,
@@ -23,8 +22,6 @@ import { useForm } from "react-hook-form";
 import { registerSchema } from "../../app/validators/auth";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import {useAtom} from 'jotai'
-import { signInAtom } from "@/app/jotai/auth";
 type Input = z.infer<typeof registerSchema>;
 export default function SigninCard() {
   const form = useForm<Input>({
@@ -36,18 +33,14 @@ export default function SigninCard() {
     },
   });
 
- 
   const onSubmit = (data: Input) => {
-    const [signInInfo, setSignInInfo] = useAtom(signInAtom)
-    setSignInInfo(data)
-    console.log(signInInfo)
-    
+    console.log(data);
   };
   return (
     <>
       <Card className='w-[380px] rounded-r-[60px]'>
         <CardHeader className='items-center'>
-          <CardTitle>Create an account</CardTitle>
+          <CardTitle className='font-medium py-2'>Create an account</CardTitle>
           <CardDescription>
             Start your journey with Pastauction!
           </CardDescription>
@@ -56,7 +49,9 @@ export default function SigninCard() {
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-2'>
               <div className='flex justify-center items-center gap-4'>
-                <button type='button' className='flex justify-center items-center bg-white hover:scale-[.9] transition-all duration-300 shadow-xl rounded-lg py-4 px-9 '>
+                <button
+                  type='button'
+                  className='flex justify-center items-center bg-white hover:scale-[.9] transition-all duration-300 shadow-xl rounded-lg py-4 px-9 '>
                   <Image
                     src='/images/google-logo.svg'
                     alt='google signin'
@@ -64,7 +59,9 @@ export default function SigninCard() {
                     height={20}
                   />
                 </button>
-                <button type='button' className='flex justify-center items-center bg-black hover:scale-[.9] transition-all duration-300 shadow-xl rounded-lg py-4 px-9'>
+                <button
+                  type='button'
+                  className='flex justify-center items-center bg-black hover:scale-[.9] transition-all duration-300 shadow-xl rounded-lg py-4 px-9'>
                   <Image
                     src='/images/apple-logo.svg'
                     alt='google signin'
@@ -72,7 +69,9 @@ export default function SigninCard() {
                     height={20}
                   />
                 </button>
-                <button type='button' className='flex justify-center items-center bg-blue-700 hover:scale-[.9] transition-all duration-300 shadow-xl rounded-lg py-4 px-9'>
+                <button
+                  type='button'
+                  className='flex justify-center items-center bg-blue-700 hover:scale-[.9] transition-all duration-300 shadow-xl rounded-lg py-4 px-9'>
                   <Image
                     src='/images/facebook-logo.svg'
                     alt='google signin'
@@ -81,12 +80,15 @@ export default function SigninCard() {
                   />
                 </button>
               </div>
+              <div className='flex justify-center items-center pt-3 pb-5'>
+                <span className='text-base font-medium'>Or</span>
+              </div>
               <FormField
                 control={form.control}
                 name='name'
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Name</FormLabel>
+                    <FormLabel>Name *</FormLabel>
                     <FormControl>
                       <Input placeholder='Enter your name' {...field} />
                     </FormControl>
@@ -100,7 +102,7 @@ export default function SigninCard() {
                 name='email'
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel>Email *</FormLabel>
                     <FormControl>
                       <Input placeholder='Enter your email' {...field} />
                     </FormControl>
@@ -114,7 +116,7 @@ export default function SigninCard() {
                 name='password'
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Password</FormLabel>
+                    <FormLabel>Password *</FormLabel>
                     <FormControl>
                       <Input placeholder='Enter your password' {...field} />
                     </FormControl>
@@ -124,7 +126,7 @@ export default function SigninCard() {
                       </span>
                       <span>
                         By creating an account, you agree to the{" "}
-                        <span className='underline text-black cursor-pointer'>
+                        <span className='underline text-black cursor-pointer font-medium'>
                           Terms of use and privacy policy
                         </span>
                         .
@@ -135,16 +137,16 @@ export default function SigninCard() {
                 )}
               />
               <div className='flex justify-center items-center pt-5'>
-                <Button className='px-16' variant='blackWide' type='submit'>
-                  Submit
+                <Button className='px-24' variant='blackWide' type='submit'>
+                  Get Started
                 </Button>
               </div>
               <div className='text-xs flex justify-center py-5 gap-2'>
-                <span className='text-gray-600'>Don't have an account?</span>
+                <span className='text-gray-600'>Have an account?</span>
                 <Link
                   href='/auth/login'
                   className='underline text-blue-400 cursor-pointer'>
-                  Login 
+                  Sign In
                 </Link>
               </div>
             </form>

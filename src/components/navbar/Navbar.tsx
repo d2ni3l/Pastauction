@@ -16,9 +16,9 @@ export default function navbar({transparent, bg, attributes, logobg} : Navbar) {
     <>
         
 <nav className={`fixed w-full z-20 top-0 left-0  ${transparent ? 'bg-transparent' : `${bg}`}` }>
-  <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+  <div className="max-w-screen-xl flex flex-wrap items-center justify-between  p-4">
   
-      <Link href='/' className='flex items-center'>
+      <Link href='/' className='flex items-center lg:mr-48'>
       <Logo width={120} height={140} backgroundColor={logobg}/>
       </Link>
  
