@@ -38,9 +38,9 @@ export default function SigninCard() {
   };
   return (
     <>
-      <Card className='w-[380px] rounded-r-[60px]'>
+      <Card className='w-[390px] rounded-r-[60px] '>
         <CardHeader className='items-center'>
-          <CardTitle className='font-medium py-2'>Create an account</CardTitle>
+          <CardTitle className='font-medium '>Create an account</CardTitle>
           <CardDescription>
             Start your journey with Pastauction!
           </CardDescription>
@@ -80,7 +80,7 @@ export default function SigninCard() {
                   />
                 </button>
               </div>
-              <div className='flex justify-center items-center pt-3 pb-5'>
+              <div className='flex justify-center items-center pt-2 pb-2'>
                 <span className='text-base font-medium'>Or</span>
               </div>
               <FormField
@@ -102,7 +102,7 @@ export default function SigninCard() {
                 name='email'
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email *</FormLabel>
+                    <FormLabel className='py-0'>Email *</FormLabel>
                     <FormControl>
                       <Input placeholder='Enter your email' {...field} />
                     </FormControl>
@@ -137,18 +137,18 @@ export default function SigninCard() {
                 )}
               />
               <div className='flex justify-center items-center pt-5'>
-                <Button className='px-24' variant='blackWide' type='submit'>
+                <Button className='px-32' variant='blackWide' type='submit'>
                   Get Started
                 </Button>
               </div>
-              <div className='text-xs flex justify-center py-5 gap-2'>
+              {/* <div className='text-xs flex justify-center py-2 gap-2'>
                 <span className='text-gray-600'>Have an account?</span>
                 <Link
                   href='/auth/login'
                   className='underline text-blue-400 cursor-pointer'>
                   Sign In
                 </Link>
-              </div>
+              </div> */}
             </form>
           </Form>
         </CardContent>

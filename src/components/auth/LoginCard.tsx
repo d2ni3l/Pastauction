@@ -46,7 +46,7 @@ export default function LoginCard() {
   };
   return (
     <>
-      <Card className='w-[380px] rounded-r-[60px]'>
+      <Card className='w-[390px] rounded-r-[60px]'>
         <CardHeader className='items-center'>
           <CardTitle className="font-medium py-2">Sign In </CardTitle>
           <CardDescription>
@@ -82,7 +82,9 @@ export default function LoginCard() {
                   />
                 </button>
               </div>
-
+              <div className='flex justify-center items-center pt-2 pb-2'>
+                <span className='text-base font-medium'>Or</span>
+              </div>
               <FormField
                 control={form.control}
                 name='email'
@@ -139,7 +141,7 @@ export default function LoginCard() {
                 )}
               />
               <div className='flex justify-center items-center'>
-                <Button className='px-16' variant='blackWide' type='submit'>
+                <Button className='px-32' variant='blackWide' type='submit'>
                   Sign In
                 </Button>
               </div>
