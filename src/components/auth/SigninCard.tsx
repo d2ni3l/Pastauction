@@ -140,7 +140,7 @@ export default function SigninCard() {
                 </Button>
               </div>
               <div className='text-xs flex justify-center py-5 gap-2'>
-                <span className='text-gray-600'>Don't an account?</span>
+                <span className='text-gray-600'>Don't have an account?</span>
                 <Link
                   href='/auth/login'
                   className='underline text-blue-400 cursor-pointer'>

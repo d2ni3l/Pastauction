@@ -49,7 +49,7 @@ export default function navbar({transparent, bg, attributes, logobg} : Navbar) {
     </ul>
   </div>
 
-      <Link href='/auth/signin'><Button>Sign up</Button></Link>
+      <Link href='/auth/login'><Button>Login</Button></Link>
   </div>
     )
   }

@@ -29,7 +29,7 @@ export default function Header() {
               placeholder='Your best email'
             />
             <div className='absolute right-10'>
-              <Link href='/auth/signin'><Button variant='rounded'><span className="px-6">Sign In</span></Button></Link>
+              <Link href='/auth/login'><Button variant='rounded'><span className="px-6">Login</span></Button></Link>
             </div>
           </div>
 
