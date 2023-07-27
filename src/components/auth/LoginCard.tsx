@@ -57,7 +57,7 @@ export default function LoginCard() {
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-2'>
               <div className='flex justify-center items-center gap-4'>
-                <button className='flex justify-center items-center bg-white hover:scale-[.9] transition-all duration-300 shadow-xl rounded-lg py-4 px-9 '>
+                <button type='button' className='flex justify-center items-center bg-white hover:scale-[.9] transition-all duration-300 shadow-xl rounded-lg py-4 px-9 '>
                   <Image
                     src='/images/google-logo.svg'
                     alt='google signin'
@@ -65,7 +65,7 @@ export default function LoginCard() {
                     height={20}
                   />
                 </button>
-                <button className='flex justify-center items-center bg-black hover:scale-[.9] transition-all duration-300 shadow-xl rounded-lg py-4 px-9'>
+                <button type='button' className='flex justify-center items-center bg-black hover:scale-[.9] transition-all duration-300 shadow-xl rounded-lg py-4 px-9'>
                   <Image
                     src='/images/apple-logo.svg'
                     alt='google signin'
@@ -73,7 +73,7 @@ export default function LoginCard() {
                     height={20}
                   />
                 </button>
-                <button className='flex justify-center items-center bg-blue-700 hover:scale-[.9] transition-all duration-300 shadow-xl rounded-lg py-4 px-9'>
+                <button type='button' className='flex justify-center items-center bg-blue-700 hover:scale-[.9] transition-all duration-300 shadow-xl rounded-lg py-4 px-9'>
                   <Image
                     src='/images/facebook-logo.svg'
                     alt='google signin'
