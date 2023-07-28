@@ -33,8 +33,31 @@ export default function SigninCard() {
     },
   });
 
+
+  async function postData(url = "", data = {}) {
+    const response = await fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    });
+
+    return await response.json();
+}
   const onSubmit = (data: Input) => {
-    console.log(data);
+    
+
+    postData("https://pastauction.com/api/v1/login", data)
+    .then((response) => {
+        console.log(response);
+    })
+    .catch((error) => {
+        console.error("Error:", error);
+    });
+
+
+  
   };
   return (
     <>
