@@ -65,7 +65,7 @@ export default function SigninCard() {
         <CardHeader className='items-center'>
           <CardTitle className='font-medium '>Create an account</CardTitle>
           <CardDescription>
-            Start your journey with Pastauction!
+            Start your journey with PastAuction!
           </CardDescription>
         </CardHeader>
         <CardContent>

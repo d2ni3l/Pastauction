@@ -4,6 +4,7 @@ import React from 'react'
 import DashboardIntro from '@/components/dashboard/DashboardIntro'
 import UpgradePlan from '@/components/dashboard/UpgradePlan'
 import WalletInterface from '@/components/dashboard/WalletInterface'
+import DashboardFooter from '@/components/dashboard/DashboardFooter'
 
 export default function page() {
   return (
@@ -19,6 +20,11 @@ export default function page() {
         <div className="ml-[16rem] mr-4 flex justify-around space-x-5 xl:space-x-5">
           <UpgradePlan/>
           <WalletInterface/>
+        </div>
+
+        <div className="ml-[16rem] mr-4">
+          <DashboardFooter/>
+
         </div>
         </div>
     </div>
