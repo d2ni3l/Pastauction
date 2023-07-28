@@ -67,7 +67,7 @@ export default function LoginCard() {
   };
   return (
     <>
-      <Card className='w-[390px] rounded-r-[60px]'>
+      <Card className='w-[450px] rounded-r-[60px]'>
         <CardHeader className='items-center'>
           <CardTitle className="font-medium py-2">Sign In </CardTitle>
           <CardDescription>

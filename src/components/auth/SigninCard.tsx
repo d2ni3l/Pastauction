@@ -61,7 +61,7 @@ export default function SigninCard() {
   };
   return (
     <>
-      <Card className='w-[390px] rounded-r-[60px] '>
+      <Card className='w-[470px] rounded-r-[60px] '>
         <CardHeader className='items-center'>
           <CardTitle className='font-medium '>Create an account</CardTitle>
           <CardDescription>

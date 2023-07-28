@@ -17,7 +17,9 @@ export default function page() {
         logobg='black'
       />
 
+      <div className="pt-3">
       <LoginCard/>
+      </div>
       </div>
     </div>
   );

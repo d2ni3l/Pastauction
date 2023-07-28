@@ -4,7 +4,6 @@ import React from "react";
 import Navbar from "@/components/navbar/Navbar";
 import {inter} from '@/app/fonts'
 import SigninCard from "@/components/auth/SigninCard";
-import LoginCard from "@/components/auth/LoginCard";
 
 export default function page() {
   return (
@@ -16,7 +15,9 @@ export default function page() {
         attributes={false}
         logobg='black'
       />
+      <div className="pt-16">
       <SigninCard/>
+      </div>
     </div>
     </div>
   );
