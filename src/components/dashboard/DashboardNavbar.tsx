@@ -7,7 +7,7 @@ interface DashboardNavbar{
 
 export default function DashboardNavbar({page} : DashboardNavbar) {
   return (
-    <div>
+    <div className='max-w-[1500px]'>
         <nav className="  w-full bg-transparent border-b-[3px] border-gray-400 py-5 flex justify-between ml-[12rem]">
         <div className="mx-12">
         <h1 className="text-neutral-800 text-[40px] font-semibold leading-[48px]">Home</h1>
