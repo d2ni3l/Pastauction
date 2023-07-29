@@ -2,7 +2,16 @@ import React from "react";
 import { inter } from "@/app/fonts";
 import Image from "next/image";
 import { Button } from "../ui/button";
-export const DashbordSidebar = () => {
+
+interface DashboardSidebar {
+  mobileSidebar: boolean;
+  setMobileSidebar: (value: boolean) => void;
+}
+
+export const DashbordSidebar = ({
+  mobileSidebar,
+  setMobileSidebar,
+}: DashboardSidebar) => {
   return (
     <div className={inter.className}>
       <aside
@@ -124,82 +133,191 @@ export const DashbordSidebar = () => {
         </div>
       </aside>
 
-      <div className='fixed   sm:hidden bottom-0 w-full bg-[#212529] rounded-t-md  '>
-        <div className='flex mx-3 justify-center items-center py-4 gap-1'>
-          <Button variant='blue' className='flex flex-col justify-center gap-1'>
+      {mobileSidebar && (
+        <div
+          className={` p-16 fixed top-0 bg-[#212529] flex flex-col rounded-l-lg sm:hidden  right-0 h-screen w-[300px] transition-all duration-300 ease ${
+            !mobileSidebar && "translate-x-36 bg-purple-700"
+          }`}>
+          <div className='flex relative '>
+            <button
+              className='text-2xl text-white font-extrabold relative -top-12 left-0'
+              onClick={() => {
+                setTimeout(() => {
+                  setMobileSidebar(!mobileSidebar);
+                }, 500);
+              }}>
+              X
+            </button>
+
+            <div className='relative -top-12 left-10'>
+              <Image
+                src='/iconwhitelogo.svg'
+                alt='logo'
+                className=''
+                width={280}
+                height={280}
+              />
+            </div>
+          </div>
+
+          <div className='flex  flex-col  justify-between i gap-24'>
+            <div>
+              <ul className='space-y-4 font-medium flex flex-col mx-4 pt-2'>
+                <Button variant='blue' className='flex justify-start gap-2 '>
+                  <span className='py-3'>
+                    <Image
+                      src='/images/dashboard-home.svg'
+                      alt='home page'
+                      width={16}
+                      height={16}
+                    />
+                  </span>
+                  <span className='font-light tracking-wide py-3'>Home</span>
+                </Button>
+
+                <Button
+                  variant='transparent'
+                  className='flex justify-start gap-2 '>
+                  <span className='py-3'>
+                    <Image
+                      src='/images/dashboard-data.svg'
+                      alt='home page'
+                      width={16}
+                      height={16}
+                    />
+                  </span>
+                  <span className='font-light tracking-wide py-3'>Datas</span>
+                </Button>
+
+                <Button
+                  variant='transparent'
+                  className='flex justify-start gap-2 '>
+                  <span className='py-3'>
+                    <Image
+                      src='/images/dashboard-charts.svg'
+                      alt='home page'
+                      width={16}
+                      height={16}
+                    />
+                  </span>
+                  <span className='font-light tracking-wide py-3'>Garage</span>
+                </Button>
+
+                <Button
+                  variant='transparent'
+                  className='flex justify-start gap-2 '>
+                  <span className='py-3'>
+                    <Image
+                      src='/images/dashboard-charts.svg'
+                      alt='home page'
+                      width={16}
+                      height={16}
+                    />
+                  </span>
+                  <span className='font-light tracking-wide py-3'>Charts</span>
+                </Button>
+
+                <Button
+                  variant='transparent'
+                  className='flex justify-start gap-2 '>
+                  <span className='py-3'>
+                    <Image
+                      src='/images/dashboard-locate.svg'
+                      alt='home page'
+                      width={16}
+                      height={16}
+                    />
+                  </span>
+                  <span className='font-light tracking-wide py-3'>Locate</span>
+                </Button>
+
+                <Button
+                  variant='transparent'
+                  className='flex justify-start gap-2 '>
+                  <span className='py-3'>
+                    <Image
+                      src='/images/dashboard-wallet.svg'
+                      alt='home page'
+                      width={16}
+                      height={16}
+                    />
+                  </span>
+                  <span className='font-light tracking-wide py-3'>Wallet</span>
+                </Button>
+              </ul>
+            </div>
+
+            <div className='mr-[15rem] md:flex items-center gap-5 hidden'>
+          <Button className='w-12 h-12 p-0 bg-black hover:bg-black/80 hover:scale-[.9] transition-all duration-300 rounded-full'>
             <Image
-              src='/images/dashboard-home.svg'
-              alt='home page'
-              width='18'
-              height='18'
+              src='/images/chat-bubble.svg'
+              alt='chat bubble'
+              width='30'
+              height='30'
             />
-
-            <span className='text-xs'>Home</span>
           </Button>
-          <Button
-            variant='transparent'
-            className='flex flex-col justify-center gap-1'>
+          <Button className='w-12 h-12 p-0 bg-black hover:bg-black/80 hover:scale-[.9] transition-all duration-300 rounded-full'>
             <Image
-              src='/images/dashboard-data.svg'
-              alt='home page'
-              width='18'
-              height='18'
+              src='/images/report.svg'
+              alt='chat bubble'
+              width='30'
+              height='30'
             />
-            <span className='text-xs'>Datas</span>
           </Button>
-
-          <Button
-            variant='transparent'
-            className='flex flex-col justify-center gap-1'>
+          <Button className='w-12 h-12 p-0 bg-black hover:bg-black/80 hover:scale-[.9] transition-all duration-300 rounded-full'>
             <Image
-              src='/images/dashboard-garage.svg'
-              alt='home page'
-              width='18'
-              height='18'
+              src='/images/bookmark-heart.svg'
+              alt='chat bubble'
+              width='23'
+              height='23'
             />
-
-            <span className='text-xs'>Garage</span>
           </Button>
 
-          <Button
-            variant='transparent'
-            className='flex flex-col justify-center gap-1'>
+          <Button className='w-12 h-12 p-0 bg-black hover:bg-black/80 hover:scale-[.9] transition-all duration-300 rounded-full'>
             <Image
-              src='/images/dashboard-charts.svg'
-              alt='home page'
-              width='18'
-              height='18'
+              src='/images/moneyacc.svg'
+              alt='chat bubble'
+              width='24'
+              height='24'
             />
-
-            <span className='text-xs'>Chart</span>
           </Button>
 
-          <Button
-            variant='transparent'
-            className='flex flex-col justify-center gap-1'>
+          <Button className='w-12 h-12 p-0 bg-black hover:bg-black/80 hover:scale-[.9] transition-all duration-300 rounded-full'>
             <Image
-              src='/images/dashboard-locate.svg'
-              alt='home page'
-              width='18'
-              height='18'
+              src='/images/bell.svg'
+              alt='chat bubble'
+              width='24'
+              height='24'
             />
-
-            <span className='text-xs'>Locate</span>
           </Button>
-          <Button
-            variant='transparent'
-            className='flex flex-col justify-center gap-1'>
+
+          <div>
             <Image
-              src='/images/dashboard-wallet.svg'
-              alt='home page'
-              width='18'
-              height='18'
+              src='/images/avatar.png'
+              alt='chat bubble'
+              width='40'
+              height='40'
+              className=''
             />
-
-            <span className='text-xs'>Wallet</span>
-          </Button>
+          </div>
         </div>
-      </div>
+
+            <div className='flex justify-center'>
+              <Button variant='blue' className='px-6 gap-2 hover:bg-blue-700'>
+                <span className='py-3'>
+                  <Image
+                    src='/images/logout.svg'
+                    alt='home page'
+                    width={16}
+                    height={16}
+                  />
+                </span>
+                <span className='font-light tracking-wide py-3'>Logout</span>
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

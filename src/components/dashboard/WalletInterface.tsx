@@ -3,7 +3,7 @@ import { Button } from "../ui/button";
 import Image from "next/image";
 export default function WalletInterface() {
   return (
-    <div className='bg-white mx-w-lg flex flex-col mt-5 rounded-lg px-3'>
+    <div className='bg-white max-w-lg flex flex-col mt-5 rounded-lg  mx-10'>
       <div className='flex-col flex items-center justify-center gap-1 p-5 '>
         <h1 className=' text-lg md:text-2xl  font-semibold'>My wallet</h1>
         <p className=' flex flex-col justify-center items-center font-medium xl:text-base text-xs text-center'>

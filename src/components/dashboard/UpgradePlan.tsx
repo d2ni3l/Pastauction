@@ -3,15 +3,15 @@ import {Button} from '@/components/ui/button'
 import Image from 'next/image'
 export default function UpgradePlan() {
   return (
-    <div className='mt-5 bg-white flex flex-col p-3 max-w-xl gap-2  rounded-lg'>
+    <div className='mt-5 bg-white flex flex-col p-3 max-w-xl gap-2  rounded-lg mx-5 sm:mx-1'>
      <div className="flex flex-col ">
        <div className="flex justify-between ">
         <div className="flex flex-col  gap-2 font-semibold pb-2">
-          <h3 className='text-2xl md:text-2xl'>Current plan</h3>
+          <h3 className='text-xl md:text-2xl pt-4'>Current plan</h3>
           <p className=''>Plan Free</p>
         </div>
-        <div className=''>
-          <Button variant='blackWide' > <span className='text-sm xl:text-base'>Upgrade my plan </span></Button>
+        <div className='pt-4'>
+          <Button variant='blackWide' > <span className='text-xs xl:text-base '>Upgrade my plan </span></Button>
         </div>
       </div>
 
