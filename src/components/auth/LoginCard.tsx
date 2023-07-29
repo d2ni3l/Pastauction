@@ -153,9 +153,9 @@ export default function LoginCard() {
                         <input type='checkbox' name='' id='' />
                         <span className='text-black'>Remember me</span>
                       </span>
-                      <span className='underline text-blue-500'>
+                      <Link href='/auth/forgotpassword' className='underline text-blue-500'>
                         Forgot password
-                      </span>
+                      </Link>
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
