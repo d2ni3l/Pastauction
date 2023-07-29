@@ -88,7 +88,7 @@ const handleSubmit =
                   <FormItem>
                     <FormLabel className='md:text-base text-sm font-medium'>Email</FormLabel>
                     <FormControl>
-                      <Input className='md:w-[340px] placeholder:font-medium py-6 text-lg' placeholder='Enter your email' {...field} />
+                      <Input className='md:w-[340px] placeholder:font-medium py-6 text-lg border-gray-700' placeholder='Enter your email' {...field} />
                     </FormControl>
 
                     <FormMessage />
