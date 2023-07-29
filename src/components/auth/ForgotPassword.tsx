@@ -70,25 +70,25 @@ const handleSubmit =
  console.log(form.watch())
  return (
     <div className=''>
-      <Card className='w-[450px] rounded-r-[60px]'>
+      <Card className='md:w-[590px] w-[370px] rounded-r-[60px] '>
         <CardHeader className='items-center'>
-          <CardTitle className="font-medium py-2">Forgot your password?</CardTitle>
-          <CardDescription>
-            We'll help you to recover it. Fill in yur email and we will send you the instrutions to restore it.
+          <CardTitle className="font-semibold py-2 text-lg md:text-4xl pt-24 ">Forgot your password?</CardTitle>
+          <CardDescription className='text-gray-600 text-sm md:text-base text-left pt-2 font-medium'>
+            We help you to recover it. Fill in your email and we will send you the instrutions to restore it.
           </CardDescription>
         </CardHeader>
         <CardContent>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(handleSubmit)} className='space-y-2'>
+            <form onSubmit={form.handleSubmit(handleSubmit)} className='px-12 space-y-7 justify-start items-start flex flex-col'>
             
               <FormField
                 control={form.control}
                 name='email'
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel className='md:text-base text-sm font-medium'>Email</FormLabel>
                     <FormControl>
-                      <Input placeholder='Enter your email' {...field} />
+                      <Input className='md:w-[340px] placeholder:font-medium py-6 text-lg' placeholder='Enter your email' {...field} />
                     </FormControl>
 
                     <FormMessage />
@@ -98,10 +98,11 @@ const handleSubmit =
              
             
               <div className='flex justify-center items-center'>
-                <Button className='px-32' variant='blackWide' type='submit'>
+                <Button className='md:px-32 px-[4.8rem] text-md md:text-lg py-2 mr-4' variant='blackWide' type='submit'>
                   Continue
                 </Button>
               </div>
+              <div className="pb-24"></div>
               
             </form>
           </Form>
