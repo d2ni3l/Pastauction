@@ -17,3 +17,7 @@ export const loginSchema = z.object({
 export const forgotPasswordSchema = z.object({
     email: z.string().email()
 })
+
+export const confirmIdentitySchema = z.object({
+    password: z.string().email()
+})
