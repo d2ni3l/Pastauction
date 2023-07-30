@@ -68,7 +68,7 @@ export default function ConfirmIdentity() {
     <div className={inter.className}>
       <Card className='md:w-[590px] w-screen rounded-r-[60px] flex flex-col md:items-start items-center '>
         <CardHeader className=''>
-          <CardTitle className='font-[500]  py-1 text-2xl md:text-4xl pt-24 px-12 '>
+          <CardTitle className='font-[500]  py-1 text-3xl md:text-4xl pt-24 px-12 '>
             Confirm your identity
           </CardTitle>
           <CardDescription className='text-gray-600  md:text-base text-left pt-1 pb-6 px-12 font-medium'>
@@ -121,7 +121,7 @@ export default function ConfirmIdentity() {
                 )}
               />
               <span className="pt-7"></span>
-              <div className='w-full flex gap-2 pb-2'>
+              <div className='w-full sm:flex-row flex-col gap-2 pb-2'>
                 <span className="text-gray-600">
                 Did you not receive the code?{" "}
                 </span>

@@ -19,22 +19,21 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { useForm } from "react-hook-form";
-import {  checkEmail } from "../../app/validators/auth";
+import {  newPassword } from "../../app/validators/auth";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {inter} from '@/app/fonts'
-type Input = z.infer<typeof checkEmail>;
+type Input = z.infer<typeof newPassword>;
 
 import React, { useState } from "react";
-import Image from "next/image";
 
-export default function ForgotPassword() {
+export default function NewPassword() {
   const [showPassword, setShowPassword] = useState(true);
 
   const form = useForm<Input>({
-    resolver: zodResolver(checkEmail),
+    resolver: zodResolver(newPassword),
     defaultValues: {
-      code: "",
+      password: "",
     },
   });
 
@@ -72,20 +71,9 @@ const handleSubmit =
  return (
     <div className={inter.className}>
       <Card className='md:w-[590px]  w-screen rounded-r-[60px] relative'>
-        <Link href='/auth/login' className="absolute left-0 mt-10 ml-12  cursor-pointer">
-          <Image
-          src='/images/arrow-left.svg'
-          alt='go back'
-          width='35'
-          height='35'
-
-/>
-        </Link>
         <CardHeader className='items-center'>
-          <CardTitle className="font-[500] py-2 text-3xl md:text-4xl pt-24 ">Check your email</CardTitle>
-          <CardDescription className='text-gray-600 text-sm ml-12  text-left pt-2 pb-3 font-medium'>
-            For security reasons we have sent an access code to your email adress ca*******@gmail.com
-          </CardDescription>
+          <CardTitle className="font-[600] py-2 text-4xl md:text-4xl pt-24 ">Enter a new password?</CardTitle>
+          
         </CardHeader>
         <CardContent>
           <Form {...form}>
@@ -93,29 +81,37 @@ const handleSubmit =
             
               <FormField
                 control={form.control}
-                name='code'
+                name='password'
                 render={({ field }) => (
                   <FormItem className='w-full'>
-                    <FormLabel className='md:text-base text-base font-medium'>Enter the 6 digit-code</FormLabel>
+                    <FormLabel className='md:text-base text-base font-'>password</FormLabel>
                     <FormControl>
-                      <Input className='md:w-[440px] w-fill  placeholder:font-medium py-6 text-lg border-gray-700' placeholder='Enter the code' {...field} />
+                      <Input className='md:w-[440px] w-fill  placeholder:font-medium py-6 text-lg border-gray-700' placeholder='Enter your email' {...field} />
                     </FormControl>
 
                     <FormMessage />
                   </FormItem>
                 )}
               />
-              <div className='w-full sm:flex-row flex-col gap-2 pb-2'>
-                <span className="text-gray-600">
-                Did you not receive the code?{" "}
-                </span>
-                <span className='underline text-blue-500'>Resend code</span>
-              </div>
+              <FormField
+                control={form.control}
+                name='password'
+                render={({ field }) => (
+                  <FormItem className='w-full'>
+                    <FormLabel className='md:text-base text-base font-'>Repeat password</FormLabel>
+                    <FormControl>
+                      <Input className='md:w-[440px] w-fill  placeholder:font-medium py-6 text-lg border-gray-700' placeholder='Enter your email' {...field} />
+                    </FormControl>
+
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
              
             
               <div className='flex justify-center items-center w-full'>
                 <Button className='md:w-[445px] w-full  text-md md:text-lg py-2  tracking-wide ' variant='blackWide' type='submit'>
-                  Continue
+                  Save
                 </Button>
               </div>
               <div className="pb-24"></div>
