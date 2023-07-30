@@ -66,10 +66,10 @@ export default function LoginCard() {
   
   };
   return (
-    <>
-      <Card className='w-[450px] rounded-r-[60px]'>
+    <div className='w-full'>
+      <Card className='md:w-[450px] rounded-r-[60px] w-full'>
         <CardHeader className='items-center'>
-          <CardTitle className="font-medium py-2">Sign In </CardTitle>
+          <CardTitle className="font-medium py-2 text-2xl md:text-4xl">Sign In </CardTitle>
           <CardDescription>
             Welcome back! Login to your account
           </CardDescription>
@@ -178,6 +178,6 @@ export default function LoginCard() {
           </Form>
         </CardContent>
       </Card>
-    </>
+    </div>
   );
 }

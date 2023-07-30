@@ -22,8 +22,14 @@ import { useForm } from "react-hook-form";
 import { registerSchema } from "../../app/validators/auth";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { privacyPolicy } from "@/app/atoms/atoms";
 type Input = z.infer<typeof registerSchema>;
+
+import { useAtom} from 'jotai'
 export default function SigninCard() {
+  const [modal, setModal] = useAtom(privacyPolicy)
+  console.log(modal)
+
   const form = useForm<Input>({
     resolver: zodResolver(registerSchema),
     defaultValues: {
@@ -61,7 +67,7 @@ export default function SigninCard() {
   };
   return (
     <>
-      <Card className='w-[470px] rounded-r-[60px] '>
+      <Card className='md:w-[450px] rounded-r-[60px] w-full '>
         <CardHeader className='items-center'>
           <CardTitle className='font-medium '>Create an account</CardTitle>
           <CardDescription>
@@ -147,7 +153,9 @@ export default function SigninCard() {
                       <span>
                         <input type='checkbox' name='' id='' />
                       </span>
-                      <span>
+                      <span onClick={() => {
+                        setModal(prev => prev = true);
+                      }}>
                         By creating an account, you agree to the{" "}
                         <span className='underline text-black cursor-pointer font-medium'>
                           Terms of use and privacy policy

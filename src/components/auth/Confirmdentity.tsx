@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
+import { inter } from "@/app/fonts";
 import {
   Form,
   FormControl,
@@ -62,14 +63,15 @@ export default function ConfirmIdentity() {
   const handleSubmit = () => {};
 
   console.log(form.watch());
+  const cancelledInput = ''
   return (
-    <div className=''>
-      <Card className='md:w-[590px] w-[370px] rounded-r-[60px] '>
-        <CardHeader className='items-center'>
-          <CardTitle className='font-semibold py-2 text-lg md:text-4xl pt-24 '>
+    <div className={inter.className}>
+      <Card className='md:w-[590px] w-screen rounded-r-[60px] flex flex-col md:items-start items-center '>
+        <CardHeader className=''>
+          <CardTitle className='font-[600] tracking-wider py-1 text-2xl md:text-4xl pt-24 px-12 '>
             Confirm your identity
           </CardTitle>
-          <CardDescription className='text-gray-600 text-sm md:text-base text-left pt-2 font-medium'>
+          <CardDescription className='text-gray-600  md:text-base text-left pt-1 pb-6 px-12 font-medium'>
             Check your email and verify your account
           </CardDescription>
         </CardHeader>
@@ -77,12 +79,12 @@ export default function ConfirmIdentity() {
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(handleSubmit)}
-              className='px-12 space-y-7 justify-start items-start flex flex-col'>
+              className='px-12  justify-start items-start flex flex-col'>
               <FormField
                 control={form.control}
                 name='password'
                 render={({ field }) => (
-                  <FormItem>
+                  <FormItem className='w-full'>
                     <FormLabel className='md:text-base text-sm font-medium'>
                       Enter the 6 digit code
                     </FormLabel>
@@ -91,11 +93,14 @@ export default function ConfirmIdentity() {
                         <Input
                           className={`${
                             showPassword ? "" : "hide-password"
-                          } md:w-[340px] placeholder:font-medium placeholder:text-black/90 py-6 text-lg border-gray-700`}
+                          } md:w-[440px] placeholder:font-medium  placeholder:text-black/80 py-6 text-lg shadow-lg border-gray-700`}
                           placeholder='XXXXXX'
+                          
+                           
                           {...field}
                         />
                       </FormControl>
+
                       <button
                         type='button'
                         className='absolute right-6 '
@@ -103,7 +108,7 @@ export default function ConfirmIdentity() {
                           setShowPassword(!showPassword);
                         }}>
                         <Image
-                          src='/images/password-eye.svg'
+                          src='/images/cancel-text.svg'
                           alt='hise password'
                           width='18'
                           height='18'
@@ -115,16 +120,21 @@ export default function ConfirmIdentity() {
                   </FormItem>
                 )}
               />
+              <span className="pt-7"></span>
+              <div className='w-full flex gap-2 pb-2'>
+                Did you not receive the code?{" "}
+                <span className='underline text-blue-500'>Resend code</span>
+              </div>
 
-              <div className='flex justify-center items-center'>
+              <div className='flex justify-center items-center w-full'>
                 <Button
-                  className='md:px-32 px-[4.8rem] text-md md:text-lg py-2 mr-4'
+                  className='md:w-[440px] w-full text-md md:text-lg py-2 '
                   variant='blackWide'
                   type='submit'>
                   Continue
                 </Button>
               </div>
-              <div className='pb-24'></div>
+              <div className='pb-32'></div>
             </form>
           </Form>
         </CardContent>

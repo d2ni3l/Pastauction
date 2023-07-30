@@ -22,10 +22,11 @@ import { useForm } from "react-hook-form";
 import { forgotPasswordSchema } from "../../app/validators/auth";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-
+import {inter} from '@/app/fonts'
 type Input = z.infer<typeof forgotPasswordSchema>;
 
 import React, { useState } from "react";
+import Image from "next/image";
 
 export default function ForgotPassword() {
   const [showPassword, setShowPassword] = useState(true);
@@ -69,26 +70,35 @@ const handleSubmit =
 
  console.log(form.watch())
  return (
-    <div className=''>
-      <Card className='md:w-[590px] w-[370px] rounded-r-[60px] '>
+    <div className={inter.className}>
+      <Card className='md:w-[590px]  w-screen rounded-r-[60px] relative'>
+        <Link href='/auth/login' className="absolute left-0 mt-10 ml-12  cursor-pointer">
+          <Image
+          src='/images/arrow-left.svg'
+          alt='go back'
+          width='35'
+          height='35'
+
+/>
+        </Link>
         <CardHeader className='items-center'>
-          <CardTitle className="font-semibold py-2 text-lg md:text-4xl pt-24 ">Forgot your password?</CardTitle>
-          <CardDescription className='text-gray-600 text-sm md:text-base text-left pt-2 font-medium'>
+          <CardTitle className="font-semibold py-2 text-xl md:text-3xl pt-24 ">Forgot your password?</CardTitle>
+          <CardDescription className='text-gray-600 text-sm ml-12  text-left pt-2 pb-3 font-medium'>
             We help you to recover it. Fill in your email and we will send you the instrutions to restore it.
           </CardDescription>
         </CardHeader>
         <CardContent>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(handleSubmit)} className='px-12 space-y-7 justify-start items-start flex flex-col'>
+            <form onSubmit={form.handleSubmit(handleSubmit)} className='px-12 space-y-7 justify-start items-center flex flex-col'>
             
               <FormField
                 control={form.control}
                 name='email'
                 render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className='md:text-base text-sm font-medium'>Email</FormLabel>
+                  <FormItem className='w-full'>
+                    <FormLabel className='md:text-base text-base font-medium'>Email</FormLabel>
                     <FormControl>
-                      <Input className='md:w-[340px] placeholder:font-medium py-6 text-lg border-gray-700' placeholder='Enter your email' {...field} />
+                      <Input className='md:w-[440px] w-fill  placeholder:font-medium py-6 text-lg border-gray-700' placeholder='Enter your email' {...field} />
                     </FormControl>
 
                     <FormMessage />
@@ -97,8 +107,8 @@ const handleSubmit =
               />
              
             
-              <div className='flex justify-center items-center'>
-                <Button className='md:px-32 px-[4.8rem] text-md md:text-lg py-2 mr-4' variant='blackWide' type='submit'>
+              <div className='flex justify-center items-center w-full'>
+                <Button className='md:w-[445px] w-full  text-md md:text-lg py-2  tracking-wide ' variant='blackWide' type='submit'>
                   Continue
                 </Button>
               </div>

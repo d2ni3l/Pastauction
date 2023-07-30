@@ -98,3 +98,7 @@ body{
 .hide-password{
   -webkit-text-security: disc;
 }
+
+.scroll-hidden::-webkit-scrollbar{
+  display: none;
+}

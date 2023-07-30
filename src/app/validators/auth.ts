@@ -19,5 +19,5 @@ export const forgotPasswordSchema = z.object({
 })
 
 export const confirmIdentitySchema = z.object({
-    password: z.string().email()
+    password: z.string().min(3).max(6)
 })
