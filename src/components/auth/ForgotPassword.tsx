@@ -82,7 +82,7 @@ const handleSubmit =
 />
         </Link>
         <CardHeader className='items-center'>
-          <CardTitle className="font-semibold py-2 text-xl md:text-3xl pt-24 ">Forgot your password?</CardTitle>
+          <CardTitle className="font-[500] py-2 text-xl md:text-4xl pt-24 ">Forgot your password?</CardTitle>
           <CardDescription className='text-gray-600 text-sm ml-12  text-left pt-2 pb-3 font-medium'>
             We help you to recover it. Fill in your email and we will send you the instrutions to restore it.
           </CardDescription>

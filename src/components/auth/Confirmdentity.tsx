@@ -68,7 +68,7 @@ export default function ConfirmIdentity() {
     <div className={inter.className}>
       <Card className='md:w-[590px] w-screen rounded-r-[60px] flex flex-col md:items-start items-center '>
         <CardHeader className=''>
-          <CardTitle className='font-[600] tracking-wider py-1 text-2xl md:text-4xl pt-24 px-12 '>
+          <CardTitle className='font-[500]  py-1 text-2xl md:text-4xl pt-24 px-12 '>
             Confirm your identity
           </CardTitle>
           <CardDescription className='text-gray-600  md:text-base text-left pt-1 pb-6 px-12 font-medium'>
@@ -86,7 +86,7 @@ export default function ConfirmIdentity() {
                 render={({ field }) => (
                   <FormItem className='w-full'>
                     <FormLabel className='md:text-base text-sm font-medium'>
-                      Enter the 6 digit code
+                      Enter the 6 digit-code
                     </FormLabel>
                     <div className='flex relative items-center'>
                       <FormControl>
@@ -122,7 +122,9 @@ export default function ConfirmIdentity() {
               />
               <span className="pt-7"></span>
               <div className='w-full flex gap-2 pb-2'>
+                <span className="text-gray-600">
                 Did you not receive the code?{" "}
+                </span>
                 <span className='underline text-blue-500'>Resend code</span>
               </div>
 
@@ -131,7 +133,7 @@ export default function ConfirmIdentity() {
                   className='md:w-[440px] w-full text-md md:text-lg py-2 '
                   variant='blackWide'
                   type='submit'>
-                  Continue
+                  Get started
                 </Button>
               </div>
               <div className='pb-32'></div>
