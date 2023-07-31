@@ -63,8 +63,8 @@ export default function ForgotPassword() {
 
   
 //   };
-const handleSubmit =
- () => {
+
+const handleSubmit = (e : any) => {
 
  }  
 
@@ -114,7 +114,7 @@ const handleSubmit =
              
             
               <div className='flex justify-center items-center w-full'>
-                <Button className='md:w-[445px] w-full  text-md md:text-lg py-2  tracking-wide ' variant='blackWide' type='submit'>
+                <Button  className='md:w-[445px] w-full  text-md md:text-lg py-2  tracking-wide ' variant='blackWide' type='submit'>
                   Continue
                 </Button>
               </div>

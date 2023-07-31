@@ -23,6 +23,8 @@ import { forgotPasswordSchema } from "../../app/validators/auth";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {inter} from '@/app/fonts'
+import { useRouter } from "next/navigation";
+
 type Input = z.infer<typeof forgotPasswordSchema>;
 
 import React, { useState } from "react";
@@ -63,8 +65,9 @@ export default function ForgotPassword() {
 
   
 //   };
-const handleSubmit =
- () => {
+const router = useRouter()
+const handleSubmit = () => {
+  router.push('/about')
 
  }  
 

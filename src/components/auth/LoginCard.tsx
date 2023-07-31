@@ -148,6 +148,7 @@ export default function LoginCard() {
                         />
                       </button>
                     </div>
+                    
                     <FormDescription className='flex justify-between gap-3 pt-2 pb-4'>
                       <span className='flex gap-1'>
                         <input type='checkbox' name='' id='' />
