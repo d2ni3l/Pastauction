@@ -16,7 +16,7 @@ export const DashbordSidebar = ({
     <div className={inter.className}>
       <aside
         id='default-sidebar'
-        className='fixed top-0 left-0 z-40 w-52  h-screen transition-transform -translate-x-full sm:translate-x-0'
+        className='fixed top-0 left-0 z-40 w-52  h-screen transition-transform -translate-x-full lg:translate-x-0'
         aria-label='Sidebar'>
         <div className='h-full px-3 py-4 overflow-y-auto bg-[#212529] rounded-r-lg'>
           <div className='flex  flex-col  justify-between i gap-24'>
@@ -133,12 +133,11 @@ export const DashbordSidebar = ({
         </div>
       </aside>
 
-      {mobileSidebar && (
-        <div
-          className={` p-16 fixed top-0 bg-[#212529] flex flex-col rounded-l-lg sm:hidden  right-0 h-screen w-[300px] transition-all duration-300 ease ${
-            !mobileSidebar && "translate-x-36 bg-purple-700"
+      
+        <div className={` p-16 fixed top-0 bg-[#212529] flex flex-col  rounded-l-lg sm:hidden  right-0 h-screen w-[300px] transition-all duration-500 ease ${
+            !mobileSidebar && "translate-x-[200rem] bg-purple-700"
           }`}>
-          <div className='flex relative '>
+          <div className='flex relative justify-between'>
             <button
               className='text-2xl text-white font-extrabold relative -top-12 left-0'
               onClick={() => {
@@ -146,7 +145,13 @@ export const DashbordSidebar = ({
                   setMobileSidebar(!mobileSidebar);
                 }, 500);
               }}>
-              X
+              <Image
+                src='/images/x-white.svg'
+                alt='logo'
+                className=''
+                width={30}
+                height={30}
+              />
             </button>
 
             <div className='relative -top-12 left-10'>
@@ -317,7 +322,7 @@ export const DashbordSidebar = ({
             </div>
           </div>
         </div>
-      )}
+      
     </div>
   );
 };

@@ -15,7 +15,7 @@ export default function DashboardNavbar({ page, setMobileSidebar, mobileSidebar 
 
   return (
     <div className='max-w-[1500px]'>
-      <nav className='  w-full bg-transparent border-b-[3px] border-gray-400 sm:py-5 py-3 flex justify-between sm:ml-[12rem]'>
+      <nav className='  w-full bg-transparent border-b-[3px] border-gray-400 sm:py-5 py-3 flex justify-between lg:ml-[12rem]'>
         <div className='sm:mx-12 mx-5'>
           <h1 className='text-neutral-800 sm:text-[40px] text-2xl  font-semibold leading-[48px]'>
             Home
@@ -50,7 +50,7 @@ export default function DashboardNavbar({ page, setMobileSidebar, mobileSidebar 
 
    
 
-        <div className='mr-[15rem] md:flex items-center gap-5 hidden'>
+        <div className='lg:mr-[15rem] mx-5 md:flex items-center gap-5 hidden'>
           <Button className='w-12 h-12 p-0 bg-black hover:bg-black/80 hover:scale-[.9] transition-all duration-300 rounded-full'>
             <Image
               src='/images/chat-bubble.svg'

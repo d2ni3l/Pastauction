@@ -16,16 +16,18 @@ export default function page() {
         <DashbordSidebar  mobileSidebar={mobileSidebar} setMobileSidebar={setMobileSideBar}/>
 
         <div className="max-w-7xl">
-        <div className="sm:ml-[16rem] sm:mr-7">
+        <div className="lg:ml-[16rem] lg:mr-7">
           <DashboardIntro/>
         </div>
 
-        <div className="sm:ml-[16rem] mr-4 flex flex-col md:flex-row md:justify-around justify-center iteme-center space-x-5 xl:space-x-5">
+        <div className="lg:ml-[16rem] mr-4 flex flex-col xl:flex-row  lg:justify-around  justify-center item-center space-x-5 xl:space-x-5">
           <UpgradePlan/>
+          <div className='md:mx-auto w-full'>
           <WalletInterface/>
+          </div>
         </div>
 
-        <div className="sm:ml-[16rem] mr-4">
+        <div className="lg:ml-[16rem] mr-4 pb-12">
           <DashboardFooter/>
 
         </div>

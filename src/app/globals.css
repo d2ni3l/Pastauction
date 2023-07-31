@@ -78,7 +78,9 @@
 }
 body{
   overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
 }
+
 .background-home{
   background-image: url('/images/Hero.svg');
   background-repeat: no-repeat;
@@ -102,3 +104,5 @@ body{
 .scroll-hidden::-webkit-scrollbar{
   display: none;
 }
+
+
