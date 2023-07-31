@@ -9,7 +9,7 @@ export default function UpgradePlan() {
      <div className="flex flex-col ">
        <div className="flex justify-between px-2">
         <div className="flex flex-col  gap-2 font-semibold pb-2">
-          <h3 className='text-xl md:text-2xl pt-4'>Current plan</h3>
+          <h3 className='text-xl md:text-2xl pt-7 mb-3'>Current plan</h3>
           <p className='pt-2'>Plan Free</p>
         </div>
         <div className='pt-4'>
