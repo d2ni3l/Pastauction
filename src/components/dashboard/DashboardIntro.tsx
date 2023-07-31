@@ -20,7 +20,7 @@ export default function DashboardIntro() {
             alt='Welcome to Past Auction'
             width='400'
             height='400'
-            className='-mb-7 scale-[1.3] md:scale-1'
+            className='-mb-7 '
             />
         </div>
       </div>
