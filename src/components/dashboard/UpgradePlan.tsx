@@ -1,9 +1,11 @@
 import React from 'react'
 import {Button} from '@/components/ui/button'
 import Image from 'next/image'
+import { inter } from '@/app/fonts'
 export default function UpgradePlan() {
   return (
-    <div className='mt-5 bg-white flex flex-col justify-center p-3 max-w-xl gap-2  rounded-lg sm:mx-auto px-5 ml-5'>
+    <div className={inter.className}>
+      <div className='flex bg-white shadow-lg p-5 rounded-lg mx-2 mt-3 max-w-5xl   justify-between items-center'>
      <div className="flex flex-col ">
        <div className="flex justify-between px-2">
         <div className="flex flex-col  gap-2 font-semibold pb-2">
@@ -26,6 +28,7 @@ export default function UpgradePlan() {
      </div>
 
     </div>
+    </div>
   )
 }
 
@@ -47,3 +50,6 @@ function PlanBenefits ({text} : PLaneBenefitProps){
     </div>
   )
 }
+
+
+//mt-5 bg-white flex flex-col justify-center p-3  lg:max-w-5xl w-full gap-2  rounded-lg sm:mx-auto px-5 

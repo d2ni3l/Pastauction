@@ -134,16 +134,17 @@ export const DashbordSidebar = ({
       </aside>
 
       
-        <div className={` p-16 fixed top-0 bg-[#212529] flex flex-col  rounded-l-lg sm:hidden  right-0 h-screen w-[300px] transition-all duration-500 ease ${
-            !mobileSidebar && "translate-x-[200rem] bg-purple-700"
+        <div className={` p-16 fixed top-0 bg-[#212529] flex flex-col translate-x-0 rounded-l-lg sm:hidden  right-0 h-screen w-[300px] transition-all duration-500 ease ${
+            !mobileSidebar && "translate-x-[50rem]"
           }`}>
           <div className='flex relative justify-between'>
             <button
               className='text-2xl text-white font-extrabold relative -top-12 left-0'
               onClick={() => {
-                setTimeout(() => {
+            
                   setMobileSidebar(!mobileSidebar);
-                }, 500);
+                  console.log(mobileSidebar)
+                
               }}>
               <Image
                 src='/images/x-white.svg'

@@ -5,7 +5,7 @@ export default function DashboardIntro() {
   return (
     <div className={inter.className}>
       <div className='flex bg-white shadow-lg p-5 rounded-lg mx-2 mt-3 max-w-5xl   justify-between items-center '>
-        <div className='flex flex-col gap-2 mx-5'>
+        <div className='flex flex-col gap-2 mx-2 sm:mx-5'>
           <h1 className=' text-xl md:text-4xl font-semibold '> Hi Gianfranco!</h1>
           <p className='font-medium flex flex-col text-xs sm:text-sm'>
           

@@ -2,7 +2,7 @@ import React from 'react'
 import DashboardGarageItems from './DashboardGarageItems'
 export default function DashboardFooter() {
   return (
-    <div className='bg-white mt-7  rounded-lg p-5 ml-5'>
+    <div className='bg-white mt-7  rounded-lg p-5 mx-2'>
 
         <div className="flex gap-12">
         <div className="flex flex-col gap-1 justify-center items-center group">
