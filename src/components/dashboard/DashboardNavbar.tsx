@@ -53,6 +53,7 @@ export default function DashboardNavbar({ page, setMobileSidebar, mobileSidebar 
         <div className='lg:mr-[15rem] mx-5 md:flex items-center gap-5 hidden'>
           <Button className='w-12 h-12 p-0 bg-black hover:bg-black/80 hover:scale-[.9] transition-all duration-300 rounded-full'>
             <Image
+            priority
               src='/images/chat-bubble.svg'
               alt='chat bubble'
               width='30'
@@ -61,6 +62,7 @@ export default function DashboardNavbar({ page, setMobileSidebar, mobileSidebar 
           </Button>
           <Button className='w-12 h-12 p-0 bg-black hover:bg-black/80 hover:scale-[.9] transition-all duration-300 rounded-full'>
             <Image
+            priority
               src='/images/report.svg'
               alt='chat bubble'
               width='30'

@@ -27,6 +27,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 type Input = z.infer<typeof loginSchema>;
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function LoginCard() {
   const [showPassword, setShowPassword] = useState(true);
@@ -35,7 +36,6 @@ export default function LoginCard() {
     resolver: zodResolver(loginSchema),
     defaultValues: {
       email: "",
-
       password: "",
     },
   });
@@ -51,6 +51,8 @@ export default function LoginCard() {
 
     return await response.json();
 }
+
+const router = useRouter()
   const onSubmit = (data: Input) => {
     
 
@@ -62,9 +64,12 @@ export default function LoginCard() {
         console.error("Error:", error);
     });
 
+   
 
-  
+   
+
   };
+
   return (
     <div className='w-full'>
       <Card className='md:w-[450px] rounded-r-[60px] w-full'>

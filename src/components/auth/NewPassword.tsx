@@ -26,7 +26,7 @@ type Input = z.infer<typeof newPassword>;
 
 import React, { useState } from "react";
 import Image from "next/image";
-
+import { useRouter } from "next/navigation";
 export default function NewPassword() {
   const [showPassword, setShowPassword] = useState(true);
   const [match, setMatch] = useState(false);
@@ -50,9 +50,11 @@ export default function NewPassword() {
 
     return await response.json();
   }
-
+  const  router = useRouter()
   const handleSubmit = (data: Input) => {
     console.log("im submiteed");
+    router.push('/auth/passwordchanged')
+
   };
 
   console.log(form.watch());

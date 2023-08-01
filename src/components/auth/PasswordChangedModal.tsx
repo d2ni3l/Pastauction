@@ -1,13 +1,13 @@
 import Image from 'next/image'
 import React from 'react'
 import { Button } from '../ui/button'
-
+import Link from 'next/link'
 export default function PasswordChangedModal() {
   return (
     
 <div id="staticModal" data-modal-backdrop="static"  aria-hidden="true" className="fixed bg-black/50 top-0 left-0 right-0 z-50  p-4 overflow-x-hidden w-screen overflow-y-auto md:inset-0  h-full">
     <div className="relative w-full  h-full flex justify-center items-center">
-        <div className="relative max-w-xl bg-white rounded-lg shadow p-10">
+        <div className="relative max-w-sm  sm:max-w-xl bg-white rounded-lg shadow p-10">
           <div className="flex justify-end">
             <Image 
             src='/images/x.svg'
@@ -38,7 +38,7 @@ export default function PasswordChangedModal() {
           </div>
 
           <div className="pt-8">
-            <Button variant='blackWide' className='px-32'>Accept</Button>
+            <Link href='/auth/login'><Button variant='blackWide' className='px-32'>Accept</Button></Link>
           </div>
           </div>
             

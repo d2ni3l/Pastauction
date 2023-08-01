@@ -28,22 +28,33 @@ type Input = z.infer<typeof registerSchema>;
 import { useAtom} from 'jotai'
 export default function SigninCard() {
   const [modal, setModal] = useAtom(privacyPolicy)
-  console.log(modal)
 
   const form = useForm<Input>({
     resolver: zodResolver(registerSchema),
     defaultValues: {
+      first_name: "",
       email: "",
-      name: "",
       password: "",
+      user_category: 19,
+      gender: '',
+      surname: '',
+      country: '',
+      nickname: '',
+      vat: '',
+      address: '',
+      city: '',
+      phone: '',
+      birthdate: '2023-09-01',
     },
   });
 
 
   async function postData(url = "", data = {}) {
+    console.log(data)
     const response = await fetch(url, {
         method: "POST",
         headers: {
+          'accept': 'application/json',
             "Content-Type": "application/json"
         },
         body: JSON.stringify(data)
@@ -54,9 +65,10 @@ export default function SigninCard() {
   const onSubmit = (data: Input) => {
     
 
-    postData("https://pastauction.com/api/v1/login", data)
+    postData("https://pastauction.com/api/v1/sign_up", data)
     .then((response) => {
         console.log(response);
+        console.log('i was suffesfully sent to the server')
     })
     .catch((error) => {
         console.error("Error:", error);
@@ -114,7 +126,7 @@ export default function SigninCard() {
               </div>
               <FormField
                 control={form.control}
-                name='name'
+                name='first_name'
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Name *</FormLabel>
@@ -140,6 +152,20 @@ export default function SigninCard() {
                   </FormItem>
                 )}
               />
+              {/* <FormField
+                control={form.control}
+                name='user_category'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className='py-0'>User user_category</FormLabel>
+                    <FormControl>
+                      <Input placeholder='user category' {...field} />
+                    </FormControl>
+
+                    <FormMessage />
+                  </FormItem>
+                )}
+              /> */}
               <FormField
                 control={form.control}
                 name='password'

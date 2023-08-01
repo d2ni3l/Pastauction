@@ -6,8 +6,21 @@ import {z} from 'zod'
 
 export const registerSchema = z.object({
     email: z.string().email(),
-    name : z.string().min(3).max(255),
+    first_name : z.string().min(3).max(255),
     password: z.string().min(6).max(255),
+    user_category: z.number(),
+    gender: z.string(),
+    surname: z.string(),
+    country: z.string(),
+    nickname: z.string(),
+    vat: z.string(),
+    address: z.string(),
+    city: z.string(),
+    phone: z.string(),
+    birthdate: z.string()
+    
+
+
 })
 
 export const loginSchema = z.object({
@@ -34,3 +47,19 @@ export const newPassword = z.object({
     message: "Passwords don't match",
     path: ["confirm"],
 });
+
+
+export const completeProfile = z.object({
+   
+    
+    image: z.string(),
+    mr: z.string().min(6).max(255),
+    firstname: z.string().min(3),
+    surname: z.string().min(3),
+    date: z.string(),
+    country: z.string(),
+    city: z.string()
+})
+
+
+

@@ -95,7 +95,13 @@ body{
   background-position: center bottom;
   
 }
+.completeprofile-bg{
+  background-image: url('/images/completeprofile.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
 
+}
 
 .hide-password{
   -webkit-text-security: disc;
@@ -106,3 +112,11 @@ body{
 }
 
 
+
+
+
+
+.SelectTrigger[data-placeholder] {
+  color: black;
+  display: block;
+}
