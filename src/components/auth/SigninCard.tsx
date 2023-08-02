@@ -25,9 +25,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { privacyPolicy } from "@/app/atoms/atoms";
 type Input = z.infer<typeof registerSchema>;
 
-import { useAtom} from 'jotai'
+import { useAtom } from "jotai";
 export default function SigninCard() {
-  const [modal, setModal] = useAtom(privacyPolicy)
+  const [modal, setModal] = useAtom(privacyPolicy);
 
   const form = useForm<Input>({
     resolver: zodResolver(registerSchema),
@@ -36,46 +36,40 @@ export default function SigninCard() {
       email: "",
       password: "",
       user_category: 19,
-      gender: '',
-      surname: '',
-      country: '',
-      nickname: '',
-      vat: '',
-      address: '',
-      city: '',
-      phone: '',
-      birthdate: '2023-09-01',
+      gender: "",
+      surname: "",
+      country: "",
+      nickname: "",
+      vat: "",
+      address: "",
+      city: "",
+      phone: "",
+      birthdate: "2023-09-01",
     },
   });
 
-
   async function postData(url = "", data = {}) {
-    console.log(data)
+    console.log(data);
     const response = await fetch(url, {
-        method: "POST",
-        headers: {
-          'accept': 'application/json',
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
+      method: "POST",
+      headers: {
+        accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
     });
 
     return await response.json();
-}
+  }
   const onSubmit = (data: Input) => {
-    
-
     postData("https://pastauction.com/api/v1/sign_up", data)
-    .then((response) => {
+      .then((response) => {
         console.log(response);
-        console.log('i was suffesfully sent to the server')
-    })
-    .catch((error) => {
+        console.log("i was suffesfully sent to the server");
+      })
+      .catch((error) => {
         console.error("Error:", error);
-    });
-
-
-  
+      });
   };
   return (
     <>
@@ -179,9 +173,10 @@ export default function SigninCard() {
                       <span>
                         <input type='checkbox' name='' id='' />
                       </span>
-                      <span onClick={() => {
-                        setModal(prev => prev = true);
-                      }}>
+                      <span
+                        onClick={() => {
+                          setModal((prev) => (prev = true));
+                        }}>
                         By creating an account, you agree to the{" "}
                         <span className='underline text-black cursor-pointer font-medium'>
                           Terms of use and privacy policy
