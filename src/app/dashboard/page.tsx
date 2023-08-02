@@ -9,12 +9,15 @@ import WalletInterface from "@/components/dashboard/WalletInterface";
 import DashboardFooter from "@/components/dashboard/DashboardFooter";
 import { useAtom } from "jotai";
 import { completeProfileModal } from "../atoms/atoms";
+import { selectionAreaModal } from "../atoms/atoms";
 import CompleteProfileModal from "@/components/dashboard/CompleteProfileModal";
 import { inter } from "../fonts";
+import DashboardSelectionArea from "@/components/dashboard/DashboardSelectionArea";
 
 export default function page() {
-  const [modal, setModal] = useAtom(completeProfileModal);
-
+  const [completeprofileModal, setCompleteProfileModal] = useAtom(completeProfileModal);
+  const [selectionAreamodal, setselectionAreamodal] = useAtom(selectionAreaModal);
+console.log(selectionAreamodal)
   const [mobileSidebar, setMobileSideBar] = useState(false);
   return (
     <div className='bg-[#d8dbde] overflow-x-hidden w-screen h-screen'>
@@ -46,11 +49,21 @@ export default function page() {
           <DashboardFooter />
         </div>
       </div>
-      {modal && (
+      
+      {completeprofileModal && (
         <div className={inter.className}>
           <CompleteProfileModal />
         </div>
       )}
+
+ {
+       selectionAreamodal && (
+        <div className={inter.className}>
+          <DashboardSelectionArea />
+        </div>) 
+      } 
+
+     
     </div>
   );
 }
