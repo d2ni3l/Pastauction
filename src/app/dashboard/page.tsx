@@ -17,16 +17,15 @@ import DashboardSelectionArea from "@/components/dashboard/DashboardSelectionAre
 export default function page() {
   const [completeprofileModal, setCompleteProfileModal] = useAtom(completeProfileModal);
   const [selectionAreamodal, setselectionAreamodal] = useAtom(selectionAreaModal);
-console.log(selectionAreamodal)
   const [mobileSidebar, setMobileSideBar] = useState(false);
   return (
     <div className='bg-[#d8dbde] overflow-x-hidden w-screen h-screen'>
       <DashboardNavbar
-        page='home'
         mobileSidebar={mobileSidebar}
         setMobileSidebar={setMobileSideBar}
       />
       <DashbordSidebar
+      page='home'
         mobileSidebar={mobileSidebar}
         setMobileSidebar={setMobileSideBar}
       />

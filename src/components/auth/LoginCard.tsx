@@ -40,29 +40,31 @@ export default function LoginCard() {
     },
   });
 
-  async function postData(url = "", data = {}) {
-    const response = await fetch(url, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-    });
+//   async function postData(url = "", data = {}) {
+//     const response = await fetch(url, {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json"
+//         },
+//         body: JSON.stringify(data)
+//     });
 
-    return await response.json();
-}
+//     return await response.json();
+// }
 
 const router = useRouter()
   const onSubmit = (data: Input) => {
     
 
-    postData("https://pastauction.com/api/v1/login", data)
-    .then((response) => {
-        console.log(response);
-    })
-    .catch((error) => {
-        console.error("Error:", error);
-    });
+    // postData("https://pastauction.com/api/v1/login", data)
+    // .then((response) => {
+    //     console.log(response);
+    // })
+    // .catch((error) => {
+    //     console.error("Error:", error);
+    // });
+
+    router.push('/dashboard')
 
    
 

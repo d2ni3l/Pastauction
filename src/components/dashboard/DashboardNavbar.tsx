@@ -4,12 +4,11 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 interface DashboardNavbar {
-  page: string;
   mobileSidebar : boolean;
   setMobileSidebar : (value: boolean) => void
 }
 
-export default function DashboardNavbar({ page, setMobileSidebar, mobileSidebar }: DashboardNavbar) {
+export default function DashboardNavbar({ setMobileSidebar, mobileSidebar }: DashboardNavbar) {
     
     const genericHamburgerLine = `h-1 w-6 my-[2px] rounded-full bg-black transition ease transform duration-300`;
 

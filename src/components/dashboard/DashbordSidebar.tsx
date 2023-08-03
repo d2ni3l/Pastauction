@@ -5,12 +5,14 @@ import { Button } from "../ui/button";
 
 interface DashboardSidebar {
   mobileSidebar: boolean;
+  page : string;
   setMobileSidebar: (value: boolean) => void;
 }
 
 export const DashbordSidebar = ({
   mobileSidebar,
   setMobileSidebar,
+  page
 }: DashboardSidebar) => {
   return (
     <div className={inter.className}>
@@ -32,7 +34,7 @@ export const DashbordSidebar = ({
 
             <div>
               <ul className='space-y-4 font-medium flex flex-col mx-4 -mt-12'>
-                <Button variant='blue' className='flex justify-start gap-2 '>
+                <Button variant={page === 'home' ? 'blue' : 'transparent'} className='flex justify-start gap-2 '>
                   <span className='py-3'>
                     <Image
                       src='/images/dashboard-home.svg'
