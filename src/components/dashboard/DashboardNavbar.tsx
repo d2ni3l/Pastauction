@@ -5,19 +5,20 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 interface DashboardNavbar {
   mobileSidebar : boolean;
+  page: string;
   setMobileSidebar : (value: boolean) => void
 }
 
-export default function DashboardNavbar({ setMobileSidebar, mobileSidebar }: DashboardNavbar) {
+export default function DashboardNavbar({ setMobileSidebar, mobileSidebar, page }: DashboardNavbar) {
     
     const genericHamburgerLine = `h-1 w-6 my-[2px] rounded-full bg-black transition ease transform duration-300`;
 
   return (
     <div className='max-w-[1500px]'>
-      <nav className='  w-full bg-transparent border-b-[3px] border-gray-400 sm:py-5 py-3 flex justify-between lg:ml-[12rem]'>
+      <nav className='  w-full bg-[#d8dbde] border-b-[3px] border-gray-400 sm:py-5 py-3 flex justify-between lg:ml-[12rem]'>
         <div className='sm:mx-12 mx-5'>
-          <h1 className='text-neutral-800 sm:text-[40px] text-2xl  font-semibold leading-[48px]'>
-            Home
+          <h1 className='text-neutral-800 capitalize sm:text-[40px] text-2xl  font-semibold leading-[48px]'>
+            {page}
           </h1>
         </div>
 

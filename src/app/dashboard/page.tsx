@@ -19,8 +19,9 @@ export default function page() {
   const [selectionAreamodal, setselectionAreamodal] = useAtom(selectionAreaModal);
   const [mobileSidebar, setMobileSideBar] = useState(false);
   return (
-    <div className='bg-[#d8dbde] overflow-x-hidden w-screen h-screen'>
+    <div className='bg-[#eef0f1] overflow-x-hidden w-screen h-screen'>
       <DashboardNavbar
+      page='home'
         mobileSidebar={mobileSidebar}
         setMobileSidebar={setMobileSideBar}
       />

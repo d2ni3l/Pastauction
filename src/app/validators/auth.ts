@@ -1,4 +1,3 @@
-import path from 'path'
 import {z} from 'zod'
 
 
@@ -53,7 +52,7 @@ export const completeProfile = z.object({
    
     
     image: z.string(),
-    mr: z.string().min(6).max(255),
+    mr: z.string(),
     firstname: z.string().min(3),
     surname: z.string().min(3),
     date: z.string(),

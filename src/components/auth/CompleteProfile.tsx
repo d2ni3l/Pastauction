@@ -240,13 +240,13 @@ export default function CompleteProfile() {
                       
                       <SelectContent>
                         <SelectItem value='m@example.com'>
-                          m@example.com
+                          Italy
                         </SelectItem>
                         <SelectItem value='m@google.com'>
-                          m@google.com
+                          Nigeria
                         </SelectItem>
                         <SelectItem value='m@support.com'>
-                          m@support.com
+                          Sweden
                         </SelectItem>
                       </SelectContent>
                     </Select>

@@ -5,8 +5,8 @@ import React from "react";
 export default function DashboardGarageItems() {
   return (
     <div className='flex gap-6  items-center justify-center'>
-      <div className='flex items-center justify-center gap-5 overflow-x-scroll  w-screen z-[100] scroll-hidden'>
-        <div className='Card w-80 h-80 bg-white rounded-lg shadow justify-center items-center inline-flex  ml-[43rem] sm:ml-[20rem] lg:ml-[15rem] xl:ml-[5rem]'>
+      <div className='flex items-center justify-center  overflow-x-scroll  w-screen  scroll-hidden'>
+        <div className='Card w-80 scale-[.8]  h-80 bg-white rounded-lg shadow justify-center items-center inline-flex  ml-[43rem] sm:ml-[20rem] lg:ml-[15rem] xl:ml-[5rem]'>
           <div className='Wrapper w-80 self-stretch flex-col justify-start items-start inline-flex'>
             <div className='Image w-80 h-52 relative'>
               <div className='Image w-80 h-52 left-0 top-0 absolute flex-col justify-start items-start inline-flex'>
@@ -54,7 +54,7 @@ export default function DashboardGarageItems() {
           </div>
         </div>
 
-        <div className='Card w-80 h-80 bg-white rounded-lg shadow justify-center items-center inline-flex'>
+        <div className='Card w-80 scale-[.8] h-80 bg-white rounded-lg shadow justify-center items-center inline-flex'>
           <div className='Wrapper w-80 self-stretch flex-col justify-start items-start inline-flex'>
             <div className='Image w-80 h-52 relative'>
               <div className='Image w-80 h-52 left-0 top-0 absolute flex-col justify-start items-start inline-flex'>
@@ -103,7 +103,7 @@ export default function DashboardGarageItems() {
           </div>
         </div>
 
-        <div className='Card w-80 h-80 bg-white rounded-lg shadow justify-center items-center inline-flex'>
+        <div className='Card w-80 scale-[.8] h-80 bg-white rounded-lg shadow justify-center items-center inline-flex'>
           <div className='Wrapper w-80 self-stretch flex-col justify-start items-start inline-flex'>
             <div className='Image w-80 h-52 relative'>
               <div className='Image w-80 h-52 left-0 top-0 absolute flex-col justify-start items-start inline-flex'>

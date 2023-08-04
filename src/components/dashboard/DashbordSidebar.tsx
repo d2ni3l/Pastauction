@@ -2,13 +2,13 @@ import React from "react";
 import { inter } from "@/app/fonts";
 import Image from "next/image";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 interface DashboardSidebar {
   mobileSidebar: boolean;
   page : string;
   setMobileSidebar: (value: boolean) => void;
 }
-
 export const DashbordSidebar = ({
   mobileSidebar,
   setMobileSidebar,
@@ -21,7 +21,7 @@ export const DashbordSidebar = ({
         className='fixed top-0 left-0 z-40 w-52  h-screen transition-transform -translate-x-full lg:translate-x-0'
         aria-label='Sidebar'>
         <div className='h-full px-3 py-4 overflow-y-auto bg-[#212529] rounded-r-lg'>
-          <div className='flex  flex-col  justify-between i gap-24'>
+          <div className='flex  flex-col  justify-between  gap-24'>
             <div className='-mt-5'>
               <Image
                 src='/iconwhitelogo.svg'
@@ -34,6 +34,7 @@ export const DashbordSidebar = ({
 
             <div>
               <ul className='space-y-4 font-medium flex flex-col mx-4 -mt-12'>
+                <Link href='/dashboard/'>
                 <Button variant={page === 'home' ? 'blue' : 'transparent'} className='flex justify-start gap-2 '>
                   <span className='py-3'>
                     <Image
@@ -45,9 +46,10 @@ export const DashbordSidebar = ({
                   </span>
                   <span className='font-light tracking-wide py-3'>Home</span>
                 </Button>
+                </Link>
 
                 <Button
-                  variant='transparent'
+                  variant={page === 'datas' ? 'blue' : 'transparent'}
                   className='flex justify-start gap-2 '>
                   <span className='py-3'>
                     <Image
@@ -60,8 +62,9 @@ export const DashbordSidebar = ({
                   <span className='font-light tracking-wide py-3'>Datas</span>
                 </Button>
 
+                <Link href='/dashboard/garage'>
                 <Button
-                  variant='transparent'
+                 variant={page === 'garage' ? 'blue' : 'transparent'}
                   className='flex justify-start gap-2 '>
                   <span className='py-3'>
                     <Image
@@ -73,9 +76,11 @@ export const DashbordSidebar = ({
                   </span>
                   <span className='font-light tracking-wide py-3'>Garage</span>
                 </Button>
+                
+                </Link>
 
                 <Button
-                  variant='transparent'
+                  variant={page === 'charts' ? 'blue' : 'transparent'}
                   className='flex justify-start gap-2 '>
                   <span className='py-3'>
                     <Image
@@ -89,7 +94,7 @@ export const DashbordSidebar = ({
                 </Button>
 
                 <Button
-                  variant='transparent'
+                  variant={page === 'locate' ? 'blue' : 'transparent'}
                   className='flex justify-start gap-2 '>
                   <span className='py-3'>
                     <Image
@@ -103,7 +108,7 @@ export const DashbordSidebar = ({
                 </Button>
 
                 <Button
-                  variant='transparent'
+                  variant={page === 'wallet' ? 'blue' : 'transparent'}
                   className='flex justify-start gap-2 '>
                   <span className='py-3'>
                     <Image
@@ -145,7 +150,6 @@ export const DashbordSidebar = ({
               onClick={() => {
             
                   setMobileSidebar(!mobileSidebar);
-                  console.log(mobileSidebar)
                 
               }}>
               <Image
