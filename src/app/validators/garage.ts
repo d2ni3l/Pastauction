@@ -36,3 +36,17 @@ originality: z.string(),
 status: z.string(),
 
 })
+
+
+
+
+export const vehiclesDetailsSchema = z.object({
+    mileage: z.string(),
+    miles: z.string(),
+    original_miles: z.string(),
+    locate: z.string(),
+    plate_numb: z.string(),
+    vin: z.string(),
+    permits: z.string(),
+
+})

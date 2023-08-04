@@ -3,8 +3,7 @@
 import React, { useState } from "react";
 import { DashbordSidebar } from "@/components/dashboard/DashbordSidebar";
 import DashboardNavbar from "@/components/dashboard/DashboardNavbar";
-import GarageArea from "@/components/garage/GarageArea";
-import GarageCard from "@/components/garage/GarageCard";
+
 import AddVehicleDetails from "@/components/garage/AddVehicleDetails";
 import Link from "next/link";
 import Image from "next/image";
@@ -12,7 +11,7 @@ export default function page() {
   //im garage
   const [mobileSidebar, setMobileSideBar] = useState(false);
   return (
-    <div className='bg-[#eef0f1] overflow-x-hidden w-screen h-screen'>
+    <div className='bg-[#eef0f1] overflow-x-hidden w-screen '>
       <DashboardNavbar
       page='garage'
         mobileSidebar={mobileSidebar}
@@ -24,7 +23,7 @@ export default function page() {
         setMobileSidebar={setMobileSideBar}
       />
       <div className='lg:ml-[16rem] '>
-      <Link href='/dashboard/garage'>
+      <Link href='/dashboard/garage/addvehicle'>
         <div className='flex justify-start mx-10 mt-10'>
           <Image
             src='/images/blackbgarrowleft.svg'

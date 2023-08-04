@@ -2,12 +2,12 @@ import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 import { Button } from "../ui/button";
-import {useAtom} from 'jotai'
+import { useAtom } from "jotai";
 import { completeProfileModal } from "@/app/atoms/atoms";
 import { selectionAreaModal } from "@/app/atoms/atoms";
 export default function CompleteProfileModal() {
-    const [modal, setModal] = useAtom(completeProfileModal)
-    const [selectedModal, setSelectedModal] = useAtom(selectionAreaModal)
+  const [modal, setModal] = useAtom(completeProfileModal);
+  const [selectedModal, setSelectedModal] = useAtom(selectionAreaModal);
   return (
     <div
       id='staticModal'
@@ -19,7 +19,10 @@ export default function CompleteProfileModal() {
           <div className='flex justify-end'>
             <Image
               src='/images/x.svg'
-              onClick={() => {setModal(prev => prev = false); setSelectedModal(true)}}
+              onClick={() => {
+                setModal((prev) => (prev = false));
+                setSelectedModal(true);
+              }}
               alt='password saved'
               width='15'
               height='15'
@@ -38,28 +41,30 @@ export default function CompleteProfileModal() {
             </div>
 
             <div className='flex flex-col gap-3 pt-4 items-center'>
-              <h2 className='font-semibold text-lg text-black'>Finish completing your information</h2>
+              <h2 className='font-semibold text-lg text-black'>
+                Finish completing your information
+              </h2>
               <p className='text-sm text-gray-600 text-center tracking-wide'>
-                Complete your account information to discover the benefit of Past Auction.
+                Complete your account information to discover the benefit of
+                Past Auction.
               </p>
             </div>
 
             <div className='pt-8 flex gap-3'>
-                {" "}
-                <Button onClick={() => {setModal(prev => prev = false)}} variant='blackWide' className='px-9 bg-gray-200 hover:bg-gray-300'>
-                  <span className='text-sm text-black'>Cancel</span>{" "}
-                </Button>
-
-              <Button  variant='blackWide' className=''>
+              {" "}
+              <Button
+                onClick={() => {
+                  setModal((prev) => (prev = false));
+                }}
+                variant='blackWide'
+                className='px-9 bg-gray-200 hover:bg-gray-300'>
+                <span className='text-sm text-black'>Cancel</span>{" "}
+              </Button>
               <Link href='/auth/completeprofile'>
-              <span className="text-sm">
-                    Complete profile
-                  </span>
-
-              </Link>
-
-                  
+                <Button variant='blackWide' className=''>
+                  <span className='text-sm'>Complete profile</span>
                 </Button>
+              </Link>
             </div>
           </div>
         </div>
