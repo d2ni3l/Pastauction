@@ -209,7 +209,7 @@ export default function AddVehicleInfo() {
               </Button>
             </Link>
 
-            <Link href='/dashboard/garage/addvehicledetails'>
+            <Link href='/dashboard/garage/garageservices'>
               <Button
                 type='submit'
                 variant='blackWide'

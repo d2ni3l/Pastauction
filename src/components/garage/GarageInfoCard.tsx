@@ -3,7 +3,7 @@ import { Button } from "../ui/button";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function GarageCard() {
+export default function GarageInfoCard() {
   return (
     <div className='mx-5'>
       <div className='flex sm:flex-row flex-col justify-between bg-white rounded-md'>

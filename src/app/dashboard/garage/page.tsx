@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { DashbordSidebar } from "@/components/dashboard/DashbordSidebar";
 import DashboardNavbar from "@/components/dashboard/DashboardNavbar";
 import GarageArea from "@/components/garage/GarageArea";
-import GarageCard from "@/components/garage/GarageCard";
+import GarageCard from "@/components/garage/GarageInfoCard";
 import Link from "next/link";
 import Image from "next/image";
 export default function page() {
