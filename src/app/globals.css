@@ -116,7 +116,20 @@ body{
 
 
 
-.SelectTrigger[data-placeholder] {
-  color: black;
-  display: block;
+
+
+.background-img{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+
+}
+
+.scale-hover{
+  transition: all 500ms ease;
+  
+}
+.scale-hover:hover{
+  scale: .95;
+
 }
