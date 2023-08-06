@@ -11,7 +11,6 @@ interface DashboardNavbar {
 
 export default function DashboardNavbar({ setMobileSidebar, mobileSidebar, page }: DashboardNavbar) {
     
-    const genericHamburgerLine = `h-1 w-6 my-[2px] rounded-full bg-black transition ease transform duration-300`;
 
   return (
     <div className='max-w-[1500px]'>
@@ -23,30 +22,16 @@ export default function DashboardNavbar({ setMobileSidebar, mobileSidebar, page 
         </div>
 
 
-        <button
-      className="flex flex-col h-12 w-12  rounded justify-center items-center group md:hidden mx-5"
-      onClick={() => setMobileSidebar(!mobileSidebar)}
-    >
-      <div
-        className={`${genericHamburgerLine} ${
-          mobileSidebar
-            ? "rotate-45 translate-y-2  group-hover:opacity-100"
-            : " group-hover:opacity-100"
-        }`}
-      />
-      <div
-        className={`${genericHamburgerLine} ${
-          mobileSidebar ? "opacity-0" : " group-hover:opacity-100"
-        }`}
-      />
-      <div
-        className={`${genericHamburgerLine} ${
-          mobileSidebar
-            ? "-rotate-45 -translate-y-2  group-hover:opacity-100"
-            : " group-hover:opacity-100"
-        }`}
-      />
-    </button>
+        <button onClick={() => {setMobileSidebar(true)}}  className='sm:mx-12 mx-5 md:hidden '>
+          <Image
+          src='/images/hamburgermenu.svg'
+          alt='hamburger menu'
+          width='50'
+          height='50'
+
+
+          />
+        </button>
 
    
 

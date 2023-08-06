@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { DashbordSidebar } from "@/components/dashboard/DashbordSidebar";
 import DashboardNavbar from "@/components/dashboard/DashboardNavbar";
 import GarageArea from "@/components/garage/GarageArea";
-import GarageCard from "@/components/garage/GarageInfoCard";
+import GarageInfoCard from "@/components/garage/GarageInfoCard";
 import Link from "next/link";
 import Image from "next/image";
 export default function page() {
@@ -38,15 +38,15 @@ export default function page() {
       </Link>
 
         <div className='flex flex-col gap-4 justify-center items-center pt-9'>
-          <h1 className='font-semibold sm:text-2xl text-lg'>
+          <h1 className='font-semibold sm:text-2xl text-center text-lg'>
             Welcome to the garage area
           </h1>
-          <p className='text-gray-500 sm:text-sm text-xs'>
+          <p className='text-gray-500 sm:text-sm text-center text-xs'>
             Automatically track the potential value of the car you own.
           </p>
         </div>
                   <div className="pt-10"></div>
-        <GarageCard/>
+        <GarageInfoCard/>
 
         <GarageArea />
       </div>

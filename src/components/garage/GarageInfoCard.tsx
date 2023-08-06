@@ -15,7 +15,7 @@ export default function GarageInfoCard() {
               width='50'
               height='50'
             />
-            <h2 className='font-semibold text-lg'>Garage GTC Full</h2>
+            <h2 className='font-semibold sm:text-lg'>Garage GTC Full</h2>
           </div>
           <div className='flex flex-col '>
             <div className='flex gap-1 pb-6'>
@@ -35,7 +35,7 @@ export default function GarageInfoCard() {
               <h4 className='text-center font-bold text-sm text-black'>10</h4>
             </div>
 
-            <div className='flex sm:gap-2  pb-14'>
+            <div className='flex flex-col gap-2 pt-2 sm:pt-0 sm:flex-row sm:gap-2  pb-14'>
               <h4 className='text-center text-sm text-gray-600'>
                 Additional description:
               </h4>

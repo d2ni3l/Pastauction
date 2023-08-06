@@ -6,14 +6,16 @@ import Link from "next/link";
 
 interface DashboardSidebar {
   mobileSidebar: boolean;
-  page : string;
+  page: string;
   setMobileSidebar: (value: boolean) => void;
 }
 export const DashbordSidebar = ({
   mobileSidebar,
   setMobileSidebar,
-  page
+  page,
 }: DashboardSidebar) => {
+  console.log(mobileSidebar);
+
   return (
     <div className={inter.className}>
       <aside
@@ -35,21 +37,23 @@ export const DashbordSidebar = ({
             <div>
               <ul className='space-y-4 font-medium flex flex-col mx-4 -mt-12'>
                 <Link href='/dashboard/'>
-                <Button variant={page === 'home' ? 'blue' : 'transparent'} className='flex justify-start gap-2 '>
-                  <span className='py-3'>
-                    <Image
-                      src='/images/dashboard-home.svg'
-                      alt='home page'
-                      width={16}
-                      height={16}
-                    />
-                  </span>
-                  <span className='font-light tracking-wide py-3'>Home</span>
-                </Button>
+                  <Button
+                    variant={page === "home" ? "blue" : "transparent"}
+                    className='flex justify-start gap-2 '>
+                    <span className='py-3'>
+                      <Image
+                        src='/images/dashboard-home.svg'
+                        alt='home page'
+                        width={16}
+                        height={16}
+                      />
+                    </span>
+                    <span className='font-light tracking-wide py-3'>Home</span>
+                  </Button>
                 </Link>
 
                 <Button
-                  variant={page === 'datas' ? 'blue' : 'transparent'}
+                  variant={page === "datas" ? "blue" : "transparent"}
                   className='flex justify-start gap-2 '>
                   <span className='py-3'>
                     <Image
@@ -63,24 +67,25 @@ export const DashbordSidebar = ({
                 </Button>
 
                 <Link href='/dashboard/garage'>
-                <Button
-                 variant={page === 'garage' ? 'blue' : 'transparent'}
-                  className='flex justify-start gap-2 '>
-                  <span className='py-3'>
-                    <Image
-                      src='/images/dashboard-charts.svg'
-                      alt='home page'
-                      width={16}
-                      height={16}
-                    />
-                  </span>
-                  <span className='font-light tracking-wide py-3'>Garage</span>
-                </Button>
-                
+                  <Button
+                    variant={page === "garage" ? "blue" : "transparent"}
+                    className='flex justify-start gap-2 '>
+                    <span className='py-3'>
+                      <Image
+                        src='/images/dashboard-charts.svg'
+                        alt='home page'
+                        width={16}
+                        height={16}
+                      />
+                    </span>
+                    <span className='font-light tracking-wide py-3'>
+                      Garage
+                    </span>
+                  </Button>
                 </Link>
 
                 <Button
-                  variant={page === 'charts' ? 'blue' : 'transparent'}
+                  variant={page === "charts" ? "blue" : "transparent"}
                   className='flex justify-start gap-2 '>
                   <span className='py-3'>
                     <Image
@@ -94,7 +99,7 @@ export const DashbordSidebar = ({
                 </Button>
 
                 <Button
-                  variant={page === 'locate' ? 'blue' : 'transparent'}
+                  variant={page === "locate" ? "blue" : "transparent"}
                   className='flex justify-start gap-2 '>
                   <span className='py-3'>
                     <Image
@@ -108,7 +113,7 @@ export const DashbordSidebar = ({
                 </Button>
 
                 <Button
-                  variant={page === 'wallet' ? 'blue' : 'transparent'}
+                  variant={page === "wallet" ? "blue" : "transparent"}
                   className='flex justify-start gap-2 '>
                   <span className='py-3'>
                     <Image
@@ -140,56 +145,55 @@ export const DashbordSidebar = ({
         </div>
       </aside>
 
-      
-        <div className={` p-16 fixed top-0 bg-[#212529] flex flex-col translate-x-0 rounded-l-lg sm:hidden  right-0 h-screen w-[300px] transition-all duration-500 ease ${
-            !mobileSidebar && "translate-x-[50rem]"
-          }`}>
-          <div className='flex relative justify-between'>
-            <button
-              className='text-2xl text-white font-extrabold relative -top-12 left-0'
-              onClick={() => {
-            
-                  setMobileSidebar(!mobileSidebar);
-                
-              }}>
-              <Image
-                src='/images/x-white.svg'
-                alt='logo'
-                className=''
-                width={30}
-                height={30}
-              />
-            </button>
+      {
+        mobileSidebar &&
+        <div className="w-screen fixed top-0 left-0 z-[1000] md:hidden  h-screen bg-black overflow-y-hidden">
+          <div className="flex flex-col">
+            <div className="flex justify-between mx-14 items-center">
+            <Image
+            src='/iconwhitelogo.svg'
+            width='150'
+            height='50'
+            alt='logo'
+            />
 
-            <div className='relative -top-12 left-10'>
-              <Image
-                src='/iconwhitelogo.svg'
-                alt='logo'
-                className=''
-                width={280}
-                height={280}
-              />
+            <Image
+            src='/images/cancelx.svg'
+            width='30'
+            height='30'
+            alt='close menu'
+            className='fill-white'
+            onClick={() => {setMobileSidebar(false)}}
+            />
             </div>
-          </div>
 
-          <div className='flex  flex-col  justify-between i gap-24'>
-            <div>
-              <ul className='space-y-4 font-medium flex flex-col mx-4 pt-2'>
-                <Button variant='blue' className='flex justify-start gap-2 '>
-                  <span className='py-3'>
-                    <Image
-                      src='/images/dashboard-home.svg'
-                      alt='home page'
-                      width={16}
-                      height={16}
-                    />
-                  </span>
-                  <span className='font-light tracking-wide py-3'>Home</span>
-                </Button>
+            <div className="border-t border-white"></div>
+
+            <div className="text-xl tracking-wide font-semibold text-white mt-5 flex justify-center">
+              <span>Pages</span>
+            </div>
+
+            <div className="flex flex-wrap gap-4 pt-7 justify-center">
+          
+                <Link href='/dashboard/'>
+                  <Button
+                    variant={page === "home" ? "blue" : "transparent"}
+                    className='flex justify-start gap-2  border border-white'>
+                    <span className='py-3'>
+                      <Image
+                        src='/images/dashboard-home.svg'
+                        alt='home page'
+                        width={16}
+                        height={16}
+                      />
+                    </span>
+                    <span className='font-light tracking-wide py-3'>Home</span>
+                  </Button>
+                </Link>
 
                 <Button
-                  variant='transparent'
-                  className='flex justify-start gap-2 '>
+                  variant={page === "datas" ? "blue" : "transparent"}
+                  className='flex justify-start gap-2  border border-white '>
                   <span className='py-3'>
                     <Image
                       src='/images/dashboard-data.svg'
@@ -201,23 +205,27 @@ export const DashbordSidebar = ({
                   <span className='font-light tracking-wide py-3'>Datas</span>
                 </Button>
 
-                <Button
-                  variant='transparent'
-                  className='flex justify-start gap-2 '>
-                  <span className='py-3'>
-                    <Image
-                      src='/images/dashboard-charts.svg'
-                      alt='home page'
-                      width={16}
-                      height={16}
-                    />
-                  </span>
-                  <span className='font-light tracking-wide py-3'>Garage</span>
-                </Button>
+                <Link href='/dashboard/garage'>
+                  <Button
+                    variant={page === "garage" ? "blue" : "transparent"}
+                    className='flex justify-start gap-2  border border-white '>
+                    <span className='py-3'>
+                      <Image
+                        src='/images/dashboard-charts.svg'
+                        alt='home page'
+                        width={16}
+                        height={16}
+                      />
+                    </span>
+                    <span className='font-light tracking-wide py-3'>
+                      Garage
+                    </span>
+                  </Button>
+                </Link>
 
                 <Button
-                  variant='transparent'
-                  className='flex justify-start gap-2 '>
+                  variant={page === "charts" ? "blue" : "transparent"}
+                  className='flex justify-start gap-2  border border-white '>
                   <span className='py-3'>
                     <Image
                       src='/images/dashboard-charts.svg'
@@ -230,8 +238,8 @@ export const DashbordSidebar = ({
                 </Button>
 
                 <Button
-                  variant='transparent'
-                  className='flex justify-start gap-2 '>
+                  variant={page === "locate" ? "blue" : "transparent"}
+                  className='flex justify-start gap-2  border border-white '>
                   <span className='py-3'>
                     <Image
                       src='/images/dashboard-locate.svg'
@@ -244,8 +252,8 @@ export const DashbordSidebar = ({
                 </Button>
 
                 <Button
-                  variant='transparent'
-                  className='flex justify-start gap-2 '>
+                  variant={page === "wallet" ? "blue" : "transparent"}
+                  className='flex justify-start gap-2  border border-white '>
                   <span className='py-3'>
                     <Image
                       src='/images/dashboard-wallet.svg'
@@ -256,12 +264,22 @@ export const DashbordSidebar = ({
                   </span>
                   <span className='font-light tracking-wide py-3'>Wallet</span>
                 </Button>
-              </ul>
+              
+
             </div>
 
-            <div className='mr-[15rem] md:flex items-center gap-5 hidden'>
+            <div className="border-t border-white mt-10 mb-5"></div>
+
+            <div className="text-xl tracking-wider font-semibold text-white mt-3 mb-7 flex justify-center">
+              <span>Utils</span>
+            </div>
+
+
+            <div className="bg-gray-200 p-6 mx-5 rounded-lg">
+            <div className='flex flex-wrap gap-6  justify-center'>
           <Button className='w-12 h-12 p-0 bg-black hover:bg-black/80 hover:scale-[.9] transition-all duration-300 rounded-full'>
             <Image
+            priority
               src='/images/chat-bubble.svg'
               alt='chat bubble'
               width='30'
@@ -270,6 +288,7 @@ export const DashbordSidebar = ({
           </Button>
           <Button className='w-12 h-12 p-0 bg-black hover:bg-black/80 hover:scale-[.9] transition-all duration-300 rounded-full'>
             <Image
+            priority
               src='/images/report.svg'
               alt='chat bubble'
               width='30'
@@ -313,23 +332,14 @@ export const DashbordSidebar = ({
             />
           </div>
         </div>
-
-            <div className='flex justify-center'>
-              <Button variant='blue' className='px-6 gap-2 hover:bg-blue-700'>
-                <span className='py-3'>
-                  <Image
-                    src='/images/logout.svg'
-                    alt='home page'
-                    width={16}
-                    height={16}
-                  />
-                </span>
-                <span className='font-light tracking-wide py-3'>Logout</span>
-              </Button>
             </div>
+
+            <div className="border-t border-white mt-14 "></div>
+
+
           </div>
         </div>
-      
+      }
     </div>
   );
 };

@@ -29,6 +29,7 @@ type Input = z.infer<typeof addVehicleSchema>;
 
 export default function AddVehicleComp() {
   const [clrSelected, setClrSelected] = useState("");
+  const [clrInterior, setClrInterior] = useState('')
   const form = useForm<Input>({
     resolver: zodResolver(addVehicleSchema),
     defaultValues: {
@@ -681,10 +682,10 @@ export default function AddVehicleComp() {
                   <div className='flex gap-2 flex-wrap items-center'>
                     <div
                       onClick={() => {
-                        setClrSelected("interior1");
+                        setClrInterior("interior1");
                       }}
                       className='rounded-lg h-10 w-10 justify-center flex items-center bg-red-600 hover:scale-[.9] transition-all duration-300'>
-                      {clrSelected === "interior1" && (
+                      {clrInterior === "interior1" && (
                         <div>
                           <Image
                             src='/images/whitecheck.svg'
@@ -697,10 +698,10 @@ export default function AddVehicleComp() {
                     </div>
                     <div
                       onClick={() => {
-                        setClrSelected("interior2");
+                        setClrInterior("interior2");
                       }}
                       className='rounded-lg h-10 w-10 justify-center flex items-center bg-yellow-500 hover:scale-[.9] transition-all duration-300'>
-                      {clrSelected === "interior2" && (
+                      {clrInterior === "interior2" && (
                         <div>
                           <Image
                             src='/images/whitecheck.svg'
@@ -713,10 +714,10 @@ export default function AddVehicleComp() {
                     </div>
                     <div
                       onClick={() => {
-                        setClrSelected("interior3");
+                        setClrInterior("interior3");
                       }}
                       className='rounded-lg h-10 w-10 justify-center flex items-center bg-gray-500 hover:scale-[.9] transition-all duration-300'>
-                      {clrSelected === "interior3" && (
+                      {clrInterior === "interior3" && (
                         <div>
                           <Image
                             src='/images/whitecheck.svg'
@@ -729,10 +730,10 @@ export default function AddVehicleComp() {
                     </div>
                     <div
                       onClick={() => {
-                        setClrSelected("interior4");
+                        setClrInterior("interior4");
                       }}
                       className='rounded-lg h-10 w-10 justify-center flex items-center bg-white border border-black hover:scale-[.9] transition-all duration-300'>
-                      {clrSelected === "interior4" && (
+                      {clrInterior === "interior4" && (
                         <div>
                           <Image
                             src='/images/whitecheck.svg'
@@ -745,10 +746,10 @@ export default function AddVehicleComp() {
                     </div>
                     <div
                       onClick={() => {
-                        setClrSelected("interior5");
+                        setClrInterior("interior5");
                       }}
                       className='rounded-lg h-10 w-10 justify-center flex items-center bg-green-800 hover:scale-[.9] transition-all duration-300'>
-                      {clrSelected === "interior5" && (
+                      {clrInterior === "interior5" && (
                         <div>
                           <Image
                             src='/images/whitecheck.svg'
@@ -761,10 +762,10 @@ export default function AddVehicleComp() {
                     </div>
                     <div
                       onClick={() => {
-                        setClrSelected("interior6");
+                        setClrInterior("interior6");
                       }}
                       className='rounded-lg h-10 w-10 justify-center flex items-center bg-black hover:scale-[.9] transition-all duration-300'>
-                      {clrSelected === "interior6" && (
+                      {clrInterior === "interior6" && (
                         <div>
                           <Image
                             src='/images/whitecheck.svg'
@@ -777,10 +778,10 @@ export default function AddVehicleComp() {
                     </div>
                     <div
                       onClick={() => {
-                        setClrSelected("interior7");
+                        setClrInterior("interior7");
                       }}
                       className='rounded-lg h-10 w-10 justify-center flex items-center bg-blue-500 hover:scale-[.9] transition-all duration-300'>
-                      {clrSelected === "interior7" && (
+                      {clrInterior === "interior7" && (
                         <div>
                           <Image
                             src='/images/whitecheck.svg'
@@ -793,10 +794,10 @@ export default function AddVehicleComp() {
                     </div>
                     <div
                       onClick={() => {
-                        setClrSelected("interior8");
+                        setClrInterior("interior8");
                       }}
                       className='rounded-lg h-10 w-10 justify-center flex items-center bg-[#770942] hover:scale-[.9] transition-all duration-300'>
-                      {clrSelected === "interior8" && (
+                      {clrInterior === "interior8" && (
                         <div>
                           <Image
                             src='/images/whitecheck.svg'
@@ -809,10 +810,10 @@ export default function AddVehicleComp() {
                     </div>
                     <div
                       onClick={() => {
-                        setClrSelected("interior9");
+                        setClrInterior("interior9");
                       }}
                       className='rounded-lg h-10 w-10 justify-center flex items-center bg-green-500 hover:scale-[.9] transition-all duration-300'>
-                      {clrSelected === "interior9" && (
+                      {clrInterior === "interior9" && (
                         <div>
                           <Image
                             src='/images/whitecheck.svg'
@@ -825,10 +826,10 @@ export default function AddVehicleComp() {
                     </div>
                     <div
                       onClick={() => {
-                        setClrSelected("interior10");
+                        setClrInterior("interior10");
                       }}
                       className='rounded-lg h-10 w-10 justify-center flex items-center bg-[#55b7cc] hover:scale-[.9] transition-all duration-300'>
-                      {clrSelected === "interior10" && (
+                      {clrInterior === "interior10" && (
                         <div>
                           <Image
                             src='/images/whitecheck.svg'
@@ -841,10 +842,10 @@ export default function AddVehicleComp() {
                     </div>
                     <div
                       onClick={() => {
-                        setClrSelected("interior11");
+                        setClrInterior("interior11");
                       }}
                       className='rounded-lg h-10 w-10 justify-center flex items-center bg-[#898989] hover:scale-[.9] transition-all duration-300'>
-                      {clrSelected === "interior11" && (
+                      {clrInterior === "interior11" && (
                         <div>
                           <Image
                             src='/images/whitecheck.svg'
@@ -857,10 +858,10 @@ export default function AddVehicleComp() {
                     </div>
                     <div
                       onClick={() => {
-                        setClrSelected("interior12");
+                        setClrInterior("interior12");
                       }}
                       className='rounded-lg h-10 w-10 justify-center flex items-center bg-[#ffad61] hover:scale-[.9] transition-all duration-300'>
-                      {clrSelected === "interior12" && (
+                      {clrInterior === "interior12" && (
                         <div>
                           <Image
                             src='/images/whitecheck.svg'
