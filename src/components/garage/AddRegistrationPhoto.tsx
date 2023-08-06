@@ -15,7 +15,7 @@ export default function AddRegistrationPhoto() {
     <div className=' mx-4'>
         <h2 className="font-semibold text-lg pb-6">Registration certificate</h2>
       <div className='flex flex-col gap-16 '>
-        <div className='grid grid-row-2 sm:grid-cols-6 grid-cols-4 gap-5 grid-flow-row'>
+        <div className='grid grid-row-2 sm:grid-cols-6 grid-cols-3 gap-5 grid-flow-row'>
           {registrationImage1 ? (
             <label
               htmlFor='registration1'

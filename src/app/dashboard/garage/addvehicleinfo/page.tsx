@@ -37,7 +37,7 @@ export default function page() {
 
         <div className='flex flex-col gap-4 justify-center items-center '>
           <h1 className='font-semibold sm:text-2xl text-lg'>Your vehicle</h1>
-          <p className='text-gray-500 sm:text-sm text-xs'>
+          <p className='text-gray-500 sm:text-sm text-xs text-center'>
             Information about your vehicle.
            
           </p>

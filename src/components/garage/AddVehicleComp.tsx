@@ -59,7 +59,7 @@ export default function AddVehicleComp() {
   return (
     <div className='pb-12'>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className='sm:mx-5 mx-2'>
+        <form onSubmit={form.handleSubmit(onSubmit)} className='sm:mx-5 mx-4'>
           {/* <FormField
                       control={form.control}
                       name=''

@@ -16,7 +16,7 @@ export default function AddVehiclePhoto() {
   return (
     <div className=' mx-4'>
       <div className='flex flex-col gap-16 '>
-        <div className='grid grid-row-2 sm:grid-cols-6 grid-cols-4 gap-5 grid-flow-row'>
+        <div className='grid grid-row-2 sm:grid-cols-6 grid-cols-3 gap-5 grid-flow-row'>
           {image1 ? (
             <label
               htmlFor='vehicle1'

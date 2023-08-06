@@ -40,7 +40,7 @@ export default function page() {
           <h1 className='font-semibold sm:text-2xl text-lg'>
             Details
           </h1>
-          <p className='text-gray-500 sm:text-sm text-xs'>
+          <p className='text-gray-500 sm:text-sm text-xs text-center'>
           These additional specs will help us provide the most accurate components.
           </p>
         </div>

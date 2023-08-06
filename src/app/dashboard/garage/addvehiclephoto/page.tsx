@@ -59,7 +59,7 @@ export default function page() {
         </div>
 
         <div className='pt-20'></div>
-          <div className='flex justify-between items-center gap-2 pb-10'>
+          <div className='flex justify-between items-center gap-2 pb-10 mx-5'>
             <Link href='/dashboard/garage/addvehicledetails'>
               <Button
                 type='submit'
