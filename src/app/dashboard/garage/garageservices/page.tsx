@@ -7,10 +7,11 @@ import DashboardNavbar from "@/components/dashboard/DashboardNavbar";
 import Link from "next/link";
 import Image from "next/image";
 import GarageServices from "@/components/garage/GarageServices";
+import { inter } from "@/app/fonts";
 export default function page() {
   const [mobileSidebar, setMobileSideBar] = useState(false);
   return (
-    <div className='bg-[#eef0f1] overflow-x-hidden w-screen '>
+    <div className={`bg-[#eef0f1] overflow-x-hidden w-screen ${inter.className}`}>
       <DashboardNavbar
         page='garage'
         mobileSidebar={mobileSidebar}
