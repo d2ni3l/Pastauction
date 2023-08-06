@@ -6,8 +6,9 @@ import Link from "next/link";
 export default function GarageInfoCard() {
   return (
     <div className='mx-5'>
-      <div className='flex sm:flex-row flex-col justify-between bg-white rounded-md'>
+      <div className='flex sm:flex-row flex-col sm:justify-between justify-center items-center sm:items-start bg-white rounded-md'>
         <div className='flex flex-col mx-10'>
+
           <div className='flex gap-2 pb-3  items-center pt-16'>
             <Image
               src='/images/garagaphoto.svg'
@@ -17,6 +18,7 @@ export default function GarageInfoCard() {
             />
             <h2 className='font-semibold sm:text-lg'>Garage GTC Full</h2>
           </div>
+          
           <div className='flex flex-col '>
             <div className='flex gap-1 pb-6'>
               <Image
@@ -30,16 +32,16 @@ export default function GarageInfoCard() {
 
             <div className='flex gap-2 pb-5'>
               <h4 className='text-center text-sm text-gray-600'>
-                Garage capacity
+                Garage capacity:
               </h4>
               <h4 className='text-center font-bold text-sm text-black'>10</h4>
             </div>
 
             <div className='flex flex-col gap-2 pt-2 sm:pt-0 sm:flex-row sm:gap-2  pb-14'>
-              <h4 className='text-center text-sm text-gray-600'>
+              <h4 className='sm:text-center text-sm text-gray-600'>
                 Additional description:
               </h4>
-              <h4 className='text-center font-bold text-sm text-black'>
+              <h4 className='sm:text-center font-bold text-sm text-black'>
                 Lorem ipsum dolor sit.
               </h4>
             </div>

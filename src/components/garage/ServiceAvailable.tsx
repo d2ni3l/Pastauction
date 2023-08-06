@@ -14,7 +14,7 @@ export default function ServiceAvailable() {
       </div>
       <div className='pt-8'></div>
       <div className='flex flex-wrap gap-4  items-center justify-center px-3 py-5 bg-white rounded-lg'>
-        <div className='border-black border-2 flex flex-col items-center justify-center gap-3 bg-gray-200 px-8 rounded-md py-3'>
+        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 bg-gray-200 px-8 rounded-md py-3'>
           <Image
             src='/images/garageview.svg'
             height='25'
@@ -25,7 +25,7 @@ export default function ServiceAvailable() {
             Garage view
           </p>
         </div>
-        <div className='border-black border-2 flex flex-col items-center justify-center gap-3 bg-gray-200 px-8 rounded-md py-3'>
+        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 bg-gray-200 px-8 rounded-md py-3'>
           <Image
             src='/images/socialrumors.svg'
             height='25'
@@ -36,7 +36,7 @@ export default function ServiceAvailable() {
             Social Rumors
           </p>
         </div>
-        <div className='border-black border-2 flex flex-col items-center justify-center gap-3 bg-gray-200 px-8 rounded-md py-3'>
+        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 bg-gray-200 px-8 rounded-md py-3'>
           <Image
             src='/images/auctionalert.svg'
             height='25'
@@ -47,7 +47,7 @@ export default function ServiceAvailable() {
             Auction Alert
           </p>
         </div>
-        <div className='border-black border-2 flex flex-col items-center justify-center gap-3 bg-gray-200 px-8 rounded-md py-3'>
+        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 bg-gray-200 px-8 rounded-md py-3'>
           <Image
             src='/images/singlechart.svg'
             height='25'
@@ -58,7 +58,7 @@ export default function ServiceAvailable() {
             Single Charts
           </p>
         </div>
-        <div className='border-black border-2 flex flex-col items-center justify-center gap-3 bg-gray-200 px-8 rounded-md py-3'>
+        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 bg-gray-200 px-8 rounded-md py-3'>
           <Image
             src='/images/minidashboard.svg'
             height='25'
@@ -69,7 +69,7 @@ export default function ServiceAvailable() {
             Mini Dashboard
           </p>
         </div>
-        <div className='border-black border-2 flex flex-col items-center justify-center gap-3 bg-gray-200 px-8 rounded-md py-3'>
+        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 bg-gray-200 px-8 rounded-md py-3'>
           <Image
             src='/images/dashboard.svg'
             height='25'
@@ -80,7 +80,7 @@ export default function ServiceAvailable() {
             Dashboard
           </p>
         </div>
-        <div className='border-black border-2 flex flex-col items-center justify-center gap-3 bg-gray-200 px-8 rounded-md py-3'>
+        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 bg-gray-200 px-8 rounded-md py-3'>
           <Image
             src='/images/singledatas.svg'
             height='25'
