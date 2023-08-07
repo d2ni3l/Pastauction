@@ -13,7 +13,7 @@ export default function GarageServices() {
         <div className="pt-16"></div>
         <ServiceAvailable/>
         <div className="pt-10"></div>
-        <Order_AddGarage/>
+        <div className="mx-5"><Order_AddGarage/></div>
         <div className="pt-8"></div>
 
 

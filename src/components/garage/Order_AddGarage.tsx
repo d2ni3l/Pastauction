@@ -36,7 +36,7 @@ export function Order_AddGarage() {
   const [value, setValue] = React.useState("")
    console.log(value)
   return (
-    <div className="flex bg-white mx-5 px-7 pt-7 pb-5 rounded-lg justify-between ">
+    <div className="flex bg-white  px-7 pt-7 pb-5 rounded-lg justify-between ">
         <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild >
         <Button
