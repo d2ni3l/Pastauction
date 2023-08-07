@@ -7,13 +7,24 @@ import { inter } from "@/app/fonts";
 import {useState} from 'react'
 import Image from "next/image";
 import { Button } from "../ui/button";
+import AlertUpgradevehicle from "./AlertUpgradevehicle";
+import {useAtom} from 'jotai'
+import { alertUpgradePlan } from "@/app/atoms/atoms";
 export default function GarageServices() {
   const [deleteVehicle, setDeleteVehicle] = useState(false)
-  console.log(deleteVehicle)
+  const [modal, setModal] = useAtom(alertUpgradePlan)
+  console.log(modal)
+  console.log()
   return (
     <div className={inter.className}>
       {
         deleteVehicle && (<DeleteVehicle deleteVehicle={deleteVehicle} setDeleteVehicle={setDeleteVehicle}/>)
+      }
+
+      {
+        modal && (
+          <AlertUpgradevehicle/>
+        )
       }
       <div className='flex flex-col '>
         <GarageInfoCard />
@@ -24,11 +35,11 @@ export default function GarageServices() {
         <div className="pt-8"></div>
 
 
-        <div className="lg:mx-16 mx-5">
+        <div className=" mx-5">
         <div className="pb-5 justify-center lg:justify-start flex">
         <h2 className='text-blue-500 font-bold text-xl '>Vehicles (6)</h2>
       </div>
-        <div className="flex  gap-8 flex-wrap justify-center lg:justify-start">
+        <div className="grid grid-cols-1 sm:grid-cols-2  gap-8 xl:grid-cols-3 min-[2000px]:grid-cols-4 justify-center lg:justify-start">
         <VehicleCards deleteVehicle={deleteVehicle} setDeleteVehicle={setDeleteVehicle}/>
         <VehicleCards deleteVehicle={deleteVehicle} setDeleteVehicle={setDeleteVehicle}/>
         <VehicleCards deleteVehicle={deleteVehicle} setDeleteVehicle={setDeleteVehicle}/>
@@ -54,7 +65,7 @@ const DeleteVehicle = ({deleteVehicle, setDeleteVehicle}: DeleteVehicle) => {
   return(
     <div className="fixed bg-black/50 top-0 left-0 right-0  p-4 overflow-x-hidden w-screen overflow-y-auto md:inset-0  h-full z-50">
       <div className='relative w-full  h-full flex justify-center items-center'>
-        <div className='relative max-w-sm  sm:max-w-sm bg-white rounded-lg shadow px-16 py-5'>
+        <div className='relative max-w-md bg-white rounded-lg shadow px-5 py-5 '>
        
           <div className="flex justify-center relative items-center pt-5 pb-3">
           <h2 className="font-semibold text-xl">Delete vehicle</h2>

@@ -24,8 +24,9 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { privacyPolicy } from "@/app/atoms/atoms";
 type Input = z.infer<typeof registerSchema>;
-
 import { useAtom } from "jotai";
+import axios from "axios";
+
 export default function SigninCard() {
   const [modal, setModal] = useAtom(privacyPolicy);
 
@@ -48,28 +49,13 @@ export default function SigninCard() {
     },
   });
 
-  async function postData(url = "", data = {}) {
-    console.log(data);
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
 
-    return await response.json();
-  }
-  const onSubmit = (data: Input) => {
-    postData("https://pastauction.com/api/v1/sign_up", data)
-      .then((response) => {
-        console.log(response);
-        console.log("i was suffesfully sent to the server");
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+  
+  const onSubmit = (postData: Input) => {
+   axios.post('https://pastauction.com/api/v1/sign_up', {postData}).then(response => console.log(response))
+   
+  
+
   };
   return (
     <>
@@ -146,7 +132,7 @@ export default function SigninCard() {
                   </FormItem>
                 )}
               />
-              {/* <FormField
+              <FormField
                 control={form.control}
                 name='user_category'
                 render={({ field }) => (
@@ -159,7 +145,7 @@ export default function SigninCard() {
                     <FormMessage />
                   </FormItem>
                 )}
-              /> */}
+              /> 
               <FormField
                 control={form.control}
                 name='password'

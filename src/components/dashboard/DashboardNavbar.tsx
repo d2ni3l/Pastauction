@@ -13,7 +13,7 @@ export default function DashboardNavbar({ setMobileSidebar, mobileSidebar, page 
     
 
   return (
-    <div className='max-w-[1500px]'>
+    <div className=''>
       <nav className='  w-full bg-[#d8dbde] border-b-[3px] border-gray-400 sm:py-5 py-3 flex justify-between lg:ml-[12rem]'>
         <div className='sm:mx-12 mx-5'>
           <h1 className='text-neutral-800 capitalize sm:text-[40px] text-2xl  font-semibold leading-[48px]'>
@@ -28,8 +28,6 @@ export default function DashboardNavbar({ setMobileSidebar, mobileSidebar, page 
           alt='hamburger menu'
           width='50'
           height='50'
-
-
           />
         </button>
 

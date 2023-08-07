@@ -13,81 +13,81 @@ export default function ServiceAvailable() {
         </p>
       </div>
       <div className='pt-8'></div>
-      <div className='flex flex-wrap gap-4  items-center justify-center px-3 py-5 bg-white rounded-lg'>
-        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 bg-gray-200 px-8 rounded-md py-3'>
+      <div className='flex flex-wrap gap-4  items-center justify-center px-1 py-5 bg-white rounded-lg'>
+        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 bg-gray-200 px-9 rounded-md py-2'>
           <Image
             src='/images/garageview.svg'
-            height='25'
-            width='25'
+            height='30'
+            width='30'
             alt='garage view'
           />
-          <p className='text-gray-900 tracking-wide text-xs font-semibold'>
+          <p className='text-gray-900 tracking-wide text-sm font-semibold'>
             Garage view
           </p>
         </div>
-        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 bg-gray-200 px-8 rounded-md py-3'>
+        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 bg-gray-200 px-9 rounded-md py-2'>
           <Image
             src='/images/socialrumors.svg'
-            height='25'
-            width='25'
+            height='30'
+            width='30'
             alt='garage view'
           />
-          <p className='text-gray-900 tracking-wide text-xs font-semibold'>
+          <p className='text-gray-900 tracking-wide text-sm font-semibold'>
             Social Rumors
           </p>
         </div>
-        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 bg-gray-200 px-8 rounded-md py-3'>
+        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 bg-gray-200 px-9 rounded-md py-2'>
           <Image
             src='/images/auctionalert.svg'
-            height='25'
-            width='25'
+            height='30'
+            width='30'
             alt='garage view'
           />
-          <p className='text-gray-900 tracking-wide text-xs font-semibold'>
+          <p className='text-gray-900 tracking-wide text-sm font-semibold'>
             Auction Alert
           </p>
         </div>
-        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 bg-gray-200 px-8 rounded-md py-3'>
+        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 bg-gray-200 px-9 rounded-md py-2'>
           <Image
             src='/images/singlechart.svg'
-            height='25'
-            width='25'
+            height='30'
+            width='30'
             alt='garage view'
           />
-          <p className='text-gray-900 tracking-wide text-xs font-semibold'>
+          <p className='text-gray-900 tracking-wide text-sm font-semibold'>
             Single Charts
           </p>
         </div>
-        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 bg-gray-200 px-8 rounded-md py-3'>
+        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 bg-gray-200 px-9 rounded-md py-2'>
           <Image
             src='/images/minidashboard.svg'
-            height='25'
-            width='25'
+            height='30'
+            width='30'
             alt='garage view'
           />
-          <p className='text-gray-900 tracking-wide text-xs font-semibold'>
+          <p className='text-gray-900 tracking-wide text-sm font-semibold'>
             Mini Dashboard
           </p>
         </div>
-        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 bg-gray-200 px-8 rounded-md py-3'>
+        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 bg-gray-200 px-9 rounded-md py-2'>
           <Image
             src='/images/dashboard.svg'
-            height='25'
-            width='25'
+            height='30'
+            width='30'
             alt='garage view'
           />
-          <p className='text-gray-900 tracking-wide text-xs font-semibold'>
+          <p className='text-gray-900 tracking-wide text-sm font-semibold'>
             Dashboard
           </p>
         </div>
-        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 bg-gray-200 px-8 rounded-md py-3'>
+        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 bg-gray-200 px-9 rounded-md py-2'>
           <Image
             src='/images/singledatas.svg'
-            height='25'
-            width='25'
+            height='30'
+            width='30'
             alt='garage view'
           />
-          <p className='text-gray-900 tracking-wide text-xs font-semibold'>
+          <p className='text-gray-900 tracking-wide text-sm font-semibold'>
             Single Details
           </p>
         </div>

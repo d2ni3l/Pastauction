@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { Dispatch, SetStateAction } from "react";
+import React, { Dispatch, SetStateAction, useRef } from "react";
 import { Button } from "../ui/button";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -14,6 +14,7 @@ interface VehicleCard {
   
 }
 export default function VehicleCards({setDeleteVehicle, deleteVehicle, noMod}:VehicleCard) {
+  const swiperRef = useRef();
   const backgroundImages = [
     {
       url: "/images/vehicleplaceholder.svg",
@@ -29,33 +30,56 @@ export default function VehicleCards({setDeleteVehicle, deleteVehicle, noMod}:Ve
   return (
     <div>
       
-      <div className='wrapper max-w-xs  overflow-hidden relative'>
+      <div className='wrapper max-w-sm rounded-t-lg overflow-hidden relative'>
         <Swiper
-          spaceBetween={0}
+          spaceBetween={0.5}
           slidesPerView={1}
           speed={500}
+          onSwiper={(swiper) => {
+            swiperRef.current = swiper; // @ts-ignore
+          }}
+          loop={true}
           >
           <SwiperSlide>
             <div
-              className='h-[200px] w-[320px]    rounded-t-lg'
+              className='h-[250px] w-[384px]  background-img   rounded-t-lg'
               style={{
                 backgroundImage: `url(${backgroundImages[0].url})`,
               }}></div>
           </SwiperSlide>
           <SwiperSlide>
             <div
-              className='h-[200px] w-[320px]   rounded-t-lg '
+              className='h-[250px] w-[384px]  background-img  rounded-t-lg '
               style={{
                 backgroundImage: `url(${backgroundImages[1].url})`,
               }}></div>
           </SwiperSlide>
           <SwiperSlide>
             <div
-              className='h-[200px] w-[320px]    rounded-t-lg '
+              className='h-[250px] w-[384px]  background-img   rounded-t-lg '
               style={{
                 backgroundImage: `url(${backgroundImages[2].url})`,
               }}></div>
           </SwiperSlide>
+          <div className="absolute justify-center flex gap-2  left-0 right-0 z-10">
+        {
+          [1, 2, 3, 4].map(() => {
+            return(
+              <button onClick={() => swiperRef.current.slideNext()}> 
+                <Image
+              src='/images/imagecarosaul.svg'
+              alt='vehicle image'
+              width='8'
+              height='8'
+              className='-mt-10 cursor-pointer'
+              
+
+              />
+              </button>
+            )
+          })
+        }
+        </div>
         </Swiper>
         {
           !noMod && (
@@ -66,22 +90,7 @@ export default function VehicleCards({setDeleteVehicle, deleteVehicle, noMod}:Ve
           )
         }
 
-        <div className="absolute justify-center flex gap-2  left-0 right-0 z-10">
-        {
-          [1, 2, 3, 4].map(() => {
-            return(
-              <Image
-              src='/images/imagecarosaul.svg'
-              alt='vehicle image'
-              width='8'
-              height='8'
-              className='-mt-10'
-
-              />
-            )
-          })
-        }
-        </div>
+       
 
         <div className='flex gap-3 flex-col px-7 rounded-b-lg bg-white'>
           <div>
@@ -102,12 +111,14 @@ export default function VehicleCards({setDeleteVehicle, deleteVehicle, noMod}:Ve
             <h2 className='text-sm'>Italy</h2>
           </div>
 
-          <Button
-            className='text-black rounded-md border-black mb-6 scale-hover border-2 w-[163px]'
-            variant='transparent'>
-            Search spare parts
+          <div className="flex justify-start">
+          <button
+            className='text-black rounded-sm border-black mb-6 scale-hover border-2 py-1 px-1'
+            >
+            <div className="text-sm text-black font-medium">Search spare parts</div>
            
-          </Button>
+          </button>
+          </div>
         </div>
       </div>
     </div>

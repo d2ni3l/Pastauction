@@ -147,7 +147,7 @@ export const DashbordSidebar = ({
 
       {
         mobileSidebar &&
-        <div className="w-screen fixed top-0 left-0 z-[1000] md:hidden  h-screen bg-black overflow-y-hidden">
+        <div className="w-screen fixed top-0 left-0 z-[1000] md:hidden  h-screen bg-black/80 backdrop-blur-sm overflow-y-hidden">
           <div className="flex flex-col">
             <div className="flex justify-between mx-14 items-center">
             <Image

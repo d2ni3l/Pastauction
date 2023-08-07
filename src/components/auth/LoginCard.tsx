@@ -31,6 +31,7 @@ import { useRouter } from "next/navigation";
 
 export default function LoginCard() {
   const [showPassword, setShowPassword] = useState(true);
+  const [invalid, setInvalid] = useState(false)
 
   const form = useForm<Input>({
     resolver: zodResolver(loginSchema),
@@ -40,31 +41,37 @@ export default function LoginCard() {
     },
   });
 
-//   async function postData(url = "", data = {}) {
-//     const response = await fetch(url, {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify(data)
-//     });
+  async function postData(url = "", data = {}) {
+    const response = await fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    });
 
-//     return await response.json();
-// }
+    return await response.json();
+}
 
 const router = useRouter()
   const onSubmit = (data: Input) => {
     
 
-    // postData("https://pastauction.com/api/v1/login", data)
-    // .then((response) => {
-    //     console.log(response);
-    // })
-    // .catch((error) => {
-    //     console.error("Error:", error);
-    // });
+    postData("https://pastauction.com/api/v1/login", data)
+    .then((response) => {
+        console.log(response.detail);
+        if(response.detail === 'Username o password errati'){
+          setInvalid(true)
+        }else {
+          router.push('/dashboard')
+        }
+        
+    })
+    .catch((error) => {
+        console.error("Error:", error);
+    });
 
-    router.push('/dashboard')
+    // router.push('/dashboard')
 
    
 
@@ -155,6 +162,12 @@ const router = useRouter()
                         />
                       </button>
                     </div>
+                    {
+                      invalid && <FormDescription className='text-red-500 text-sm'>
+                        Invalid Password or Email
+                                                                                                                                     
+                      </FormDescription>
+                    }
                     
                     <FormDescription className='flex justify-between gap-3 pt-2 pb-4'>
                       <span className='flex gap-1'>

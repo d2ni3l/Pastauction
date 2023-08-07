@@ -5,12 +5,12 @@ import React from "react";
 export default function DashboardGarageItems() {
   return (
     <div className={inter.className}>
-      <div className='flex gap-6  items-center justify-center flex-col md:flex-row'>
-        <div className='cardbody shadow-xl max-w-sm scale-hover'>
+      <div className='flex gap-6  items-center justify-center flex-col sm:flex-row'>
+        <div className='cardbody min-[400px]:w-[400px] shadow-xl sm:max-w-sm scale-hover'>
           <Image
             src='/images/garage-img1.svg'
             alt='garage car'
-            width='320'
+            width='400'
             height='208'
             className='rounded-t-lg'
           />
@@ -25,11 +25,11 @@ export default function DashboardGarageItems() {
             </p>
           </div>
         </div>
-        <div className='cardbody shadow-xl max-w-sm scale-hover'>
+        <div className='cardbody min-[400px]:w-[400px] shadow-xl sm:max-w-sm scale-hover'>
           <Image
             src='/images/garage-img2.svg'
             alt='garage car'
-            width='320'
+            width='400'
             height='208'
             className='rounded-t-lg'
           />
@@ -44,11 +44,11 @@ export default function DashboardGarageItems() {
             </p>
           </div>
         </div>
-        <div className='cardbody shadow-xl max-w-sm scale-hover'>
+        <div className='cardbody min-[400px]:w-[400px] shadow-xl sm:max-w-sm scale-hover'>
           <Image
             src='/images/garage-img-3.svg'
             alt='garage car'
-            width='320'
+            width='400'
             height='208'
             className='rounded-t-lg'
           />
