@@ -3,6 +3,7 @@ import {useState} from 'react'
 
 function useFileConverter() {
     const [image, setImage] = useState<string | null>(null);
+    const [deletedImage, setDeletedImage] = useState('')
   
     function convertFile(files: FileList | null) {
       if (files) {
@@ -22,11 +23,12 @@ function useFileConverter() {
         reader.onload = (ev: any) => {
           // convert it to base64
           setImage(`data:${fileType};base64,${btoa(ev.target.result)}`);
+          setDeletedImage('')
         };
       }
     }
   
-    return [image, convertFile] as const;
+    return [image, convertFile, deletedImage, setDeletedImage] as const;
   }
 
 export default useFileConverter;

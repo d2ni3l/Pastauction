@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Check, ChevronDown, ChevronsDown, ChevronsUpDown } from "lucide-react"
+import { Check, ChevronDown,} from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -36,7 +36,7 @@ export function Order_AddGarage() {
   const [value, setValue] = React.useState("")
    console.log(value)
   return (
-    <div className="flex bg-white  px-7 pt-7 pb-5 rounded-lg justify-between ">
+    <div className="flex bg-white  px-7 pt-7 pb-5 rounded-lg justify-between shadow-lg">
         <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild >
         <Button
