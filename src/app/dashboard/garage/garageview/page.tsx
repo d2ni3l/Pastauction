@@ -6,7 +6,7 @@ import DashboardNavbar from "@/components/dashboard/DashboardNavbar";
 
 import Link from "next/link";
 import Image from "next/image";
-import AddVehicleInfo from "@/components/garage/AddVehicleInfo";
+import { GarageView } from "@/components/garage/GarageView";
 export default function page() {
   const [mobileSidebar, setMobileSideBar] = useState(false);
   return (
@@ -37,7 +37,8 @@ export default function page() {
 
         
 
-        <div className="pt-10">
+        <div className="pt-10 mx-10 flex justify-center">
+          <GarageView/>
             
         </div>
        
