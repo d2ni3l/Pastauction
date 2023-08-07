@@ -1,12 +1,19 @@
 import Image from "next/image";
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import { Button } from "../ui/button";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
-export default function VehicleCards() {
+
+interface VehicleCard {
+  setDeleteVehicle:Dispatch<SetStateAction<boolean>>
+  deleteVehicle: boolean
+  noMod?: boolean
+  
+}
+export default function VehicleCards({setDeleteVehicle, deleteVehicle, noMod}:VehicleCard) {
   const backgroundImages = [
     {
       url: "/images/vehicleplaceholder.svg",
@@ -50,10 +57,14 @@ export default function VehicleCards() {
               }}></div>
           </SwiperSlide>
         </Swiper>
-        <div className="flex absolute top-0 right-0  mt-4 mx-5 gap-2 z-10">
-          <Image src='/images/editvehiclecard.svg' alt='edit vehicle' width='25' height='25'/>
-          <Image src='/images/deletevehiclecard.svg' alt='edit vehicle' width='25' height='25'/>
+        {
+          !noMod && (
+            <div className="flex absolute top-0 right-0  mt-4 mx-5 gap-2 z-10">
+          <Image src='/images/editvehiclecard.svg' alt='edit vehicle' className='cursor-pointer' width='25' height='25'/>
+          <Image src='/images/deletevehiclecard.svg' className='cursor-pointer' onClick={() => {setDeleteVehicle(true )}} alt='edit vehicle' width='25' height='25'/>
         </div>
+          )
+        }
 
         <div className="absolute justify-center flex gap-2  left-0 right-0 z-10">
         {
