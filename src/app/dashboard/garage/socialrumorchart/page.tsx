@@ -6,7 +6,7 @@ import DashboardNavbar from "@/components/dashboard/DashboardNavbar";
 
 import Link from "next/link";
 import Image from "next/image";
-import SocialRumorTable from "@/components/garage/SocialRumorTable";
+import SocialRumorChart from "@/components/garage/SocialRumorChart";
 export default function page() {
   const [mobileSidebar, setMobileSideBar] = useState(false);
   return (
@@ -39,7 +39,7 @@ export default function page() {
         </div>
 
         <div className='pt-10 mx-10 '>
-          <SocialRumorTable />
+          <SocialRumorChart />
         </div>
       </div>
     </div>

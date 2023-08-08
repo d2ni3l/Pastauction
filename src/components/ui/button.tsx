@@ -13,7 +13,7 @@ const buttonVariants = cva(
           "bg-[#855CF8] text-primary-foreground hover:bg-white/90 hover:text-black",
         rounded:
           "bg-[#855CF8] text-primary-foreground hover:bg-black/90 hover:text-white rounded-full",
-        blackWide: "bg-black hover:text-white text-white hover:bg-black/90 hover:scale-[.9] transition-all duration-300",
+        blackWide: "bg-black rounded-sm hover:text-white text-white hover:bg-black/90 hover:scale-[.9] transition-all duration-300",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         blue: " font-light  rounded-lg bg-[#0d6efd] text-white",
@@ -29,8 +29,8 @@ const buttonVariants = cva(
       },
       size: {
         default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
+        sm: "h-9 rounded-sm px-3",
+        lg: "h-11 rounded-sm px-8",
         icon: "h-10 w-10",
       },
     },
