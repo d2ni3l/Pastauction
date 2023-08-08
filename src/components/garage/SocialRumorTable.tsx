@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   Table,
   TableBody,
@@ -12,8 +13,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 
-
-export function GarageView() {
+export default function SocialRumorTable() {
   return (
     <div className="overflow-auto pb-12">
 
@@ -241,5 +241,5 @@ export function GarageView() {
         </TableBody>
       </Table>
     </div>
-  );
+  )
 }

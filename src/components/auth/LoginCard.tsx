@@ -59,10 +59,10 @@ const router = useRouter()
 
     postData("https://pastauction.com/api/v1/login", data)
     .then((response) => {
-        console.log(response.detail);
+        console.log(response);
         if(response.detail === 'Username o password errati'){
           setInvalid(true)
-        }else {
+        }else if(response.access_token) {
           router.push('/dashboard')
         }
         
