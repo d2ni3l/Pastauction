@@ -36,7 +36,7 @@ export const confirmIdentitySchema = z.object({
 })
 
 export const checkEmail = z.object({
-    code: z.string().min(3).max(6)
+    code: z.string().min(6).max(6)
 })
 
 export const newPassword = z.object({

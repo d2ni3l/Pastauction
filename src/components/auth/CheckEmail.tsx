@@ -21,6 +21,7 @@ import {
 import { useForm } from "react-hook-form";
 import {  checkEmail } from "../../app/validators/auth";
 import { z } from "zod";
+import {useRouter} from 'next/navigation'
 import { zodResolver } from "@hookform/resolvers/zod";
 import {inter} from '@/app/fonts'
 type Input = z.infer<typeof checkEmail>;
@@ -63,8 +64,10 @@ export default function ForgotPassword() {
 
   
 //   };
+const router = useRouter()
 
 const handleSubmit = (e : any) => {
+  router.push('/auth/newpassword')
 
  }  
 

@@ -22,19 +22,21 @@ export default function page() {
         setMobileSidebar={setMobileSideBar}
       />
       <div className='lg:ml-[16rem] '>
-      <Link href='/dashboard/garage/addvehicle'>
-        <div className='flex justify-start mx-10 mt-10'>
-          <div className="bg-white rounded-full p-4 hover:scale-[.9] max-w-[60px] max-h-[60px] transition-all duration-500">
-          <Image
-            src='/images/blackbgarrowleft.svg'
-            alt='go back'
-            width='25'
-            height='25'
-            
-          />
+      <div className='mx-10 mt-10'>
+          <div className='bg-white rounded-full shadow-lg p-4 w-[60px] h-[60px] max-w-[60px] max-h-[60px] hover:scale-[.9] transition-all duration-500'>
+            <Link
+              href='/dashboard/garage/addvehicle'
+              className='w-[60px] h-[60px] max-w-[60px] max-h-[60px] '>
+              <Image
+                src='/images/blackbgarrowleft.svg'
+                alt='go back'
+                width='25'
+                height='25'
+                className='mt-[2px] ml-[1px]'
+              />
+            </Link>
           </div>
         </div>
-      </Link>
 
         <div className='flex flex-col gap-4 justify-center items-center pt-9'>
           <h1 className='font-semibold sm:text-2xl text-lg'>

@@ -9,6 +9,7 @@ export default function PasswordChangedModal() {
     <div className="relative w-full  h-full flex justify-center items-center">
         <div className="relative max-w-sm  sm:max-w-xl bg-white rounded-lg shadow p-10">
           <div className="flex justify-end">
+            <Link href='/auth/login'>
             <Image 
             src='/images/x.svg'
             alt='password saved'
@@ -16,6 +17,7 @@ export default function PasswordChangedModal() {
             height='15' 
             className='hover:scale-[.9] transition-all duration-300 cursor-pointer'
             />
+            </Link>
           </div>
 
           <div className="flex flex-col items-center justify-center">

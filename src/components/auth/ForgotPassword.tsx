@@ -67,7 +67,7 @@ export default function ForgotPassword() {
 //   };
 const router = useRouter()
 const handleSubmit = () => {
-  router.push('/auth/newpassword')
+  router.push('/auth/checkemail')
 
  }  
 

@@ -65,9 +65,9 @@ const DeleteVehicle = ({deleteVehicle, setDeleteVehicle}: DeleteVehicle) => {
   return(
     <div className="fixed bg-black/50 top-0 left-0 right-0  p-4 overflow-x-hidden w-screen overflow-y-auto md:inset-0  h-full z-50">
       <div className='relative w-full  h-full flex justify-center items-center'>
-        <div className='relative max-w-md bg-white rounded-lg shadow px-5 py-5 '>
+        <div className='relative max-w-xs scale-[.8] sm:scale-[.9] sm:max-w-md bg-white rounded-lg shadow px-5 py-5 '>
        
-          <div className="flex justify-center relative items-center pt-5 pb-3">
+          <div className="flex justify-center relative items-center pt-5 pb-5">
           <h2 className="font-semibold text-xl">Delete vehicle</h2>
          
 
@@ -77,7 +77,7 @@ const DeleteVehicle = ({deleteVehicle, setDeleteVehicle}: DeleteVehicle) => {
            alt='password saved'
            width='15'
            height='15'
-           className='hover:scale-[.9] absolute right-0 transition-all duration-300 cursor-pointer'
+           className='hover:scale-[.9] absolute right-0 mr-4 transition-all duration-300 cursor-pointer'
          />
           </div>
 
@@ -93,7 +93,9 @@ const DeleteVehicle = ({deleteVehicle, setDeleteVehicle}: DeleteVehicle) => {
           
 
           <div className='flex flex-col items-center justify-center'>
+            <div className="scale-[.8] sm:scale-[1]">
             <VehicleCards deleteVehicle={deleteVehicle} noMod={true} setDeleteVehicle={setDeleteVehicle} />
+            </div>
 
             <div className='pt-8 flex gap-3 pb-5'>
               
