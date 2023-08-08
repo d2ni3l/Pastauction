@@ -8,6 +8,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Checkbox } from "../ui/checkbox";
+import Image from "next/image";
 
 const invoices = [
   {
@@ -15,50 +16,65 @@ const invoices = [
     paymentStatus: "Paid",
     totalAmount: "$250.00",
     paymentMethod: "Credit Card",
+    paymentMethod1: "Credit Card",
   },
   {
     invoice: "INV002",
     paymentStatus: "Pending",
     totalAmount: "$150.00",
     paymentMethod: "PayPal",
+    paymentMethod1: "PayPal",
   },
   {
     invoice: "INV003",
     paymentStatus: "Unpaid",
     totalAmount: "$350.00",
     paymentMethod: "Bank Transfer",
+    paymentMethod1: "Bank Transfer",
   },
   {
     invoice: "INV004",
     paymentStatus: "Paid",
     totalAmount: "$450.00",
     paymentMethod: "Credit Card",
+    paymentMethod2: "Credit Card",
   },
   {
     invoice: "INV005",
     paymentStatus: "Paid",
     totalAmount: "$550.00",
     paymentMethod: "PayPal",
+    paymentMethod3: "PayPal",
   },
   {
     invoice: "INV006",
     paymentStatus: "Pending",
     totalAmount: "$200.00",
     paymentMethod: "Bank Transfer",
+    paymentMethod4: "Bank Transfer",
   },
   {
     invoice: "INV007",
     paymentStatus: "Unpaid",
     totalAmount: "$300.00",
     paymentMethod: "Credit Card",
+    paymentMethod4: "Credit Card",
+  },
+  {
+    invoice: "INV007",
+    paymentStatus: "Unpaid",
+    totalAmount: "$300.00",
+    paymentMethod: "Credit Card",
+    paymentMethod4: "Credit Card",
   },
 ];
 
 export function GarageView() {
   return (
-    <div>
-      <div className='flex justify-between py-5 '>
-        <div className='flex gap-7 pt-5 '>
+    <div className="overflow-auto pb-12">
+
+      <div className='flex sm:flex-row flex-col justify-between py-5 '>
+        <div className='flex gap-7 pt-5 order-2 sm:order-1'>
 
           <div className='flex gap-4 items-center '>
             <Checkbox id='terms' value='Series' />
@@ -90,11 +106,11 @@ export function GarageView() {
 
         </div>
 
-        <div className=''>
+        <div className='order-1 sm:order-2'>
           <h2 className='text-3xl font-semibold text-black'>Garage view</h2>
         </div>
 
-        <div className='flex gap-8 pt-5'>
+        <div className='flex gap-8 pt-5 order-3 sm:order-3'>
           <div className='flex gap-2 items-center'>
             <Checkbox id='terms' value='Wish' />
             <label
@@ -155,15 +171,127 @@ export function GarageView() {
             </TableHead>
           </TableRow>
         </TableHeader>
+
         <TableBody>
-          {invoices.map((invoice) => (
-            <TableRow key={invoice.invoice}>
-              <TableCell className='font-medium'>{invoice.invoice}</TableCell>
-              <TableCell>{invoice.paymentStatus}</TableCell>
-              <TableCell>{invoice.paymentMethod}</TableCell>
-              <TableCell className=''>{invoice.totalAmount}</TableCell>
-            </TableRow>
-          ))}
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((row) => {
+            return (
+              <TableRow key={row}>
+            <TableCell>
+              <button className='focus:border-2 focus:border-black scale-hover'>
+              <Image
+              src='/images/garageviewimageplaceholder.svg'
+              alt='Vehicle data'
+              height='60'
+              width='62'
+              className='rounded-[1px] cursor-pointer  '
+              />
+              </button>
+            </TableCell>
+
+            <TableCell>
+              <button className='text-black font-semibold'>
+              1986
+              </button>
+            </TableCell>
+            <TableCell>
+              <button className='text-black font-semibold'>
+              Porsche
+              </button>
+            </TableCell>
+            <TableCell>
+              <button className='text-black font-semibold '>
+              911-11
+              </button>
+            </TableCell>
+            <TableCell>
+              <button className='text-black font-semibold '>
+              5 concours
+              </button>
+            </TableCell>
+            <TableCell>
+              <button className='text-black font-semibold '>
+              47,751
+              </button>
+            </TableCell>
+            <TableCell>
+              <button className='text-black font-semibold '>
+              06-2002
+              </button>
+            </TableCell>
+            <TableCell>
+              <button className='text-black font-semibold '>
+              23,004
+              </button>
+            </TableCell>
+            <TableCell>
+              <button className='text-black font-semibold '>
+              55,786
+              </button>
+            </TableCell>
+            <TableCell>
+              <button className='text-black font-semibold '>
+              43,777
+              </button>
+            </TableCell>
+
+            <TableCell className='bg-green-400'>
+              <button className='text-black font-semibold '>
+              325%
+              </button>
+            </TableCell>
+            <TableCell className='bg-green-400'>
+              <button className='text-black font-semibold '>
+              13,444
+              </button>
+            </TableCell>
+          </TableRow>
+            )
+          })}
+
+     
+          <TableRow className='bg-yellow-300 font-semibold'>
+            <TableCell className=''>
+              <span className="select-none text-transparent">Total</span>
+            </TableCell>
+            <TableCell className=''>
+              <span className="select-none text-transparent">Total</span>
+            </TableCell>
+            <TableCell className=''>
+              Total
+            </TableCell>
+            <TableCell>
+              9
+            </TableCell>
+            <TableCell className=''>
+              <span className="select-none text-transparent">Total</span>
+            </TableCell>
+            <TableCell>
+              1454,65
+            </TableCell>
+            <TableCell className=''>
+              <span className="select-none text-transparent">Total</span>
+            </TableCell>
+            <TableCell>
+              2,454,544
+            </TableCell>
+            <TableCell>
+              2,223,445
+            </TableCell>
+            <TableCell>
+              180,675
+            </TableCell>
+            <TableCell>
+             50
+            </TableCell>
+            <TableCell>
+             107,399
+            </TableCell>
+           
+          </TableRow>
+       
+
+          
+          
         </TableBody>
       </Table>
     </div>
