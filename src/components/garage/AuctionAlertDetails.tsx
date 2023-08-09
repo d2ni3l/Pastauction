@@ -11,9 +11,11 @@ import {
 import VehicleCards from "./VehicleCards";
 import { Button } from "../ui/button";
 import Image from "next/image";
+import Link from "next/link";
 export default function AuctionAlertDetails() {
   const [deleteVehicle, setDeleteVehicle] = useState(false);
   const [period, setPeriod] = useState("month");
+  const [fill, setFill] = setState(false)
 
   const dataPlaceholder = [
     {
@@ -157,38 +159,38 @@ export default function AuctionAlertDetails() {
       <Table>
         <TableHeader>
           <TableRow className='border-t-[1px] border-b-[2px] border-black'>
-            <TableHead className='font-semibold bg-red-400 lg:text-sm text-black '>
+            <TableHead className='font-semibold bg-red-300 lg:text-sm text-black '>
               Year
             </TableHead>
-            <TableHead className='font-semibold bg-red-400 lg:text-sm text-black '>
+            <TableHead className='font-semibold bg-red-300 lg:text-sm text-black '>
               Shape
             </TableHead>
-            <TableHead className='font-semibold bg-red-400 lg:text-sm text-black  w-[150px]'>
+            <TableHead className='font-semibold bg-red-300 lg:text-sm text-black  w-[150px]'>
               Auctioneer
             </TableHead>
-            <TableHead className='font-semibold bg-green-400 lg:text-sm text-black '>
+            <TableHead className='font-semibold bg-green-300 lg:text-sm text-black '>
               Country
             </TableHead>
-            <TableHead className='font-semibold bg-green-400 lg:text-sm text-black '>
+            <TableHead className='font-semibold bg-green-300 lg:text-sm text-black '>
               Event
             </TableHead>
-            <TableHead className='font-semibold bg-green-400 lg:text-sm text-black '>
+            <TableHead className='font-semibold bg-green-300 lg:text-sm text-black '>
               Date
             </TableHead>
-            <TableHead className='font-semibold bg-green-400 lg:text-sm text-black '>
+            <TableHead className='font-semibold bg-green-300 lg:text-sm text-black '>
               Lot
             </TableHead>
-            <TableHead className='font-semibold bg-green-400 lg:text-sm text-black '>
+            <TableHead className='font-semibold bg-green-300 lg:text-sm text-black '>
               Min val
             </TableHead>
 
-            <TableHead className='font-semibold bg-green-400 lg:text-sm text-black '>
+            <TableHead className='font-semibold bg-green-300 lg:text-sm text-black '>
               Max val
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-green-400'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-green-300'>
               Reserve
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-yellow-400'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-yellow-200'>
               Auction currency
             </TableHead>
           </TableRow>
@@ -198,24 +200,24 @@ export default function AuctionAlertDetails() {
           {dataPlaceholder.map((data) => (
             <TableRow key={data.shape}>
               <TableCell className='font-medium'>{data.year}</TableCell>
-              <TableCell className='font-medium'>{data.shape}</TableCell>
+              <TableCell className='font-medium underline text-blue-500'><Link href='/'>{data.shape}</Link></TableCell>
               <TableCell className='font-medium'>{data.auctioneer}</TableCell>
               <TableCell className='font-medium'>
                 {data.country}
-                USA{" "}
+             
               </TableCell>
               <TableCell className='font-medium'>{data.Events}</TableCell>
               <TableCell className='font-medium'>{data.date}</TableCell>
               <TableCell className='font-medium'>{data.lot}</TableCell>
               <TableCell className='font-medium'>{data.min_val}</TableCell>
               <TableCell className='font-medium'>{data.max_val}</TableCell>
-              <TableCell className='font- underline text-blue-500 font-semibold'>
+              <TableCell className=' font-semibold'>
                 {data.auction_currency}
               </TableCell>
-              <TableCell className='font-medium bg-yellow-400'>
+              <TableCell className='font-medium bg-yellow-200'>
                 {data.total}
               </TableCell>
-              <TableCell>
+              <TableCell className='cursor-pointer ' onClick={() => {setFill(true)}}>
               <Image
                 src='/images/hollowheart.svg'
                 alt='heart'
@@ -226,7 +228,7 @@ export default function AuctionAlertDetails() {
             </TableRow>
           ))}
 
-          <TableRow className='bg-yellow-300 font-semibold'>
+          <TableRow className='bg-yellow-200 font-semibold'>
             <TableCell className=''>
               <span className='select-none text-transparent'>Total</span>
             </TableCell>

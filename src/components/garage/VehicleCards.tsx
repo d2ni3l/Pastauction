@@ -63,7 +63,7 @@ export default function VehicleCards({
               }}></div>
           </SwiperSlide>
           <div className='absolute justify-center flex gap-2  left-0 right-0 z-10'>
-            {[1, 2, 3, 4].map(() => {
+            {[1, 2, 3, 4].map((i) => {
               return (
                 <button onClick={() => (swiperRef.current as any).slideNext()}>
                   <Image
