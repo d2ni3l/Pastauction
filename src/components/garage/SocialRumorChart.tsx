@@ -70,22 +70,19 @@ const ageRangeData = [
 ];
 
 const countriesData = [
-    {
-        country: 'United States',
-        progress : 20
-
-    },
-    {
-        country: 'Italy',
-        progress : 50
-
-    },
-    {
-        country: 'United Kingdom',
-        progress : 100
-
-    },
-]
+  {
+    country: "United States",
+    progress: 20,
+  },
+  {
+    country: "Italy",
+    progress: 50,
+  },
+  {
+    country: "United Kingdom",
+    progress: 100,
+  },
+];
 
 export default function SocialRumorChart() {
   const [period, setPeriod] = useState("month");
@@ -97,20 +94,20 @@ export default function SocialRumorChart() {
       {
         label: ["Positive comments"],
         data: [250, 525, 250, 270, 390, 70],
-        backgroundColor: '#0d6efd',
+        backgroundColor: "#0d6efd",
         borderWidth: 1,
       },
       {
         label: ["Neutral comments"],
         data: [280, 500, 200, 250, 450, 700],
         borderWidth: 2,
-        backgroundColor: 'gray'
+        backgroundColor: "gray",
       },
       {
         label: ["Negative of comments"],
         data: [100, 270, 350, 350, 290, 50],
         borderWidth: 2,
-        backgroundColor: 'red'
+        backgroundColor: "red",
       },
     ],
   };
@@ -387,73 +384,70 @@ export default function SocialRumorChart() {
             <div className='w-[300px] h-[250px] min-[600px]:w-[500px] min-[600px]:h-[500px] xl:w-[450px] min-[1600px]:w-[600px]'>
               <Bar options={options} data={data2} className='w-full h-full' />
             </div>
-           
           </div>
         </div>
 
         <div className='bg-white  p-6 px-7 grow shadow-lg xl:-mt-[12.5rem] pb-10 rounded-md'>
-        <div className='flex flex-col gap-1'>
-          <h3 className='text-2xl text-gray-600 font-semibold'>Age range</h3>
-          <p className=' text-black pt1 pb-2'>Number of people</p>
-          <div className='flex gap-2'>
-            <Button className='' variant='blackWide'>
-              All 
-            </Button>
-            <Button className='' variant='blackWide'>
-              Men 
-            </Button>
-            <Button className='' variant='blackWide'>
-              Women
-            </Button>
+          <div className='flex flex-col gap-1'>
+            <h3 className='text-2xl text-gray-600 font-semibold'>Age range</h3>
+            <p className=' text-black pt1 pb-2'>Number of people</p>
+            <div className='flex gap-2'>
+              <Button className='' variant='blackWide'>
+                All
+              </Button>
+              <Button className='' variant='blackWide'>
+                Men
+              </Button>
+              <Button className='' variant='blackWide'>
+                Women
+              </Button>
+            </div>
+          </div>
+          <div className=' border-[1.5px] border-gray-300 mt-5 mb-2'></div>
+
+          <div className='pt-7 pb-5 '>
+            {ageRangeData.map((data) => {
+              return (
+                <div>
+                  <p className='text-gray-500 text-sm py-3'>{data.ageRange}</p>
+                  <div className='flex gap-10 sm:gap-28 items-center'>
+                    <Progress value={data.progress} className='w-[60%]' />
+                    <span className='text-black font-semibold'>
+                      {data.progress}%
+                    </span>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
-        <div className=' border-[1.5px] border-gray-300 mt-5 mb-2'></div>
 
-        <div className='pt-7 pb-5 '>
-          {ageRangeData.map((data) => {
-            return (
-              <div>
-                <p className='text-gray-500 text-sm py-3'>{data.ageRange}</p>
-                <div className="flex gap-10 sm:gap-28 items-center">
-                <Progress value={data.progress} className='w-[60%]'/>
-                <span className="text-black font-semibold">{data.progress}%</span>
+        <div className='bg-white  p-6 px-7 grow max-h-[600px] xl:-mt-[.3rem]  shadow-lg  pb-10 rounded-md'>
+          <div className='flex flex-col gap-1'>
+            <h3 className='text-2xl text-gray-600 font-semibold'>
+              Main locations
+            </h3>
+            <p className=' text-black pt1 pb-2'>Countries</p>
+          </div>
+          <div className=' border-[1.5px] border-gray-300 mt-5 mb-2'></div>
+
+          <div className='pt-7 pb-5 '>
+            {countriesData.map((data) => {
+              return (
+                <div>
+                  <p className='text-gray-500 text-sm py-3'>{data.country}</p>
+                  <div className='flex gap-10 md:gap-28 items-center'>
+                    <Progress value={data.progress} className='w-[60%]' />
+                    <span className='text-black font-semibold'>
+                      {data.progress}%
+                    </span>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
-
-      <div className='bg-white  p-6 px-7 grow max-h-[600px] xl:-mt-[.3rem]  shadow-lg  pb-10 rounded-md'>
-        <div className='flex flex-col gap-1'>
-          <h3 className='text-2xl text-gray-600 font-semibold'>Main locations</h3>
-          <p className=' text-black pt1 pb-2'>Countries</p>
-          
-        </div>
-        <div className=' border-[1.5px] border-gray-300 mt-5 mb-2'></div>
-
-        <div className='pt-7 pb-5 '>
-          {countriesData.map((data) => {
-            return (
-              <div>
-                <p className='text-gray-500 text-sm py-3'>{data.country}</p>
-                <div className="flex gap-10 md:gap-28 items-center">
-                <Progress value={data.progress} className='w-[60%]'/>
-                <span className="text-black font-semibold">{data.progress}%</span>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-      </div>
-
-      
-      
-
-     
-
-      
     </div>
   );
 }

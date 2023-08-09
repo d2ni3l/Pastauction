@@ -8,9 +8,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-// import { Checkbox } from "../ui/checkbox";
-// import Image from "next/image";
-// import Link from "next/link";
 import VehicleCards from "./VehicleCards";
 export default function GarageViewDetails() {
   const [deleteVehicle, setDeleteVehicle] = useState(false);

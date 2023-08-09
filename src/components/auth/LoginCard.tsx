@@ -64,7 +64,7 @@ const router = useRouter()
           setInvalid(true)
         }else if(response.access_token) {
           router.push('/dashboard')
-        }
+        } 
         
     })
     .catch((error) => {

@@ -26,8 +26,11 @@ import { privacyPolicy } from "@/app/atoms/atoms";
 type Input = z.infer<typeof registerSchema>;
 import { useAtom } from "jotai";
 import axios from "axios";
+import { useRouter } from "next/router";
+import { useState } from "react";
 
 export default function SigninCard() {
+  const [invalid, setInvalid] = useState(false)
   const [modal, setModal] = useAtom(privacyPolicy);
 
   const form = useForm<Input>({
@@ -51,10 +54,39 @@ export default function SigninCard() {
 
 
   
-  const onSubmit = (postData: Input) => {
-   axios.post('https://pastauction.com/api/v1/sign_up', {postData}).then(response => console.log(response))
-   
   
+  async function postData(url = "", data = {}) {
+    const response = await fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    });
+
+    return await response.json();
+}
+
+  const onSubmit = (data: Input) => {
+    
+
+    postData("https://pastauction.com/api/v1/sign_up", data)
+    .then((response) => {
+        console.log(response);
+        if(response.detail === 'Username o password errati'){
+          setInvalid(true)
+        }
+        
+    })
+    .catch((error) => {
+        console.error("Error:", error);
+    });
+
+    
+
+   
+
+   
 
   };
   return (
