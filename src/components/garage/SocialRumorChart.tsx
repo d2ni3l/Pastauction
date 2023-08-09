@@ -14,7 +14,8 @@ import {
 } from "chart.js";
 import { Pie } from "react-chartjs-2";
 import { Bar } from "react-chartjs-2";
-import { faker } from '@faker-js/faker';
+import { faker } from "@faker-js/faker";
+import { Progress } from "../ui/progress";
 ChartJS.register(
   ArcElement,
   Tooltip,
@@ -33,33 +34,85 @@ export const options = {
     },
   },
   responsive: true,
+  maintainAspectRatio: false,
   plugins: {
     legend: {
-      position: "right" as const,
-    },
-    title: {
-      display: true,
-      text: "Chart.js Horizontal Bar Chart",
+      position: "bottom" as const,
     },
   },
 };
 
+const ageRangeData = [
+  {
+    ageRange: "18-25",
+    progress: 5,
+  },
+  {
+    ageRange: "25-35",
+    progress: 40,
+  },
+  {
+    ageRange: "35-44",
+    progress: 35,
+  },
+  {
+    ageRange: "45-54",
+    progress: 10,
+  },
+  {
+    ageRange: "55-64",
+    progress: 5,
+  },
+  {
+    ageRange: "+65",
+    progress: 5,
+  },
+];
+
+const countriesData = [
+    {
+        country: 'United States',
+        progress : 20
+
+    },
+    {
+        country: 'Italy',
+        progress : 50
+
+    },
+    {
+        country: 'United Kingdom',
+        progress : 100
+
+    },
+]
+
 export default function SocialRumorChart() {
   const [period, setPeriod] = useState("month");
 
+  const data2: any = {
+    labels: ["Jan", "Feb", "Mar", "Apr", "Mai", "Jun"],
 
-    const labels = [1, 2, 3, 4, 5, 6]
-  const data2 = {
-    
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            
-            datasets: [{
-              label: '# of Votes',
-              data: [12, 19, 3, 5, 2, 3],
-              borderWidth: 1
-            }]
-          
-    
+    datasets: [
+      {
+        label: ["Positive comments"],
+        data: [250, 525, 250, 270, 390, 70],
+        backgroundColor: '#0d6efd',
+        borderWidth: 1,
+      },
+      {
+        label: ["Neutral comments"],
+        data: [280, 500, 200, 250, 450, 700],
+        borderWidth: 2,
+        backgroundColor: 'gray'
+      },
+      {
+        label: ["Negative of comments"],
+        data: [100, 270, 350, 350, 290, 50],
+        borderWidth: 2,
+        backgroundColor: 'red'
+      },
+    ],
   };
 
   const data = {
@@ -73,7 +126,7 @@ export default function SocialRumorChart() {
     ],
   };
   return (
-    <div className={inter.className}>
+    <div className={`${inter.className} `}>
       <div className='mt-2 mb-3 border-black border-2'></div>
 
       <div className='grid 2xl:grid-cols-6 grid-cols-3 grid-flow-row gap-2'>
@@ -290,8 +343,8 @@ export default function SocialRumorChart() {
         </div>
       </div>
 
-      <div className='flex justify-between'>
-        <div className='bg-white mt-10 p-6 px-7 pb-10 rounded-md'>
+      <div className='grid grid-cols-1 xl:grid-cols-2 gap-10 mt-10 pb-24'>
+        <div className='bg-white grow  shadow-lg max-h-[600px] sm:max-h-[500px]   p-6 px-7 pb-10 rounded-md'>
           <div className='flex flex-col gap-1'>
             <h3 className='text-2xl text-gray-600 font-semibold'>Genre</h3>
             <p className='text-4xl font-semibold text-black'>2.000</p>
@@ -299,11 +352,11 @@ export default function SocialRumorChart() {
           </div>
           <div className=' border-[1.5px] border-gray-300 mt-5 mb-2'></div>
 
-          <div className=' gap-6 flex sm:flex-row flex-col  items-center font-semibold text-black'>
+          <div className=' gap-6 flex sm:flex-row min-[1900px]:justify-center  flex-col  items-center font-semibold text-black'>
             <div className='w-[300px]'>
               <Pie data={data} />
             </div>
-            <div className='flex-col flex gap-2 '>
+            <div className='flex-col flex gap-2 2xl:-mt-20 pb-2'>
               <div className='flex gap-2 items-center'>
                 <span className='bg-[#0d6efd] h-4 w-9  gap-2 '></span>
                 <span className='text-black font-normal flex gap-2'>
@@ -320,7 +373,7 @@ export default function SocialRumorChart() {
           </div>
         </div>
 
-        <div className='bg-white mt-10 p-6 px-7 pb-10 rounded-md'>
+        <div className='bg-white grow shadow-lg  p-6 px-7 pb-10 rounded-md'>
           <div className='flex flex-col gap-1'>
             <h3 className='text-2xl text-gray-600 font-semibold'>
               Total comments
@@ -330,27 +383,77 @@ export default function SocialRumorChart() {
           </div>
           <div className=' border-[1.5px] border-gray-300 mt-5 mb-2'></div>
 
-          <div className=' gap-6 flex  flex-col  items-center font-semibold text-black'>
-            <div className='w-[300px]'>
-            <Bar options={options} data={data2} />;
+          <div className=' gap-6 flex flex-col  items-center font-semibold text-black'>
+            <div className='w-[300px] h-[250px] min-[600px]:w-[500px] min-[600px]:h-[500px] xl:w-[450px] min-[1600px]:w-[600px]'>
+              <Bar options={options} data={data2} className='w-full h-full' />
             </div>
-            <div className='flex-col flex gap-2 '>
-              <div className='flex gap-2 items-center'>
-                <span className='bg-[#0d6efd] h-4 w-9  gap-2 '></span>
-                <span className='text-black font-normal flex gap-2'>
-                  Men <span className='font-semibold'> 25%</span>
-                </span>
-              </div>
-              <div className='flex gap-2 items-center'>
-                <span className='bg-[#dee2e6] h-4 w-9  gap-2 '></span>
-                <span className='text-black font-normal flex gap-2'>
-                  Women <span className='font-semibold'> 85%</span>
-                </span>
-              </div>
-            </div>
+           
           </div>
         </div>
+
+        <div className='bg-white  p-6 px-7 grow shadow-lg xl:-mt-[12.5rem] pb-10 rounded-md'>
+        <div className='flex flex-col gap-1'>
+          <h3 className='text-2xl text-gray-600 font-semibold'>Age range</h3>
+          <p className=' text-black pt1 pb-2'>Number of people</p>
+          <div className='flex gap-2'>
+            <Button className='' variant='blackWide'>
+              All 
+            </Button>
+            <Button className='' variant='blackWide'>
+              Men 
+            </Button>
+            <Button className='' variant='blackWide'>
+              Women
+            </Button>
+          </div>
+        </div>
+        <div className=' border-[1.5px] border-gray-300 mt-5 mb-2'></div>
+
+        <div className='pt-7 pb-5 '>
+          {ageRangeData.map((data) => {
+            return (
+              <div>
+                <p className='text-gray-500 text-sm py-3'>{data.ageRange}</p>
+                <div className="flex gap-10 sm:gap-28 items-center">
+                <Progress value={data.progress} className='w-[60%]'/>
+                <span className="text-black font-semibold">{data.progress}%</span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
+
+      <div className='bg-white  p-6 px-7 grow max-h-[600px] xl:-mt-[.3rem]  shadow-lg  pb-10 rounded-md'>
+        <div className='flex flex-col gap-1'>
+          <h3 className='text-2xl text-gray-600 font-semibold'>Main locations</h3>
+          <p className=' text-black pt1 pb-2'>Countries</p>
+          
+        </div>
+        <div className=' border-[1.5px] border-gray-300 mt-5 mb-2'></div>
+
+        <div className='pt-7 pb-5 '>
+          {countriesData.map((data) => {
+            return (
+              <div>
+                <p className='text-gray-500 text-sm py-3'>{data.country}</p>
+                <div className="flex gap-10 md:gap-28 items-center">
+                <Progress value={data.progress} className='w-[60%]'/>
+                <span className="text-black font-semibold">{data.progress}%</span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      </div>
+
+      
+      
+
+     
+
+      
     </div>
   );
 }
