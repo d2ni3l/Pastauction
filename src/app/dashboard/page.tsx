@@ -31,7 +31,8 @@ export default function page() {
         setMobileSidebar={setMobileSideBar}
       />
 
-      <div className='max-w-7xl xl:ml-[5rem]'>
+      <div className="xl:flex xl:justify-center ">
+      <div className='max-w-7xl xl:ml-[5rem] xl:grow'>
         <div className='lg:ml-[16rem] '>
           <DashboardIntro />
         </div>
@@ -48,6 +49,7 @@ export default function page() {
         <div className='lg:ml-[16rem]  pb-12'>
           <DashboardFooter />
         </div>
+      </div>
       </div>
       
       {completeprofileModal && (

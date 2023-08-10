@@ -92,19 +92,19 @@ export default function SocialRumorChart() {
 
     datasets: [
       {
-        label: ["Positive comments"],
+        label: ["Positive "],
         data: [250, 525, 250, 270, 390, 70],
         backgroundColor: "#0d6efd",
         borderWidth: 1,
       },
       {
-        label: ["Neutral comments"],
+        label: ["Neutral "],
         data: [280, 500, 200, 250, 450, 700],
         borderWidth: 2,
         backgroundColor: "gray",
       },
       {
-        label: ["Negative of comments"],
+        label: ["Negative "],
         data: [100, 270, 350, 350, 290, 50],
         borderWidth: 2,
         backgroundColor: "red",
@@ -126,12 +126,12 @@ export default function SocialRumorChart() {
     <div className={`${inter.className} `}>
       <div className='mt-2 mb-3 border-black border-2'></div>
 
-      <div className='grid 2xl:grid-cols-6 grid-cols-3 grid-flow-row gap-2'>
+      <div className='grid sm:grid-cols-6 grid-cols-3 grid-flow-row gap-4'>
         <Button
           onClick={() => {
             setPeriod("yestarday");
           }}
-          className='lg:px-24 sm:px-10 rounded-sm'
+          className='lg:px-16 sm:px-10 rounded-sm'
           variant={period === "yestarday" ? "blue" : "blackWide"}>
           Yesterday
         </Button>
@@ -139,7 +139,7 @@ export default function SocialRumorChart() {
           onClick={() => {
             setPeriod("week");
           }}
-          className='lg:px-24 sm:px-10 rounded-sm'
+          className='lg:px-16 sm:px-10 rounded-sm'
           variant={period === "week" ? "blue" : "blackWide"}>
           Week
         </Button>
@@ -147,7 +147,7 @@ export default function SocialRumorChart() {
           onClick={() => {
             setPeriod("month");
           }}
-          className='lg:px-24 sm:px-10 rounded-sm'
+          className='lg:px-16 sm:px-10 rounded-sm'
           variant={period === "month" ? "blue" : "blackWide"}>
           Month
         </Button>
@@ -155,7 +155,7 @@ export default function SocialRumorChart() {
           onClick={() => {
             setPeriod("quartar");
           }}
-          className='lg:px-24 sm:px-10 rounded-sm'
+          className='lg:px-16 sm:px-10 rounded-sm'
           variant={period === "quartar" ? "blue" : "blackWide"}>
           Quarter
         </Button>
@@ -163,7 +163,7 @@ export default function SocialRumorChart() {
           onClick={() => {
             setPeriod("year");
           }}
-          className='lg:px-24 sm:px-10 rounded-sm'
+          className='lg:px-16 sm:px-10 rounded-sm'
           variant={period === "year" ? "blue" : "blackWide"}>
           Year
         </Button>
@@ -171,7 +171,7 @@ export default function SocialRumorChart() {
           onClick={() => {
             setPeriod("all");
           }}
-          className='lg:px-24 sm:px-10 rounded-sm'
+          className='lg:px-16 sm:px-10 rounded-sm'
           variant={period === "all" ? "blue" : "blackWide"}>
           All
         </Button>
@@ -381,7 +381,7 @@ export default function SocialRumorChart() {
           <div className=' border-[1.5px] border-gray-300 mt-5 mb-2'></div>
 
           <div className=' gap-6 flex flex-col  items-center font-semibold text-black'>
-            <div className='w-[300px] h-[250px] min-[600px]:w-[500px] min-[600px]:h-[500px] xl:w-[450px] min-[1600px]:w-[600px]'>
+            <div className='w-[300px] h-[250px] min-[600px]:w-[500px] min-[600px]:h-[500px]  '>
               <Bar options={options} data={data2} className='w-full h-full' />
             </div>
           </div>

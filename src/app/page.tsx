@@ -1,5 +1,4 @@
-"use client";
-import { useAtom } from "jotai";
+
 
 import Header from "../components/Header";
 export default function Home() {

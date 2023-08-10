@@ -21,7 +21,7 @@ export default function page() {
         mobileSidebar={mobileSidebar}
         setMobileSidebar={setMobileSideBar}
       />
-      <div className='lg:ml-[16rem] '>
+      <div className='lg:ml-[16rem] max-w-7xl'>
         <div className='mx-10 mt-10'>
           <div className='bg-white rounded-full shadow-lg p-4 w-[60px] h-[60px] max-w-[60px] max-h-[60px] hover:scale-[.9] transition-all duration-500'>
             <Link

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+"use client";
+import React, { Dispatch, useState } from "react";
 import {
   Table,
   TableBody,
@@ -15,15 +16,32 @@ import Link from "next/link";
 export default function AuctionAlertDetails() {
   const [deleteVehicle, setDeleteVehicle] = useState(false);
   const [period, setPeriod] = useState("month");
-  const [fill, setFill] = setState(false)
+  const [fill, setFill] = useState(false);
+  const [savedAuction, setSavedAuction] = useState<SavedAuction | null>(null);
 
+
+  interface SavedAuction {
+    shape: string;
+    year: string;
+    auctioneer: string;
+    country: string;
+    event: string;
+    date: string;
+    min_val: string;
+    max_val: string;
+    riserve: string;
+    total: string;
+    auction_currency: string;
+    id: number;
+  }
   const dataPlaceholder = [
     {
+      id: 1,
       year: "1986",
       shape: "Replica Coupè",
       auctioneer: "RM Sotheby",
       country: "USA",
-      Events: "Fourt Lauderiare",
+      event: "Fourt Lauderiare",
       date: "05/03/23",
       lot: "2103",
       min_val: "207,443",
@@ -33,11 +51,13 @@ export default function AuctionAlertDetails() {
       auction_currency: "US$",
     },
     {
+      id: 2,
+
       year: "1999",
       shape: "Convertible",
       auctioneer: "Bonhams",
       country: "USA",
-      Events: "Les grandes...",
+      event: "Les grandes...",
       date: "05/03/23",
       lot: "",
       min_val: "20,453",
@@ -47,11 +67,13 @@ export default function AuctionAlertDetails() {
       auction_currency: "EUR",
     },
     {
+      id: 3,
+
       year: "1876",
       shape: "Convertible",
       auctioneer: "Mecum",
       country: "Montecano",
-      Events: "Fort Lauderiare",
+      event: "Fort Lauderiare",
       date: "02/04/23",
       lot: "",
       min_val: "205,253",
@@ -61,11 +83,13 @@ export default function AuctionAlertDetails() {
       auction_currency: "US$",
     },
     {
+      id: 4,
+
       year: "1995",
       shape: "Convertible",
       auctioneer: "Artcurial",
       country: "France",
-      Events: "",
+      event: "",
       date: "14/03/23",
       lot: "",
       min_val: "202,433",
@@ -75,11 +99,12 @@ export default function AuctionAlertDetails() {
       auction_currency: "EUR",
     },
     {
+      id: 5,
       year: "1987",
       shape: "Coupe",
       auctioneer: "Broad Arrow",
       country: "USA",
-      Events: "",
+      event: "",
       date: "",
       lot: "",
       min_val: "202,433",
@@ -89,6 +114,10 @@ export default function AuctionAlertDetails() {
       auction_currency: "EUR",
     },
   ];
+
+  const getData = (i: number) => {
+    setSavedAuction(dataPlaceholder[i]);
+  };
   return (
     <div>
       <VehicleCards
@@ -193,40 +222,43 @@ export default function AuctionAlertDetails() {
             <TableHead className='font-semibold lg:text-sm text-black bg-yellow-200'>
               Auction currency
             </TableHead>
+            <TableHead className='selec-none text-transparent'>
+              Auction currency
+            </TableHead>
           </TableRow>
         </TableHeader>
 
         <TableBody>
-          {dataPlaceholder.map((data) => (
-            <TableRow key={data.shape}>
-              <TableCell className='font-medium'>{data.year}</TableCell>
-              <TableCell className='font-medium underline text-blue-500'><Link href='/'>{data.shape}</Link></TableCell>
-              <TableCell className='font-medium'>{data.auctioneer}</TableCell>
-              <TableCell className='font-medium'>
-                {data.country}
-             
-              </TableCell>
-              <TableCell className='font-medium'>{data.Events}</TableCell>
-              <TableCell className='font-medium'>{data.date}</TableCell>
-              <TableCell className='font-medium'>{data.lot}</TableCell>
-              <TableCell className='font-medium'>{data.min_val}</TableCell>
-              <TableCell className='font-medium'>{data.max_val}</TableCell>
-              <TableCell className=' font-semibold'>
-                {data.auction_currency}
-              </TableCell>
-              <TableCell className='font-medium bg-yellow-200'>
-                {data.total}
-              </TableCell>
-              <TableCell className='cursor-pointer ' onClick={() => {setFill(true)}}>
-              <Image
-                src='/images/hollowheart.svg'
-                alt='heart'
-                width='50'
-                height='50'
-              />
-            </TableCell>
-            </TableRow>
-          ))}
+          {dataPlaceholder.map((data, i) => {
+            return (
+              <TableRow key={i}>
+                <TableCell className='font-medium'>{data.year}</TableCell>
+                <TableCell className='font-medium underline text-blue-500'>
+                  <Link href='/'>{data.shape}</Link>
+                </TableCell>
+                <TableCell className='font-medium'>{data.auctioneer}</TableCell>
+                <TableCell className='font-medium'>{data.country}</TableCell>
+                <TableCell className='font-medium'>{data.event}</TableCell>
+                <TableCell className='font-medium'>{data.date}</TableCell>
+                <TableCell className='font-medium'>{data.lot}</TableCell>
+                <TableCell className='font-medium'>{data.min_val}</TableCell>
+                <TableCell className='font-medium'>{data.max_val}</TableCell>
+                <TableCell className=' font-semibold'>
+                  {data.auction_currency}
+                </TableCell>
+                <TableCell className='font-medium bg-yellow-200'>
+                  {data.total}
+                </TableCell>
+                <TableCell
+                  onClick={() => {
+                    getData(i);
+                  }}
+                  className='cursor-pointer '>
+                  <ImageComp />
+                </TableCell>
+              </TableRow>
+            );
+          })}
 
           <TableRow className='bg-yellow-200 font-semibold'>
             <TableCell className=''>
@@ -244,12 +276,45 @@ export default function AuctionAlertDetails() {
             <TableCell>25</TableCell>
             <TableCell>0</TableCell>
             <TableCell className='bg-yellow-500'>130</TableCell>
-            
           </TableRow>
         </TableBody>
       </Table>
 
-      <div className='pt-12'></div>
+      <div className='pt-24'></div>
+      {savedAuction && (
+        <div className=' absolute bottom-0 bg-[#f6f6f6] rounded-t-lg flex px-6 py-3 items-center border gap-5 border-gray-300'>
+          <p className='font-medium pt-2'>
+            {savedAuction?.year} - {savedAuction?.shape} -{" "}
+            {savedAuction?.auctioneer} - {savedAuction?.country} -{" "}
+            {savedAuction?.event} <br /> - {savedAuction?.date}
+          </p>
+          <button className='py-2 -mt-  text-sm px-3 border-blue-500 border text-blue-500 scale-hover rounded-sm font-medium'>
+            Saved vehicles
+          </button>
+          <Image src='/images/x.svg'  alt='cancel' width='10' className='float-right cursor-pointer -mt-10 ml-3' onClick={() => {setSavedAuction(null)}} height='10'/>
+
+        </div>
+      )}
     </div>
   );
 }
+
+// interface ImageProp {
+//   fill: boolean;
+//   setFill: Dispatch<React.SetStateAction<boolean>>;
+// }
+
+const ImageComp = () => {
+  const [fill, setFill] = useState(false);
+  return (
+    <Image
+      onClick={() => {
+        setFill(!fill);
+      }}
+      src={fill ? "/images/filledheart.svg" : "/images/hollowheart.svg"}
+      alt='like'
+      height='25'
+      width='25'
+    />
+  );
+};

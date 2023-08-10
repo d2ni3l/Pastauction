@@ -6,7 +6,7 @@ import DashboardNavbar from "@/components/dashboard/DashboardNavbar";
 import GarageArea from "@/components/garage/GarageArea";
 import Image from "next/image";
 import Link from "next/link";
-import GarageInfoCard from "@/components/garage/CreateGarageCard";
+import CreateGarageCard from "@/components/garage/CreateGarageCard";
 export default function page() {
   const [mobileSidebar, setMobileSideBar] = useState(false);
   return (
@@ -22,7 +22,8 @@ export default function page() {
         setMobileSidebar={setMobileSideBar}
       />
 
-      <div className='lg:ml-[16rem]'>
+      <div className="xl:justify-center xl:flex">
+      <div className='lg:ml-[16rem] max-w-7xl grow'>
       <div className='mx-10 mt-10'>
           <div className='bg-white rounded-full shadow-lg p-4 w-[60px] h-[60px] max-w-[60px] max-h-[60px] hover:scale-[.9] transition-all duration-500'>
             <Link
@@ -49,8 +50,9 @@ export default function page() {
         </div>
 
         <div className='justify-center flex'>
-          <GarageInfoCard />
+          <CreateGarageCard />
         </div>
+      </div>
       </div>
     </div>
   );

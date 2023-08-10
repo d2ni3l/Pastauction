@@ -21,7 +21,8 @@ export default function page() {
         mobileSidebar={mobileSidebar}
         setMobileSidebar={setMobileSideBar}
       />
-      <div className='lg:ml-[16rem] '>
+      <div className="flex justify-center ">
+      <div className='lg:ml-[16rem] grow max-w-7xl'>
       <Link href='/dashboard/'>
         <div className='flex justify-start mx-10 mt-10'>
           <div className="bg-white rounded-full p-4 hover:scale-[.9] transition-all duration-500">
@@ -48,6 +49,7 @@ export default function page() {
         <GarageInfoCard/>
 
         <GarageArea />
+      </div>
       </div>
     </div>
   );

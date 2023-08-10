@@ -6,7 +6,7 @@ import DashboardNavbar from "@/components/dashboard/DashboardNavbar";
 
 import Link from "next/link";
 import Image from "next/image";
-import AuctionAlert from "@/components/garage/AuctionAlert";
+import AuctionVehicleDetails from "@/components/garage/AuctionVehicleDetails";
 export default function page() {
   const [mobileSidebar, setMobileSideBar] = useState(false);
   return (
@@ -22,11 +22,11 @@ export default function page() {
         setMobileSidebar={setMobileSideBar}
       />
       <div className="xl:flex xl:justify-center">
-      <div className='lg:ml-[16rem] max-w-7xl grow'>
+      <div className='lg:ml-[16rem] grow'>
         <div className='mx-10 mt-10'>
           <div className='bg-white rounded-full shadow-lg p-4 w-[60px] h-[60px] max-w-[60px] max-h-[60px] hover:scale-[.9] transition-all duration-500'>
             <Link
-              href='/dashboard/garage/garageview'
+              href='/dashboard/garage/addvehicle'
               className='w-[60px] h-[60px] max-w-[60px] max-h-[60px] '>
               <Image
                 src='/images/blackbgarrowleft.svg'
@@ -39,8 +39,8 @@ export default function page() {
           </div>
         </div>
 
-        <div className='pt-10 mx-10 '>
-          <AuctionAlert />
+        <div className='pt-10 mx-10 flex justify-center'>
+          <AuctionVehicleDetails />
         </div>
       </div>
       </div>

@@ -13,8 +13,8 @@ export default function ServiceAvailable() {
         </p>
       </div>
       <div className='pt-8'></div>
-      <div className='flex flex-wrap gap-4  items-center justify-center px-1 py-5 bg-white rounded-lg'>
-        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 bg-gray-200 px-9 rounded-md py-2'>
+      <div className='xl:grid-cols-7 lg:grid-cols-6 grid-cols-3 place-content-center flex flex-wrap  sm:grid gap-4 px-6  items-center justify-center  py-5 bg-white rounded-lg'>
+        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 bg-gray-200  rounded-md py-2'>
           <Image
             src='/images/garageview.svg'
             height='30'
@@ -25,7 +25,7 @@ export default function ServiceAvailable() {
             Garage view
           </p>
         </div>
-        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 bg-gray-200 px-9 rounded-md py-2'>
+        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 bg-gray-200  rounded-md py-2'>
           <Image
             src='/images/socialrumors.svg'
             height='30'
@@ -36,7 +36,7 @@ export default function ServiceAvailable() {
             Social Rumors
           </p>
         </div>
-        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 bg-gray-200 px-9 rounded-md py-2'>
+        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 bg-gray-200  rounded-md py-2'>
           <Image
             src='/images/auctionalert.svg'
             height='30'
@@ -47,7 +47,7 @@ export default function ServiceAvailable() {
             Auction Alert
           </p>
         </div>
-        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 bg-gray-200 px-9 rounded-md py-2'>
+        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 bg-gray-200  rounded-md py-2'>
           <Image
             src='/images/singlechart.svg'
             height='30'
@@ -58,7 +58,7 @@ export default function ServiceAvailable() {
             Single Charts
           </p>
         </div>
-        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 bg-gray-200 px-9 rounded-md py-2'>
+        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 bg-gray-200  rounded-md py-2'>
           <Image
             src='/images/minidashboard.svg'
             height='30'
@@ -69,7 +69,7 @@ export default function ServiceAvailable() {
             Mini Dashboard
           </p>
         </div>
-        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 bg-gray-200 px-9 rounded-md py-2'>
+        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 bg-gray-200  rounded-md py-2'>
           <Image
             src='/images/dashboard.svg'
             height='30'
@@ -80,7 +80,7 @@ export default function ServiceAvailable() {
             Dashboard
           </p>
         </div>
-        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 bg-gray-200 px-9 rounded-md py-2'>
+        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 bg-gray-200  rounded-md py-2'>
           <Image
             src='/images/singledatas.svg'
             height='30'

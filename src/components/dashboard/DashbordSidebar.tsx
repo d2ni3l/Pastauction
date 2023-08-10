@@ -14,7 +14,6 @@ export const DashbordSidebar = ({
   setMobileSidebar,
   page,
 }: DashboardSidebar) => {
-  console.log(mobileSidebar);
 
   return (
     <div className={inter.className}>

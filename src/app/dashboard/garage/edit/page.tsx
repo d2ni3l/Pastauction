@@ -21,7 +21,8 @@ export default function page() {
         mobileSidebar={mobileSidebar}
         setMobileSidebar={setMobileSideBar}
       />
-      <div className='lg:ml-[16rem] '>
+      <div className="xl:flex xl:justify-center">
+      <div className='lg:ml-[16rem] max-w-7xl grow'>
         <Link href='/dashboard/garage/addvehicle'>
           <div className="mx-10 mt-10">
           <div className='bg-white rounded-full p-4 max-w-[60px] max-h-[60px] hover:scale-[.9] transition-all duration-500'>
@@ -47,6 +48,7 @@ export default function page() {
             <AddVehicleInfo/>
         </div>
        
+      </div>
       </div>
     </div>
   );

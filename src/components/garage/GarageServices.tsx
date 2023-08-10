@@ -39,7 +39,7 @@ export default function GarageServices() {
         <div className="pb-5 justify-center lg:justify-start flex">
         <h2 className='text-blue-500 font-bold text-xl '>Vehicles (6)</h2>
       </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2  gap-8 xl:grid-cols-3 min-[2000px]:grid-cols-4 justify-center lg:justify-start">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3   gap-5 place-content-center place-items-center justify-center lg:justify-start">
         <VehicleCards deleteVehicle={deleteVehicle} setDeleteVehicle={setDeleteVehicle}/>
         <VehicleCards deleteVehicle={deleteVehicle} setDeleteVehicle={setDeleteVehicle}/>
         <VehicleCards deleteVehicle={deleteVehicle} setDeleteVehicle={setDeleteVehicle}/>

@@ -86,12 +86,11 @@ const dataPlaceholder = [
   },
 ];
 export default function AuctionAlert() {
-  const [period, setPeriod] = useState('month')
+  const [period, setPeriod] = useState("month");
   return (
     <div className='overflow-auto pb-12'>
       <div className='flex sm:flex-row flex-col justify-between py-5 '>
         <div className='flex gap-7 pt-5 order-2 sm:order-1'>
-
           <div className='flex gap-4 items-center '>
             <Checkbox id='terms' value='Series' />
             <label
@@ -101,25 +100,24 @@ export default function AuctionAlert() {
             </label>
           </div>
 
-         <div className="flex gap-4 relative ml-2">
-         <div className='flex gap-2 items-center'>
-            <Checkbox id='terms' value='Same year' />
-            <label
-              htmlFor='terms'
-              className='text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70'>
-              Same year
-            </label>
+          <div className='flex gap-4 relative ml-2'>
+            <div className='flex gap-2 items-center'>
+              <Checkbox id='terms' value='Same year' />
+              <label
+                htmlFor='terms'
+                className='text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70'>
+                Same year
+              </label>
+            </div>
+            <div className='flex gap-2 items-center'>
+              <Checkbox id='terms' value='Owned' />
+              <label
+                htmlFor='terms'
+                className='text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70'>
+                Owned
+              </label>
+            </div>
           </div>
-          <div className='flex gap-2 items-center'>
-            <Checkbox id='terms' value='Owned' />
-            <label
-              htmlFor='terms'
-              className='text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70'>
-              Owned
-            </label>
-          </div>
-         </div>
-
         </div>
 
         <div className='order-1 sm:order-2'>
@@ -148,12 +146,12 @@ export default function AuctionAlert() {
       </div>
       <div className='mt-2 mb-3 border-black border-2'></div>
 
-      <div className='grid 2xl:grid-cols-6 grid-cols-3 grid-flow-row gap-2'>
+      <div className='grid sm:grid-cols-6 grid-cols-3 grid-flow-row gap-4'>
         <Button
           onClick={() => {
             setPeriod("yestarday");
           }}
-          className='lg:px-24 sm:px-10 rounded-sm'
+          className='lg:px-16 sm:px-10 rounded-sm'
           variant={period === "yestarday" ? "blue" : "blackWide"}>
           Yesterday
         </Button>
@@ -161,7 +159,7 @@ export default function AuctionAlert() {
           onClick={() => {
             setPeriod("week");
           }}
-          className='lg:px-24 sm:px-10 rounded-sm'
+          className='lg:px-16 sm:px-10 rounded-sm'
           variant={period === "week" ? "blue" : "blackWide"}>
           Week
         </Button>
@@ -169,7 +167,7 @@ export default function AuctionAlert() {
           onClick={() => {
             setPeriod("month");
           }}
-          className='lg:px-24 sm:px-10 rounded-sm'
+          className='lg:px-16 sm:px-10 rounded-sm'
           variant={period === "month" ? "blue" : "blackWide"}>
           Month
         </Button>
@@ -177,7 +175,7 @@ export default function AuctionAlert() {
           onClick={() => {
             setPeriod("quartar");
           }}
-          className='lg:px-24 sm:px-10 rounded-sm'
+          className='lg:px-16 sm:px-10 rounded-sm'
           variant={period === "quartar" ? "blue" : "blackWide"}>
           Quarter
         </Button>
@@ -185,7 +183,7 @@ export default function AuctionAlert() {
           onClick={() => {
             setPeriod("year");
           }}
-          className='lg:px-24 sm:px-10 rounded-sm'
+          className='lg:px-16 sm:px-10 rounded-sm'
           variant={period === "year" ? "blue" : "blackWide"}>
           Year
         </Button>
@@ -193,7 +191,7 @@ export default function AuctionAlert() {
           onClick={() => {
             setPeriod("all");
           }}
-          className='lg:px-24 sm:px-10 rounded-sm'
+          className='lg:px-16 sm:px-10 rounded-sm'
           variant={period === "all" ? "blue" : "blackWide"}>
           All
         </Button>
@@ -247,14 +245,14 @@ export default function AuctionAlert() {
           {dataPlaceholder.map((data) => (
             <TableRow key={data.brand}>
               <TableCell className='font- underline text-blue-500 font-semibold'>
-                <Link href='/dashboard/garage/auctionalertdetails'>{data.view}</Link>
+                <Link href='/dashboard/garage/auctionalertdetails'>
+                  {data.view}
+                </Link>
               </TableCell>
               <TableCell className='font-medium'>{data.year}</TableCell>
               <TableCell className='font-medium'>{data.brand}</TableCell>
               <TableCell className='font-medium'>{data.model}</TableCell>
-              <TableCell className='font-medium'>
-                {data.usa}
-              </TableCell>
+              <TableCell className='font-medium'>{data.usa}</TableCell>
               <TableCell className='font-medium'>{data.uk}</TableCell>
               <TableCell className='font-medium'>{data.europe}</TableCell>
               <TableCell className='font-medium'>{data.oceania}</TableCell>
@@ -292,4 +290,3 @@ export default function AuctionAlert() {
     </div>
   );
 }
-

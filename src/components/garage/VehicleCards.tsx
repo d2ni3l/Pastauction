@@ -32,7 +32,7 @@ export default function VehicleCards({
 
   return (
     <div>
-      <div className='wrapper max-w-sm rounded-t-lg overflow-hidden relative'>
+      <div className='wrapper max-w-[360px] xl:max-w-[400px]  rounded-t-lg overflow-hidden relative'>
         <Swiper
           spaceBetween={0.5}
           slidesPerView={1}
@@ -43,21 +43,21 @@ export default function VehicleCards({
           loop={true}>
           <SwiperSlide>
             <div
-              className='h-[250px] w-[384px]  background-img   rounded-t-lg'
+              className='h-[250px] w-[360px] xl:w-[400px]   background-img   rounded-t-lg'
               style={{
                 backgroundImage: `url(${backgroundImages[0].url})`,
               }}></div>
           </SwiperSlide>
           <SwiperSlide>
             <div
-              className='h-[250px] w-[384px]  background-img  rounded-t-lg '
+              className='h-[250px] w-[360px] xl:w-[400px]   background-img  rounded-t-lg '
               style={{
                 backgroundImage: `url(${backgroundImages[1].url})`,
               }}></div>
           </SwiperSlide>
           <SwiperSlide>
             <div
-              className='h-[250px] w-[384px]  background-img   rounded-t-lg '
+              className='h-[250px] w-[360px] xl:w-[400px]  background-img   rounded-t-lg '
               style={{
                 backgroundImage: `url(${backgroundImages[2].url})`,
               }}></div>
@@ -120,7 +120,7 @@ export default function VehicleCards({
           </div>
 
           <div className='flex justify-start'>
-            <button className='text-black rounded-sm border-black mb-6 scale-hover border-2 py-1 px-1'>
+            <button className='text-black rounded-sm border-black mb-6 scale-hover border-2 py-2 px-2'>
               <div className='text-sm text-black font-medium'>
                 Search spare parts
               </div>

@@ -18,7 +18,8 @@ export default function page() {
         mobileSidebar={mobileSidebar}
         setMobileSidebar={setMobileSideBar}
       />
-      <div className='lg:ml-[16rem] '>
+      <div className="xl:flex xl:justify-center">
+      <div className='lg:ml-[16rem] max-w-7xl grow'>
         <div className='flex flex-col gap-4 justify-center items-center pt-12'>
           <h1 className='font-semibold sm:text-3xl text-lg'>
             Add vehicles
@@ -32,6 +33,7 @@ export default function page() {
         <AddVehicleComp/>
         </div>
 
+      </div>
       </div>
     </div>
   );
