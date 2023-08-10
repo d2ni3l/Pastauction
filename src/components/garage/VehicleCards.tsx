@@ -120,7 +120,7 @@ export default function VehicleCards({
           </div>
 
           <div className='flex justify-start'>
-            <button className='text-black rounded-sm border-black mb-6 scale-hover border-2 py-2 px-2'>
+            <button className='text-black rounded-md border-black mb-6 scale-hover border-2 py-2 px-2'>
               <div className='text-sm text-black font-medium'>
                 Search spare parts
               </div>

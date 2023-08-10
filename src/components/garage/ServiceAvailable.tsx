@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-
+import Link from 'next/link'
 export default function ServiceAvailable() {
   return (
     <div className="mx-5">
@@ -13,84 +13,98 @@ export default function ServiceAvailable() {
         </p>
       </div>
       <div className='pt-8'></div>
-      <div className='xl:grid-cols-7 lg:grid-cols-6 grid-cols-3 place-content-center flex flex-wrap  sm:grid gap-4 px-6  items-center justify-center  py-5 bg-white rounded-lg'>
-        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 bg-gray-200  rounded-md py-2'>
+      <div className='xl:grid-cols-7  grid-cols-3 place-content-center flex flex-wrap md:grid-cols-4  sm:grid gap-4 px-6  items-center justify-center  py-5 bg-white rounded-lg'>
+          <Link className='min-w-[138px] max-h-[80px] sm:min-w-0 scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 xl:px-0 bg-gray-200  rounded-md py-2' href='/dashboard/garage/garageview'>
+
+          
           <Image
             src='/images/garageview.svg'
             height='30'
             width='30'
             alt='garage view'
           />
-          <p className='text-gray-900 tracking-wide text-sm font-semibold'>
+          <p className='text-gray-900 tracking-wide text-sm '>
             Garage view
           </p>
-        </div>
-        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 bg-gray-200  rounded-md py-2'>
+          </Link>
+          <Link className='min-w-[138px] max-h-[80px] sm:min-w-0 scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 xl:px-0 bg-gray-200  rounded-md py-2' href='/dashboard/garage/socialrumor'>
+
+          
           <Image
             src='/images/socialrumors.svg'
             height='30'
             width='30'
             alt='garage view'
           />
-          <p className='text-gray-900 tracking-wide text-sm font-semibold'>
+          <p className='text-gray-900 tracking-wide text-sm '>
             Social Rumors
           </p>
-        </div>
-        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 bg-gray-200  rounded-md py-2'>
+          </Link>
+          <Link className='min-w-[138px] max-h-[80px] sm:min-w-0 scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 xl:px-0 bg-gray-200  rounded-md py-2' href='/dashboard/garage/auctionalert'>
+
+          
           <Image
             src='/images/auctionalert.svg'
             height='30'
             width='30'
             alt='garage view'
           />
-          <p className='text-gray-900 tracking-wide text-sm font-semibold'>
+          <p className='text-gray-900 tracking-wide text-sm '>
             Auction Alert
           </p>
-        </div>
-        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 bg-gray-200  rounded-md py-2'>
+          </Link>
+          <Link className='min-w-[138px] max-h-[80px] sm:min-w-0 scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 xl:px-0 bg-gray-200  rounded-md py-2' href='/dashboard/garage/singlechart'>
+
+          
           <Image
             src='/images/singlechart.svg'
             height='30'
             width='30'
             alt='garage view'
           />
-          <p className='text-gray-900 tracking-wide text-sm font-semibold'>
+          <p className='text-gray-900 tracking-wide text-sm '>
             Single Charts
           </p>
-        </div>
-        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 bg-gray-200  rounded-md py-2'>
+          </Link>
+          <Link className='min-w-[138px] max-h-[80px] sm:min-w-0 scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 xl:px-0 bg-gray-200  rounded-md py-2' href='/dashboard/garage/minidashboard'>
+
+          
           <Image
             src='/images/minidashboard.svg'
             height='30'
             width='30'
             alt='garage view'
           />
-          <p className='text-gray-900 tracking-wide text-sm font-semibold'>
+          <p className='text-gray-900 tracking-wide text-sm '>
             Mini Dashboard
           </p>
-        </div>
-        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 bg-gray-200  rounded-md py-2'>
+          </Link>
+          <Link className='min-w-[138px] max-h-[80px] sm:min-w-0 scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 xl:px-0 bg-gray-200  rounded-md py-2' href='/dashboard/garage/dashboard'>
+
+          
           <Image
             src='/images/dashboard.svg'
             height='30'
             width='30'
             alt='garage view'
           />
-          <p className='text-gray-900 tracking-wide text-sm font-semibold'>
+          <p className='text-gray-900 tracking-wide text-sm '>
             Dashboard
           </p>
-        </div>
-        <div className='scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 bg-gray-200  rounded-md py-2'>
+          </Link>
+          <Link className='min-w-[138px] max-h-[80px] sm:min-w-0 scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 xl:px-0 bg-gray-200  rounded-md py-2' href='/dashboard/garage/singledetails'>
+
+          
           <Image
             src='/images/singledatas.svg'
             height='30'
             width='30'
             alt='garage view'
           />
-          <p className='text-gray-900 tracking-wide text-sm font-semibold'>
+          <p className='text-gray-900 tracking-wide text-sm '>
             Single Details
           </p>
-        </div>
+          </Link>
       </div>
     </div>
   );
