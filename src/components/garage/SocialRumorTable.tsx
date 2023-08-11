@@ -177,40 +177,40 @@ export default function SocialRumorTable() {
       <Table>
         <TableHeader>
           <TableRow className='border-t-[1px] border-b-[2px] border-black'>
-            <TableHead className='font-semibold lg:text-sm text-transparent select-none bg-red-400'>
+            <TableHead className='font-semibold lg:text-sm text-transparent select-none bg-red-300'>
               View
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-red-400'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-red-300'>
               Year
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-red-400 w-[150px]'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-red-300 w-[150px]'>
               Brand
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-red-400 '>
+            <TableHead className='font-semibold lg:text-sm text-black bg-red-300 '>
               Modal
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-green-400'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-green-300'>
               online magazines
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-green-400'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-green-300'>
               Blog
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-green-400'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-green-300'>
               Twitter
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-green-400'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-green-300'>
               Youtube
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-green-400'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-green-300'>
               Facebook
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-green-400'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-green-300'>
               Instagram
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-green-400'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-green-300'>
               Tik tok
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-yellow-400'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-yellow-300'>
               Total
             </TableHead>
           </TableRow>
@@ -234,7 +234,7 @@ export default function SocialRumorTable() {
               <TableCell className='font-medium'>{data.facebook}</TableCell>
               <TableCell className='font-medium'>{data.instagram}</TableCell>
               <TableCell className='font-medium'>{data.titok}</TableCell>
-              <TableCell className='font-medium bg-yellow-400'>
+              <TableCell className='font-medium bg-yellow-200'>
                 {data.total}
               </TableCell>
             </TableRow>

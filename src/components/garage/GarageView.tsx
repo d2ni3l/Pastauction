@@ -77,40 +77,40 @@ export function GarageView() {
       <Table>
         <TableHeader>
           <TableRow className='border-t-[1px] border-b-[2px] border-black'>
-            <TableHead className='font-semibold lg:text-sm text-black bg-red-400'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-red-200'>
               Photo
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-red-400'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-red-200'>
               Year
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-red-400 w-[150px]'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-red-200 w-[150px]'>
               Brand
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-red-400 '>
+            <TableHead className='font-semibold lg:text-sm text-black bg-red-200 '>
               Modal
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-red-400'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-red-200'>
               Status
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-yellow-400'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-yellow-200'>
               Purchase
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-yellow-400'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-yellow-200'>
               Date
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-green-400'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-green-200'>
               Avg 36 mo
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-green-400'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-green-200'>
               Avg 24 mo
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-green-400'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-green-200'>
               Avg 6 mo
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-blue-400'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-blue-200'>
               %
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-blue-400'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-blue-200'>
               Result
             </TableHead>
           </TableRow>
@@ -180,12 +180,12 @@ export function GarageView() {
               </button>
             </TableCell>
 
-            <TableCell className='bg-green-400'>
+            <TableCell className='bg-green-200'>
               <button className='text-black font-semibold '>
               325%
               </button>
             </TableCell>
-            <TableCell className='bg-green-400'>
+            <TableCell className='bg-green-200'>
               <button className='text-black font-semibold '>
               13,444
               </button>

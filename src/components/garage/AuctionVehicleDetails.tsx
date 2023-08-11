@@ -23,38 +23,39 @@ export default function AuctionVehicleDetails() {
   return (
     <div>
       <div className='grid xl:grid-cols-2 gap-7 place-items-center xl:place-items-start'>
-
         <div className=' flex  justify-center  '>
           <div>
-          <div className='flex gap-5'>
-            <Image
-              src='/images/flagenglandplaceholder.svg'
-              alt='country flag'
-              width='50'
-              height='50'
+            <div className='flex gap-5'>
+              <Image
+                src='/images/flagenglandplaceholder.svg'
+                alt='country flag'
+                width='50'
+                height='50'
+              />
+              <h1 className='text-lg font-semibold text-black'>
+                Jaguar 207 Daimier Super Eight
+              </h1>
+            </div>
+
+            <div className='flex gap-4 justify-between items-center pb-4 pt-2'>
+              <h2 className='text-lg font-semibold text-black'>
+                $1,682,500 USD
+              </h2>
+              <button className='bg-[#ffc107] hover:bg-[#ffc107]/80 py-2 px-10 font-medium text-lg rounded-sm'>
+                Sold
+              </button>
+            </div>
+
+            <ImageGallery
+              items={images}
+              showPlayButton={false}
+              renderLeftNav={(onClick, disabled) => (
+                <LeftNav onClick={onClick} disabled={disabled} />
+              )}
+              renderRightNav={(onClick, disabled) => (
+                <RightNav onClick={onClick} disabled={disabled} />
+              )}
             />
-            <h1 className='text-lg font-semibold text-black'>
-              Jaguar 207 Daimier Super Eight
-            </h1>
-          </div>
-
-          <div className='flex gap-4 justify-between items-center pb-4 pt-2'>
-            <h2 className='text-lg font-semibold text-black'>$1,682,500 USD</h2>
-            <button className='bg-[#ffc107] hover:bg-[#ffc107]/80 py-2 px-10 font-medium text-lg rounded-sm'>
-              Sold
-            </button>
-          </div>
-
-          <ImageGallery
-            items={images}
-            showPlayButton={false}
-            renderLeftNav={(onClick, disabled) => (
-              <LeftNav onClick={onClick} disabled={disabled} />
-            )}
-            renderRightNav={(onClick, disabled) => (
-              <RightNav onClick={onClick} disabled={disabled} />
-            )}
-          />
           </div>
         </div>
 

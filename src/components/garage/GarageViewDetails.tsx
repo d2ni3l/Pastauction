@@ -51,10 +51,10 @@ export default function GarageViewDetails() {
             <TableHead className='font-semibold lg:text-sm text-black '>
               Avg 6 mo
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-green-400'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-green-200'>
               %
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-green-400'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-green-200'>
               Result
             </TableHead>
           </TableRow>
@@ -64,7 +64,7 @@ export default function GarageViewDetails() {
           
               <TableRow>
                 <TableCell className='text-black text-sm font-medium'>04/23/2022</TableCell>
-                <TableCell className='bg-red-400 text-black text-sm font-medium'>Garage</TableCell>
+                <TableCell className='bg-red-200 text-black text-sm font-medium'>Garage</TableCell>
                 <TableCell className=' text-black text-sm font-medium'>Subcribtion</TableCell>
                 <TableCell className=' text-black text-sm font-medium'>5 concours</TableCell>
                 <TableCell className=' text-black text-sm font-medium'>06-2002</TableCell>
@@ -78,31 +78,31 @@ export default function GarageViewDetails() {
               </TableRow>
               <TableRow>
                 <TableCell className='text-black text-sm font-medium'>04/13/2022</TableCell>
-                <TableCell className='bg-yellow-400 text-black text-sm font-medium'>Rumors</TableCell>
+                <TableCell className='bg-yellow-200 text-black text-sm font-medium'>Rumors</TableCell>
                 <TableCell className='  text-sm font-medium text-red-500'>Expired</TableCell>
                 <TableCell className=' text-black text-sm font-medium'>23 news</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell className='text-black text-sm font-medium'>04/03/2022</TableCell>
-                <TableCell className='bg-blue-400 text-black text-sm font-medium'>Dashboard</TableCell>
+                <TableCell className='bg-blue-200 text-black text-sm font-medium'>Dashboard</TableCell>
                 <TableCell className='  text-sm font-medium text-black'>26 days</TableCell>
                 <TableCell className=' text-black text-sm font-medium'>Family</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell className='text-black text-sm font-medium'>04/02/2022</TableCell>
-                <TableCell className='bg-blue-400 text-black text-sm font-medium'>Dashboard</TableCell>
+                <TableCell className='bg-blue-200 text-black text-sm font-medium'>Dashboard</TableCell>
                 <TableCell className='  text-sm font-medium text-black'>56 days</TableCell>
                 <TableCell className=' text-black text-sm font-medium'>Model</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell className='text-black text-sm font-medium'>06/02/2022</TableCell>
-                <TableCell className='bg-blue-400 text-black text-sm font-medium'>Dashboard</TableCell>
+                <TableCell className='bg-blue-200 text-black text-sm font-medium'>Dashboard</TableCell>
                 <TableCell className='  text-sm font-medium text-black'>73 days</TableCell>
                 <TableCell className=' text-black text-sm font-medium'>Brand</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell className='text-black text-sm font-medium'>14/03/2022</TableCell>
-                <TableCell className='bg-gray-400 text-black text-sm font-medium'>Details</TableCell>
+                <TableCell className='bg-gray-200 text-black text-sm font-medium'>Details</TableCell>
                 <TableCell className='  text-sm font-medium text-black'>n/a</TableCell>
                 <TableCell className=' text-black text-sm font-medium'>370 nr.</TableCell>
               </TableRow>

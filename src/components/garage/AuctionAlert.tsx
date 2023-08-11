@@ -202,40 +202,40 @@ export default function AuctionAlert() {
       <Table>
         <TableHeader>
           <TableRow className='border-t-[1px] border-b-[2px] border-black'>
-            <TableHead className='font-semibold lg:text-sm text-transparent select-none bg-red-400'>
+            <TableHead className='font-semibold lg:text-sm text-transparent select-none bg-red-200'>
               View
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-red-400'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-red-200'>
               Year
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-red-400 w-[150px]'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-red-200 w-[150px]'>
               Brand
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-red-400 '>
+            <TableHead className='font-semibold lg:text-sm text-black bg-red-200 '>
               Modal
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-green-400'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-green-200'>
               USA
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-green-400'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-green-200'>
               UK
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-green-400'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-green-200'>
               Europe
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-green-400'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-green-200'>
               Oceania
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-green-400'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-green-200'>
               Japan
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-green-400'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-green-200'>
               Online
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-green-400'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-green-200'>
               Others
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-yellow-400'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-yellow-200'>
               Total
             </TableHead>
           </TableRow>
@@ -259,7 +259,7 @@ export default function AuctionAlert() {
               <TableCell className='font-medium'>{data.japan}</TableCell>
               <TableCell className='font-medium'>{data.online}</TableCell>
               <TableCell className='font-medium'>{data.others}</TableCell>
-              <TableCell className='font-medium bg-yellow-400'>
+              <TableCell className='font-medium bg-yellow-200'>
                 {data.total}
               </TableCell>
             </TableRow>
