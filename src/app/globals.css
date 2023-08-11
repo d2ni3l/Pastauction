@@ -134,9 +134,14 @@ body{
 
 }
 
-.image-gallery {
-  width: 350px;
-  height: auto;
+.image-gallery-thumbnails-wrapper{
+  @apply pt-3;
+  @apply space-x-[8px];
+
+}
+
+.image-gallery-thumbnail-image{
+  @apply w-[90px] h-[90px];
 }
 
 .image-gallery-slide img {
@@ -157,6 +162,7 @@ body{
 
 .image-gallery-thumbnail {
   border: none;
+  @apply hover:border-none !important;
   opacity: 1;
   border-radius: 5px;
 }
@@ -166,8 +172,9 @@ body{
 }
 
 .image-gallery-thumbnail.active{
-  border: none !important;
+ 
   opacity: 1;
+  @apply border border-black !important;
 }
 
 .image-gallery-thumbnail{
