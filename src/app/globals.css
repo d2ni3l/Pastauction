@@ -133,3 +133,48 @@ body{
   scale: .95;
 
 }
+
+.image-gallery {
+  width: 350px;
+  height: auto;
+}
+
+.image-gallery-slide img {
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: cover;
+  overflow: hidden;
+  object-position: center center;
+  border-radius: 10px;
+}
+
+.fullscreen .image-gallery-slide img {
+  max-height: 100vh;
+}
+
+
+
+.image-gallery-thumbnail {
+  border: none;
+  opacity: 1;
+  border-radius: 5px;
+}
+
+.image-gallery-thumbnail-image{
+  border-radius: 5px;
+}
+
+.image-gallery-thumbnail.active{
+  border: none !important;
+  opacity: 1;
+}
+
+.image-gallery-thumbnail{
+  opacity: .7; 
+  filter:brightness(80%);
+}
+
+ .image-gallery-slide-wrapper {
+  position:relative; 
+} 
