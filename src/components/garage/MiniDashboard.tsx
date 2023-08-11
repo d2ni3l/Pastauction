@@ -72,7 +72,7 @@ const dataPlaceholder = [
   },
 ];
 
-export function SingleChart() {
+export function MiniDashboard() {
   const [period, setPeriod] = useState("month");
 
   return (
@@ -118,7 +118,7 @@ export function SingleChart() {
         </div>
 
         <div className='order-1 sm:order-2'>
-          <h2 className='text-3xl font-semibold text-black'>Single chart</h2>
+          <h2 className='text-3xl font-semibold text-black'>Mini dashboard</h2>
         </div>
 
         <div className='flex gap-8 pt-5 order-3 sm:order-3'>
@@ -209,7 +209,7 @@ export function SingleChart() {
               <button className='text-black font-semibold  '>Activities</button>
             </TableHead>
             <TableHead className='bg-red-200'>
-              <button className='text-black font-semibold  '>Family nr</button>
+              <button className='text-black font-semibold  '>Familt nr</button>
             </TableHead>
             <TableHead className='bg-green-200 '>
               <button className='text-black font-semibold '>
@@ -263,12 +263,12 @@ export function SingleChart() {
               <TableCell className='font-medium'>
                 {data.date_requested}
               </TableCell>
-              <TableCell className={`font-medium ${data.deadline_update === 'Expired' ? 'text-red-500' : ''}`}>
+              <TableCell className='font-medium'>
                 {data.deadline_update}
               </TableCell>
               <TableCell className='font-medium'>{data.db_precene}</TableCell>
               <TableCell className='font-medium'>{data.nr_request}</TableCell>
-              <TableCell className='font-medium'>{data.nr_updates}</TableCell>
+              <TableCell className={`font-medium ${data.deadline_update === 'Expired' ? 'text-red-500' : ''}`}>{data.nr_updates}</TableCell>
               <TableCell className='font-medium'>{data.other}</TableCell>
               <TableCell className='font-medium bg-yellow-200'>
                 {data.total}
@@ -302,8 +302,8 @@ export function SingleChart() {
             <TableCell>50</TableCell>
             <TableCell>107,399</TableCell>
             <TableCell className=''>
-                <UpdateVehicle />
-              </TableCell>
+              <UpdateVehicle />
+            </TableCell>
           </TableRow>
         </TableBody>
       </Table>
@@ -333,7 +333,9 @@ function UpdateVehicle() {
             height='20'
             alt='upgrade vehicle'
           />
-          <span className="text-black font-medium text-xs flex gap-1"><span>Upgrade</span> vehicle</span>
+          <span className='text-black font-medium text-xs flex gap-1'>
+            <span>Upgrade</span> vehicle
+          </span>
         </div>
       )}
     </div>
