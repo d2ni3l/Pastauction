@@ -1,5 +1,7 @@
 "use client";
 import React, { Dispatch, useState } from "react";
+import { Progress } from "@/components/ui/progress"
+
 import {
   Table,
   TableBody,
@@ -133,23 +135,22 @@ export default function SingleDetailsView() {
       <Table className=''>
         <TableHeader>
           <TableRow className='border-t-[1px] border-b-[2px] border-black'>
-            <TableHead className='font-semibold bg-red-300 lg:text-sm text-black   '>
+            <TableHead className='font-semibold bg-red-300 lg:text-sm text-black    '>
               Year
             </TableHead>
-            <TableHead className='font-semibold bg-red-300 lg:text-sm text-black   '>
+            <TableHead className='font-semibold bg-red-300 lg:text-sm text-black    '>
               Brand
             </TableHead>
-            <TableHead className='font-semibold bg-red-300 lg:text-sm text-black   '>
+            <TableHead className='font-semibold bg-red-300 lg:text-sm text-black    '>
               Serie
             </TableHead>
-            <TableHead className='font-semibold bg-green-300 lg:text-sm text-black   '>
+            <TableHead className='font-semibold bg-green-300 lg:text-sm text-black    '>
               Q.ty
             </TableHead>
-            
-            <TableHead className='font-semibold bg-green-300 lg:text-sm text-black   '>
+
+            <TableHead className='font-semibold bg-green-300 lg:text-sm text-black    '>
               Date
             </TableHead>
-            
           </TableRow>
         </TableHeader>
 
@@ -178,8 +179,7 @@ export default function SingleDetailsView() {
             <TableCell>770</TableCell>
 
             <TableCell>42</TableCell>
-            
-          </TableRow> 
+          </TableRow>
         </TableBody>
       </Table>
 

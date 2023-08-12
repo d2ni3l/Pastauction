@@ -12,7 +12,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { useState } from "react";
-
+import checkType from "@/app/hooks/CheckType";
+import { Progress } from "../ui/progress";
 const dataPlaceholder = [
   {
     brand: "Porsche",
@@ -34,7 +35,7 @@ const dataPlaceholder = [
     activities: "1990-1946",
     family_nr: "36",
     date_requested: "06-02-22",
-    deadline_update: "20",
+    deadline_update: 80,
     db_precene: "123,7",
     nr_request: "5",
     other: "",
@@ -48,7 +49,7 @@ const dataPlaceholder = [
     activities: "1990-1949",
     family_nr: "26",
     date_requested: "06-02-23",
-    deadline_update: "30",
+    deadline_update: 30,
     db_precene: "123,7",
     nr_request: "5",
     other: "",
@@ -62,7 +63,7 @@ const dataPlaceholder = [
     activities: "1990-19948",
     family_nr: "44",
     date_requested: "06-02-23",
-    deadline_update: "40",
+    deadline_update: 40,
     db_precene: "123,7",
     nr_request: "5",
     other: "",
@@ -268,7 +269,17 @@ export function MiniDashboard() {
               </TableCell>
               <TableCell className='font-medium'>{data.db_precene}</TableCell>
               <TableCell className='font-medium'>{data.nr_request}</TableCell>
-              <TableCell className={`font-medium ${data.deadline_update === 'Expired' ? 'text-red-500' : ''}`}>{data.nr_updates}</TableCell>
+              <TableCell
+                className={`font-medium ${
+                  data.deadline_update === "Expired" ? "text-red-500" : ""
+                }`}>
+                {checkType(data.deadline_update)
+                  ? <div className="relative"><Progress value={data.deadline_update as number} className='w-[100%] bg-transparent rounded-none h-6'/>
+                  <span className="text-medium absolute top-[2px] ml-[2px] text-white">{data.deadline_update}</span>
+                  </div>
+
+                  :  data.deadline_update}
+              </TableCell>
               <TableCell className='font-medium'>{data.other}</TableCell>
               <TableCell className='font-medium bg-yellow-200'>
                 {data.total}
