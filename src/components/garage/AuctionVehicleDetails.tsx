@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "react-image-gallery/styles/css/image-gallery.css";
 import ImageGallery from "react-image-gallery";
 import Image from "next/image";
 import { Button } from "../ui/button";
+import { inter } from "@/app/fonts";
+import { Collapse } from "react-collapse";
 export default function AuctionVehicleDetails() {
-  //flagenglandplaceholder
+  const [collasped, setCollasped] = useState(false);
+ 
   const images = [
     {
       original: "https://picsum.photos/id/1018/1000/600/",
@@ -21,9 +24,10 @@ export default function AuctionVehicleDetails() {
   ];
 
   return (
-    <div>
-      <div className='grid xl:grid-cols-2 gap-7 place-items-center xl:place-items-start'>
-        <div className=' flex  justify-center  '>
+    <div className={`${inter.className} `}>
+      <div className='grid  grid-cols-1  xl:grid-cols-3 xl:grid-rows-3 gap-7 place-items-center xl:place-items-start'>
+
+        <div className=' flex  justify-center xl:col-span-2 '>
           <div>
             <div className='flex gap-5'>
               <Image
@@ -32,16 +36,16 @@ export default function AuctionVehicleDetails() {
                 width='50'
                 height='50'
               />
-              <h1 className='text-lg font-semibold text-black'>
+              <h1 className='text-lg lg:text-xl font-bold text-black'>
                 Jaguar 207 Daimier Super Eight
               </h1>
             </div>
 
             <div className='flex gap-4 justify-between items-center pb-4 pt-2'>
-              <h2 className='text-lg font-semibold text-black'>
+              <h2 className='text-lg lg:text-xl font-bold text-black'>
                 $1,682,500 USD
               </h2>
-              <button className='bg-[#ffc107] hover:bg-[#ffc107]/80 py-2 px-10 font-medium text-lg rounded-sm'>
+              <button className='bg-[#ffc107] hover:bg-[#ffc107]/80 py-[6px] px-12 uppercase font-medium rounded-sm'>
                 Sold
               </button>
             </div>
@@ -59,8 +63,8 @@ export default function AuctionVehicleDetails() {
           </div>
         </div>
 
-        <div className='xl:mt-24 xl:col-span-1 w-[357px]'>
-          <div className='bg-white px-4 rounded-lg pb-4'>
+        <div className='xl:mt-24   w-full xl:w-[357px] xl:row-span-2'>
+          <div className='bg-white shadow-md px-4 rounded-lg pb-4'>
             <h3 className='font-semibold pt-4 pb-3'>Technical data</h3>
             <p className='flex justify-between text-gray-600'>
               <span className='font-semibold'>Brand</span>{" "}
@@ -166,6 +170,52 @@ export default function AuctionVehicleDetails() {
             Report Error
           </Button>
         </div>
+
+        <div className='bg-white  max-w-[1000px]  xl:col-span-2  shadow-md px-5 pb-6 mb-10 rounded-md'>
+          <div className=''>
+            <h4 className='font-bold text-lg pt-4'>Description</h4>
+          </div>
+          <div className='pt-2'>
+            <div className=''>
+              <p className='text-black text-sm font-[400] pb-5'>
+                Lorem ipsum dolor sit amet consectetur. Velit tempor ut id eget
+                quis adipiscing. In id sed nunc magna dolor at sed ante neque.
+                Felis adipiscing non ullamcorper auctor suspendisse tellus.
+                Nulla pulvinar viverra suspendisse dui. Neque semper feugiat
+                rhoncus morbi massa feugiat nunc erat scelerisque. In potenti
+                fermentum ac non. In aliquam purus arcu nisl mi volutpat diam
+                fermentum quisque. Morbi elementum id sapien quam dignissim
+                viverra. Vitae tristique diam odio massa tristique at urna elit.
+                Aliquam ipsum blandit amet egestas felis nunc urna sit est.
+                <br />
+                <br />
+                Risus amet blandit amet orci penatibus enim auctor nunc ligula.
+                In at sed tempor diam vel nec vitae a. Lectus libero tincidunt
+                ultrices justo vitae. Est eu imperdiet sodales elit magna.
+                Tincidunt eget condimentum convallis arcu neque rutrum nec
+                tempor. Scelerisque enim enim pretium duis in at.
+              </p>
+              
+                <Collapse  isOpened={collasped}>
+                <p className='text-black text-sm font-[400]  pb-5'>
+                Risus amet blandit amet orci penatibus enim auctor nunc ligula.
+                In at sed tempor diam vel nec vitae a. Lectus libero tincidunt
+                ultrices justo vitae. Est eu imperdiet sodales elit magna.
+                Tincidunt eget condimentum convallis arcu neque rutrum nec
+                tempor. Scelerisque enim enim pretium duis in at.
+                </p>
+                </Collapse>
+              
+            </div>
+            <button
+            className='text-[#0D6EFD] font-medium text-sm flex gap-2 items-center'
+              onClick={() => {
+                setCollasped(!collasped);
+              }}>
+              <span className="hover:underline">View full description</span><Image src='/images/chevronbluedown.svg' alt='view more' width='15' height='18'/>
+            </button>
+          </div>
+        </div>  
       </div>
     </div>
   );
@@ -190,3 +240,5 @@ function RightNav({ onClick, disabled }: any) {
     </div>
   );
 }
+
+
