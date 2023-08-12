@@ -34,7 +34,7 @@ const dataPlaceholder = [
     year: "1986",
     brand: "Porsche",
     model: "911-11",
-    status: "5 concours",
+    maison: "",
     view: "View",
   },
   {
@@ -42,7 +42,7 @@ const dataPlaceholder = [
     year: "1986",
     brand: "Porsche",
     model: "911-11",
-    status: "5 concours",
+    maison: "",
     view: "View",
   },
   {
@@ -50,7 +50,7 @@ const dataPlaceholder = [
     year: "1986",
     brand: "Porsche",
     model: "911-11",
-    status: "5 concours",
+    maison: "",
     view: "View",
   },
   {
@@ -58,7 +58,7 @@ const dataPlaceholder = [
     year: "1986",
     brand: "Porsche",
     model: "911-11",
-    status: "5 concours",
+    maison: "",
     view: "View",
   },
   {
@@ -66,7 +66,7 @@ const dataPlaceholder = [
     year: "1986",
     brand: "Porsche",
     model: "911-11",
-    status: "5 concours",
+    maison: "",
     view: "View",
   },
   {
@@ -74,7 +74,7 @@ const dataPlaceholder = [
     year: "1986",
     brand: "Porsche",
     model: "911-11",
-    status: "5 concours",
+    maison: "",
     view: "View",
   },
   {
@@ -82,7 +82,7 @@ const dataPlaceholder = [
     year: "1986",
     brand: "Porsche",
     model: "911-11",
-    status: "5 concours",
+    maison: "",
     view: "View",
   },
   {
@@ -90,7 +90,7 @@ const dataPlaceholder = [
     year: "1986",
     brand: "Porsche",
     model: "911-11",
-    status: "5 concours",
+    maison: "",
     view: "View",
   },
   {
@@ -98,7 +98,7 @@ const dataPlaceholder = [
     year: "1986",
     brand: "Porsche",
     model: "911-11",
-    status: "5 concours",
+    maison: "",
     view: "View",
   },
   {
@@ -106,7 +106,7 @@ const dataPlaceholder = [
     year: "1986",
     brand: "Porsche",
     model: "911-11",
-    status: "5 concours",
+    maison: "",
     view: "View",
   },
 ];
@@ -392,101 +392,60 @@ export function SingleDetails() {
         </PopoverContent>
       </Popover>
      
-      <div className='flex sm:flex-row flex-col justify-between py-5 '>
-        <div className='flex gap-7 pt-5 order-2 sm:order-1'>
-          <div className='flex gap-4 items-center '>
-            <Checkbox id='terms' value='Series' />
-            <label
-              htmlFor='terms'
-              className='text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70'>
-              Series
-            </label>
-          </div>
-
-          <div className='flex gap-4 relative ml-2'>
-            <div className='flex gap-2 items-center'>
-              <Checkbox id='terms' value='Same year' />
-              <label
-                htmlFor='terms'
-                className='text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70'>
-                Same year
-              </label>
-            </div>
-          </div>
-        </div>
+      <div className='flex justify-center'>
+       
 
         <div className='order-1 sm:order-2'>
-          <h2 className='text-3xl font-semibold text-black'>Single details</h2>
+          <h2 className='text-3xl font-semibold text-black pb-2'>Single details</h2>
         </div>
 
-        <div className='flex gap-8 pt-5 order-3 sm:order-3'>
-          <div className='flex gap-2 items-center'>
-            <Checkbox id='terms' value='Owned' />
-            <label
-              htmlFor='terms'
-              className='text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70'>
-              Owned
-            </label>
-          </div>
-          <div className='flex gap-2 items-center'>
-            <Checkbox id='terms' value='Wish' />
-            <label
-              htmlFor='terms'
-              className='text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70'>
-              Wish
-            </label>
-          </div>
-
-          <div className='flex gap-2 items-center'>
-            <Checkbox id='terms' value='All' />
-            <label
-              htmlFor='terms'
-              className='text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70'>
-              All
-            </label>
-          </div>
-        </div>
+        
       </div>
       
       <Table>
-        <TableHeader>
-          <TableRow className='border-t-[1px] border-b-[2px] border-black'>
+        <TableHeader >
+          <TableRow className='border-t-[3px] !border-b-[3px] border-black'>
             <TableHead className='font-semibold lg:text-sm text-black '>
               Photo
             </TableHead>
             <TableHead className='font-semibold lg:text-sm text-black '>
               Year
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black  w-[150px]'>
+            <TableHead className='font-semibold lg:text-sm text-black'>
               Brand
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black  '>
+            <TableHead className='select-none'>
+              <span className="text-transparent">j</span>
+
+            </TableHead>
+           
+            <TableHead className='font-semibold lg:text-sm text-black  w-[50px]'>
               Model
             </TableHead>
             <TableHead className='font-semibold lg:text-sm text-black '>
-              Status
+              Maison
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black select-none  '>
-              <span className='text-transparent'> Purchase</span>
+            <TableHead className='select-none'>
+              <span className="text-transparent">j</span>
+
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black select-none  '>
-              <span className='text-transparent'> Date</span>
+            <TableHead className='select-none'>
+              <span className="text-transparent">j</span>
+
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black select-none  '>
-              <span className='text-transparent'> Avg 36 mo</span>
+            <TableHead className='font-semibold lg:text-sm text-black  '>
+              <span className=''> Val min</span>
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black select-none  '>
-              <span className='text-transparent'> Avg 24 mo</span>
+            <TableHead className='font-semibold lg:text-sm text-black  '>
+              <span className=''> Val max</span>
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black select-none  '>
-              <span className='text-transparent'> Avg 6 mo</span>
+            <TableHead className='font-semibold lg:text-sm text-black  '>
+              <span className=''> Sales</span>
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black select-none  '>
-              <span className='text-transparent'> %</span>
+            <TableHead className='font-semibold lg:text-sm text-black  '>
+              <span className=''> Country</span>
             </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black select-none  '>
-              <span className='text-transparent'> Result</span>
-            </TableHead>
+           
           </TableRow>
         </TableHeader>
 
@@ -510,25 +469,28 @@ export function SingleDetails() {
 
                 <TableCell className='font-medium'>{data.year}</TableCell>
                 <TableCell className='font-medium'>{data.brand}</TableCell>
+                <TableCell className='select-none'><span className="text-transparent">3</span></TableCell>
+               
                 <TableCell className='font-medium'>{data.model}</TableCell>
-                <TableCell className='font-medium'>{data.status}</TableCell>
+                <TableCell className='font-medium'>{data.maison}</TableCell>
+                <TableCell className='select-none'><span className="text-transparent">3</span></TableCell>
                 <TableCell className='font-semibold lg:text-sm text-black select-none  '>
-                  <span className='text-transparent'> i</span>
+                  <span className='text-transparent'> </span>
                 </TableCell>
                 <TableCell className='font-semibold lg:text-sm text-black select-none  '>
-                  <span className='text-transparent'> i</span>
+                  <span className='text-transparent'> </span>
                 </TableCell>
                 <TableCell className='font-semibold lg:text-sm text-black select-none  '>
-                  <span className='text-transparent'> i</span>
+                  <span className='text-transparent'> </span>
                 </TableCell>
                 <TableCell className='font-semibold lg:text-sm text-black select-none  '>
-                  <span className='text-transparent'> i</span>
+                  <span className='text-transparent'> </span>
                 </TableCell>
                 <TableCell className='font-semibold lg:text-sm text-black select-none  '>
-                  <span className='text-transparent'> i</span>
+                  <span className='text-transparent'> </span>
                 </TableCell>
                 <TableCell className='font-semibold lg:text-sm text-black select-none  '>
-                  <span className='text-transparent'> i</span>
+                  <span className='text-transparent'> </span>
                 </TableCell>
                 <TableCell className='text-blue-400 underline font-semibold cursor-pointer'>
                   {data.view}
@@ -547,6 +509,12 @@ export function SingleDetails() {
 
             <TableCell className=''>Total</TableCell>
             <TableCell>10</TableCell>
+            <TableCell className=''>
+              <span className='select-none text-transparent'>Total</span>
+            </TableCell>
+            <TableCell className=''>
+              <span className='select-none text-transparent'>Total</span>
+            </TableCell>
             <TableCell className=''>
               <span className='select-none text-transparent'>Total</span>
             </TableCell>
