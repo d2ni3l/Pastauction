@@ -205,7 +205,7 @@ export default function AddVehicleDetails() {
 
           <div className='pt-20'></div>
           <div className='flex justify-between items-center gap-2'>
-            <Link href='/dashboard/garage/addvehicledetails'>
+            <Link href='/garage/addvehicledetails'>
               <Button
                 type='submit'
                 variant='blackWide'
@@ -214,7 +214,7 @@ export default function AddVehicleDetails() {
               </Button>
             </Link>
 
-            <Link href='/dashboard/garage/addvehiclephoto'>
+            <Link href='/garage/addvehiclephoto'>
               <Button
                 type='submit'
                 variant='blackWide'

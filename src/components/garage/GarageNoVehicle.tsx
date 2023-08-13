@@ -13,7 +13,7 @@ export default function GarageNoVehicle({ items }: DashboardGarageItemsProps) {
             You don't have any Vehicle yet.
           </h4>
 
-          <Link href='/dashboard/garage/addvehicle' >
+          <Link href='/garage/addvehicle' >
             <Button variant='blackWide' className='w-full'>Add Vehicle </Button>
           </Link>
         </div>

@@ -32,7 +32,7 @@ export default function page() {
           <div className='mx-10 mt-10'>
             <div className='bg-white rounded-full shadow-lg p-4 w-[60px] h-[60px] max-w-[60px] max-h-[60px] hover:scale-[.9] transition-all duration-500'>
               <Link
-                href='/dashboard/garage/addvehicledetails'
+                href='/garage/addvehicledetails'
                 className='w-[60px] h-[60px] max-w-[60px] max-h-[60px] '>
                 <Image
                   src='/images/blackbgarrowleft.svg'
@@ -60,7 +60,7 @@ export default function page() {
 
           <div className='pt-20'></div>
           <div className='flex justify-between items-center gap-2 pb-10 mx-5'>
-            <Link href='/dashboard/garage/addvehicledetails'>
+            <Link href='/garage/addvehicledetails'>
               <Button
                 type='submit'
                 variant='blackWide'
@@ -69,7 +69,7 @@ export default function page() {
               </Button>
             </Link>
 
-            <Link href='/dashboard/garage/addvehicleinfo'>
+            <Link href='/garage/addvehicleinfo'>
               <Button
                 type='submit'
                 variant='blackWide'

@@ -9,17 +9,18 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import VehicleCards from "./VehicleCards";
+import Link from "next/link";
 export default function GarageViewDetails() {
   const [deleteVehicle, setDeleteVehicle] = useState(false);
 
 
   return (
     <div>
-      <VehicleCards
+      <Link href='/garage/addvehicleinfo'><VehicleCards
         noMod={true}
         setDeleteVehicle={setDeleteVehicle}
         deleteVehicle={deleteVehicle}
-      />
+      /></Link>
 
       <div className="pb-5 pt-10  flex justify-center"><h2 className='text-xl font-semibold text-black'>Reporting view</h2></div>
 

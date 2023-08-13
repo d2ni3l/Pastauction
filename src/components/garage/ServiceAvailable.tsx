@@ -14,7 +14,7 @@ export default function ServiceAvailable() {
       </div>
       <div className='pt-8'></div>
       <div className='xl:grid-cols-7  grid-cols-3 place-content-center flex flex-wrap md:grid-cols-4  sm:grid gap-4 px-6  items-center justify-center  py-5 bg-white rounded-lg'>
-          <Link className='min-w-[138px] max-h-[80px] sm:min-w-0 scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 xl:px-0 bg-gray-200  rounded-md py-2' href='/dashboard/garage/garageview'>
+          <Link className='min-w-[138px] max-h-[80px] sm:min-w-0 scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 xl:px-0 bg-gray-200  rounded-md py-2' href='/garage/secondaryintro'>
 
           
           <Image
@@ -27,7 +27,7 @@ export default function ServiceAvailable() {
             Garage view
           </p>
           </Link>
-          <Link className='min-w-[138px] max-h-[80px] sm:min-w-0 scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 xl:px-0 bg-gray-200  rounded-md py-2' href='/dashboard/garage/socialrumor'>
+          <Link className='min-w-[138px] max-h-[80px] sm:min-w-0 scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 xl:px-0 bg-gray-200  rounded-md py-2' href='/garage/socialrumor'>
 
           
           <Image
@@ -40,7 +40,7 @@ export default function ServiceAvailable() {
             Social Rumors
           </p>
           </Link>
-          <Link className='min-w-[138px] max-h-[80px] sm:min-w-0 scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 xl:px-0 bg-gray-200  rounded-md py-2' href='/dashboard/garage/auctionalert'>
+          <Link className='min-w-[138px] max-h-[80px] sm:min-w-0 scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 xl:px-0 bg-gray-200  rounded-md py-2' href='/garage/auctionalert'>
 
           
           <Image
@@ -53,7 +53,7 @@ export default function ServiceAvailable() {
             Auction Alert
           </p>
           </Link>
-          <Link className='min-w-[138px] max-h-[80px] sm:min-w-0 scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 xl:px-0 bg-gray-200  rounded-md py-2' href='/dashboard/garage/singlechart'>
+          <Link className='min-w-[138px] max-h-[80px] sm:min-w-0 scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 xl:px-0 bg-gray-200  rounded-md py-2' href='/garage/singlechart'>
 
           
           <Image
@@ -66,7 +66,7 @@ export default function ServiceAvailable() {
             Single Charts
           </p>
           </Link>
-          <Link className='min-w-[138px] max-h-[80px] sm:min-w-0 scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 xl:px-0 bg-gray-200  rounded-md py-2' href='/dashboard/garage/minidashboard'>
+          <Link className='min-w-[138px] max-h-[80px] sm:min-w-0 scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 xl:px-0 bg-gray-200  rounded-md py-2' href='/garage/minidashboard'>
 
           
           <Image
@@ -79,7 +79,7 @@ export default function ServiceAvailable() {
             Mini Dashboard
           </p>
           </Link>
-          <Link className='min-w-[138px] max-h-[80px] sm:min-w-0 scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 xl:px-0 bg-gray-200  rounded-md py-2' href='/dashboard/garage/dashboard'>
+          <Link className='min-w-[138px] max-h-[80px] sm:min-w-0 scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 xl:px-0 bg-gray-200  rounded-md py-2' href='/garage/dashboard'>
 
           
           <Image
@@ -92,7 +92,7 @@ export default function ServiceAvailable() {
             Dashboard
           </p>
           </Link>
-          <Link className='min-w-[138px] max-h-[80px] sm:min-w-0 scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 xl:px-0 bg-gray-200  rounded-md py-2' href='/dashboard/garage/singledetails'>
+          <Link className='min-w-[138px] max-h-[80px] sm:min-w-0 scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 xl:px-0 bg-gray-200  rounded-md py-2' href='/garage/singledetails'>
 
           
           <Image

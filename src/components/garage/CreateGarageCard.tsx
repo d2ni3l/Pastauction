@@ -32,6 +32,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "../ui/textarea";
+import {useRouter} from 'next/navigation'
 
 type Input = z.infer<typeof garageSchema>;
 export default function CreateGarageCard() {
@@ -61,7 +62,10 @@ export default function CreateGarageCard() {
     }
   }
   console.log(form.watch());
-  const onSubmit = () => {};
+  const router = useRouter()
+  const onSubmit = () => {
+    router.push('/garage/')
+  };
 
   return (
     <>

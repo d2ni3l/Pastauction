@@ -245,7 +245,7 @@ export default function AuctionAlert() {
           {dataPlaceholder.map((data) => (
             <TableRow key={data.brand}>
               <TableCell className='font- underline text-blue-500 font-semibold'>
-                <Link href='/dashboard/garage/auctionalertdetails'>
+                <Link href='/garage/auctionalertdetails'>
                   {data.view}
                 </Link>
               </TableCell>

@@ -220,7 +220,7 @@ export default function SocialRumorTable() {
           {dataPlaceholder.map((data) => (
             <TableRow key={data.brand}>
               <TableCell className='font- underline text-blue-500 font-semibold'>
-                {data.view}
+                <Link href='/garage/socialrumorchart'>{data.view}</Link>
               </TableCell>
               <TableCell className='font-medium'>{data.year}</TableCell>
               <TableCell className='font-medium'>{data.brand}</TableCell>

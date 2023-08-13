@@ -120,11 +120,12 @@ export default function AuctionAlertDetails() {
   };
   return (
     <div>
+      <Link href='/garage/addvehicleinfo'>
       <VehicleCards
         noMod={true}
         setDeleteVehicle={setDeleteVehicle}
         deleteVehicle={deleteVehicle}
-      />
+      /></Link>
 
       <div className='pb-5 pt-10  flex justify-center'>
         <h2 className='text-xl font-semibold text-black'>Reporting view</h2>

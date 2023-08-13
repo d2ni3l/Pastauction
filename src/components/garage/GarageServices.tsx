@@ -16,7 +16,7 @@ export default function GarageServices() {
   console.log(modal)
   console.log()
   return (
-    <div className={inter.className}>
+    <div className={`${inter.className} pb-10`}>
       {
         deleteVehicle && (<DeleteVehicle deleteVehicle={deleteVehicle} setDeleteVehicle={setDeleteVehicle}/>)
       }

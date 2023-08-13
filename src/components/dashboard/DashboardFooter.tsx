@@ -2,6 +2,7 @@ import React from "react";
 import DashboardGarageNoItems from "./DashboardGarageNoItems";
 import DashboardGarageItems from "./DashboardGarageItems";
 import { Button } from "../ui/button";
+import Link from "next/link";
 export default function DashboardFooter() {
   return (
     <div className='bg-transparent mt-7  rounded-lg mx-5 '>
@@ -27,7 +28,7 @@ export default function DashboardFooter() {
         </div>
       </div>
 
-      <Button className="px-12 max-w-[210px] mt-6 sm:mt-0" variant='blackWide'>View more</Button>
+      <Link href='/garage'><Button className="px-12 max-w-[210px] mt-6 sm:mt-0" variant='blackWide'>View more</Button></Link>
       </div>
                  <div className="pt-5"></div>
       <DashboardGarageItems />

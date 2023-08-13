@@ -204,7 +204,7 @@ export function SingleDetails() {
 
   return (
     <div className='overflow-auto pb-12'>
-      <div className="grid sm:grid-cols-4 grid-cols-2 justify-center place-items-center gap-5 bg-white px-5 py-5 shadow-lg rounded-[2px] mb-5">
+      <div className="grid sm:grid-cols-4 grid-cols-2 justify-center place-items-center gap-5 bg-white px-5 py-5 shadow-lg rounded-sm mb-5">
         <Popover open={openBrand} onOpenChange={setOpenBrand}>
         <PopoverTrigger asChild>
           <Button

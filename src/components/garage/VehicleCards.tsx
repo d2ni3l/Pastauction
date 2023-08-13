@@ -3,7 +3,7 @@ import React, { Dispatch, SetStateAction, useRef } from "react";
 import { Button } from "../ui/button";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import {useRouter} from 'next/navigation'
 // Import Swiper styles
 import "swiper/css";
 
@@ -12,12 +12,14 @@ interface VehicleCard {
   deleteVehicle: boolean;
   noMod?: boolean;
 }
+
 export default function VehicleCards({
   setDeleteVehicle,
   deleteVehicle,
   noMod,
 }: VehicleCard) {
   const swiperRef = useRef();
+  const router = useRouter()
   const backgroundImages = [
     {
       url: "/images/vehicleplaceholder.svg",
@@ -84,6 +86,7 @@ export default function VehicleCards({
               src='/images/editvehiclecard.svg'
               alt='edit vehicle'
               className='cursor-pointer'
+              onClick={() => {router.push('/garage/addvehicle')}}
               width='25'
               height='25'
             />

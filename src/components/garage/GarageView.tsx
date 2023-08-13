@@ -121,7 +121,7 @@ export function GarageView() {
             return (
               <TableRow key={row}>
             <TableCell>
-              <Link href='/dashboard/garage/garageviewdetails'>
+              <Link href='garage/garageviewdetails'>
               <button className='focus:border-2 focus:border-black scale-hover'>
               <Image
               src='/images/garageviewimageplaceholder.svg'

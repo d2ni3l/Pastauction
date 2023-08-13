@@ -49,7 +49,7 @@ export default function GarageInfoCard() {
           </div>
         </div>
 
-        <Link href='/dashboard/garage/creategarage'>
+        <Link href='/garage/creategarage'>
           {" "}
           <Button
             className='px-20 sm:mt-6 mb-10 sm:mb-0 mx-10'
