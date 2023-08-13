@@ -141,7 +141,7 @@ body{
 }
 
 .image-gallery-thumbnail-image{
-  @apply w-[90px] h-[90px];
+  @apply w-[90px] h-[80px];
 }
 
 .image-gallery-slide img {
@@ -190,3 +190,8 @@ body{
   transition: height 300ms;
 }
 
+
+.image-gallery-slide img{ width: max-content } .image-gallery-thumbnails-container{ 
+  
+  @apply w-[300px] ;
+}

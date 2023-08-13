@@ -48,6 +48,22 @@ export default function AuctionVehicleDetails() {
       original: "https://picsum.photos/id/1019/1000/600/",
       thumbnail: "https://picsum.photos/id/1019/250/150/",
     },
+    {
+      original: "https://picsum.photos/id/1019/1000/600/",
+      thumbnail: "https://picsum.photos/id/1019/250/150/",
+    },
+    {
+      original: "https://picsum.photos/id/1019/1000/600/",
+      thumbnail: "https://picsum.photos/id/1019/250/150/",
+    },
+    {
+      original: "https://picsum.photos/id/1019/1000/600/",
+      thumbnail: "https://picsum.photos/id/1019/250/150/",
+    },
+    {
+      original: "https://picsum.photos/id/1019/1000/600/",
+      thumbnail: "https://picsum.photos/id/1019/250/150/",
+    },
    
   ];
  
@@ -57,7 +73,7 @@ export default function AuctionVehicleDetails() {
       <div className='grid xl:grid-cols-2 2xl:grid-cols-3 gap-10  place-items-center relative xl:place-items-start'>
         <div className='flex  flex-col gap-7   max-w-[1000px] col-span-2'>
           <div className=' flex  justify-center  '>
-            <button className='absolute flex gap-2 rounded-sm py-3 bg-white px-4 shadow-lg top-0 right-0'>
+            <button className='absolute scale-hover  hidden 2xl:flex gap-2 rounded-sm py-3 bg-white px-4 shadow-lg top-0 right-0'>
               <svg
                 width='24'
                 height='24'
@@ -79,6 +95,7 @@ export default function AuctionVehicleDetails() {
               </svg>
               <span className="font-medium text-black">Save</span>
             </button>
+
             <div>
               <div className='flex gap-5'>
                 <Image
@@ -92,13 +109,38 @@ export default function AuctionVehicleDetails() {
                 </h1>
               </div>
 
-              <div className='flex gap-4 justify-between items-center pb-4 pt-2'>
+              <div className='flex gap-4 justify-between items-center pb-4 pt-2 max-w-[1000px]'>
                 <h2 className='text-lg lg:text-xl font-bold text-black'>
                   $1,682,500 USD
                 </h2>
-                <button className='bg-[#ffc107] hover:bg-[#ffc107]/80 py-[6px] px-12 uppercase font-medium rounded-sm'>
+                <div className="flex gap-3">
+                <button className=' flex gap-2 rounded-sm py-3 2xl:hidden bg-white px-4 shadow-lg scale-hover'>
+              <svg
+                width='24'
+                height='24'
+                viewBox='0 0 24 24'
+                fill='none'
+                xmlns='http://www.w3.org/2000/svg'>
+                <g clip-path='url(#clip0_103_569900)'>
+                  <rect width='24' height='24' fill='white' />
+                  <path
+                    d='M11.9998 4.12207L10.9243 3.01657C8.39984 0.421573 3.77084 1.31707 2.09984 4.57957C1.31534 6.11407 1.13834 8.32957 2.57084 11.1571C3.95084 13.8796 6.82184 17.1406 11.9998 20.6926C17.1778 17.1406 20.0473 13.8796 21.4288 11.1571C22.8613 8.32807 22.6858 6.11407 21.8998 4.57957C20.2288 1.31707 15.5998 0.420073 13.0753 3.01507L11.9998 4.12207ZM11.9998 22.5001C-10.9997 7.30207 4.91834 -4.55993 11.7358 1.71457C11.8258 1.79707 11.9143 1.88257 11.9998 1.97107C12.0845 1.88265 12.1725 1.79759 12.2638 1.71607C19.0798 -4.56293 34.9993 7.30057 11.9998 22.5001Z'
+                    fill='#D80027'
+                  />
+                </g>
+                <defs>
+                  <clipPath id='clip0_103_569900'>
+                    <rect width='24' height='24' fill='white' />
+                  </clipPath>
+                </defs>
+              </svg>
+              <span className="font-medium text-black">Save</span>
+            </button>
+                <button className='bg-[#ffc107] hover:bg-[#ffc107]/80 py-[6px] shadow-lg px-12 uppercase font-medium rounded-sm'>
                   Sold
                 </button>
+                </div>
+                
               </div>
 
               <ImageGallery
@@ -373,7 +415,7 @@ export default function AuctionVehicleDetails() {
 
         <div className='2xl:mt-24    w-full col-span-2  2xl:col-span-1 '>
           <div className='bg-white shadow-md px-4  rounded-lg pb-4'>
-            <h3 className='font-semibold pt-4 pb-3'>Technical data</h3>
+            <h3 className='font-semibold pt-4 pb-3 text-black'>Technical data</h3>
             <p className='flex justify-between text-gray-600'>
               <span className='font-semibold'>Brand</span>{" "}
               <span className='font-medium'>Jaguar</span>
