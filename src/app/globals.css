@@ -187,6 +187,6 @@ body{
 } 
 
 .ReactCollapse--collapse {
-  transition: height 500ms;
+  transition: height 300ms;
 }
 
