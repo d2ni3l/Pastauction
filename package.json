@@ -38,6 +38,7 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.45.2",
     "react-image-gallery": "^1.3.0",
+    "react-rating-star-with-type": "^1.2.1",
     "react-select": "^5.7.4",
     "sass": "^1.64.2",
     "swiper": "^10.1.0",

@@ -11,7 +11,7 @@ import { inter } from "@/app/fonts";
 export default function page() {
   const [mobileSidebar, setMobileSideBar] = useState(false);
   return (
-    <div className={`bg-[#eef0f1] overflow-x-hidden w-screen ${inter.className}`}>
+    <div className={`bg-[#f8f9fa] overflow-x-hidden w-screen h-screen ${inter.className}`}>
       <DashboardNavbar
         page='garage'
         mobileSidebar={mobileSidebar}

@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import ChatBubble from "./ChatBubble";
 interface DashboardNavbar {
   mobileSidebar : boolean;
   page: string;
@@ -10,11 +11,17 @@ interface DashboardNavbar {
 }
 
 export default function DashboardNavbar({ setMobileSidebar, mobileSidebar, page }: DashboardNavbar) {
-    
+    const [chatBubble, setChatBubble] = useState(false)
 
   return (
+    <>
+    {
+      chatBubble && (
+        <ChatBubble setChatBubble={setChatBubble}/>
+      )
+    }
     <div className=''>
-      <nav className='  w-full bg-[#d8dbde] border-b-[3px] border-gray-400 sm:py-5 py-3 flex justify-between lg:ml-[12rem]'>
+      <nav className='  w-full bg-[#F8F9FA] border-b-[3px] border-gray-400 sm:py-5 py-3 flex justify-between lg:ml-[12rem]'>
         <div className='sm:mx-12 mx-5'>
           <h1 className='text-neutral-800 capitalize sm:text-[40px] text-2xl  font-semibold leading-[48px]'>
             {page}
@@ -34,7 +41,7 @@ export default function DashboardNavbar({ setMobileSidebar, mobileSidebar, page 
    
 
         <div className='lg:mr-[15rem] mx-5 md:flex items-center gap-5 hidden'>
-          <Button className='w-12 h-12 p-0 bg-black hover:bg-black/80 hover:scale-[.9] transition-all duration-300 rounded-full'>
+          <Button onClick={() => {setChatBubble(true)}} className='w-12 h-12 p-0 bg-black hover:bg-black/80 hover:scale-[.9] transition-all duration-300 rounded-full'>
             <Image
             priority
               src='/images/chat-bubble.svg'
@@ -91,6 +98,7 @@ export default function DashboardNavbar({ setMobileSidebar, mobileSidebar, page 
         </div>
       </nav>
     </div>
+    </>
   );
 }
 

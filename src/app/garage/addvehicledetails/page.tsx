@@ -10,7 +10,7 @@ import Image from "next/image";
 export default function page() {
   const [mobileSidebar, setMobileSideBar] = useState(false);
   return (
-    <div className='bg-[#eef0f1] overflow-x-hidden w-screen '>
+    <div className='bg-[#f8f9fa] overflow-x-hidden w-screen h-screen'>
       <DashboardNavbar
       page='garage'
         mobileSidebar={mobileSidebar}

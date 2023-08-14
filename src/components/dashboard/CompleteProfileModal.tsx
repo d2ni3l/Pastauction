@@ -41,7 +41,7 @@ export default function CompleteProfileModal() {
             </div>
 
             <div className='flex flex-col gap-3 pt-4 items-center'>
-              <h2 className='font-semibold text-lg text-black'>
+              <h2 className='font-semibold text-lg text-black text-center'>
                 Finish completing your information
               </h2>
               <p className='text-sm text-gray-600 text-center tracking-wide'>
