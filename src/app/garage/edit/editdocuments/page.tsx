@@ -29,7 +29,7 @@ export default function page() {
       />
       <div className="xl:flex xl:justify-center">
       <div className='lg:ml-[16rem] max-w-7xl grow'>
-        <Link href='/dashboard/garage'>
+        <Link href='/garage'>
           <div className='flex justify-start mx-10 mt-10'>
           <div className="bg-white rounded-full p-4 hover:scale-[.9] max-w-[60px] max-h-[60px] transition-all duration-500">
           <Image
@@ -60,7 +60,7 @@ export default function page() {
 
         <div className='pt-20'></div>
           <div className='flex justify-between items-center gap-2 pb-10 mx-5'>
-            <Link href='/dashboard/garage/addvehicledetails'>
+            <Link href='/garage/addvehicledetails'>
               <Button
                 type='submit'
                 variant='blackWide'
@@ -69,7 +69,7 @@ export default function page() {
               </Button>
             </Link>
 
-            <Link href='/dashboard/garage/addvehicleinfo'>
+            <Link href='/garage/addvehicleinfo'>
               <Button
                 type='submit'
                 variant='blackWide'

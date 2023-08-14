@@ -79,7 +79,7 @@ export function Order_AddGarage() {
     </Popover>
 
     <Button variant='blackWide'>
-          <Link href='/dashboard/garage/creategarage' className="">
+          <Link href='/garage/creategarage' className="">
           Add garage
           </Link>
           </Button>

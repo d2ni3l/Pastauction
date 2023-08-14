@@ -16,7 +16,7 @@ export default function DashboardGarageNoItems({
           </h4>
          
           <Button variant='blackWide'>
-          <Link href='/dashboard/garage/creategarage' className="w-full">
+          <Link href='/garage/creategarage' className="w-full">
           Add garage
           </Link>
           </Button>

@@ -454,7 +454,7 @@ export function SingleDetails() {
             return (
               <TableRow key={data.brand}>
                 <TableCell>
-                  <Link href='/dashboard/garage/garageviewdetails'>
+                  <Link href='/garage/garageviewdetails'>
                     <button className='focus:border-2 focus:border-black scale-hover'>
                       <Image
                         src={data.imageSrc}
