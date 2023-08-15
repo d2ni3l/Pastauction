@@ -8,6 +8,7 @@ const selectionAreaModal = atom(false)
 const alertUpgradePlan = atom(true)
 const chatBubbleModal = atom(false)
 const currencyChangeModal = atom(false)
+const infoAreaModal = atom(false)
 export {
     privacyPolicy,
     completeProfileModal,
@@ -15,6 +16,7 @@ export {
     selectionAreaModal,
     alertUpgradePlan,
     chatBubbleModal,
-    currencyChangeModal
+    currencyChangeModal,
+    infoAreaModal,
 }
 

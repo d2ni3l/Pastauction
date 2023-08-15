@@ -8,6 +8,8 @@ import {chatBubbleModal} from "@/app/atoms/atoms";
 import {useAtom} from 'jotai'
 import { currencyChangeModal } from "@/app/atoms/atoms";
 import CurrencyChange from "./CurrencyChange";
+import {infoAreaModal} from '@/app/atoms/atoms'
+import InfoArea from "./InfoArea";
 interface DashboardNavbar {
   mobileSidebar : boolean;
   page: string;
@@ -17,6 +19,7 @@ interface DashboardNavbar {
 export default function DashboardNavbar({ setMobileSidebar, mobileSidebar, page }: DashboardNavbar) {
     const [chatBubble, setChatBubble] = useAtom(chatBubbleModal)
     const [currencyModal, setCurrencyModal] = useAtom(currencyChangeModal)
+    const [infoArea,setInfoArea] = useAtom(infoAreaModal)
 
   return (
     <>
@@ -28,6 +31,12 @@ export default function DashboardNavbar({ setMobileSidebar, mobileSidebar, page 
     {
       currencyModal && (
         <CurrencyChange setCurrencyModal={setCurrencyModal}/>
+      )
+    }
+
+    {
+      infoArea && (
+        <InfoArea/>
       )
     }
     <div className=''>
@@ -87,7 +96,7 @@ export default function DashboardNavbar({ setMobileSidebar, mobileSidebar, page 
             />
           </Button>
 
-          <Button className='w-12 h-12 p-0 bg-black hover:bg-black/80 hover:scale-[.9] transition-all duration-300 rounded-full'>
+          <Button onClick={() => {setInfoArea(true)}} className='w-12 h-12 p-0 bg-black hover:bg-black/80 hover:scale-[.9] transition-all duration-300 rounded-full'>
             <Image
               src='/images/bell.svg'
               alt='chat bubble'
