@@ -493,7 +493,7 @@ export function SingleDetails() {
                   <span className='text-transparent'> </span>
                 </TableCell>
                 <TableCell className='text-blue-400 underline font-semibold cursor-pointer'>
-                  {data.view}
+                  <Link href='/garage/auctionvehicledetails'>{data.view}</Link>
                 </TableCell>
               </TableRow>
             );
