@@ -11,19 +11,19 @@ const dataPlaceholder = [
     id: 1,
     reportTitle: "Suggestion Improvement",
     reportDesc:
-      "It lacks informationand i dont like it Mercedes benz SL - 300 does not have a good description and the color is way off lorem lorem lorem lorem lorem lorem lorem lorem",
+      "the butto should be blue and i dont like it Mercedes benz SL - 300 does not have a good description and the color is way off lorem lorem lorem lorem lorem lorem lorem lorem",
   },
   {
     id: 2,
     reportTitle: "Lack of information",
     reportDesc:
-      "It lacks informationand i dont like it Mercedes benz SL - 300 does not have a good description and the color is way off lorem lorem lorem lorem lorem lorem lorem lorem",
+      "It lacks information i dont like it Mercedes benz SL - 300 does not have a good description and the color is way off lorem lorem lorem lorem lorem lorem lorem lorem",
   },
   {
     id: 3,
     reportTitle: "Beutiful website and i love it",
     reportDesc:
-      "It lacks informationand i dont like it Mercedes benz SL - 300 does not have a good description and the color is way off lorem lorem lorem lorem lorem lorem lorem lorem",
+      "bla bla bla bla i dont like it Mercedes benz SL - 300 does not have a good description and the color is way off lorem lorem lorem lorem lorem lorem lorem lorem",
   },
   {
     id: 4,
@@ -105,7 +105,6 @@ export default function SuggestionArea() {
   const [reports, setReports] = useState(dataPlaceholder);
   const [starRating, setRating] = useState<number>(4);
   const [selectedIndex, setSelectedIndex] = useState(0);
- console.log(reports)
   const handleReportAnswer = (i: number) => {
     setReport(dataPlaceholder[i]);
   };

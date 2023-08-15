@@ -7,6 +7,7 @@ import DashboardNavbar from "@/components/dashboard/DashboardNavbar";
 import Link from "next/link";
 import Image from "next/image";
 import SuggestionArea from "@/components/dashboard/SuggestionArea";
+import FedelityArea from "@/components/dashboard/FedelityArea";
 export default function page() {
   const [mobileSidebar, setMobileSideBar] = useState(false);
   return (
@@ -39,8 +40,10 @@ export default function page() {
           </div>
         </div>
 
-        <div className='pt-10 mx-10 flex justify-center'>
+        <div className='pt-10 mx-10 flex flex-col items-center justify-center'>
           <SuggestionArea/>
+          <div className="pt-10"></div>
+          <FedelityArea/>
         </div>
       </div>
       </div>
