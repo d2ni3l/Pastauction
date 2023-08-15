@@ -16,7 +16,6 @@ interface ChatBubble{
 }
 export default function ChatBubble({setChatBubble}:ChatBubble) {
   const [starRating, setRating] = useState<number>(4);
-  console.log(starRating);
   return (
     <div
       id='staticModal'

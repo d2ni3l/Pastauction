@@ -32,21 +32,21 @@ export default function page() {
       />
 
       <div className="xl:flex xl:justify-center ">
-      <div className='max-w-7xl xl:ml-[5rem] xl:grow'>
-        <div className='lg:ml-[16rem] '>
+      <div className='max-w-7xl  xl:grow'>
+        <div className='lg:ml-[14.5rem] '>
           <DashboardIntro />
         </div>
 
-        <div className='lg:ml-[16rem]   flex flex-col xl:flex-row  lg:justify-around  justify-center items-center  xl:space-x-5'>
-          <div className=' w-full'>
+        <div className='lg:ml-[14.5rem]   flex flex-col xl:flex-row  lg:justify-around  justify-center items-center  xl:space-x-5'>
+          <div className=' '>
             <UpgradePlan />
           </div>
-          <div className='w-full'>
+          <div className=''>
             <WalletInterface />
           </div>
         </div>
 
-        <div className='lg:ml-[16rem]  pb-12'>
+        <div className='lg:ml-[14.5rem] xl:mr-6  pb-12'>
           <DashboardFooter />
         </div>
       </div>

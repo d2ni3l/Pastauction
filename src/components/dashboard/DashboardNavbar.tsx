@@ -4,6 +4,10 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import ChatBubble from "./ChatBubble";
+import {chatBubbleModal} from "@/app/atoms/atoms";
+import {useAtom} from 'jotai'
+import { currencyChangeModal } from "@/app/atoms/atoms";
+import CurrencyChange from "./CurrencyChange";
 interface DashboardNavbar {
   mobileSidebar : boolean;
   page: string;
@@ -11,13 +15,19 @@ interface DashboardNavbar {
 }
 
 export default function DashboardNavbar({ setMobileSidebar, mobileSidebar, page }: DashboardNavbar) {
-    const [chatBubble, setChatBubble] = useState(false)
+    const [chatBubble, setChatBubble] = useAtom(chatBubbleModal)
+    const [currencyModal, setCurrencyModal] = useAtom(currencyChangeModal)
 
   return (
     <>
     {
       chatBubble && (
         <ChatBubble setChatBubble={setChatBubble}/>
+      )
+    }
+    {
+      currencyModal && (
+        <CurrencyChange setCurrencyModal={setCurrencyModal}/>
       )
     }
     <div className=''>
@@ -68,7 +78,7 @@ export default function DashboardNavbar({ setMobileSidebar, mobileSidebar, page 
             />
           </Button>
 
-          <Button className='w-12 h-12 p-0 bg-black hover:bg-black/80 hover:scale-[.9] transition-all duration-300 rounded-full'>
+          <Button onClick={() => {setCurrencyModal(true)}} className='w-12 h-12 p-0 bg-black hover:bg-black/80 hover:scale-[.9] transition-all duration-300 rounded-full'>
             <Image
               src='/images/moneyacc.svg'
               alt='chat bubble'
