@@ -9,6 +9,7 @@ const alertUpgradePlan = atom(true)
 const chatBubbleModal = atom(false)
 const currencyChangeModal = atom(false)
 const infoAreaModal = atom(false)
+
 export {
     privacyPolicy,
     completeProfileModal,

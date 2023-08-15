@@ -14,6 +14,7 @@ import ReactStars from "react-rating-star-with-type";
 interface ChatBubble{
     setChatBubble: React.Dispatch<React.SetStateAction<boolean>>
 }
+
 export default function ChatBubble({setChatBubble}:ChatBubble) {
   const [starRating, setRating] = useState<number>(4);
   return (
@@ -107,7 +108,8 @@ export default function ChatBubble({setChatBubble}:ChatBubble) {
               className='border py-1 px-4 border-gray-300 scale-hover rounded-sm flex gap-2 items-center'
               onClick={() => {
                 setRating((prev) => prev = 0);
-              }}>
+              }}
+              >
               <svg
                 width='16'
                 height='16'

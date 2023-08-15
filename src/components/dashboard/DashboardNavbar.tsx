@@ -10,6 +10,7 @@ import { currencyChangeModal } from "@/app/atoms/atoms";
 import CurrencyChange from "./CurrencyChange";
 import {infoAreaModal} from '@/app/atoms/atoms'
 import InfoArea from "./InfoArea";
+import { useRouter } from "next/navigation";
 interface DashboardNavbar {
   mobileSidebar : boolean;
   page: string;
@@ -20,6 +21,7 @@ export default function DashboardNavbar({ setMobileSidebar, mobileSidebar, page 
     const [chatBubble, setChatBubble] = useAtom(chatBubbleModal)
     const [currencyModal, setCurrencyModal] = useAtom(currencyChangeModal)
     const [infoArea,setInfoArea] = useAtom(infoAreaModal)
+    const router = useRouter()
 
   return (
     <>
@@ -69,7 +71,7 @@ export default function DashboardNavbar({ setMobileSidebar, mobileSidebar, page 
               height='30'
             />
           </Button>
-          <Button className='w-12 h-12 p-0 bg-black hover:bg-black/80 hover:scale-[.9] transition-all duration-300 rounded-full'>
+          <Button onClick={() => {router.push('/dashboard/suggestionarea')}} className='w-12 h-12 p-0 bg-black hover:bg-black/80 hover:scale-[.9] transition-all duration-300 rounded-full'>
             <Image
             priority
               src='/images/report.svg'
@@ -78,7 +80,7 @@ export default function DashboardNavbar({ setMobileSidebar, mobileSidebar, page 
               height='30'
             />
           </Button>
-          <Button className='w-12 h-12 p-0 bg-black hover:bg-black/80 hover:scale-[.9] transition-all duration-300 rounded-full'>
+          <Button  className='w-12 h-12 p-0 bg-black hover:bg-black/80 hover:scale-[.9] transition-all duration-300 rounded-full'>
             <Image
               src='/images/bookmark-heart.svg'
               alt='chat bubble'
