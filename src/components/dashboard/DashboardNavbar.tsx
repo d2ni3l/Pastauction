@@ -15,9 +15,10 @@ interface DashboardNavbar {
   mobileSidebar : boolean;
   page: string;
   setMobileSidebar : (value: boolean) => void
+  position? : boolean
 }
 
-export default function DashboardNavbar({ setMobileSidebar, mobileSidebar, page }: DashboardNavbar) {
+export default function DashboardNavbar({ setMobileSidebar, mobileSidebar, page, position }: DashboardNavbar) {
     const [chatBubble, setChatBubble] = useAtom(chatBubbleModal)
     const [currencyModal, setCurrencyModal] = useAtom(currencyChangeModal)
     const [infoArea,setInfoArea] = useAtom(infoAreaModal)
@@ -41,10 +42,10 @@ export default function DashboardNavbar({ setMobileSidebar, mobileSidebar, page 
         <InfoArea/>
       )
     }
-    <div className=''>
-      <nav className='  w-full bg-[#F8F9FA] border-b-[3px] border-gray-400 sm:py-5 py-3 flex justify-between lg:ml-[12rem]'>
+    
+      <nav className={`w-full bg-[#F8F9FA] border-b-[3px] border-gray-400 sm:py-5 py-3 flex items-center justify-between  ${position ? '' : 'lg:ml-[12rem]'}`}>
         <div className='sm:mx-12 mx-5'>
-          <h1 className='text-neutral-800 capitalize sm:text-[40px] text-2xl  font-semibold leading-[48px]'>
+          <h1 className='text-neutral-800 capitalize text-sm sm:text-lg md:text-xl lg:text-3xl  font-semibold '>
             {page}
           </h1>
         </div>
@@ -61,7 +62,7 @@ export default function DashboardNavbar({ setMobileSidebar, mobileSidebar, page 
 
    
 
-        <div className='lg:mr-[15rem] mx-5 md:flex items-center gap-5 hidden'>
+        <div className={`${position ? "lg:mr-[4rem]" : "lg:mr-[15rem]"}  mx-5 md:flex items-center gap-5 hidden`}>
           <Button onClick={() => {setChatBubble(true)}} className='w-12 h-12 p-0 bg-black hover:bg-black/80 hover:scale-[.9] transition-all duration-300 rounded-full'>
             <Image
             priority
@@ -118,7 +119,6 @@ export default function DashboardNavbar({ setMobileSidebar, mobileSidebar, page 
           </div>
         </div>
       </nav>
-    </div>
     </>
   );
 }

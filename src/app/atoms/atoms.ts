@@ -10,6 +10,9 @@ const chatBubbleModal = atom(false)
 const currencyChangeModal = atom(false)
 const infoAreaModal = atom(false)
 
+
+//
+const HiddenSideNavPage = atom('data')
 export {
     privacyPolicy,
     completeProfileModal,
@@ -19,5 +22,6 @@ export {
     chatBubbleModal,
     currencyChangeModal,
     infoAreaModal,
+    HiddenSideNavPage,
 }
 

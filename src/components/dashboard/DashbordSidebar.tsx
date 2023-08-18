@@ -74,7 +74,7 @@ export const DashbordSidebar = ({
                     className='flex justify-start gap-2 '>
                     <span className='py-3'>
                       <Image
-                        src='/images/dashboard-charts.svg'
+                        src='/images/dashboard-garage.svg'
                         alt='home page'
                         width={16}
                         height={16}
