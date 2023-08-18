@@ -9,6 +9,7 @@ const alertUpgradePlan = atom(true)
 const chatBubbleModal = atom(false)
 const currencyChangeModal = atom(false)
 const infoAreaModal = atom(false)
+const maisonAuctionEventsArea = atom('Maison & Auction Events')
 
 
 //
@@ -23,5 +24,6 @@ export {
     currencyChangeModal,
     infoAreaModal,
     HiddenSideNavPage,
+    maisonAuctionEventsArea
 }
 

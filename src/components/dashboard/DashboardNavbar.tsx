@@ -45,7 +45,7 @@ export default function DashboardNavbar({ setMobileSidebar, mobileSidebar, page,
     
       <nav className={`w-full bg-[#F8F9FA] border-b-[3px] border-gray-400 sm:py-5 py-3 flex items-center justify-between  ${position ? '' : 'lg:ml-[12rem]'}`}>
         <div className='sm:mx-12 mx-5'>
-          <h1 className='text-neutral-800 capitalize text-sm sm:text-lg md:text-xl lg:text-3xl  font-semibold '>
+          <h1 className='text-neutral-800 capitalize text-sm sm:text-lg md:text-xl lg:text-3xl xl:ml-10 xl:text-4xl  font-semibold '>
             {page}
           </h1>
         </div>
