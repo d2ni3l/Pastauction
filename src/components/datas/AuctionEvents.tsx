@@ -1,4 +1,6 @@
+import Image from "next/image";
 import React from "react";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import Link from "next/link";
 import { Check, ChevronDown } from "lucide-react";
 
@@ -24,324 +26,449 @@ import {
   TableHeader,
   TableRow,
 } from "../ui/table";
-import Image from "next/image";
-
-export default function MaisonAuctionEvents() {
+export default function AuctionEvents() {
   const dataPlaceholder = [
     {
-      maison: "Rm Sothebys",
-      auction_event: "The Saragga collection",
-      auction_country: "Portugal",
-      auction_city: "Alcàcer Do Sal",
-      date: "21/09/19",
-      nr_vehicles: "123",
-      nr_vehicleas: "124",
-      sold: "100%",
-      total_sales: "10,195,425",
-      avg_sales: "82,189",
-      top_sold: "19,50,899",
+      year: "1959",
+      brand: "Porsche Diesel",
+      model: "Junior 108 K",
+      reserve: "",
+      high_bid: "",
+      val_min: "20,000",
+      val_max: "30,000",
+      change: "EUR",
+      sales: "10,195",
+      photo: "/images/auctioneventsphotoplaceholder.svg",
+      lot: "197",
     },
     {
-      maison: "Rm Sothebys",
-      auction_event: "The Saragga collection",
-      auction_country: "Portugal",
-      auction_city: "Alcàcer Do Sal",
-      date: "21/09/19",
-      nr_vehicles: "123",
-      nr_vehicleas: "124",
-      sold: "100%",
-      total_sales: "10,195,425",
-      avg_sales: "82,189",
-      top_sold: "19,50,899",
+      year: "1959",
+      brand: "Porsche Diesel",
+      model: "Junior 108 K",
+      reserve: "",
+      high_bid: "",
+      val_min: "20,000",
+      val_max: "30,000",
+      change: "EUR",
+      sales: "10,195",
+      photo: "/images/auctioneventsphotoplaceholder.svg",
+      lot: "197",
     },
     {
-      maison: "Rm Sothebys",
-      auction_event: "The Saragga collection",
-      auction_country: "Portugal",
-      auction_city: "Alcàcer Do Sal",
-      date: "21/09/19",
-      nr_vehicles: "123",
-      nr_vehicleas: "124",
-      sold: "100%",
-      total_sales: "10,195,425",
-      avg_sales: "82,189",
-      top_sold: "19,50,899",
+      year: "1959",
+      brand: "Porsche Diesel",
+      model: "Junior 108 K",
+      reserve: "",
+      high_bid: "",
+      val_min: "20,000",
+      val_max: "30,000",
+      change: "EUR",
+      sales: "10,195",
+      photo: "/images/auctioneventsphotoplaceholder.svg",
+      lot: "197",
     },
     {
-      maison: "Rm Sothebys",
-      auction_event: "The Saragga collection",
-      auction_country: "Portugal",
-      auction_city: "Alcàcer Do Sal",
-      date: "21/09/19",
-      nr_vehicles: "123",
-      nr_vehicleas: "124",
-      sold: "100%",
-      total_sales: "10,195,425",
-      avg_sales: "82,189",
-      top_sold: "19,50,899",
+      year: "1959",
+      brand: "Porsche Diesel",
+      model: "Junior 108 K",
+      reserve: "",
+      high_bid: "",
+      val_min: "20,000",
+      val_max: "30,000",
+      change: "EUR",
+      sales: "10,195",
+      photo: "/images/auctioneventsphotoplaceholder.svg",
+      lot: "197",
     },
     {
-      maison: "Rm Sothebys",
-      auction_event: "The Saragga collection",
-      auction_country: "Portugal",
-      auction_city: "Alcàcer Do Sal",
-      date: "21/09/19",
-      nr_vehicles: "123",
-      nr_vehicleas: "124",
-      sold: "100%",
-      total_sales: "10,195,425",
-      avg_sales: "82,189",
-      top_sold: "19,50,899",
+      year: "1959",
+      brand: "Porsche Diesel",
+      model: "Junior 108 K",
+      reserve: "",
+      high_bid: "",
+      val_min: "20,000",
+      val_max: "30,000",
+      change: "EUR",
+      sales: "10,195",
+      photo: "/images/auctioneventsphotoplaceholder.svg",
+      lot: "197",
     },
     {
-      maison: "Rm Sothebys",
-      auction_event: "The Saragga collection",
-      auction_country: "Portugal",
-      auction_city: "Alcàcer Do Sal",
-      date: "21/09/19",
-      nr_vehicles: "123",
-      nr_vehicleas: "124",
-      sold: "100%",
-      total_sales: "10,195,425",
-      avg_sales: "82,189",
-      top_sold: "19,50,899",
+      year: "1959",
+      brand: "Porsche Diesel",
+      model: "Junior 108 K",
+      reserve: "",
+      high_bid: "",
+      val_min: "20,000",
+      val_max: "30,000",
+      change: "EUR",
+      sales: "10,195",
+      photo: "/images/auctioneventsphotoplaceholder.svg",
+      lot: "197",
     },
     {
-      maison: "Rm Sothebys",
-      auction_event: "The Saragga collection",
-      auction_country: "Portugal",
-      auction_city: "Alcàcer Do Sal",
-      date: "21/09/19",
-      nr_vehicles: "123",
-      nr_vehicleas: "124",
-      sold: "100%",
-      total_sales: "10,195,425",
-      avg_sales: "82,189",
-      top_sold: "19,50,899",
+      year: "1959",
+      brand: "Porsche Diesel",
+      model: "Junior 108 K",
+      reserve: "",
+      high_bid: "",
+      val_min: "20,000",
+      val_max: "30,000",
+      change: "EUR",
+      sales: "10,195",
+      photo: "/images/auctioneventsphotoplaceholder.svg",
+      lot: "197",
     },
     {
-      maison: "Rm Sothebys",
-      auction_event: "The Saragga collection",
-      auction_country: "Portugal",
-      auction_city: "Alcàcer Do Sal",
-      date: "21/09/19",
-      nr_vehicles: "123",
-      nr_vehicleas: "124",
-      sold: "100%",
-      total_sales: "10,195,425",
-      avg_sales: "82,189",
-      top_sold: "19,50,899",
+      year: "1959",
+      brand: "Porsche Diesel",
+      model: "Junior 108 K",
+      reserve: "",
+      high_bid: "",
+      val_min: "20,000",
+      val_max: "30,000",
+      change: "EUR",
+      sales: "10,195",
+      photo: "/images/auctioneventsphotoplaceholder.svg",
+      lot: "197",
     },
     {
-      maison: "Rm Sothebys",
-      auction_event: "The Saragga collection",
-      auction_country: "Portugal",
-      auction_city: "Alcàcer Do Sal",
-      date: "21/09/19",
-      nr_vehicles: "123",
-      nr_vehicleas: "124",
-      sold: "100%",
-      total_sales: "10,195,425",
-      avg_sales: "82,189",
-      top_sold: "19,50,899",
+      year: "1959",
+      brand: "Porsche Diesel",
+      model: "Junior 108 K",
+      reserve: "",
+      high_bid: "",
+      val_min: "20,000",
+      val_max: "30,000",
+      change: "EUR",
+      sales: "10,195",
+      photo: "/images/auctioneventsphotoplaceholder.svg",
+      lot: "197",
     },
     {
-      maison: "Rm Sothebys",
-      auction_event: "The Saragga collection",
-      auction_country: "Portugal",
-      auction_city: "Alcàcer Do Sal",
-      date: "21/09/19",
-      nr_vehicles: "123",
-      nr_vehicleas: "124",
-      sold: "100%",
-      total_sales: "10,195,425",
-      avg_sales: "82,189",
-      top_sold: "19,50,899",
+      year: "1959",
+      brand: "Porsche Diesel",
+      model: "Junior 108 K",
+      reserve: "",
+      high_bid: "",
+      val_min: "20,000",
+      val_max: "30,000",
+      change: "EUR",
+      sales: "10,195",
+      photo: "/images/auctioneventsphotoplaceholder.svg",
+      lot: "197",
     },
     {
-      maison: "Rm Sothebys",
-      auction_event: "The Saragga collection",
-      auction_country: "Portugal",
-      auction_city: "Alcàcer Do Sal",
-      date: "21/09/19",
-      nr_vehicles: "123",
-      nr_vehicleas: "124",
-      sold: "100%",
-      total_sales: "10,195,425",
-      avg_sales: "82,189",
-      top_sold: "19,50,899",
+      year: "1959",
+      brand: "Porsche Diesel",
+      model: "Junior 108 K",
+      reserve: "",
+      high_bid: "",
+      val_min: "20,000",
+      val_max: "30,000",
+      change: "EUR",
+      sales: "10,195",
+      photo: "/images/auctioneventsphotoplaceholder.svg",
+      lot: "197",
     },
     {
-      maison: "Rm Sothebys",
-      auction_event: "The Saragga collection",
-      auction_country: "Portugal",
-      auction_city: "Alcàcer Do Sal",
-      date: "21/09/19",
-      nr_vehicles: "123",
-      nr_vehicleas: "124",
-      sold: "100%",
-      total_sales: "10,195,425",
-      avg_sales: "82,189",
-      top_sold: "19,50,899",
-    },
-    {
-      maison: "Rm Sothebys",
-      auction_event: "The Saragga collection",
-      auction_country: "Portugal",
-      auction_city: "Alcàcer Do Sal",
-      date: "21/09/19",
-      nr_vehicles: "123",
-      nr_vehicleas: "124",
-      sold: "100%",
-      total_sales: "10,195,425",
-      avg_sales: "82,189",
-      top_sold: "19,50,899",
-    },
-    {
-      maison: "Rm Sothebys",
-      auction_event: "The Saragga collection",
-      auction_country: "Portugal",
-      auction_city: "Alcàcer Do Sal",
-      date: "21/09/19",
-      nr_vehicles: "123",
-      nr_vehicleas: "124",
-      sold: "100%",
-      total_sales: "10,195,425",
-      avg_sales: "82,189",
-      top_sold: "19,50,899",
-    },
-    {
-      maison: "Rm Sothebys",
-      auction_event: "The Saragga collection",
-      auction_country: "Portugal",
-      auction_city: "Alcàcer Do Sal",
-      date: "21/09/19",
-      nr_vehicles: "123",
-      nr_vehicleas: "124",
-      sold: "100%",
-      total_sales: "10,195,425",
-      avg_sales: "82,189",
-      top_sold: "19,50,899",
-    },
-    {
-      maison: "Rm Sothebys",
-      auction_event: "The Saragga collection",
-      auction_country: "Portugal",
-      auction_city: "Alcàcer Do Sal",
-      date: "21/09/19",
-      nr_vehicles: "123",
-      nr_vehicleas: "124",
-      sold: "100%",
-      total_sales: "10,195,425",
-      avg_sales: "82,189",
-      top_sold: "19,50,899",
-    },
-    {
-      maison: "Rm Sothebys",
-      auction_event: "The Saragga collection",
-      auction_country: "Portugal",
-      auction_city: "Alcàcer Do Sal",
-      date: "21/09/19",
-      nr_vehicles: "123",
-      nr_vehicleas: "124",
-      sold: "100%",
-      total_sales: "10,195,425",
-      avg_sales: "82,189",
-      top_sold: "19,50,899",
-    },
-    {
-      maison: "Rm Sothebys",
-      auction_event: "The Saragga collection",
-      auction_country: "Portugal",
-      auction_city: "Alcàcer Do Sal",
-      date: "21/09/19",
-      nr_vehicles: "123",
-      nr_vehicleas: "124",
-      sold: "100%",
-      total_sales: "10,195,425",
-      avg_sales: "82,189",
-      top_sold: "19,50,899",
-    },
-    {
-      maison: "Rm Sothebys",
-      auction_event: "The Saragga collection",
-      auction_country: "Portugal",
-      auction_city: "Alcàcer Do Sal",
-      date: "21/09/19",
-      nr_vehicles: "123",
-      nr_vehicleas: "124",
-      sold: "100%",
-      total_sales: "10,195,425",
-      avg_sales: "82,189",
-      top_sold: "19,50,899",
+      year: "1959",
+      brand: "Porsche Diesel",
+      model: "Junior 108 K",
+      reserve: "",
+      high_bid: "",
+      val_min: "20,000",
+      val_max: "30,000",
+      change: "EUR",
+      sales: "10,195",
+      photo: "/images/auctioneventsphotoplaceholder.svg",
+      lot: "197",
     },
   ];
-
-  const EvenOdd = () => {
-  }
   return (
     <div>
+      <div className='flex gap-10'>
+        <div className='bg-white  max-h-[250px] shadow-md pb-7  w-full rounded-md px-5'>
+          <div className=''>
+            <h4 className='font-bold text-lg pt-5'>Event information</h4>
+          </div>
+
+          <div className='flex  items-center pt-3'>
+            <p className='text-black text-sm font-[400]'>
+              Event data: <span className='font-medium'>12/04/2023</span>
+            </p>
+          </div>
+
+          <div className='flex flex-col gap-4 pt-4'>
+            <div className='flex gap-2'>
+              <Image
+                src='/images/usflag.svg'
+                height='21'
+                width='41'
+                alt='country flag'
+              />
+              <h3 className='font-semibold text-lg'>RM | Sotheby</h3>
+            </div>
+
+            <div className='flex gap-2'>
+              <Image
+                src='/images/germanyflag.svg'
+                height='21'
+                width='41'
+                alt='country flag'
+              />
+              <div className='flex flex-col'>
+                <div className='flex gap-4 font-medium '>
+                  <h3 className='font-semibold text-lg'>Techo Classica</h3>{" "}
+                  <span className='text-blue-500 underline cursor-pointer'>
+                    Vehicles
+                  </span>{" "}
+                  <span className='text-blue-500 underline cursor-pointer'>
+                    Events
+                  </span>
+                </div>
+                <p className='text-gray-600 font-[400]'>
+                  Gruga Hall, Norbertstrabe 2, 45131, Essen (DEU)
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className='bg-white max-h-[250px] px-5 w-full shadow-md'>
+          <ScrollArea className='h-[220px]'>
+            <div className="grid grid-cols-2">
+            <div className="flex flex-col">
+            <div className='gap-[2px] flex'>
+              <div className="flex gap-3 flex-col items-end">
+              <p className="text-sm text-gray-500 italic py-1 border-transparent border-[2.2px] px-4 whitespace-nowrap">vehicles nr.</p>
+                <p className="text-sm text-gray-500 italic py-1 border-transparent border-[2.2px] px-4 whitespace-nowrap">sold vehicles</p>
+                <p className="text-sm text-gray-500 italic py-1 border-transparent border-[2.2px] px-4 whitespace-nowrap">vehicles evaluaded</p>
+                
+                
+              
+                <p className="text-sm text-gray-500 italic py-1 border-transparent border-[2.2px] px-4 whitespace-nowrap">vehicles without reserve</p>
+                
+                
+              
+                <p className="text-sm text-gray-500 italic py-1 border-transparent border-[2.2px] px-4 whitespace-nowrap">photos</p>
+              </div>
+              <div className="flex gap-3 flex-col">
+              <button className="py-[4px] px-4 text-black text-sm border-[2.2px] scale-hover font-semibold border-black rounded-md w-[115px]">
+                  ContaV
+                </button>
+                <div className="flex gap-2">
+                  <button className="py-[4px] px-4 text-black scale-hover text-sm border-[2.2px] font-semibold border-black rounded-md w-[115px]">
+                  ContaV
+                </button>
+                <button className="py-[4px] px-4 text-black scale-hover text-sm border-[2.2px] font-semibold border-black rounded-md w-[115px]">
+                  ContaV
+                </button>
+                </div>
+                <button className="py-[4px] px-4 text-black scale-hover text-sm border-[2.2px] font-semibold border-black rounded-md w-[115px]">
+                  ContaVei
+                </button>
+                <button className="py-[4px] px-4 text-black scale-hover text-sm border-[2.2px] font-semibold border-black rounded-md w-[115px]">
+                  ContaP
+                </button>
+
+
+
+                <button className="py-[4px] px-4 text-black scale-hover text-sm border-[2.2px] font-semibold border-black rounded-md w-[115px]">
+                  ContaV
+                </button>
+
+              </div>
+              
+              
+              
+            </div>
+
+          <div className="border-gray-300 my-5 border-[1.5px]"></div>
+
+          <div className="flex gap-3">
+          <p className="text-sm text-gray-500 italic py-1 border-transparent border-[2.2px] px-4 whitespace-nowrap">vehicles evaluaded</p>
+          <button className="py-[4px] px-4 text-black scale-hover text-sm border-[2.2px] font-semibold border-black rounded-md w-[115px]">
+                  ContaP
+                </button>
+          </div>
+          
+
+         
+            </div>
+
+              <div className=''></div>
+            </div>
+              
+          </ScrollArea>
+        </div>
+      </div>
+
+      <div className='pt-5' />
       <Filters />
 
-      <div className='bg-white p-5 mt-10'>
+      <div className='bg-white p-5 mt-10 shadow-md'>
         <Table>
           <TableHeader>
             <TableRow className=' border-black'>
               <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
-                Maison
+                Year
               </TableHead>
               <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da] '>
-                Auction events
+                Brand
               </TableHead>
               <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da] '>
-                Auction Country
+                Model
               </TableHead>
 
               <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]  '>
-                Auction City
+                Reserve
               </TableHead>
               <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da] '>
-                Date
+                High Bid
               </TableHead>
 
               <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]  '>
-                Nr vehicles
+                Val min
               </TableHead>
-             
+
               <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]  '>
-                % sold
-              </TableHead>
-              <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]  '>
-                Total sales €
+                Val max
               </TableHead>
               <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]  '>
-                Avg sales €
+                Change
               </TableHead>
               <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]  '>
-                Top sold €
+                Sales
+              </TableHead>
+              <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]  '>
+                Photo
+              </TableHead>
+              <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]  '>
+                Lot
               </TableHead>
             </TableRow>
           </TableHeader>
 
           <TableBody>
             {dataPlaceholder.map((data, i) => {
-              return <TableRow key={data.maison} className={`${i % 2 === 1 ? "bg-[#dee2e6]" : "bg-white"}`}>
-                <TableCell className='font-medium border-[2px] border-[#ced4da] text-blue-500 underline cursor-pointer'>{data.maison}</TableCell>
-                <TableCell className='font-medium border-[2px] border-[#ced4da] text-blue-500 underline cursor-pointer'>{data.auction_event}</TableCell>
-                <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>{data.auction_country}</TableCell>
-                <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>{data.auction_city}</TableCell>
-                <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>{data.date}</TableCell>
-                <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>{data.nr_vehicles}</TableCell>
-                <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>{data.sold}</TableCell>
-                <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>{data.total_sales}</TableCell>
-                <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>{data.avg_sales}</TableCell>
-                <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>{data.top_sold}</TableCell>
-              </TableRow>;
+              return (
+                <TableRow
+                  key={data.brand}
+                  className={`${i % 2 === 1 ? "bg-[#dee2e6]" : "bg-white"}`}>
+                  <TableCell className='font-medium border-[2px] border-[#ced4da]'>
+                    {data.year}
+                  </TableCell>
+                  <TableCell className='font-medium border-[2px] border-[#ced4da]'>
+                    {data.brand}
+                  </TableCell>
+                  <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>
+                    {data.model}
+                  </TableCell>
+                  <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>
+                    {data.reserve}
+                  </TableCell>
+                  <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>
+                    {data.high_bid}
+                  </TableCell>
+                  <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>
+                    {data.val_min}
+                  </TableCell>
+                  <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>
+                    {data.val_max}
+                  </TableCell>
+                  <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>
+                    {data.change}
+                  </TableCell>
+                  <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>
+                    {data.sales}
+                  </TableCell>
+                  <TableCell
+                    className='font-medium text-black border-[2px] border-[#ced4da]  background-img'
+                    style={{
+                      backgroundImage: `url(${data.photo})`,
+                    }}></TableCell>
+                  <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>
+                    {data.lot}
+                  </TableCell>
+                </TableRow>
+              );
             })}
           </TableBody>
         </Table>
       </div>
-    </div> 
+
+      <div className='mt-5  bg-white p-5 shadow-md '>
+        <h3 className='text-lg font-semibold mb-4'>Data</h3>
+
+        <Table>
+          <TableHeader>
+            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+              hello
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+              hello
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+              hello
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+              hello
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm   border-[2px] border-[#ced4da] bg-red-200 text-red-500'>
+              [-37,25%]
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+              25,515,000
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+              32,125,000
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm  border-[2px] border-[#ced4da] bg-red-200 text-red-500'>
+              [-72,5%]
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+              18,581,306
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+              211
+            </TableHead>
+          </TableHeader>
+          <TableHeader>
+            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+              hello
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+              hello
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+              hello
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+              hello
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm   border-[2px] border-[#ced4da] bg-green-200 text-green-500'>
+              [-37,25%]
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+              25,515,000
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+              32,125,000
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm  border-[2px] border-[#ced4da] bg-red-200 text-red-500'>
+              [-14,22%]
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+              18,581,306
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+              211
+            </TableHead>
+          </TableHeader>
+        </Table>
+      </div>
+    </div>
   );
 }
 
