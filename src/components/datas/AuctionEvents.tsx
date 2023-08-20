@@ -1,7 +1,6 @@
 import Image from "next/image";
 import React from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import Link from "next/link";
 import { Check, ChevronDown } from "lucide-react";
 
 import { cn } from "@/lib/utils";
