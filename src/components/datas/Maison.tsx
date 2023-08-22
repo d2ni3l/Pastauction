@@ -343,7 +343,7 @@ export default function Maison() {
   ];
   return (
     <div>
-      <div className='flex gap-10'>
+      <div className='flex flex-col xl:flex-row gap-10'>
         <div className='bg-white   shadow-md pb-7  w-full rounded-md px-5'>
           <div className=''>
             <h4 className='font-bold text-lg pt-5'>Event information</h4>
@@ -391,8 +391,116 @@ export default function Maison() {
           </div>
         </div>
 
-        <div className='bg-white px-5 w-full shadow-md'>
-          <ScrollArea className='bg-red-400 '>hello</ScrollArea>
+        <div className='bg-white   w-full shadow-md'>
+          <ScrollArea className='h-[220px] py-6'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-1 min-[1500px]:grid-cols-2'>
+
+              <div className='flex flex-col'>
+                <div className='gap-[2px] flex'>
+                  <div className='flex gap-3 flex-col items-end'>
+                    <p className='text-sm text-gray-500 italic py-1 border-transparent border-[2.2px] px-4 whitespace-nowrap'>
+                      vehicles nr.
+                    </p>
+                    <p className='text-sm text-gray-500 italic py-1 border-transparent border-[2.2px] px-4 whitespace-nowrap'>
+                      sold vehicles
+                    </p>
+                    <p className='text-sm text-gray-500 italic py-1 border-transparent border-[2.2px] px-4 whitespace-nowrap'>
+                      vehicles evaluaded
+                    </p>
+
+                    <p className='text-sm text-gray-500 italic py-1 border-transparent border-[2.2px] px-4 whitespace-nowrap'>
+                      vehicles without reserve
+                    </p>
+                    <p className='text-sm text-gray-500 italic py-1 border-transparent border-[2.2px] px-4 whitespace-nowrap'>
+                      photos
+                    </p>
+                  </div>
+                  <div className='flex gap-3 flex-col'>
+                    <button className='py-[4px]  text-black text-sm border-[2.2px] scale-hover font-semibold border-black rounded-md w-[96px]'>
+                      ContaV
+                    </button>
+                    <div className='flex gap-2'>
+                      <button className='py-[4px]  text-black scale-hover text-sm border-[2.2px] font-semibold border-black rounded-md w-[96px]'>
+                        ContaV
+                      </button>
+                      <button className='py-[4px]  text-black scale-hover text-sm border-[2.2px] font-semibold border-black rounded-md w-[96px]'>
+                        ContaV
+                      </button>
+                    </div>
+                    <button className='py-[4px]  text-black scale-hover text-sm border-[2.2px] font-semibold border-black rounded-md w-[96px]'>
+                      ContaV
+                    </button>
+
+                    <button className='py-[4px]  text-black scale-hover text-sm border-[2.2px] font-semibold border-black rounded-md w-[96px]'>
+                      ContaVei
+                    </button>
+                    <button className='py-[4px]  text-black scale-hover text-sm border-[2.2px] font-semibold border-black rounded-md w-[96px]'>
+                      ContaP
+                    </button>
+                  </div>
+                </div>
+
+                <div className='border-gray-300 mx-2 my-5 border-[1.5px]'></div>
+
+                <div className='flex gap-[2px]'>
+                  <div className='flex gap-3 flex-col items-end'>
+                    <p className='text-sm text-gray-500 italic py-1 border-transparent border-[2.2px] px-4 whitespace-nowrap'>
+                    <span className="select-none text-transparent">hello world</span> first lot n.
+                    </p>
+                  </div>
+                  <div className='flex gap-3 flex-col'>
+                    <button className='py-[4px] mb-2  text-black text-sm border-[2.2px] scale-hover font-semibold border-black rounded-md w-[96px]'>
+                      LottoInf
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div className='flex flex-col'>
+                <div className='gap-[2px] flex'>
+                  <div className='flex gap-3 flex-col items-end'>
+                    <p className='text-sm text-gray-500 italic py-1 border-transparent border-[2.2px] px-4 whitespace-nowrap'>
+                      unlisted vehicles
+                    </p>
+                    <p className='text-sm text-gray-500 italic py-1 border-transparent border-[2.2px] px-4 whitespace-nowrap'>
+                      with estimate
+                    </p>
+                    <p className='text-sm text-gray-500 italic py-1 border-transparent border-[2.2px] px-4 whitespace-nowrap'>
+                      sales above evaluat. 50%
+                    </p>
+
+                    <p className='text-sm text-gray-500 italic py-1 border-transparent border-[2.2px] px-4 whitespace-nowrap'>
+                      sales under evaluat. 50%
+                    </p>
+                    <p className='text-sm text-gray-500 italic py-1 border-transparent border-[2.2px] px-4 whitespace-nowrap'>
+                      sales under evaluat. less 50%
+                    </p>
+                  </div>
+                  <div className='flex gap-3 flex-col'>
+                    <button className='py-[4px]  text-black text-sm border-[2.2px] scale-hover font-semibold border-black rounded-md w-[40px] text-center flex justify-center items-center'>
+                      GC
+                    </button>
+                    
+                      <button className='py-[4px]  text-black scale-hover text-sm border-[2.2px] font-semibold border-black rounded-md w-[40px] text-center flex justify-center items-center'>
+                      GC
+                      </button>
+                    
+                    <button className='py-[4px]  text-black scale-hover text-sm border-[2.2px] font-semibold border-black rounded-md w-[40px] text-center flex justify-center items-center'>
+                    GC
+                    </button>
+
+                    <button className='py-[4px]  text-black scale-hover text-sm border-[2.2px] font-semibold border-black rounded-md w-[40px] text-center flex justify-center items-center'>
+                    GC
+                    </button>
+                    <button className='py-[4px]  text-black scale-hover text-sm border-[2.2px] font-semibold border-black rounded-md w-[40px] text-center flex justify-center items-center'>
+                    GC
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </ScrollArea>
         </div>
       </div>
 
@@ -616,8 +724,9 @@ export default function Maison() {
                   <TableCell className='font-medium  border-[2px] border-[#ced4da] text-gray-500'>
                     {data.city}
                   </TableCell>
-                  <TableCell className='font-medium  border-[2px] border-[#ced4da] text-gray-500 flex justify-between items-center gap-8'>
-                    <span>{data.country}</span>
+                  <TableCell className='font-medium  border-[2px] border-[#ced4da] text-gray-500    '>
+                   <div className="flex items-center justify-between">
+                   <span>{data.country}</span>
                     <span>
                       <Image
                         src={data.country_flag}
@@ -626,6 +735,7 @@ export default function Maison() {
                         height='40'
                       />
                     </span>
+                   </div>
                   </TableCell>
                   <TableCell className='font-medium  border-[2px] border-[#ced4da] text-gray-500'>
                     {data.nr_vehicle_offered}

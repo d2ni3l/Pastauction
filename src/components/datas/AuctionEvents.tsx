@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import React from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Check, ChevronDown } from "lucide-react";
@@ -186,8 +187,8 @@ export default function AuctionEvents() {
   ];
   return (
     <div>
-      <div className='flex gap-10'>
-        <div className='bg-white  max-h-[250px] shadow-md pb-7  w-full rounded-md px-5'>
+      <div className='flex flex-col 2xl:flex-row gap-10'>
+        <div className='bg-white  shadow-md pb-7  w-full rounded-md px-5'>
           <div className=''>
             <h4 className='font-bold text-lg pt-5'>Event information</h4>
           </div>
@@ -234,71 +235,113 @@ export default function AuctionEvents() {
           </div>
         </div>
 
-        <div className='bg-white max-h-[250px] px-5 w-full shadow-md'>
-          <ScrollArea className='h-[220px]'>
-            <div className="grid grid-cols-2">
-            <div className="flex flex-col">
-            <div className='gap-[2px] flex'>
-              <div className="flex gap-3 flex-col items-end">
-              <p className="text-sm text-gray-500 italic py-1 border-transparent border-[2.2px] px-4 whitespace-nowrap">vehicles nr.</p>
-                <p className="text-sm text-gray-500 italic py-1 border-transparent border-[2.2px] px-4 whitespace-nowrap">sold vehicles</p>
-                <p className="text-sm text-gray-500 italic py-1 border-transparent border-[2.2px] px-4 whitespace-nowrap">vehicles evaluaded</p>
-                
-                
-              
-                <p className="text-sm text-gray-500 italic py-1 border-transparent border-[2.2px] px-4 whitespace-nowrap">vehicles without reserve</p>
-                
-                
-              
-                <p className="text-sm text-gray-500 italic py-1 border-transparent border-[2.2px] px-4 whitespace-nowrap">photos</p>
-              </div>
-              <div className="flex gap-3 flex-col">
-              <button className="py-[4px] px-4 text-black text-sm border-[2.2px] scale-hover font-semibold border-black rounded-md w-[115px]">
-                  ContaV
-                </button>
-                <div className="flex gap-2">
-                  <button className="py-[4px] px-4 text-black scale-hover text-sm border-[2.2px] font-semibold border-black rounded-md w-[115px]">
-                  ContaV
-                </button>
-                <button className="py-[4px] px-4 text-black scale-hover text-sm border-[2.2px] font-semibold border-black rounded-md w-[115px]">
-                  ContaV
-                </button>
+        <div className='bg-white   w-full shadow-md'>
+          <ScrollArea className='h-[220px] py-6'>
+            <div className='grid md:grid-cols-2'>
+              <div className='flex flex-col'>
+                <div className='gap-[2px] flex'>
+                  <div className='flex gap-3 flex-col items-end'>
+                    <p className='text-sm text-gray-500 italic py-1 border-transparent border-[2.2px] px-4 whitespace-nowrap'>
+                      vehicles nr.
+                    </p>
+                    <p className='text-sm text-gray-500 italic py-1 border-transparent border-[2.2px] px-4 whitespace-nowrap'>
+                      sold vehicles
+                    </p>
+                    <p className='text-sm text-gray-500 italic py-1 border-transparent border-[2.2px] px-4 whitespace-nowrap'>
+                      vehicles evaluaded
+                    </p>
+
+                    <p className='text-sm text-gray-500 italic py-1 border-transparent border-[2.2px] px-4 whitespace-nowrap'>
+                      vehicles without reserve
+                    </p>
+                    <p className='text-sm text-gray-500 italic py-1 border-transparent border-[2.2px] px-4 whitespace-nowrap'>
+                      photos
+                    </p>
+                  </div>
+                  <div className='flex gap-3 flex-col'>
+                    <button className='py-[4px]  text-black text-sm border-[2.2px] scale-hover font-semibold border-black rounded-md w-[96px]'>
+                      ContaV
+                    </button>
+                    <div className='flex gap-2'>
+                      <button className='py-[4px]  text-black scale-hover text-sm border-[2.2px] font-semibold border-black rounded-md w-[96px]'>
+                        ContaV
+                      </button>
+                      <button className='py-[4px]  text-black scale-hover text-sm border-[2.2px] font-semibold border-black rounded-md w-[96px]'>
+                        ContaV
+                      </button>
+                    </div>
+                    <button className='py-[4px]  text-black scale-hover text-sm border-[2.2px] font-semibold border-black rounded-md w-[96px]'>
+                      ContaV
+                    </button>
+
+                    <button className='py-[4px]  text-black scale-hover text-sm border-[2.2px] font-semibold border-black rounded-md w-[96px]'>
+                      ContaVei
+                    </button>
+                    <button className='py-[4px]  text-black scale-hover text-sm border-[2.2px] font-semibold border-black rounded-md w-[96px]'>
+                      ContaP
+                    </button>
+                  </div>
                 </div>
-                <button className="py-[4px] px-4 text-black scale-hover text-sm border-[2.2px] font-semibold border-black rounded-md w-[115px]">
-                  ContaVei
-                </button>
-                <button className="py-[4px] px-4 text-black scale-hover text-sm border-[2.2px] font-semibold border-black rounded-md w-[115px]">
-                  ContaP
-                </button>
 
+                <div className='border-gray-300 mx-2 my-5 border-[1.5px]'></div>
 
-
-                <button className="py-[4px] px-4 text-black scale-hover text-sm border-[2.2px] font-semibold border-black rounded-md w-[115px]">
-                  ContaV
-                </button>
-
+                <div className='flex gap-[2px]'>
+                  <div className='flex gap-3 flex-col items-end'>
+                    <p className='text-sm text-gray-500 italic py-1 border-transparent border-[2.2px] px-4 whitespace-nowrap'>
+                    <span className="select-none text-transparent">hello world</span> first lot n.
+                    </p>
+                  </div>
+                  <div className='flex gap-3 flex-col'>
+                    <button className='py-[4px] mb-1 sm:mb-0 text-black text-sm border-[2.2px] scale-hover font-semibold border-black rounded-md w-[96px]'>
+                      LottoInf
+                    </button>
+                  </div>
+                </div>
               </div>
-              
-              
-              
+
+              <div className='flex flex-col'>
+                <div className='gap-[2px] flex'>
+                  <div className='flex gap-3 flex-col items-end'>
+                    <p className='text-sm text-gray-500 italic py-1 border-transparent border-[2.2px] px-4 whitespace-nowrap'>
+                      unlisted vehicles
+                    </p>
+                    <p className='text-sm text-gray-500 italic py-1 border-transparent border-[2.2px] px-4 whitespace-nowrap'>
+                      with estimate
+                    </p>
+                    <p className='text-sm text-gray-500 italic py-1 border-transparent border-[2.2px] px-4 whitespace-nowrap'>
+                      sales above evaluat. 50%
+                    </p>
+
+                    <p className='text-sm text-gray-500 italic py-1 border-transparent border-[2.2px] px-4 whitespace-nowrap'>
+                      sales under evaluat. 50%
+                    </p>
+                    <p className='text-sm text-gray-500 italic py-1 border-transparent border-[2.2px] px-4 whitespace-nowrap'>
+                      sales under evaluat. less 50%
+                    </p>
+                  </div>
+                  <div className='flex gap-3 flex-col'>
+                    <button className='py-[4px]  text-black text-sm border-[2.2px] scale-hover font-semibold border-black rounded-md w-[40px] text-center flex justify-center items-center'>
+                      GC
+                    </button>
+                    
+                      <button className='py-[4px]  text-black scale-hover text-sm border-[2.2px] font-semibold border-black rounded-md w-[40px] text-center flex justify-center items-center'>
+                      GC
+                      </button>
+                    
+                    <button className='py-[4px]  text-black scale-hover text-sm border-[2.2px] font-semibold border-black rounded-md w-[40px] text-center flex justify-center items-center'>
+                    GC
+                    </button>
+
+                    <button className='py-[4px]  text-black scale-hover text-sm border-[2.2px] font-semibold border-black rounded-md w-[40px] text-center flex justify-center items-center'>
+                    GC
+                    </button>
+                    <button className='py-[4px]  text-black scale-hover text-sm border-[2.2px] font-semibold border-black rounded-md w-[40px] text-center flex justify-center items-center'>
+                    GC
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-
-          <div className="border-gray-300 my-5 border-[1.5px]"></div>
-
-          <div className="flex gap-3">
-          <p className="text-sm text-gray-500 italic py-1 border-transparent border-[2.2px] px-4 whitespace-nowrap">vehicles evaluaded</p>
-          <button className="py-[4px] px-4 text-black scale-hover text-sm border-[2.2px] font-semibold border-black rounded-md w-[115px]">
-                  ContaP
-                </button>
-          </div>
-          
-
-         
-            </div>
-
-              <div className=''></div>
-            </div>
-              
           </ScrollArea>
         </div>
       </div>
