@@ -277,14 +277,12 @@ export default function MaisonAuctionEvents() {
     },
   ];
 
-  const EvenOdd = () => {
-  }
   return (
-    <div>
+    <div className='overflow-auto'>
       <Filters />
 
-      <div className='bg-white p-5 mt-10'>
-        <Table>
+      <div className='bg-white p-5 mt-10 '>
+        <Table className=''>
           <TableHeader>
             <TableRow className=' border-black'>
               <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
@@ -424,7 +422,7 @@ const Filters = () => {
 
   return (
     <>
-      <div className='grid sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 grid-cols-2 justify-center place-items-center gap-5 bg-white px-5 py-5 shadow-lg rounded-sm mb-5'>
+      <div className='grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7  justify-center place-items-center gap-5 bg-white px-5 py-5 shadow-lg rounded-sm mb-5'>
         <Popover open={openArea} onOpenChange={setOpenArea}>
           <PopoverTrigger asChild>
             <Button

@@ -116,7 +116,11 @@ body{
 
 
 
-
+@media (min-width: 1536px) {
+  .grid-cols-20 {
+      grid-template-columns: repeat(20, minmax(0, 1fr));
+  }
+}
 
 .background-img{
   background-repeat: no-repeat;

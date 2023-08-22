@@ -342,7 +342,7 @@ export default function Maison() {
 
   ];
   return (
-    <div>
+    <div className='overflow-auto'>
       <div className='flex flex-col xl:flex-row gap-10'>
         <div className='bg-white   shadow-md pb-7  w-full rounded-md px-5'>
           <div className=''>
@@ -844,7 +844,8 @@ const Filters = () => {
 
   return (
     <>
-      <div className='grid sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 grid-cols-2 justify-center place-items-center gap-5 bg-white px-5 py-5 shadow-lg rounded-sm mb-5'>
+      <div className='grid sm:grid-cols-2 md:grid-cols-5 lg:grid-cols-7 
+      grid-cols-2 justify-center place-items-center gap-5 bg-white px-5 py-5 shadow-lg rounded-sm mb-5'>
         <Popover open={openArea} onOpenChange={setOpenArea}>
           <PopoverTrigger asChild>
             <Button
@@ -858,7 +859,7 @@ const Filters = () => {
               <ChevronDown size={20} />
             </Button>
           </PopoverTrigger>
-          <PopoverContent className='w-[150px] p-0'>
+          <PopoverContent className=' p-0'>
             <Command>
               <CommandInput placeholder='Search Areas...' />
               <CommandEmpty>No brand found.</CommandEmpty>
@@ -899,7 +900,7 @@ const Filters = () => {
               <ChevronDown size={20} />
             </Button>
           </PopoverTrigger>
-          <PopoverContent className='w-[150px] p-0'>
+          <PopoverContent className=' p-0'>
             <Command>
               <CommandInput placeholder='Search Auction Countrys...' />
               <CommandEmpty>No Auction Country found.</CommandEmpty>
@@ -942,7 +943,7 @@ const Filters = () => {
               <ChevronDown size={20} />
             </Button>
           </PopoverTrigger>
-          <PopoverContent className='w-[150px] p-0'>
+          <PopoverContent className=' p-0'>
             <Command>
               <CommandInput placeholder='Search Auction Citys...' />
               <CommandEmpty>No Auction City found.</CommandEmpty>
@@ -985,7 +986,7 @@ const Filters = () => {
               <ChevronDown size={20} />
             </Button>
           </PopoverTrigger>
-          <PopoverContent className='w-[150px] p-0'>
+          <PopoverContent className=' p-0'>
             <Command>
               <CommandInput placeholder='Search Auction Eventss...' />
               <CommandEmpty>No Auction Events found.</CommandEmpty>
@@ -1028,7 +1029,7 @@ const Filters = () => {
               <ChevronDown size={20} />
             </Button>
           </PopoverTrigger>
-          <PopoverContent className='w-[150px] p-0'>
+          <PopoverContent className=' p-0'>
             <Command>
               <CommandInput placeholder='Search Maisons...' />
               <CommandEmpty>No Maison found.</CommandEmpty>
@@ -1070,7 +1071,7 @@ const Filters = () => {
               <ChevronDown size={20} />
             </Button>
           </PopoverTrigger>
-          <PopoverContent className='w-[150px] p-0'>
+          <PopoverContent className=' p-0'>
             <Command>
               <CommandInput placeholder='Search Maison Countrys...' />
               <CommandEmpty>No Maison Country found.</CommandEmpty>
@@ -1113,7 +1114,7 @@ const Filters = () => {
               <ChevronDown size={20} />
             </Button>
           </PopoverTrigger>
-          <PopoverContent className='w-[150px] p-0'>
+          <PopoverContent className=' p-0'>
             <Command>
               <CommandInput placeholder='Search Auction Years...' />
               <CommandEmpty>No Auction Year found.</CommandEmpty>

@@ -186,7 +186,7 @@ export default function AuctionEvents() {
     },
   ];
   return (
-    <div>
+    <div className='overflow-auto'>
       <div className='flex flex-col 2xl:flex-row gap-10'>
         <div className='bg-white  shadow-md pb-7  w-full rounded-md px-5'>
           <div className=''>
