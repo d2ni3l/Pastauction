@@ -391,6 +391,79 @@ export default function BrandProduction() {
           </TableBody>
         </Table>
       </div>
+
+      <div className='mt-5  bg-white p-5 shadow-md '>
+        <h3 className='text-lg font-semibold mb-4'>Data</h3>
+
+        <Table>
+          <TableHeader>
+            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+              hello
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+              hello
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+              hello
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+              hello
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm   border-[2px] border-[#ced4da] bg-red-200 text-red-500'>
+              [-37,25%]
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+              25,515,000
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+              32,125,000
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm  border-[2px] border-[#ced4da] bg-red-200 text-red-500'>
+              [-72,5%]
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+              18,581,306
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+              211
+            </TableHead>
+          </TableHeader>
+          <TableBody>
+            <TableRow>
+            <TableCell className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+              hello
+            </TableCell>
+            <TableCell className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+              hello
+            </TableCell>
+            <TableCell className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+              hello
+            </TableCell>
+            <TableCell className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+              hello
+            </TableCell>
+            <TableCell className='font-semibold lg:text-sm   border-[2px] border-[#ced4da] bg-green-200 text-green-500'>
+              [-37,25%]
+            </TableCell>
+            <TableCell className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+              25,515,000
+            </TableCell>
+            <TableCell className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+              32,125,000
+            </TableCell>
+            <TableCell className='font-semibold lg:text-sm  border-[2px] border-[#ced4da] bg-red-200 text-red-500'>
+              [-14,22%]
+            </TableCell>
+            <TableCell className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+              18,581,306
+            </TableCell>
+            <TableCell className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+              211
+            </TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </div>
     </div>
   );
 }
