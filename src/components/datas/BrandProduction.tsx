@@ -220,7 +220,7 @@ export default function BrandProduction() {
   };
 
   return (
-    <div className='overflow-auto '>
+    <div className='overflow-auto ' >
       <div className='flex gap-5  flex-col xl:flex-row '>
         <div className='flex gap-2'>
           <Image
@@ -394,7 +394,6 @@ export default function BrandProduction() {
 
       <div className='mt-5  bg-white p-5 shadow-md '>
         <h3 className='text-lg font-semibold mb-4'>Data</h3>
-
         <Table>
           <TableHeader>
             <TableRow>

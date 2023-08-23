@@ -26,9 +26,9 @@ import { privacyPolicy } from "@/app/atoms/atoms";
 type Input = z.infer<typeof registerSchema>;
 import { useAtom } from "jotai";
 import axios from "axios";
-import { useRouter } from "next/router";
-import { useState } from "react";
-
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useMutation } from "@tanstack/react-query";
 export default function SigninCard() {
   const [invalid, setInvalid] = useState(false)
   const [modal, setModal] = useAtom(privacyPolicy);
@@ -54,41 +54,29 @@ export default function SigninCard() {
 
 
   
-  
-  async function postData(url = "", data = {}) {
-    const response = await fetch(url, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-    });
+  const router = useRouter();
 
-    return await response.json();
-}
+const { mutate, data, error } = useMutation({
+  mutationFn:  (data: Input) => {
+     return axios.post('https://pastauction.com/api/v1/sign_up', data)
+  },
+ 
+})
 
-  const onSubmit = (data: Input) => {
-    
-
-    postData("https://pastauction.com/api/v1/sign_up", data)
-    .then((response) => {
-        console.log(response);
-        if(response.detail === 'Username o password errati'){
-          setInvalid(true)
-        }
-        
-    })
-    .catch((error) => {
-        console.error("Error:", error);
-    });
-
-    
-
-   
-
-   
-
+  const onSubmit = (signInData: Input) => {  
+    mutate(signInData)
   };
+
+  useEffect(() => {
+    if (error) {
+      setInvalid(true);
+    }
+    if (data?.data) {
+      router.push("/dashboard");
+    }
+
+    
+  }, [error, data])
   return (
     <>
       <Card className='md:w-[450px] rounded-r-[60px] w-full '>
@@ -187,6 +175,12 @@ export default function SigninCard() {
                     <FormControl>
                       <Input placeholder='Enter your password' {...field} />
                     </FormControl>
+
+                    {invalid && (
+                      <FormDescription className='text-red-500 text-sm'>
+                        User already registred try logging in
+                      </FormDescription>
+                    )}
                     <FormDescription className='flex justify-between items-center gap-3'>
                       <span>
                         <input type='checkbox' name='' id='' />
@@ -206,6 +200,7 @@ export default function SigninCard() {
                   </FormItem>
                 )}
               />
+          
               <div className='flex justify-center items-center pt-5'>
                 <Button className='px-32' variant='blackWide' type='submit'>
                   Get Started

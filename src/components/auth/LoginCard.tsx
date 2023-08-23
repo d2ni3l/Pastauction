@@ -4,7 +4,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -26,12 +25,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 type Input = z.infer<typeof loginSchema>;
 
-import React, { useState } from "react";
+import React, { useEffect,  useState } from "react";
 import { useRouter } from "next/navigation";
-
+import { login } from "@/app/hooks/usePostData";
 export default function LoginCard() {
   const [showPassword, setShowPassword] = useState(true);
-  const [invalid, setInvalid] = useState(false)
+  const [invalid, setInvalid] = useState(false);
 
   const form = useForm<Input>({
     resolver: zodResolver(loginSchema),
@@ -41,58 +40,40 @@ export default function LoginCard() {
     },
   });
 
-  async function postData(url = "", data = {}) {
-    const response = await fetch(url, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-    });
+  const { mutate, data, error } = login();
+  const router = useRouter();
 
-    return await response.json();
-}
-
-const router = useRouter()
-  const onSubmit = (data: Input) => {
-    
-
-    postData("https://pastauction.com/api/v1/login", data)
-    .then((response) => {
-        console.log(response);
-        if(response.detail === 'Username o password errati'){
-          setInvalid(true)
-        }else if(response.access_token) {
-          router.push('/dashboard')
-        } 
-        
-    })
-    .catch((error) => {
-        console.error("Error:", error);
-    });
-
-    
-
-   
-
-   
-
+  const onSubmit = (info: Input) => {
+    mutate(info);
   };
+
+  useEffect(() => {
+    if (error) {
+      setInvalid(true);
+    }
+    if (data?.data?.access_token) {
+      router.push("/dashboard");
+    }
+
+    
+  }, [error, data])
 
   return (
     <div className='w-full'>
       <Card className='md:w-[450px] rounded-r-[60px] w-full'>
         <CardHeader className='items-center'>
-          <CardTitle className="font-medium py-2 text-2xl md:text-4xl">Sign In </CardTitle>
-          <CardDescription>
-            Welcome back! Login to your account
-          </CardDescription>
+          <CardTitle className='font-medium py-2 text-2xl md:text-4xl'>
+            Sign In{" "}
+          </CardTitle>
+          <CardDescription>Welcome back! Login to your account</CardDescription>
         </CardHeader>
         <CardContent>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-2'>
               <div className='flex justify-center items-center gap-4'>
-                <button type='button' className='flex justify-center items-center bg-white hover:scale-[.9] transition-all duration-300 shadow-xl rounded-lg py-4 px-9 '>
+                <button
+                  type='button'
+                  className='flex justify-center items-center bg-white hover:scale-[.9] transition-all duration-300 shadow-xl rounded-lg py-4 px-9 '>
                   <Image
                     src='/images/google-logo.svg'
                     alt='google signin'
@@ -100,7 +81,9 @@ const router = useRouter()
                     height={20}
                   />
                 </button>
-                <button type='button' className='flex justify-center items-center bg-black hover:scale-[.9] transition-all duration-300 shadow-xl rounded-lg py-4 px-9'>
+                <button
+                  type='button'
+                  className='flex justify-center items-center bg-black hover:scale-[.9] transition-all duration-300 shadow-xl rounded-lg py-4 px-9'>
                   <Image
                     src='/images/apple-logo.svg'
                     alt='google signin'
@@ -108,7 +91,9 @@ const router = useRouter()
                     height={20}
                   />
                 </button>
-                <button type='button' className='flex justify-center items-center bg-blue-700 hover:scale-[.9] transition-all duration-300 shadow-xl rounded-lg py-4 px-9'>
+                <button
+                  type='button'
+                  className='flex justify-center items-center bg-blue-700 hover:scale-[.9] transition-all duration-300 shadow-xl rounded-lg py-4 px-9'>
                   <Image
                     src='/images/facebook-logo.svg'
                     alt='google signin'
@@ -162,19 +147,20 @@ const router = useRouter()
                         />
                       </button>
                     </div>
-                    {
-                      invalid && <FormDescription className='text-red-500 text-sm'>
+                    {invalid && (
+                      <FormDescription className='text-red-500 text-sm'>
                         Invalid Password or Email
-                                                                                                                                     
                       </FormDescription>
-                    }
-                    
+                    )}
+
                     <FormDescription className='flex justify-between gap-3 pt-2 pb-4'>
                       <span className='flex gap-1'>
                         <input type='checkbox' name='' id='' />
                         <span className='text-black'>Remember me</span>
                       </span>
-                      <Link href='/auth/forgotpassword' className='underline text-blue-500'>
+                      <Link
+                        href='/auth/forgotpassword'
+                        className='underline text-blue-500'>
                         Forgot password
                       </Link>
                     </FormDescription>
