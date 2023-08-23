@@ -13,7 +13,6 @@ import { alertUpgradePlan } from "@/app/atoms/atoms";
 export default function GarageServices() {
   const [deleteVehicle, setDeleteVehicle] = useState(false)
   const [modal, setModal] = useAtom(alertUpgradePlan)
-  console.log(modal)
   console.log()
   return (
     <div className={`${inter.className} pb-10`}>

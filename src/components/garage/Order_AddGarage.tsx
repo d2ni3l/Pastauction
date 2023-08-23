@@ -34,7 +34,6 @@ const orders = [
 export function Order_AddGarage() {
   const [open, setOpen] = React.useState(false)
   const [value, setValue] = React.useState("")
-   console.log(value)
   return (
     <div className="flex bg-white  px-7 pt-7 pb-5 rounded-lg justify-between shadow-lg">
         <Popover open={open} onOpenChange={setOpen}>

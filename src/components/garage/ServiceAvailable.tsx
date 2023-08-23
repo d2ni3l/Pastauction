@@ -14,7 +14,7 @@ export default function ServiceAvailable() {
       </div>
       <div className='pt-8'></div>
       <div className='xl:grid-cols-7  grid-cols-3 place-content-center flex flex-wrap md:grid-cols-4  sm:grid gap-4 px-6  items-center justify-center  py-5 bg-white rounded-lg'>
-          <Link className='min-w-[138px] max-h-[80px] sm:min-w-0 scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 xl:px-0 bg-gray-200  rounded-md py-2' href='/garage/secondaryintro'>
+          <Link className='min-w-[138px] max-h-[80px] sm:min-w-0 scale-hover cursor-pointer border-black border-2 flex flex-col items-center justify-center gap-3 px-3 xl:px-0 bg-gray-200  rounded-md py-2' href='/garage/garageview'>
 
           
           <Image

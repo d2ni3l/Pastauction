@@ -24,7 +24,7 @@ export default function page() {
       />
 
       <div className="xl:flex justify-center">
-      <div className='max-w-7xl xl:ml-[5rem] grow'>
+      <div className='max-w-7xl xl:-ml-[3rem] xl:grow'>
         <div className='lg:ml-[16rem] text-center text-3xl font-semibold pt-10 pb-6'>
           <h1>My Garage</h1>
         </div>
