@@ -429,7 +429,7 @@ const Filters = () => {
               variant='blackWide'
               role='combobox'
               aria-expanded={openArea}
-              className='w-full  justify-between border-gray-400 border-[1.4px] bg-white text-gray-600 font-medium hover:bg-white hover:text-black '>
+              className='w-full  justify-between border-gray-400 border-[1.4px] bg-white text-sm text-gray-600 font-medium hover:bg-white hover:text-black '>
               <span className='capitalize  '>
                 {valueArea ? valueArea : "Area"}
               </span>
@@ -470,7 +470,7 @@ const Filters = () => {
               variant='blackWide'
               role='combobox'
               aria-expanded={openAuctionCountry}
-              className='w-full  justify-between border-gray-400 border-[1.4px] bg-white text-gray-600 font-medium hover:bg-white hover:text-black '>
+              className='w-full  justify-between border-gray-400 border-[1.4px] bg-white text-sm text-gray-600 font-medium hover:bg-white hover:text-black '>
               <span className='capitalize  '>
                 {valueAuctionCountry ? valueAuctionCountry : "Auction Country"}
               </span>
@@ -513,7 +513,7 @@ const Filters = () => {
               variant='blackWide'
               role='combobox'
               aria-expanded={openAuctionCity}
-              className='w-full  justify-between border-gray-400 border-[1.4px] bg-white text-gray-600 font-medium hover:bg-white hover:text-black '>
+              className='w-full  justify-between border-gray-400 border-[1.4px] bg-white text-sm text-gray-600 font-medium hover:bg-white hover:text-black '>
               <span className='capitalize  '>
                 {valueAuctionCity ? valueAuctionCity : "Auction City"}
               </span>
@@ -556,7 +556,7 @@ const Filters = () => {
               variant='blackWide'
               role='combobox'
               aria-expanded={openAuctionEvent}
-              className='w-full  justify-between border-gray-400 border-[1.4px] bg-white text-gray-600 font-medium hover:bg-white hover:text-black '>
+              className='w-full  justify-between border-gray-400 border-[1.4px] bg-white text-sm text-gray-600 font-medium hover:bg-white hover:text-black '>
               <span className='capitalize  '>
                 {valueAuctionEvent ? valueAuctionEvent : "Auction Events"}
               </span>
@@ -599,7 +599,7 @@ const Filters = () => {
               variant='blackWide'
               role='combobox'
               aria-expanded={openMaison}
-              className='w-full  justify-between border-gray-400 border-[1.4px] bg-white text-gray-600 font-medium hover:bg-white hover:text-black '>
+              className='w-full  justify-between border-gray-400 border-[1.4px] bg-white text-sm text-gray-600 font-medium hover:bg-white hover:text-black '>
               <span className='capitalize  '>
                 {valueMaison ? valueMaison : "Maison"}
               </span>
@@ -641,7 +641,7 @@ const Filters = () => {
               variant='blackWide'
               role='combobox'
               aria-expanded={openMaisonCountry}
-              className='w-full  justify-between border-gray-400 border-[1.4px] bg-white text-gray-600 font-medium hover:bg-white hover:text-black '>
+              className='w-full  justify-between border-gray-400 border-[1.4px] bg-white text-sm text-gray-600 font-medium hover:bg-white hover:text-black '>
               <span className='capitalize  '>
                 {valueMaisonCountry ? valueMaisonCountry : "Maison Country"}
               </span>
@@ -684,7 +684,7 @@ const Filters = () => {
               variant='blackWide'
               role='combobox'
               aria-expanded={openAuctionYear}
-              className='w-full  justify-between border-gray-400 border-[1.4px] bg-white text-gray-600 font-medium hover:bg-white hover:text-black '>
+              className='w-full  justify-between border-gray-400 border-[1.4px] bg-white text-sm text-gray-600 font-medium hover:bg-white hover:text-black '>
               <span className='capitalize  '>
                 {valueAuctionYear ? valueAuctionYear : "Auction Year"}
               </span>
@@ -729,7 +729,7 @@ const Filters = () => {
               variant='blackWide'
               role='combobox'
               aria-expanded={openOrder}
-              className='w-[140px] justify-between shadow-lg border-gray-400 border-[1.4px] bg-white text-black hover:bg-white hover:text-black '>
+              className='w-[140px] justify-between shadow-lg border-gray-400 border-[1.4px] bg-white text-sm text-black hover:bg-white hover:text-black '>
               <span className='capitalize  '>
                 {valueOrder ? valueOrder : "Order by"}
               </span>

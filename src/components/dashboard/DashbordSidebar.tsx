@@ -54,6 +54,7 @@ export const DashbordSidebar = ({
                   </Button>
                 </Link>
 
+                <Link href='/datas'>
                 <Button
                   variant={page === "datas" ? "blue" : "transparent"}
                   className='flex justify-start gap-2 '>
@@ -67,6 +68,7 @@ export const DashbordSidebar = ({
                   </span>
                   <span className='font-light tracking-wide py-3'>Datas</span>
                 </Button>
+                </Link>
 
                 <Link href='/garage/garageservices'>
                   <Button
@@ -193,7 +195,8 @@ export const DashbordSidebar = ({
                 </Button>
               </Link>
 
-              <Button
+            <Link href='/datas'>
+            <Button
                 variant={page === "datas" ? "blue" : "transparent"}
                 className='flex justify-start gap-2  border border-white '>
                 <span className='py-3'>
@@ -206,6 +209,7 @@ export const DashbordSidebar = ({
                 </span>
                 <span className='font-light tracking-wide py-3'>Datas</span>
               </Button>
+            </Link>
 
               <Link href='/garage/garageservices'>
                 <Button

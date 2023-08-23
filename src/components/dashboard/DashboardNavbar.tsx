@@ -101,6 +101,7 @@ export default function DashboardNavbar({ setMobileSidebar, mobileSidebar, page,
                 </Button>
               </Link>
 
+              <Link href='datas'>
               <Button
                 variant={page === "datas" ? "blue" : "transparent"}
                 className='flex justify-start gap-2  border border-white '>
@@ -114,6 +115,7 @@ export default function DashboardNavbar({ setMobileSidebar, mobileSidebar, page,
                 </span>
                 <span className='font-light tracking-wide py-3'>Datas</span>
               </Button>
+              </Link>
 
               <Link href='/garage/garageservices'>
                 <Button
