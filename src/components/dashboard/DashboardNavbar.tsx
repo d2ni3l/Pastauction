@@ -12,6 +12,10 @@ import {infoAreaModal} from '@/app/atoms/atoms'
 import InfoArea from "./InfoArea";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { selectionAreaModal } from "@/app/atoms/atoms";
+import DashboardSelectionArea from "./DashboardSelectionArea";
+
+
 interface DashboardNavbar {
   mobileSidebar : boolean;
   page: string;
@@ -21,6 +25,8 @@ interface DashboardNavbar {
 
 export default function DashboardNavbar({ setMobileSidebar, mobileSidebar, page, position }: DashboardNavbar) {
     const [chatBubble, setChatBubble] = useAtom(chatBubbleModal)
+    const [selectionAreamodal, setselectionAreamodal] = useAtom(selectionAreaModal);
+
     const [currencyModal, setCurrencyModal] = useAtom(currencyChangeModal)
     const [infoArea,setInfoArea] = useAtom(infoAreaModal)
     const router = useRouter()
@@ -41,6 +47,11 @@ export default function DashboardNavbar({ setMobileSidebar, mobileSidebar, page,
     {
       infoArea && (
         <InfoArea/>
+      )
+    }
+    {
+      selectionAreamodal && (
+        <DashboardSelectionArea/>
       )
     }
 
@@ -226,7 +237,10 @@ export default function DashboardNavbar({ setMobileSidebar, mobileSidebar, page,
                   />
                 </Button>
 
-                <div>
+                <div onClick={() => {
+                  setMobileSidebar(false);
+                  setselectionAreamodal(true);
+                }}>
                   <Image
                     src='/images/avatar.png'
                     alt='chat bubble'
@@ -308,13 +322,12 @@ export default function DashboardNavbar({ setMobileSidebar, mobileSidebar, page,
             />
           </Button>
 
-          <div>
+          <div onClick={() => {setselectionAreamodal(true)}} className='cursor-pointer scale-hover'>
             <Image
               src='/images/avatar.png'
               alt='chat bubble'
               width='40'
               height='40'
-              className=''
             />
           </div>
         </div>

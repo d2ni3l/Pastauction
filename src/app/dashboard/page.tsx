@@ -19,6 +19,19 @@ export default function page() {
   const [selectionAreamodal, setselectionAreamodal] = useAtom(selectionAreaModal);
   const [mobileSidebar, setMobileSideBar] = useState(false);
   return (
+    <>
+    {completeprofileModal && (
+        <div className={inter.className}>
+          <CompleteProfileModal />
+        </div>
+      )}
+
+ {
+       selectionAreamodal && (
+        <div className={inter.className}>
+          <DashboardSelectionArea />
+        </div>) 
+      } 
     <div className='bg-[#f8f9fa] overflow-x-hidden w-screen h-screen'>
       <DashboardNavbar
       page='home'
@@ -52,20 +65,10 @@ export default function page() {
       </div>
       </div>
       
-      {completeprofileModal && (
-        <div className={inter.className}>
-          <CompleteProfileModal />
-        </div>
-      )}
-
- {
-       selectionAreamodal && (
-        <div className={inter.className}>
-          <DashboardSelectionArea />
-        </div>) 
-      } 
+      
 
      
     </div>
+  </>
   );
 }
