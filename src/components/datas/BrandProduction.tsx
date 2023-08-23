@@ -397,6 +397,7 @@ export default function BrandProduction() {
 
         <Table>
           <TableHeader>
+            <TableRow>
             <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
               hello
             </TableHead>
@@ -427,41 +428,40 @@ export default function BrandProduction() {
             <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
               211
             </TableHead>
-          </TableHeader>
-          <TableBody>
-            <TableRow>
-            <TableCell className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
-              hello
-            </TableCell>
-            <TableCell className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
-              hello
-            </TableCell>
-            <TableCell className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
-              hello
-            </TableCell>
-            <TableCell className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
-              hello
-            </TableCell>
-            <TableCell className='font-semibold lg:text-sm   border-[2px] border-[#ced4da] bg-green-200 text-green-500'>
-              [-37,25%]
-            </TableCell>
-            <TableCell className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
-              25,515,000
-            </TableCell>
-            <TableCell className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
-              32,125,000
-            </TableCell>
-            <TableCell className='font-semibold lg:text-sm  border-[2px] border-[#ced4da] bg-red-200 text-red-500'>
-              [-14,22%]
-            </TableCell>
-            <TableCell className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
-              18,581,306
-            </TableCell>
-            <TableCell className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
-              211
-            </TableCell>
             </TableRow>
-          </TableBody>
+          </TableHeader>
+          <TableHeader>
+            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+              hello
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+              hello
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+              hello
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+              hello
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm   border-[2px] border-[#ced4da] bg-green-200 text-green-500'>
+              [-37,25%]
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+              25,515,000
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+              32,125,000
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm  border-[2px] border-[#ced4da] bg-red-200 text-red-500'>
+              [-14,22%]
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+              18,581,306
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+              211
+            </TableHead>
+          </TableHeader>
         </Table>
       </div>
     </div>

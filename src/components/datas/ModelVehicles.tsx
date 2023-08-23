@@ -1,6 +1,13 @@
 import Image from "next/image";
 import React from "react";
-
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "../ui/table";
 import * as ProgressPrimitive from "@radix-ui/react-progress";
 import { ProgressRed } from "../ui/progressRed";
 import { cn } from "@/lib/utils";
@@ -28,13 +35,13 @@ export default function ModelVehicles() {
           <div className='flex flex-col gap-2'>
             <div className='flex gap-4 items-center'>
               <p className='text-sm text-gray-500 italic'>family</p>
-              <button className='border-[1.6px] border-black rounded-sm text-left cursor-default font-medium py-[2px] w-[180px] px-1'>
+              <button className='border-[1.6px] border-black rounded-sm text-left cursor-default font-medium py-[2px] w-[180px] px-2'>
                 E TYPE
               </button>
             </div>
             <div className='flex gap-4 items-center'>
               <p className='text-sm text-gray-500 italic'>model</p>
-              <button className='border-[1.6px] border-black rounded-sm text-left cursor-default font-medium py-[2px] w-[180px] px-1'>
+              <button className='border-[1.6px] border-black rounded-sm text-left cursor-default font-medium py-[2px] w-[180px] px-2'>
                 E TYPE SERIES III
               </button>
             </div>
@@ -43,13 +50,13 @@ export default function ModelVehicles() {
           <div className='flex flex-col gap-2'>
             <div className='flex gap-4 items-center'>
               <p className='text-sm text-gray-500 italic'>from</p>
-              <button className='border-[1.6px] border-black rounded-sm text-left cursor-default font-medium py-[2px] w-[180px] px-1'>
+              <button className='border-[1.6px] border-black rounded-sm text-left cursor-default font-medium py-[2px] w-[180px] px-2'>
                 1969
               </button>
             </div>
             <div className='flex gap-4 items-center'>
               <p className='text-sm text-gray-500 italic'>to</p>
-              <button className='border-[1.6px] border-black rounded-sm text-left cursor-default font-medium py-[2px] w-[180px] px-1'>
+              <button className='border-[1.6px] border-black rounded-sm text-left cursor-default font-medium py-[2px] w-[180px] px-2'>
                 1970
               </button>
             </div>
@@ -58,13 +65,13 @@ export default function ModelVehicles() {
           <div className='flex flex-col gap-2'>
             <div className='flex gap-4 items-center'>
               <p className='text-sm text-gray-500 italic'>yrs product</p>
-              <button className='border-[1.6px] border-black rounded-sm text-left cursor-default font-medium py-[2px] w-[180px] px-1'>
+              <button className='border-[1.6px] border-black rounded-sm text-left cursor-default font-medium py-[2px] w-[180px] px-2'>
                 2
               </button>
             </div>
             <div className='flex gap-4 items-center'>
               <p className='text-sm text-gray-500 italic'>nr products</p>
-              <button className='border-[1.6px] border-black rounded-sm text-left cursor-default font-medium py-[2px] w-[180px] px-1'>
+              <button className='border-[1.6px] border-black rounded-sm text-left cursor-default font-medium py-[2px] w-[180px] px-2'>
                 18,809
               </button>
             </div>
@@ -74,7 +81,85 @@ export default function ModelVehicles() {
 
       <div className='pt-10'></div>
 
+      <div className="space-y-5">
       <CardModel />
+      <CardModel />
+      <CardModel />
+      </div>
+
+      
+      <div className='mt-5  bg-white p-5 shadow-md '>
+        <h3 className='text-lg font-semibold mb-4'>Data</h3>
+
+        <Table>
+          <TableHeader>
+            <TableRow>
+            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+              hello
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+              hello
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+              hello
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+              hello
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm   border-[2px] border-[#ced4da] bg-red-200 text-red-500'>
+              [-37,25%]
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+              25,515,000
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+              32,125,000
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm  border-[2px] border-[#ced4da] bg-red-200 text-red-500'>
+              [-72,5%]
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+              18,581,306
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+              211
+            </TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableHeader>
+            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+              hello
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+              hello
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+              hello
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+              hello
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm   border-[2px] border-[#ced4da] bg-green-200 text-green-500'>
+              [-37,25%]
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+              25,515,000
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+              32,125,000
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm  border-[2px] border-[#ced4da] bg-red-200 text-red-500'>
+              [-14,22%]
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+              18,581,306
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+              211
+            </TableHead>
+          </TableHeader>
+        </Table>
+      </div>
     </div>
   );
 }
