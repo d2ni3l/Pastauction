@@ -1,12 +1,13 @@
 import { inter } from "@/app/fonts";
 import Image from "next/image";
 import React from "react";
-
+import {useRouter} from 'next/navigation'
 export default function DashboardGarageItems() {
+ const router = useRouter()
   return (
-    <div className={inter.className}>
+    <div className={inter.className} >
       <div className='flex gap-6  items-center justify-center flex-col sm:flex-row'>
-        <div className='cardbody min-[400px]:w-[400px] shadow-xl sm:max-w-sm scale-hover'>
+        <div  onClick={() =>  {router.push('/garage/garageservices')}} className='cardbody cursor-pointer min-[400px]:w-[400px] shadow-xl sm:max-w-sm scale-hover'>
           <Image
             src='/images/garage-img1.svg'
             alt='garage car'
@@ -25,7 +26,7 @@ export default function DashboardGarageItems() {
             </p>
           </div>
         </div>
-        <div className='cardbody min-[400px]:w-[400px] shadow-xl sm:max-w-sm scale-hover'>
+        <div  onClick={() =>  {router.push('/garage/garageservices')}} className='cardbody cursor-pointer min-[400px]:w-[400px] shadow-xl sm:max-w-sm scale-hover'>
           <Image
             src='/images/garage-img2.svg'
             alt='garage car'
@@ -44,7 +45,7 @@ export default function DashboardGarageItems() {
             </p>
           </div>
         </div>
-        <div className='cardbody min-[400px]:w-[400px] shadow-xl sm:max-w-sm scale-hover'>
+        <div  onClick={() =>  {router.push('/garage/garageservices')}} className='cardbody cursor-pointer min-[400px]:w-[400px] shadow-xl sm:max-w-sm scale-hover'>
           <Image
             src='/images/garage-img-3.svg'
             alt='garage car'

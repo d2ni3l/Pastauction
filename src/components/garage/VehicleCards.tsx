@@ -117,13 +117,13 @@ export default function VehicleCards({
               <span>•</span> <span>Restored-Modified</span>
             </p>
           </div>
-          <div className='flex gap-2 pb-4'>
+          <div className='flex gap-2 pb-2'>
             <Image src='/images/italy.svg' alt='image' width='15' height='15' />
             <h2 className='text-sm'>Italy</h2>
           </div>
 
           <div className='flex justify-start'>
-            <button className='text-black rounded-md border-black mb-6 scale-hover border-2 py-2 px-2'>
+            <button className='text-black rounded-sm border-black mb-6 scale-hover border-2 py-[6px] px-2'>
               <div className='text-sm text-black font-medium'>
                 Search spare parts
               </div>
