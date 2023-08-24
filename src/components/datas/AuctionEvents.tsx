@@ -26,7 +26,13 @@ import {
   TableHeader,
   TableRow,
 } from "../ui/table";
+import { useAtom } from "jotai";
+import { maisonAuctionEventsArea } from "@/app/atoms/atoms";
+import Link from "next/link";
 export default function AuctionEvents() {
+  const [area, setArea ]= useAtom(maisonAuctionEventsArea)
+   
+
   const dataPlaceholder = [
     {
       year: "1959",
@@ -219,11 +225,11 @@ export default function AuctionEvents() {
               />
               <div className='flex flex-col'>
                 <div className='flex gap-4 font-medium '>
-                  <h3 className='font-semibold text-lg'>Techo Classica</h3>{" "}
-                  <span className='text-blue-500 underline cursor-pointer'>
+                  <h3 onClick={() => {setArea('Maison')}} className='font-semibold text-lg'>Techo Classica</h3>{" "}
+                  <span onClick={() => {setArea('Maison')}} className='text-blue-500 underline cursor-pointer'>
                     Vehicles
                   </span>{" "}
-                  <span className='text-blue-500 underline cursor-pointer'>
+                  <span onClick={() => {setArea('Maison & Auction Events')}}  className='text-blue-500 underline cursor-pointer'>
                     Events
                   </span>
                 </div>
@@ -357,10 +363,10 @@ export default function AuctionEvents() {
                 Year
               </TableHead>
               <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da] '>
-                Brand
+                <Link href='/datas/brandproduction'>Brand</Link>
               </TableHead>
               <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da] '>
-                Model
+                <Link href='/datas/modelvehicle'>Model</Link>
               </TableHead>
 
               <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]  '>
@@ -387,7 +393,7 @@ export default function AuctionEvents() {
                 Photo
               </TableHead>
               <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]  '>
-                Lot
+                <Link href='/garage/'>Lot</Link>
               </TableHead>
             </TableRow>
           </TableHeader>
@@ -431,7 +437,7 @@ export default function AuctionEvents() {
                       backgroundImage: `url(${data.photo})`,
                     }}></TableCell>
                   <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>
-                    {data.lot}
+                    <Link href='/datas/singledetails'>{data.lot}</Link>
                   </TableCell>
                 </TableRow>
               );

@@ -16,7 +16,7 @@ export default function page() {
     <main className='bg-[#f8f9fa] overflow-x-hidden w-screen h-screen'>
       <div className='lg:ml-[5rem]'>
         <DashboardNavbar
-          page='Brand Production'
+          page='Model Vehicle'
           position={true}
           mobileSidebar={mobileSidebar}
           setMobileSidebar={setMobileSideBar}

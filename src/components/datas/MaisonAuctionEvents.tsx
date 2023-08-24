@@ -25,8 +25,11 @@ import {
   TableRow,
 } from "../ui/table";
 import Image from "next/image";
-
+import { maisonAuctionEventsArea } from "@/app/atoms/atoms";
+import { useAtom } from "jotai";
 export default function MaisonAuctionEvents() {
+  const [area, setArea ]= useAtom(maisonAuctionEventsArea)
+
   const dataPlaceholder = [
     {
       maison: "Rm Sothebys",
@@ -285,7 +288,7 @@ export default function MaisonAuctionEvents() {
         <Table className=''>
           <TableHeader>
             <TableRow className=' border-black'>
-              <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+              <TableHead onClick={() => {setArea('Maison')}} className='font-semibold lg:text-sm text-black bg-[#cfe2ff] cursor-pointer border-[2px] border-[#ced4da]'>
                 Maison
               </TableHead>
               <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da] '>
@@ -325,10 +328,10 @@ export default function MaisonAuctionEvents() {
             {dataPlaceholder.map((data, i) => {
               return <TableRow key={data.maison} className={`${i % 2 === 1 ? "bg-[#dee2e6]" : "bg-white"}`}>
                 <TableCell className='font-medium border-[2px] border-[#ced4da] text-blue-500 underline cursor-pointer'>{data.maison}</TableCell>
-                <TableCell className='font-medium border-[2px] border-[#ced4da] text-blue-500 underline cursor-pointer'>{data.auction_event}</TableCell>
+                <TableCell className='font-medium border-[2px] border-[#ced4da] text-blue-500 underline cursor-pointer' onClick={() => {setArea('Maison')}}>{data.auction_event}</TableCell>
                 <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>{data.auction_country}</TableCell>
                 <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>{data.auction_city}</TableCell>
-                <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>{data.date}</TableCell>
+                <TableCell className='font-medium text-black border-[2px] border-[#ced4da]' onClick={() => {setArea('Auction Events')}}>{data.date}</TableCell>
                 <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>{data.nr_vehicles}</TableCell>
                 <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>{data.sold}</TableCell>
                 <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>{data.total_sales}</TableCell>

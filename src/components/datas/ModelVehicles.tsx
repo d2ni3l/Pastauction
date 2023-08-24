@@ -11,24 +11,27 @@ import {
 import * as ProgressPrimitive from "@radix-ui/react-progress";
 import { ProgressRed } from "../ui/progressRed";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 export default function ModelVehicles() {
   return (
     <div>
       <div className='flex gap-5 lg:gap-10 flex-col lg:flex-row'>
-        <div className='flex  gap-2'>
+        <div className='flex  gap-2 items-center'>
           <Image
             src='/images/flagenglandplaceholder.svg'
             alt='flag'
             width='100'
             height='50'
           />
+          <Link href='/datas/brandproduction'>
           <Image
             src='/images/jaguarlogo.svg'
             alt='brand logo'
             width='100'
             height='50'
           />
+          </Link>
         </div>
 
         <div className='flex flex-col gap-5 sm:flex-row  items-center xl:gap-[100px] w-full'>
@@ -81,81 +84,84 @@ export default function ModelVehicles() {
 
       <div className='pt-10'></div>
 
-      <div className="space-y-5">
-      <CardModel />
-      <CardModel />
-      <CardModel />
+      <div className='space-y-5'>
+        <CardModel />
+        <CardModel />
+        <CardModel />
       </div>
 
-      
       <div className='mt-5  bg-white p-5 shadow-md '>
         <h3 className='text-lg font-semibold mb-4'>Data</h3>
-
         <Table>
           <TableHeader>
-            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
-              hello
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
-              hello
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
-              hello
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
-              hello
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm   border-[2px] border-[#ced4da] bg-red-200 text-red-500'>
-              [-37,25%]
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
-              25,515,000
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
-              32,125,000
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm  border-[2px] border-[#ced4da] bg-red-200 text-red-500'>
-              [-72,5%]
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
-              18,581,306
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
-              211
-            </TableHead>
+            <TableRow>
+              <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+                hello
+              </TableHead>
+              <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+                hello
+              </TableHead>
+              <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+                hello
+              </TableHead>
+              <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+                hello
+              </TableHead>
+              <TableHead className='font-semibold lg:text-sm   border-[2px] border-[#ced4da] bg-red-200 text-red-500'>
+                [-37,25%]
+              </TableHead>
+              <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+                25,515,000
+              </TableHead>
+              <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+                32,125,000
+              </TableHead>
+              <TableHead className='font-semibold lg:text-sm  border-[2px] border-[#ced4da] bg-red-200 text-red-500'>
+                [-72,5%]
+              </TableHead>
+              <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+                18,581,306
+              </TableHead>
+              <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+                211
+              </TableHead>
+            </TableRow>
           </TableHeader>
-          <TableHeader>
-            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
-              hello
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
-              hello
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
-              hello
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
-              hello
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm   border-[2px] border-[#ced4da] bg-green-200 text-green-500'>
-              [-37,25%]
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
-              25,515,000
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
-              32,125,000
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm  border-[2px] border-[#ced4da] bg-red-200 text-red-500'>
-              [-14,22%]
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
-              18,581,306
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
-              211
-            </TableHead>
-          </TableHeader>
+
+          <TableBody>
+            <TableRow>
+              <TableCell className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+                hello
+              </TableCell>
+              <TableCell className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+                hello
+              </TableCell>
+              <TableCell className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+                hello
+              </TableCell>
+              <TableCell className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+                hello
+              </TableCell>
+              <TableCell className='font-semibold lg:text-sm   border-[2px] border-[#ced4da] bg-green-200 text-green-500'>
+                [-37,25%]
+              </TableCell>
+              <TableCell className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+                25,515,000
+              </TableCell>
+              <TableCell className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+                32,125,000
+              </TableCell>
+              <TableCell className='font-semibold lg:text-sm  border-[2px] border-[#ced4da] bg-red-200 text-red-500'>
+                [-14,22%]
+              </TableCell>
+              <TableCell className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+                18,581,306
+              </TableCell>
+              <TableCell className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+                211
+              </TableCell>
+            </TableRow>
+          </TableBody>
         </Table>
       </div>
     </div>
@@ -166,7 +172,8 @@ const CardModel = () => {
   return (
     <div className='bg-white  shadow-md px-3 py-4'>
       <div className='flex flex-col lg:flex-row lg:justify-between'>
-        <div className='flex flex-col lg:flex-row gap-2'>
+
+        <div className='flex flex-col lg:flex-row gap-2 xl:gap-3'>
           <div>
             {" "}
             <Image
@@ -178,36 +185,36 @@ const CardModel = () => {
           </div>
 
           <div>
-            <div className='gap-5 flex pt-2'>
-              <h2 className='font-bold text-lg'>Rolls Royce Motors Cars</h2>
+            <div className='gap-5 flex xl:items-center pt-2'>
+              <h2 className='font-bold text-lg sm:text-xl'>Rolls Royce Motors Cars</h2>
               <h2 className='font-medium'>1984</h2>
             </div>
             <div className='pt-5 flex gap-2'>
-              <p className='font-semibold text-sm'>CAMARGUE</p>
+              <p className='font-semibold text-sm sm:text-base'>CAMARGUE</p>
               <p className='font-semibold text-sm'></p>
             </div>
             <div className='pt-5 flex gap-5'>
               <div className='flex gap-3'>
-                <p className=' text-gray-600 text-sm'>chassis n.</p>
+                <p className=' text-gray-600 text-sm italic'>chassis n.</p>
                 <p className='text-black text-sm font-medium'>
                   SCAYJ42A0ECX07948
                 </p>
               </div>
               <div>
-                <p className='text-gray-600 text-sm'>Engine n.</p>
+                <p className='text-gray-600 text-sm italic'>Engine n.</p>
               </div>
             </div>
 
-            <div className='border border-gray-300 mt-5 mb-5'></div>
+            <div className='border border-gray-300 mt-5 mb-5 max-w-[450px]'></div>
 
             <div className='grid grid-cols-2 sm:grid-cols-3 gap-5 items-center'>
-              <p className='text-sm font-semibold'>Gooding & Company</p>
+              <p className='text-sm font-semibold sm:text-base'>Gooding & Company</p>
               <p className='flex text-gray-500 gap-2'>
-                <span>Scottdale</span>
+                <span className='italic'>Scottdale</span>
                 <span className='text-black'>2010</span>
               </p>
               <p className='flex text-gray-500 gap-2'>
-                <span>Lot n.</span>
+                <span className='italic'>Lot n.</span>
                 <span className='text-black font-medium'>55</span>
               </p>
             </div>
@@ -279,11 +286,10 @@ const CardModel = () => {
               width='30'
               height='30'
               alt='dash'
-
-
             />
           </div>
         </div>
+
       </div>
     </div>
   );

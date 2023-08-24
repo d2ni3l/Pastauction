@@ -26,321 +26,193 @@ import {
   TableHeader,
   TableRow,
 } from "../ui/table";
+import { useAtom } from "jotai";
+import { maisonAuctionEventsArea } from "@/app/atoms/atoms";
 export default function Maison() {
+  const [area, setArea] = useAtom(maisonAuctionEventsArea);
   const dataPlaceholder = [
     {
+      date: "12/04/28",
+      event_name: 'Tecno classica',
+      city: 'Essen',
       year: "1959",
+      country: 'Germany',
       brand: "Porsche Diesel",
       model: "Junior 108 K",
-      reserve: "",
-      high_bid: "",
       val_min: "20,000",
       val_max: "30,000",
       change: "EUR",
-      sales: "10,195",
+      vendita: "10,195",
       photo: "/images/auctioneventsphotoplaceholder.svg",
-      lot: "197",
+      lot_to: "197",
     },
     {
+      date: "12/04/28",
+      event_name: 'Tecno classica',
+      city: 'Essen',
       year: "1959",
+      country: 'Germany',
       brand: "Porsche Diesel",
       model: "Junior 108 K",
-      reserve: "",
-      high_bid: "",
       val_min: "20,000",
       val_max: "30,000",
       change: "EUR",
-      sales: "10,195",
+      vendita: "10,195",
       photo: "/images/auctioneventsphotoplaceholder.svg",
-      lot: "197",
+      lot_to: "197",
     },
     {
+      date: "12/04/28",
+      event_name: 'Tecno classica',
+      city: 'Essen',
       year: "1959",
+      country: 'Germany',
       brand: "Porsche Diesel",
       model: "Junior 108 K",
-      reserve: "",
-      high_bid: "",
       val_min: "20,000",
       val_max: "30,000",
       change: "EUR",
-      sales: "10,195",
+      vendita: "10,195",
       photo: "/images/auctioneventsphotoplaceholder.svg",
-      lot: "197",
+      lot_to: "197",
     },
     {
+      date: "12/04/28",
+      event_name: 'Tecno classica',
+      city: 'Essen',
       year: "1959",
+      country: 'Germany',
       brand: "Porsche Diesel",
       model: "Junior 108 K",
-      reserve: "",
-      high_bid: "",
       val_min: "20,000",
       val_max: "30,000",
       change: "EUR",
-      sales: "10,195",
+      vendita: "10,195",
       photo: "/images/auctioneventsphotoplaceholder.svg",
-      lot: "197",
+      lot_to: "197",
     },
     {
+      date: "12/04/28",
+      event_name: 'Tecno classica',
+      city: 'Essen',
       year: "1959",
+      country: 'Germany',
       brand: "Porsche Diesel",
       model: "Junior 108 K",
-      reserve: "",
-      high_bid: "",
       val_min: "20,000",
       val_max: "30,000",
       change: "EUR",
-      sales: "10,195",
+      vendita: "10,195",
       photo: "/images/auctioneventsphotoplaceholder.svg",
-      lot: "197",
+      lot_to: "197",
     },
     {
+      date: "12/04/28",
+      event_name: 'Tecno classica',
+      city: 'Essen',
       year: "1959",
+      country: 'Germany',
       brand: "Porsche Diesel",
       model: "Junior 108 K",
-      reserve: "",
-      high_bid: "",
       val_min: "20,000",
       val_max: "30,000",
       change: "EUR",
-      sales: "10,195",
+      vendita: "10,195",
       photo: "/images/auctioneventsphotoplaceholder.svg",
-      lot: "197",
+      lot_to: "197",
     },
     {
+      date: "12/04/28",
+      event_name: 'Tecno classica',
+      city: 'Essen',
       year: "1959",
+      country: 'Germany',
       brand: "Porsche Diesel",
       model: "Junior 108 K",
-      reserve: "",
-      high_bid: "",
       val_min: "20,000",
       val_max: "30,000",
       change: "EUR",
-      sales: "10,195",
+      vendita: "10,195",
       photo: "/images/auctioneventsphotoplaceholder.svg",
-      lot: "197",
+      lot_to: "197",
     },
     {
+      date: "12/04/28",
+      event_name: 'Tecno classica',
+      city: 'Essen',
       year: "1959",
+      country: 'Germany',
       brand: "Porsche Diesel",
       model: "Junior 108 K",
-      reserve: "",
-      high_bid: "",
       val_min: "20,000",
       val_max: "30,000",
       change: "EUR",
-      sales: "10,195",
+      vendita: "10,195",
       photo: "/images/auctioneventsphotoplaceholder.svg",
-      lot: "197",
+      lot_to: "197",
     },
     {
+      date: "12/04/28",
+      event_name: 'Tecno classica',
+      city: 'Essen',
       year: "1959",
+      country: 'Germany',
       brand: "Porsche Diesel",
       model: "Junior 108 K",
-      reserve: "",
-      high_bid: "",
       val_min: "20,000",
       val_max: "30,000",
       change: "EUR",
-      sales: "10,195",
+      vendita: "10,195",
       photo: "/images/auctioneventsphotoplaceholder.svg",
-      lot: "197",
+      lot_to: "197",
     },
     {
+      date: "12/04/28",
+      event_name: 'Tecno classica',
+      city: 'Essen',
       year: "1959",
+      country: 'Germany',
       brand: "Porsche Diesel",
       model: "Junior 108 K",
-      reserve: "",
-      high_bid: "",
       val_min: "20,000",
       val_max: "30,000",
       change: "EUR",
-      sales: "10,195",
+      vendita: "10,195",
       photo: "/images/auctioneventsphotoplaceholder.svg",
-      lot: "197",
+      lot_to: "197",
     },
     {
+      date: "12/04/28",
+      event_name: 'Tecno classica',
+      city: 'Essen',
       year: "1959",
+      country: 'Germany',
       brand: "Porsche Diesel",
       model: "Junior 108 K",
-      reserve: "",
-      high_bid: "",
       val_min: "20,000",
       val_max: "30,000",
       change: "EUR",
-      sales: "10,195",
+      vendita: "10,195",
       photo: "/images/auctioneventsphotoplaceholder.svg",
-      lot: "197",
+      lot_to: "197",
     },
     {
+      date: "12/04/28",
+      event_name: 'Tecno classica',
+      city: 'Essen',
       year: "1959",
+      country: 'Germany',
       brand: "Porsche Diesel",
       model: "Junior 108 K",
-      reserve: "",
-      high_bid: "",
       val_min: "20,000",
       val_max: "30,000",
       change: "EUR",
-      sales: "10,195",
+      vendita: "10,195",
       photo: "/images/auctioneventsphotoplaceholder.svg",
-      lot: "197",
+      lot_to: "197",
     },
   ];
-  const dataPlaceholder2 = [
-    {
-      date: "12/04/2019",
-      auction_event: "Tecno classica",
-      city: "Essen",
-      country: "Germany",
-      country_flag: "/images/germanyflag.svg",
-      nr_vehicle_offered: "221",
-      nr_vehicle_sold: "221",
-      sold: "84.36%",
-      totals_sales: "18,581,306",
-      avg_sales: "104,81,306",
-      top_sold: "2,25,800",
-    },
-    {
-      date: "12/04/2019",
-      auction_event: "Tecno classica",
-      city: "Essen",
-      country: "United States",
-      country_flag: "/images/usflag.svg",
-      nr_vehicle_offered: "221",
-      nr_vehicle_sold: "221",
-      sold: "84.36%",
-      totals_sales: "18,581,306",
-      avg_sales: "104,81,306",
-      top_sold: "2,25,800",
-    },
-    {
-      date: "12/04/2019",
-      auction_event: "Tecno classica",
-      city: "Essen",
-      country: "Germany",
-      country_flag: "/images/germanyflag.svg",
-      nr_vehicle_offered: "221",
-      nr_vehicle_sold: "221",
-      sold: "84.36%",
-      totals_sales: "18,581,306",
-      avg_sales: "104,81,306",
-      top_sold: "2,25,800",
-    },
-    {
-      date: "12/04/2019",
-      auction_event: "Tecno classica",
-      city: "Essen",
-      country: "United States",
-      country_flag: "/images/usflag.svg",
-      nr_vehicle_offered: "221",
-      nr_vehicle_sold: "221",
-      sold: "84.36%",
-      totals_sales: "18,581,306",
-      avg_sales: "104,81,306",
-      top_sold: "2,25,800",
-    },
-    {
-      date: "12/04/2019",
-      auction_event: "Tecno classica",
-      city: "Essen",
-      country: "Germany",
-      country_flag: "/images/germanyflag.svg",
-      nr_vehicle_offered: "221",
-      nr_vehicle_sold: "221",
-      sold: "84.36%",
-      totals_sales: "18,581,306",
-      avg_sales: "104,81,306",
-      top_sold: "2,25,800",
-    },
-    {
-      date: "12/04/2019",
-      auction_event: "Tecno classica",
-      city: "Essen",
-      country: "United States",
-      country_flag: "/images/usflag.svg",
-      nr_vehicle_offered: "221",
-      nr_vehicle_sold: "221",
-      sold: "84.36%",
-      totals_sales: "18,581,306",
-      avg_sales: "104,81,306",
-      top_sold: "2,25,800",
-    },
 
-
-    {
-      date: "12/04/2019",
-      auction_event: "Tecno classica",
-      city: "Essen",
-      country: "Germany",
-      country_flag: "/images/germanyflag.svg",
-      nr_vehicle_offered: "221",
-      nr_vehicle_sold: "221",
-      sold: "84.36%",
-      totals_sales: "18,581,306",
-      avg_sales: "104,81,306",
-      top_sold: "2,25,800",
-    },
-
-    {
-      date: "12/04/2019",
-      auction_event: "Tecno classica",
-      city: "Essen",
-      country: "United States",
-      country_flag: "/images/usflag.svg",
-      nr_vehicle_offered: "221",
-      nr_vehicle_sold: "221",
-      sold: "84.36%",
-      totals_sales: "18,581,306",
-      avg_sales: "104,81,306",
-      top_sold: "2,25,800",
-    },
-
-
-    {
-      date: "12/04/2019",
-      auction_event: "Tecno classica",
-      city: "Essen",
-      country: "Germany",
-      country_flag: "/images/germanyflag.svg",
-      nr_vehicle_offered: "221",
-      nr_vehicle_sold: "221",
-      sold: "84.36%",
-      totals_sales: "18,581,306",
-      avg_sales: "104,81,306",
-      top_sold: "2,25,800",
-    },
-
-
-    {
-      date: "12/04/2019",
-      auction_event: "Tecno classica",
-      city: "Essen",
-      country: "United States",
-      country_flag: "/images/usflag.svg",
-      nr_vehicle_offered: "221",
-      nr_vehicle_sold: "221",
-      sold: "84.36%",
-      totals_sales: "18,581,306",
-      avg_sales: "104,81,306",
-      top_sold: "2,25,800",
-    },
-
-
-
-    {
-      date: "12/04/2019",
-      auction_event: "Tecno classica",
-      city: "Essen",
-      country: "Germany",
-      country_flag: "/images/germanyflag.svg",
-      nr_vehicle_offered: "221",
-      nr_vehicle_sold: "221",
-      sold: "84.36%",
-      totals_sales: "18,581,306",
-      avg_sales: "104,81,306",
-      top_sold: "2,25,800",
-    },
-
-  ];
   return (
     <div className='overflow-auto'>
       <div className='flex flex-col xl:flex-row gap-10'>
@@ -394,7 +266,6 @@ export default function Maison() {
         <div className='bg-white   w-full shadow-md'>
           <ScrollArea className='h-[220px] py-6'>
             <div className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-1 min-[1500px]:grid-cols-2'>
-
               <div className='flex flex-col'>
                 <div className='gap-[2px] flex'>
                   <div className='flex gap-3 flex-col items-end'>
@@ -445,7 +316,10 @@ export default function Maison() {
                 <div className='flex gap-[2px]'>
                   <div className='flex gap-3 flex-col items-end'>
                     <p className='text-sm text-gray-500 italic py-1 border-transparent border-[2.2px] px-4 whitespace-nowrap'>
-                    <span className="select-none text-transparent">hello world</span> first lot n.
+                      <span className='select-none text-transparent'>
+                        hello world
+                      </span>{" "}
+                      first lot n.
                     </p>
                   </div>
                   <div className='flex gap-3 flex-col'>
@@ -480,25 +354,24 @@ export default function Maison() {
                     <button className='py-[4px]  text-black text-sm border-[2.2px] scale-hover font-semibold border-black rounded-md w-[40px] text-center flex justify-center items-center'>
                       GC
                     </button>
-                    
-                      <button className='py-[4px]  text-black scale-hover text-sm border-[2.2px] font-semibold border-black rounded-md w-[40px] text-center flex justify-center items-center'>
-                      GC
-                      </button>
-                    
+
                     <button className='py-[4px]  text-black scale-hover text-sm border-[2.2px] font-semibold border-black rounded-md w-[40px] text-center flex justify-center items-center'>
-                    GC
+                      GC
                     </button>
 
                     <button className='py-[4px]  text-black scale-hover text-sm border-[2.2px] font-semibold border-black rounded-md w-[40px] text-center flex justify-center items-center'>
-                    GC
+                      GC
+                    </button>
+
+                    <button className='py-[4px]  text-black scale-hover text-sm border-[2.2px] font-semibold border-black rounded-md w-[40px] text-center flex justify-center items-center'>
+                      GC
                     </button>
                     <button className='py-[4px]  text-black scale-hover text-sm border-[2.2px] font-semibold border-black rounded-md w-[40px] text-center flex justify-center items-center'>
-                    GC
+                      GC
                     </button>
                   </div>
                 </div>
               </div>
-
             </div>
           </ScrollArea>
         </div>
@@ -512,20 +385,26 @@ export default function Maison() {
           <TableHeader>
             <TableRow className=' border-black'>
               <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
-                Year
+                Date
+              </TableHead>
+              <TableHead onClick={() => {setArea('Maison & Auction Events')}} className='cursor-pointer font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+                Event name
+              </TableHead>
+              <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+                City
               </TableHead>
               <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da] '>
+                Country
+              </TableHead>
+              <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da] '>
+                Year
+              </TableHead>
+
+              <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]  '>
                 Brand
               </TableHead>
               <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da] '>
                 Model
-              </TableHead>
-
-              <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]  '>
-                Reserve
-              </TableHead>
-              <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da] '>
-                High Bid
               </TableHead>
 
               <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]  '>
@@ -539,7 +418,7 @@ export default function Maison() {
                 Change
               </TableHead>
               <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]  '>
-                Sales
+                Vendita
               </TableHead>
               <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]  '>
                 Photo
@@ -556,40 +435,49 @@ export default function Maison() {
                 <TableRow
                   key={data.brand}
                   className={`${i % 2 === 1 ? "bg-[#dee2e6]" : "bg-white"}`}>
-                  <TableCell className='font-medium border-[2px] border-[#ced4da]'>
+                  <TableCell className='font-medium  text-gray-600 border-[2px] border-[#ced4da]'>
+                    {data.date}
+                  </TableCell>
+                  <TableCell className='font-medium  text-gray-600 border-[2px] border-[#ced4da]'>
+                    {data.event_name}
+                  </TableCell>
+                  <TableCell className='font-medium text-gray-600 border-[2px] border-[#ced4da]'>
+                    {data.city}
+                  </TableCell>
+                  <TableCell className='font-medium text-gray-600 border-[2px] border-[#ced4da]'>
+                    {data.country}
+                  </TableCell>
+                  <TableCell className='font-medium text-gray-600 border-[2px] border-[#ced4da]'>
                     {data.year}
                   </TableCell>
-                  <TableCell className='font-medium border-[2px] border-[#ced4da]'>
-                    {data.brand}
+                  <TableCell className='font-medium text-gray-600 border-[2px] border-[#ced4da]'>
+                    <Link href='/datas/brandproduction'>{data.brand}</Link>
                   </TableCell>
-                  <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>
-                    {data.model}
+                  <TableCell className='font-medium text-gray-600 border-[2px] border-[#ced4da]'>
+                  <Link href='/datas/modelvehicle'>{data.model}</Link>
                   </TableCell>
-                  <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>
-                    {data.reserve}
-                  </TableCell>
-                  <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>
-                    {data.high_bid}
-                  </TableCell>
-                  <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>
+               
+                  <TableCell className='font-medium text-gray-600 border-[2px] border-[#ced4da]'>
                     {data.val_min}
                   </TableCell>
-                  <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>
+                  <TableCell className='font-medium text-gray-600 border-[2px] border-[#ced4da]'>
                     {data.val_max}
                   </TableCell>
-                  <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>
+                  <TableCell className='font-medium text-gray-600 border-[2px] border-[#ced4da]'>
                     {data.change}
                   </TableCell>
-                  <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>
-                    {data.sales}
+                  <TableCell className='font-medium text-gray-600 border-[2px] border-[#ced4da]'>
+                    {data.vendita}
                   </TableCell>
                   <TableCell
-                    className='font-medium text-black border-[2px] border-[#ced4da]  background-img'
+                    className='font-medium text-gray-600 border-[2px] border-[#ced4da]  background-img'
                     style={{
                       backgroundImage: `url(${data.photo})`,
                     }}></TableCell>
-                  <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>
-                    {data.lot}
+
+                  <TableCell className='font-medium text-gray-600 border-[2px] border-[#ced4da]'>
+                    <Link href='/datas/singledetails'>{data.lot_to}</Link>
+
                   </TableCell>
                 </TableRow>
               );
@@ -666,99 +554,6 @@ export default function Maison() {
               211
             </TableHead>
           </TableHeader>
-        </Table>
-      </div>
-
-      <div className='bg-white shadow-md mt-10 p-5'>
-        <Table>
-          <TableHeader>
-            <TableRow className=' border-black'>
-              <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
-                Date
-              </TableHead>
-              <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da] '>
-                Auction event
-              </TableHead>
-              <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da] '>
-                City
-              </TableHead>
-
-              <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]  '>
-                Country
-              </TableHead>
-              <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da] '>
-                Nr vehicle offered
-              </TableHead>
-
-              <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]  '>
-                Nr vehicle sold
-              </TableHead>
-
-              <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]  '>
-                % Sold
-              </TableHead>
-              <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]  '>
-                Total sales
-              </TableHead>
-              <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]  '>
-                Avg sales
-              </TableHead>
-              <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]  '>
-                Top sold
-              </TableHead>
-            </TableRow>
-          </TableHeader>
-
-          <TableBody>
-            {dataPlaceholder2.map((data, i) => {
-              return (
-                <TableRow
-                  key={data.sold}
-                  className={`${i % 2 === 1 ? "bg-[#dee2e6]" : "bg-white"}`}>
-                  <TableCell className='font-medium  border-[2px] border-[#ced4da] text-gray-500'>
-                    {data.date}
-                  </TableCell>
-                  <TableCell className='font-medium  border-[2px] border-[#ced4da] text-blue-500 underline'>
-                    {data.auction_event}
-                  </TableCell>
-                  <TableCell className='font-medium  border-[2px] border-[#ced4da] text-gray-500'>
-                    {data.city}
-                  </TableCell>
-                  <TableCell className='font-medium  border-[2px] border-[#ced4da] text-gray-500    '>
-                   <div className="flex items-center justify-between">
-                   <span>{data.country}</span>
-                    <span>
-                      <Image
-                        src={data.country_flag}
-                        alt='country flag'
-                        width='40'
-                        height='40'
-                      />
-                    </span>
-                   </div>
-                  </TableCell>
-                  <TableCell className='font-medium  border-[2px] border-[#ced4da] text-gray-500'>
-                    {data.nr_vehicle_offered}
-                  </TableCell>
-                  <TableCell className='font-medium  border-[2px] border-[#ced4da] text-gray-500'>
-                    {data.nr_vehicle_sold}
-                  </TableCell>
-                  <TableCell className='font-medium  border-[2px] border-[#ced4da] text-gray-500'>
-                    {data.sold}
-                  </TableCell>
-                  <TableCell className='font-medium  border-[2px] border-[#ced4da] text-gray-500'>
-                    {data.totals_sales}
-                  </TableCell>
-                  <TableCell className='font-medium  border-[2px] border-[#ced4da] text-gray-500'>
-                    {data.avg_sales}
-                  </TableCell>
-                  <TableCell className='font-medium  border-[2px] border-[#ced4da] text-gray-500'>
-                    {data.top_sold}
-                  </TableCell>
-                </TableRow>
-              );
-            })}
-          </TableBody>
         </Table>
       </div>
     </div>
@@ -844,7 +639,8 @@ const Filters = () => {
 
   return (
     <>
-      <div className='grid sm:grid-cols-2 md:grid-cols-5 lg:grid-cols-7 
+      <div
+        className='grid sm:grid-cols-2 md:grid-cols-5 lg:grid-cols-7 
       grid-cols-2 justify-center place-items-center gap-5 bg-white px-5 py-5 shadow-lg rounded-sm mb-5'>
         <Popover open={openArea} onOpenChange={setOpenArea}>
           <PopoverTrigger asChild>
@@ -1188,5 +984,256 @@ const Filters = () => {
         </Popover>
       </div>
     </>
+  );
+};
+
+const MaisonVehicles = ({ info }: { info: any }) => {
+  return <div></div>;
+};
+
+const MaisonEvents = () => {
+  const dataPlaceholder2 = [
+    {
+      date: "12/04/2019",
+      auction_event: "Tecno classica",
+      city: "Essen",
+      country: "Germany",
+      country_flag: "/images/germanyflag.svg",
+      nr_vehicle_offered: "221",
+      nr_vehicle_sold: "221",
+      sold: "84.36%",
+      totals_sales: "18,581,306",
+      avg_sales: "104,81,306",
+      top_sold: "2,25,800",
+    },
+    {
+      date: "12/04/2019",
+      auction_event: "Tecno classica",
+      city: "Essen",
+      country: "United States",
+      country_flag: "/images/usflag.svg",
+      nr_vehicle_offered: "221",
+      nr_vehicle_sold: "221",
+      sold: "84.36%",
+      totals_sales: "18,581,306",
+      avg_sales: "104,81,306",
+      top_sold: "2,25,800",
+    },
+    {
+      date: "12/04/2019",
+      auction_event: "Tecno classica",
+      city: "Essen",
+      country: "Germany",
+      country_flag: "/images/germanyflag.svg",
+      nr_vehicle_offered: "221",
+      nr_vehicle_sold: "221",
+      sold: "84.36%",
+      totals_sales: "18,581,306",
+      avg_sales: "104,81,306",
+      top_sold: "2,25,800",
+    },
+    {
+      date: "12/04/2019",
+      auction_event: "Tecno classica",
+      city: "Essen",
+      country: "United States",
+      country_flag: "/images/usflag.svg",
+      nr_vehicle_offered: "221",
+      nr_vehicle_sold: "221",
+      sold: "84.36%",
+      totals_sales: "18,581,306",
+      avg_sales: "104,81,306",
+      top_sold: "2,25,800",
+    },
+    {
+      date: "12/04/2019",
+      auction_event: "Tecno classica",
+      city: "Essen",
+      country: "Germany",
+      country_flag: "/images/germanyflag.svg",
+      nr_vehicle_offered: "221",
+      nr_vehicle_sold: "221",
+      sold: "84.36%",
+      totals_sales: "18,581,306",
+      avg_sales: "104,81,306",
+      top_sold: "2,25,800",
+    },
+    {
+      date: "12/04/2019",
+      auction_event: "Tecno classica",
+      city: "Essen",
+      country: "United States",
+      country_flag: "/images/usflag.svg",
+      nr_vehicle_offered: "221",
+      nr_vehicle_sold: "221",
+      sold: "84.36%",
+      totals_sales: "18,581,306",
+      avg_sales: "104,81,306",
+      top_sold: "2,25,800",
+    },
+
+    {
+      date: "12/04/2019",
+      auction_event: "Tecno classica",
+      city: "Essen",
+      country: "Germany",
+      country_flag: "/images/germanyflag.svg",
+      nr_vehicle_offered: "221",
+      nr_vehicle_sold: "221",
+      sold: "84.36%",
+      totals_sales: "18,581,306",
+      avg_sales: "104,81,306",
+      top_sold: "2,25,800",
+    },
+
+    {
+      date: "12/04/2019",
+      auction_event: "Tecno classica",
+      city: "Essen",
+      country: "United States",
+      country_flag: "/images/usflag.svg",
+      nr_vehicle_offered: "221",
+      nr_vehicle_sold: "221",
+      sold: "84.36%",
+      totals_sales: "18,581,306",
+      avg_sales: "104,81,306",
+      top_sold: "2,25,800",
+    },
+
+    {
+      date: "12/04/2019",
+      auction_event: "Tecno classica",
+      city: "Essen",
+      country: "Germany",
+      country_flag: "/images/germanyflag.svg",
+      nr_vehicle_offered: "221",
+      nr_vehicle_sold: "221",
+      sold: "84.36%",
+      totals_sales: "18,581,306",
+      avg_sales: "104,81,306",
+      top_sold: "2,25,800",
+    },
+
+    {
+      date: "12/04/2019",
+      auction_event: "Tecno classica",
+      city: "Essen",
+      country: "United States",
+      country_flag: "/images/usflag.svg",
+      nr_vehicle_offered: "221",
+      nr_vehicle_sold: "221",
+      sold: "84.36%",
+      totals_sales: "18,581,306",
+      avg_sales: "104,81,306",
+      top_sold: "2,25,800",
+    },
+
+    {
+      date: "12/04/2019",
+      auction_event: "Tecno classica",
+      city: "Essen",
+      country: "Germany",
+      country_flag: "/images/germanyflag.svg",
+      nr_vehicle_offered: "221",
+      nr_vehicle_sold: "221",
+      sold: "84.36%",
+      totals_sales: "18,581,306",
+      avg_sales: "104,81,306",
+      top_sold: "2,25,800",
+    },
+  ];
+  return (
+    <div>
+      <Table>
+        <TableHeader>
+          <TableRow className=' border-black'>
+            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+              Date
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da] '>
+              Auction event
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da] '>
+              City
+            </TableHead>
+
+            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]  '>
+              Country
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da] '>
+              Nr vehicle offered
+            </TableHead>
+
+            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]  '>
+              Nr vehicle sold
+            </TableHead>
+
+            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]  '>
+              % Sold
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]  '>
+              Total sales
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]  '>
+              Avg sales
+            </TableHead>
+            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]  '>
+              Top sold
+            </TableHead>
+          </TableRow>
+        </TableHeader>
+
+        <TableBody>
+          {dataPlaceholder2.map((data, i) => {
+            return (
+              <TableRow
+                key={i}
+                className={`${i % 2 === 1 ? "bg-[#dee2e6]" : "bg-white"}`}>
+                <TableCell className='font-medium  border-[2px] border-[#ced4da] text-gray-500'>
+                  {data.date}
+                </TableCell>
+                <TableCell className='font-medium  border-[2px] border-[#ced4da] text-blue-500 underline'>
+                  {data.auction_event}
+                </TableCell>
+                <TableCell className='font-medium  border-[2px] border-[#ced4da] text-gray-500'>
+                  {data.city}
+                </TableCell>
+                <TableCell className='font-medium  border-[2px] border-[#ced4da] text-gray-600    '>
+                  <div className='flex items-center justify-between'>
+                    <span>{data.country}</span>
+                    <span>
+                      <Image
+                        src={data.country_flag}
+                        alt='country flag'
+                        width='40'
+                        height='40'
+                      />
+                    </span>
+                  </div>
+                </TableCell>
+                <TableCell className='font-medium  border-[2px] border-[#ced4da] text-gray-500'>
+                  {data.nr_vehicle_offered}
+                </TableCell>
+                <TableCell className='font-medium  border-[2px] border-[#ced4da] text-gray-500'>
+                  {data.nr_vehicle_sold}
+                </TableCell>
+                <TableCell className='font-medium  border-[2px] border-[#ced4da] text-gray-500'>
+                  {data.sold}
+                </TableCell>
+                <TableCell className='font-medium  border-[2px] border-[#ced4da] text-gray-500'>
+                  {data.totals_sales}
+                </TableCell>
+                <TableCell className='font-medium  border-[2px] border-[#ced4da] text-gray-500'>
+                  {data.avg_sales}
+                </TableCell>
+                <TableCell className='font-medium  border-[2px] border-[#ced4da] text-gray-500'>
+                  {data.top_sold}
+                </TableCell>
+              </TableRow>
+            );
+          })}
+        </TableBody>
+      </Table>
+    </div>
   );
 };

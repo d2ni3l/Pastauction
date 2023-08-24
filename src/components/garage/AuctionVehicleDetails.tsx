@@ -14,8 +14,13 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import Link from "next/link";
+import { maisonAuctionEventsArea} from "@/app/atoms/atoms";
+import { useAtom } from "jotai";
 
 export default function AuctionVehicleDetails() {
+  const [area, setArea ]= useAtom(maisonAuctionEventsArea)
+
   const [collasped, setCollasped] = useState(false);
   const [save, setSaved] = useState(false)
 
@@ -214,9 +219,11 @@ export default function AuctionVehicleDetails() {
             </div>
 
             <div className='flex justify-between items-center pt-3'>
+              <Link href='/datas' onClick={() => {setArea('Auction Events')}}>
               <p className='text-black text-sm font-[400]'>
                 Event data: <span className='font-medium'>12/04/2023</span>
               </p>
+              </Link>
               <p className='text-black text-sm'>
                 Lot num: <span className='font-medium'>246</span>
               </p>
@@ -233,6 +240,7 @@ export default function AuctionVehicleDetails() {
                 <h3 className='font-semibold text-lg'>RM | Sotheby</h3>
               </div>
 
+              <Link href='/datas' onClick={() => {setArea('Maison')}}>
               <div className='flex gap-2'>
                 <Image
                   src='/images/germanyflag.svg'
@@ -246,7 +254,7 @@ export default function AuctionVehicleDetails() {
                     Gruga Hall, Norbertstrabe 2, 45131, Essen (DEU)
                   </p>
                 </div>
-              </div>
+              </div></Link>
             </div>
           </div>
 
@@ -417,7 +425,7 @@ export default function AuctionVehicleDetails() {
           <div className='bg-white shadow-md px-4  rounded-lg pb-4'>
             <h3 className='font-semibold pt-4 pb-3 text-black'>Technical data</h3>
             <p className='flex justify-between text-gray-600'>
-              <span className='font-semibold'>Brand</span>{" "}
+              <Link href='/datas/brandproduction'><span className='font-semibold'>Brand</span>{" "}</Link>
               <span className='font-medium'>Jaguar</span>
             </p>
             <div className='border-[.8px] border-gray-300 mt-2 rounded-sm' />
@@ -429,7 +437,8 @@ export default function AuctionVehicleDetails() {
             <div className='border-[.8px] border-gray-300 mt-2 rounded-sm' />
 
             <p className='flex justify-between text-gray-600 pt-3'>
-              <span className='font-semibold'>Model</span>{" "}
+            <Link href='/datas/modelvehicle'><span className='font-semibold cursor-pointer '>Model</span>{" "}</Link>
+
               <span className='font-medium'>XJ350</span>
             </p>
             <div className='border-[.8px] border-gray-300 mt-2 rounded-sm' />

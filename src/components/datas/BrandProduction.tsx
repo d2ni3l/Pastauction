@@ -314,7 +314,7 @@ export default function BrandProduction() {
           />
         </div>
 
-        <div className='bg-white px-5  xl:w-[1200px] py-2 pb-5'>
+        <div className='bg-white shadow-md px-5  xl:w-[1200px] py-2 pb-5'>
           <div className='flex  gap-10 justify-center pt-3'>
             <h3 className='text-2xl font-semibold'>Brands</h3>
 
