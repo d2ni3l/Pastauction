@@ -32,6 +32,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const orders = [
   {
@@ -223,11 +224,9 @@ export default function BrandProduction() {
   >([]);
   const [secondletter, setSecondletter] = React.useState<string>("");
   const [brandName, setBrandName] = React.useState<Array<{ name: string }>>([]);
-
-  // useEffect(() => {
-  //   setSecondletter( secondletters[i].left_1)
-
-  // }, [secondletters])
+  const [firstletterBrandName, setFirstLetterBrandName] =
+    React.useState<Array<{ name: string }>>();
+  const [activatedLetter, setActivatedLetter] = React.useState<string>("");
 
   const {} = useQuery({
     queryKey: ["secondletters", [firstletter]],
@@ -252,7 +251,31 @@ export default function BrandProduction() {
   });
 
   const {} = useQuery({
-    queryKey: ["secondletters", [secondletter]],
+    queryKey: ["firstletterbrandname", [firstletter]],
+    queryFn: async () => {
+      console.log(firstletter, "im runing");
+      const { data } = await axios.get(
+        `https://pastauction.com/api/v1/filter/bidwatcher_brand/name/?search=name_left_1%3A${firstletter}&page=1&size=50`,
+        {
+          headers: {
+            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmM2YxMTUxMi1kZDhlLTQ4ZGEtYTQ3NS1mMWY4NGViNGI1ZDUiLCJleHAiOjE2OTI4Mjc2MDJ9.40Cc8Rzjl9UQJR3-2mK02HPireOnGPzS2MK3uW9U3kg`,
+          },
+        }
+      );
+      return data;
+    },
+
+    enabled: !!firstletter,
+
+    onSuccess: (data) => {
+      setFirstLetterBrandName(data.items);
+    },
+  });
+
+
+
+  const {} = useQuery({
+    queryKey: ["secondlettersbrandname", [secondletter]],
 
     queryFn: async () => {
       const { data } = await axios.get(
@@ -276,7 +299,7 @@ export default function BrandProduction() {
   return (
     <div className='overflow-auto '>
       <div className='flex gap-5  flex-col xl:flex-row '>
-        <div className='flex gap-2'>
+        <div className='flex gap-2 items-start'>
           <Image
             src='/images/flagenglandplaceholder.svg'
             alt='flag'
@@ -291,7 +314,7 @@ export default function BrandProduction() {
           />
         </div>
 
-        <div className='bg-white px-5  '>
+        <div className='bg-white px-5  xl:w-[1200px] py-2 pb-5'>
           <div className='flex  gap-10 justify-center pt-3'>
             <h3 className='text-2xl font-semibold'>Brands</h3>
 
@@ -303,8 +326,9 @@ export default function BrandProduction() {
                       key={i}
                       onClick={() => {
                         setFirstletter((prev) => (prev = alf[i]));
+                        setActivatedLetter("first letter");
                       }}
-                      className={`border-2 font-medium rounded-sm border-black scale-hover  text-black px-2 py-[1px] ${
+                      className={`border-[1.5px] font-medium rounded-sm border-black scale-hover  text-black px-2 py-[1px] ${
                         firstletter === alf[i] && "bg-black text-white"
                       }`}>
                       {data}
@@ -320,8 +344,9 @@ export default function BrandProduction() {
                       key={i}
                       onClick={() => {
                         setSecondletter(secondletters[i].left_1);
+                        setActivatedLetter("second letter");
                       }}
-                      className={`border-2 font-medium rounded-sm border-black scale-hover  text-black px-2 py-[1px] ${
+                      className={`border-[1.5px] font-medium rounded-sm border-black scale-hover  text-black px-2 py-[1px] ${
                         data?.left_1 === secondletter && "bg-black text-white"
                       }`}>
                       {data?.left_1}
@@ -330,31 +355,64 @@ export default function BrandProduction() {
                 })}
               </div>
 
-              <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 pt-3 justify-between'>
-                {brandName.map((data, i) => {
-                  return (
-                    <TooltipProvider>
-                      <Tooltip>
-                        <TooltipTrigger asChild>
-                          <p
-                            key={i}
-                            className={`font-medium lg:whitespace-nowrap hover:text-black text-[15px]   ${
-                              i === 0 ? "font-semibold" : "text-gray-500 cursor-pointer"
-                            }`}>
-                            {truncateString(data.name, 15)}
-                          </p>
-                        </TooltipTrigger>
-                        <TooltipContent>
-                          <p>{data.name}</p>
-                        </TooltipContent>
-                      </Tooltip>
-                    </TooltipProvider>
-                  );
-                })}
-              </div>
+              <ScrollArea className='max-h-[170px] '>
+                {activatedLetter === "first letter" ? (
+                  <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 pt-3 justify-between'>
+                    {firstletterBrandName?.map((data, i) => {
+                      return (
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <p
+                                key={i}
+                                className={`font-medium lg:whitespace-nowrap hover:text-black text-[15px]   ${
+                                  i === 0
+                                    ? "font-semibold"
+                                    : "text-gray-500 cursor-pointer"
+                                }`}>
+                                {truncateString(data.name, 15)}
+                              </p>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              <p>{data.name}</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      );
+                    })}
+                  </div>
+                ) : (
+                  <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 pt-3 justify-between'>
+                    {brandName.map((data, i) => {
+                      return (
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <p
+                                key={i}
+                                className={`font-medium lg:whitespace-nowrap hover:text-black text-[15px]   
+                          ${
+                            i === 0
+                              ? "font-semibold"
+                              : "text-gray-500 cursor-pointer"
+                          }`}>
+                                {truncateString(data.name, 15)}
+                              </p>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              <p>{data.name}</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      );
+                    })}
+                  </div>
+                )}
+              </ScrollArea>
             </div>
           </div>
         </div>
+
       </div>
 
       <div className=' pt-12'>
