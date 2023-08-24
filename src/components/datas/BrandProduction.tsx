@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import { Check, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -24,6 +24,14 @@ import {
   TableRow,
 } from "../ui/table";
 import truncateString from "@/app/hooks/useTruncate";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const orders = [
   {
@@ -209,18 +217,64 @@ const alf = [
 export default function BrandProduction() {
   const [openOrder, setOpenOrder] = React.useState(false);
   const [valueOrder, setValueOrder] = React.useState("");
-  const [firstletter, setFirstletter] = React.useState(null);
+  const [firstletter, setFirstletter] = React.useState<string>("");
+  const [secondletters, setSecondletters] = React.useState<
+    Array<{ left_1: string }>
+  >([]);
+  const [secondletter, setSecondletter] = React.useState<string>("");
+  const [brandName, setBrandName] = React.useState<Array<{ name: string }>>([]);
 
-  const fetchData = () => {
-    fetch("https://reqbin.com/echo/get/json", {
-      headers: { Authentication: "Bearer {token}" },
-    })
-      .then((resp) => resp.json())
-      .then((json) => console.log(JSON.stringify(json)));
-  };
+  // useEffect(() => {
+  //   setSecondletter( secondletters[i].left_1)
+
+  // }, [secondletters])
+
+  const {} = useQuery({
+    queryKey: ["secondletters", [firstletter]],
+
+    queryFn: async () => {
+      const { data } = await axios.get(
+        `https://pastauction.com/api/v1/filter/bidwatcher_brand/name_left_2/?search=name_left_1%3A${firstletter}&page=1&size=50`,
+        {
+          headers: {
+            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmM2YxMTUxMi1kZDhlLTQ4ZGEtYTQ3NS1mMWY4NGViNGI1ZDUiLCJleHAiOjE2OTI4Mjc2MDJ9.40Cc8Rzjl9UQJR3-2mK02HPireOnGPzS2MK3uW9U3kg`,
+          },
+        }
+      );
+      return data;
+    },
+
+    enabled: !!firstletter,
+
+    onSuccess: (data) => {
+      setSecondletters((prev) => (prev = data.items));
+    },
+  });
+
+  const {} = useQuery({
+    queryKey: ["secondletters", [secondletter]],
+
+    queryFn: async () => {
+      const { data } = await axios.get(
+        `https://pastauction.com/api/v1/filter/bidwatcher_brand/name/?search=name_left_2%3A${secondletter}&page=1&size=50`,
+        {
+          headers: {
+            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmM2YxMTUxMi1kZDhlLTQ4ZGEtYTQ3NS1mMWY4NGViNGI1ZDUiLCJleHAiOjE2OTI4Mjc2MDJ9.40Cc8Rzjl9UQJR3-2mK02HPireOnGPzS2MK3uW9U3kg`,
+          },
+        }
+      );
+      return data;
+    },
+
+    enabled: !!secondletter,
+
+    onSuccess: (data) => {
+      setBrandName(data.items);
+    },
+  });
 
   return (
-    <div className='overflow-auto ' >
+    <div className='overflow-auto '>
       <div className='flex gap-5  flex-col xl:flex-row '>
         <div className='flex gap-2'>
           <Image
@@ -241,14 +295,63 @@ export default function BrandProduction() {
           <div className='flex  gap-10 justify-center pt-3'>
             <h3 className='text-2xl font-semibold'>Brands</h3>
 
-            <div className='gap-1 grid sm:grid-cols-9  md:grid-cols-12 2xl:flex'>
-              {alf.map((data) => {
-                return (
-                  <button className='border-2 font-medium rounded-sm border-black scale-hover  text-black px-2 py-[1px]'>
-                    {data}
-                  </button>
-                );
-              })}
+            <div className='flex flex-col gap-2'>
+              <div className='gap-1 grid grid-cols-4 sm:grid-cols-9  md:grid-cols-12 2xl:flex'>
+                {alf.map((data, i) => {
+                  return (
+                    <button
+                      key={i}
+                      onClick={() => {
+                        setFirstletter((prev) => (prev = alf[i]));
+                      }}
+                      className={`border-2 font-medium rounded-sm border-black scale-hover  text-black px-2 py-[1px] ${
+                        firstletter === alf[i] && "bg-black text-white"
+                      }`}>
+                      {data}
+                    </button>
+                  );
+                })}
+              </div>
+
+              <div className=' gap-1 grid grid-cols-4 sm:grid-cols-9  md:grid-cols-12 2xl:flex 2xl:flex-wrap'>
+                {secondletters.map((data, i) => {
+                  return (
+                    <button
+                      key={i}
+                      onClick={() => {
+                        setSecondletter(secondletters[i].left_1);
+                      }}
+                      className={`border-2 font-medium rounded-sm border-black scale-hover  text-black px-2 py-[1px] ${
+                        data?.left_1 === secondletter && "bg-black text-white"
+                      }`}>
+                      {data?.left_1}
+                    </button>
+                  );
+                })}
+              </div>
+
+              <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 pt-3 justify-between'>
+                {brandName.map((data, i) => {
+                  return (
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <p
+                            key={i}
+                            className={`font-medium lg:whitespace-nowrap hover:text-black text-[15px]   ${
+                              i === 0 ? "font-semibold" : "text-gray-500 cursor-pointer"
+                            }`}>
+                            {truncateString(data.name, 15)}
+                          </p>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>{data.name}</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
@@ -347,7 +450,7 @@ export default function BrandProduction() {
             {dataPlaceholder.map((data, i) => {
               return (
                 <TableRow
-                  key={data.family}
+                  key={i}
                   className={`${i % 2 === 1 ? "bg-[#dee2e6]" : "bg-white"} `}>
                   <TableCell className='font-medium text-gray-500  border-[2px] border-[#ced4da]'>
                     {data.family}
@@ -397,70 +500,73 @@ export default function BrandProduction() {
         <Table>
           <TableHeader>
             <TableRow>
-            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
-              hello
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
-              hello
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
-              hello
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
-              hello
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm   border-[2px] border-[#ced4da] bg-red-200 text-red-500'>
-              [-37,25%]
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
-              25,515,000
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
-              32,125,000
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm  border-[2px] border-[#ced4da] bg-red-200 text-red-500'>
-              [-72,5%]
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
-              18,581,306
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
-              211
-            </TableHead>
+              <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+                hello
+              </TableHead>
+              <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+                hello
+              </TableHead>
+              <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+                hello
+              </TableHead>
+              <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+                hello
+              </TableHead>
+              <TableHead className='font-semibold lg:text-sm   border-[2px] border-[#ced4da] bg-red-200 text-red-500'>
+                [-37,25%]
+              </TableHead>
+              <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+                25,515,000
+              </TableHead>
+              <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+                32,125,000
+              </TableHead>
+              <TableHead className='font-semibold lg:text-sm  border-[2px] border-[#ced4da] bg-red-200 text-red-500'>
+                [-72,5%]
+              </TableHead>
+              <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+                18,581,306
+              </TableHead>
+              <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+                211
+              </TableHead>
             </TableRow>
           </TableHeader>
-          <TableHeader>
-            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
-              hello
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
-              hello
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
-              hello
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
-              hello
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm   border-[2px] border-[#ced4da] bg-green-200 text-green-500'>
-              [-37,25%]
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
-              25,515,000
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
-              32,125,000
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm  border-[2px] border-[#ced4da] bg-red-200 text-red-500'>
-              [-14,22%]
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
-              18,581,306
-            </TableHead>
-            <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
-              211
-            </TableHead>
-          </TableHeader>
+
+          <TableBody>
+            <TableRow>
+              <TableCell className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+                hello
+              </TableCell>
+              <TableCell className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+                hello
+              </TableCell>
+              <TableCell className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+                hello
+              </TableCell>
+              <TableCell className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
+                hello
+              </TableCell>
+              <TableCell className='font-semibold lg:text-sm   border-[2px] border-[#ced4da] bg-green-200 text-green-500'>
+                [-37,25%]
+              </TableCell>
+              <TableCell className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+                25,515,000
+              </TableCell>
+              <TableCell className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+                32,125,000
+              </TableCell>
+              <TableCell className='font-semibold lg:text-sm  border-[2px] border-[#ced4da] bg-red-200 text-red-500'>
+                [-14,22%]
+              </TableCell>
+              <TableCell className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+                18,581,306
+              </TableCell>
+              <TableCell className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
+                211
+              </TableCell>
+            </TableRow>
+          </TableBody>
         </Table>
       </div>
     </div>

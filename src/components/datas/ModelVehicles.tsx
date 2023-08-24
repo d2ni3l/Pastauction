@@ -93,7 +93,6 @@ export default function ModelVehicles() {
 
         <Table>
           <TableHeader>
-            <TableRow>
             <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
               hello
             </TableHead>
@@ -124,7 +123,6 @@ export default function ModelVehicles() {
             <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
               211
             </TableHead>
-            </TableRow>
           </TableHeader>
           <TableHeader>
             <TableHead className='font-semibold lg:text-sm text-transparent bg-transparent select-none border-[2px] border-[#ced4da]'>
