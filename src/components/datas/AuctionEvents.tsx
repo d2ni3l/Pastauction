@@ -363,10 +363,10 @@ export default function AuctionEvents() {
                 Year
               </TableHead>
               <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da] '>
-                <Link href='/datas/brandproduction'>Brand</Link>
+                Brand
               </TableHead>
               <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da] '>
-                <Link href='/datas/modelvehicle'>Model</Link>
+                Model
               </TableHead>
 
               <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]  '>
@@ -393,7 +393,7 @@ export default function AuctionEvents() {
                 Photo
               </TableHead>
               <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]  '>
-                <Link href='/garage/'>Lot</Link>
+                Lot
               </TableHead>
             </TableRow>
           </TableHeader>
@@ -402,16 +402,16 @@ export default function AuctionEvents() {
             {dataPlaceholder.map((data, i) => {
               return (
                 <TableRow
-                  key={data.brand}
+                  key={i}
                   className={`${i % 2 === 1 ? "bg-[#dee2e6]" : "bg-white"}`}>
                   <TableCell className='font-medium border-[2px] border-[#ced4da]'>
                     {data.year}
                   </TableCell>
-                  <TableCell className='font-medium border-[2px] border-[#ced4da]'>
-                    {data.brand}
+                  <TableCell className='font-medium border-[2px] underline text-blue-500 border-[#ced4da]'>
+                    <Link href='/datas/brandproduction'>{data.brand}</Link>
                   </TableCell>
-                  <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>
-                    {data.model}
+                  <TableCell className='font-medium  border-[2px] underline text-blue-500 border-[#ced4da]'>
+                    <Link href='/datas/modelvehicle'>{data.model}</Link>
                   </TableCell>
                   <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>
                     {data.reserve}
@@ -436,7 +436,7 @@ export default function AuctionEvents() {
                     style={{
                       backgroundImage: `url(${data.photo})`,
                     }}></TableCell>
-                  <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>
+                  <TableCell className='font-medium underline text-blue-500 t border-[2px] border-[#ced4da]'>
                     <Link href='/datas/singledetails'>{data.lot}</Link>
                   </TableCell>
                 </TableRow>

@@ -13,6 +13,9 @@ import { ProgressRed } from "../ui/progressRed";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { inter } from "@/app/fonts";
+import AddLinkSvg from "../AddLinkSvg";
+import { useAtom } from "jotai";
+import { maisonAuctionEventsArea } from "@/app/atoms/atoms";
 export default function ModelVehicles() {
   return (
     <div className={`${inter.className} pb-5`}>
@@ -26,7 +29,7 @@ export default function ModelVehicles() {
           />
           <Link href='/datas/brandproduction'>
             <Image
-              src='/images/jaguarlogo.svg'
+              src='/images/noborderjaguarlogo.svg'
               alt='brand logo'
               width='100'
               height='50'
@@ -171,6 +174,7 @@ export default function ModelVehicles() {
 }
 
 const CardModel = () => {
+  const [area, setArea] = useAtom(maisonAuctionEventsArea);
   const [hide, setHide] = React.useState(false);
   return (
     <div className={`bg-white  shadow-md px-3 py-4 `}>
@@ -220,12 +224,21 @@ const CardModel = () => {
               )}
             </div>
 
-            <div className='border border-gray-300 mt-5 mb-5 max-w-[450px]'></div>
+            <div
+              className={`border border-gray-300 mt-5 mb-5 max-w-[450px] ${
+                hide && "max-w-[300px] xl:ml-[55px]"
+              }`}></div>
 
             <div className='grid grid-cols-2 sm:grid-cols-3 gap-5 items-center'>
-              <p className='text-sm font-semibold sm:text-base'>
-                Gooding & Company
-              </p>
+              <Link
+                href='/datas'
+                onClick={() => {
+                  setArea("Maison");
+                }}>
+                <p className='text-sm font-semibold sm:text-base hover:underline'>
+                  <AddLinkSvg text='Gooding & Company' />
+                </p>
+              </Link>
               <p className='flex text-gray-500 gap-2'>
                 <span className='italic'>Scottdale</span>
                 <span className='text-black'>2010</span>
@@ -295,7 +308,7 @@ const CardModel = () => {
             </div>
           </div>
 
-          <div className={`flex gap-4 justify-end pt-3 ${!hide && 'lg:pt-12'}`}>
+          <div className={`flex gap-4 justify-end pt-3 ${!hide && "lg:pt-12"}`}>
             <Image
               className='cursor-pointer scale-hover'
               src='/images/dash-circle-fill.svg'
