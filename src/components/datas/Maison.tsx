@@ -246,15 +246,7 @@ export default function Maison() {
                 alt='country flag'
               />
               <div className='flex flex-col'>
-                <div className='flex gap-4 font-medium '>
-                  <h3 className='font-semibold text-lg'>Techo Classica</h3>{" "}
-                  <span className='text-blue-500 underline cursor-pointer'>
-                    Vehicles
-                  </span>{" "}
-                  <span className='text-blue-500 underline cursor-pointer'>
-                    Events
-                  </span>
-                </div>
+                
                 <p className='text-gray-600 font-[400]'>
                   Gruga Hall, Norbertstrabe 2, 45131, Essen (DEU)
                 </p>
@@ -450,11 +442,11 @@ export default function Maison() {
                   <TableCell className='font-medium text-gray-600 border-[2px] border-[#ced4da]'>
                     {data.year}
                   </TableCell>
-                  <TableCell className='font-medium text-gray-600 border-[2px] border-[#ced4da]'>
-                    <Link href='/datas/brandproduction'>{data.brand}</Link>
+                  <TableCell onClick={() =>{setArea('Brand')}} className='font-medium border-[2px] border-[#ced4da] text-blue-500 cursor-pointer underline'>
+                    {data.brand}
                   </TableCell>
-                  <TableCell className='font-medium text-gray-600 border-[2px] border-[#ced4da]'>
-                  <Link href='/datas/modelvehicle'>{data.model}</Link>
+                  <TableCell className='font-medium  border-[2px] border-[#ced4da] text-blue-500 cursor-pointer underline' onClick={() =>{setArea('Model')}}>
+                  {data.model}
                   </TableCell>
                
                   <TableCell className='font-medium text-gray-600 border-[2px] border-[#ced4da]'>
@@ -475,7 +467,7 @@ export default function Maison() {
                       backgroundImage: `url(${data.photo})`,
                     }}></TableCell>
 
-                  <TableCell className='font-medium text-gray-600 border-[2px] border-[#ced4da]'>
+                  <TableCell className='font-medium text-blue-500 cursor-pointer underline  border-[2px] border-[#ced4da]'>
                     <Link href='/datas/singledetails'>{data.lot_to}</Link>
 
                   </TableCell>

@@ -17,6 +17,7 @@ import AddLinkSvg from "../AddLinkSvg";
 import { useAtom } from "jotai";
 import { maisonAuctionEventsArea } from "@/app/atoms/atoms";
 export default function ModelVehicles() {
+  const [area, setArea] = useAtom(maisonAuctionEventsArea)
   return (
     <div className={`${inter.className} pb-5`}>
       <div className='flex gap-5 lg:gap-10 flex-col lg:flex-row'>
@@ -27,14 +28,14 @@ export default function ModelVehicles() {
             width='100'
             height='50'
           />
-          <Link href='/datas/brandproduction'>
+          
             <Image
               src='/images/noborderjaguarlogo.svg'
               alt='brand logo'
               width='100'
               height='50'
+              onClick={() =>{setArea('Brand')}}
             />
-          </Link>
         </div>
 
         <div className='flex flex-col gap-5 sm:flex-row  items-center xl:gap-[100px] w-full'>
@@ -240,12 +241,12 @@ const CardModel = () => {
                 </p>
               </Link>
               <p className='flex text-gray-500 gap-2'>
-                <span className='italic'>Scottdale</span>
+                <span className='italic hover:underline cursor-pointer' onClick={()=>{setArea('Auction Events')}}><AddLinkSvg text='Scottdale'/></span>
                 <span className='text-black'>2010</span>
               </p>
               <p className='flex text-gray-500 gap-2'>
                 <span className='italic'>Lot n.</span>
-                <span className='text-black font-medium'>55</span>
+                <Link href='/datas/singledetails'><span className='text-black font-medium hover:underline '><AddLinkSvg text='55'/></span></Link>
               </p>
             </div>
           </div>

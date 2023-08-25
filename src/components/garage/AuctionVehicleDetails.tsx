@@ -438,11 +438,11 @@ export default function AuctionVehicleDetails() {
               Technical data
             </h3>
             <p className='flex justify-between text-gray-600'>
-              <Link href='/datas/brandproduction'>
-                <span className='font-semibold hover:underline '>
+            
+                <span className='font-semibold hover:underline ' onClick={() => {setArea('Brand')}}>
                   <AddLinkSvg text='Brand' />
                 </span>{" "}
-              </Link>
+             
               <span className='font-medium'>Jaguar</span>
             </p>
             <div className='border-[.8px] border-gray-300 mt-2 rounded-sm' />
@@ -454,11 +454,11 @@ export default function AuctionVehicleDetails() {
             <div className='border-[.8px] border-gray-300 mt-2 rounded-sm' />
 
             <p className='flex justify-between text-gray-600 pt-3'>
-              <Link href='/datas/modelvehicle'>
-                <span className='font-semibold hover:underline '>
+              
+                <span className='font-semibold hover:underline ' onClick={() => {setArea('Model')}}>
                   <AddLinkSvg text='Model' />
                 </span>{" "}
-              </Link>
+              
 
               <span className='font-medium'>XJ350</span>
             </p>

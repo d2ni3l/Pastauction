@@ -33,6 +33,8 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { maisonAuctionEventsArea } from "@/app/atoms/atoms";
+import { useAtom } from "jotai";
 
 const orders = [
   {
@@ -227,6 +229,7 @@ export default function BrandProduction() {
   const [firstletterBrandName, setFirstLetterBrandName] =
     React.useState<Array<{ name: string }>>();
   const [activatedLetter, setActivatedLetter] = React.useState<string>("");
+  const [area, setArea ]= useAtom(maisonAuctionEventsArea)
 
   const {} = useQuery({
     queryKey: ["secondletters", [firstletter]],
@@ -271,8 +274,6 @@ export default function BrandProduction() {
       setFirstLetterBrandName(data.items);
     },
   });
-
-
 
   const {} = useQuery({
     queryKey: ["secondlettersbrandname", [secondletter]],
@@ -412,7 +413,6 @@ export default function BrandProduction() {
             </div>
           </div>
         </div>
-
       </div>
 
       <div className=' pt-12'>
@@ -462,6 +462,9 @@ export default function BrandProduction() {
         <Table>
           <TableHeader>
             <TableRow className=' border-black'>
+              <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]  '>
+                Model
+              </TableHead>
               <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]'>
                 Family
               </TableHead>
@@ -486,9 +489,7 @@ export default function BrandProduction() {
               <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]  '>
                 Source
               </TableHead>
-              <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]  '>
-                Model
-              </TableHead>
+
               <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]  '>
                 Series
               </TableHead>
@@ -510,6 +511,9 @@ export default function BrandProduction() {
                 <TableRow
                   key={i}
                   className={`${i % 2 === 1 ? "bg-[#dee2e6]" : "bg-white"} `}>
+                  <TableCell className='font-medium text-blue-500 underline  border-[2px] border-[#ced4da]' onClick={() => {setArea('Model')}}>
+                    {data.model}
+                  </TableCell>
                   <TableCell className='font-medium text-gray-500  border-[2px] border-[#ced4da]'>
                     {data.family}
                   </TableCell>
@@ -531,9 +535,7 @@ export default function BrandProduction() {
                   <TableCell className='font-medium text-gray-500  border-[2px] border-[#ced4da]'>
                     {truncateString(data.source, 20)}
                   </TableCell>
-                  <TableCell className='font-medium text-gray-500  border-[2px] border-[#ced4da]'>
-                    {data.model}
-                  </TableCell>
+
                   <TableCell className='font-medium text-gray-500  border-[2px] border-[#ced4da]'>
                     {data.serie}
                   </TableCell>

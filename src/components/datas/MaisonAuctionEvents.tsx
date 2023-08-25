@@ -27,8 +27,11 @@ import {
 import Image from "next/image";
 import { maisonAuctionEventsArea } from "@/app/atoms/atoms";
 import { useAtom } from "jotai";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 export default function MaisonAuctionEvents() {
-  const [area, setArea ]= useAtom(maisonAuctionEventsArea)
+  const [, setArea ]= useAtom(maisonAuctionEventsArea)
+  // const [data, setData] = React.useState()
 
   const dataPlaceholder = [
     {
@@ -279,6 +282,28 @@ export default function MaisonAuctionEvents() {
       top_sold: "19,50,899",
     },
   ];
+
+  // const {} = useQuery({
+  //   queryKey: ['table'],
+
+  //   queryFn: async () => {
+  //     const { data } = await axios.get(
+  //       ``,
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmM2YxMTUxMi1kZDhlLTQ4ZGEtYTQ3NS1mMWY4NGViNGI1ZDUiLCJleHAiOjE2OTI4Mjc2MDJ9.40Cc8Rzjl9UQJR3-2mK02HPireOnGPzS2MK3uW9U3kg`,
+  //         },
+  //       }
+  //     );
+  //     return data;
+  //   },
+
+
+  //   onSuccess: (data) => {
+  //     setData(data)
+  //     console.log(data)
+  //   },
+  // });
 
   return (
     <div className='overflow-auto'>
