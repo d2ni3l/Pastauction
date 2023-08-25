@@ -407,10 +407,10 @@ export default function AuctionEvents() {
                   <TableCell className='font-medium border-[2px] border-[#ced4da]'>
                     {data.year}
                   </TableCell>
-                  <TableCell className='font-medium border-[2px] underline text-blue-500 border-[#ced4da]' onClick={() => {setArea('Brand')}}>
+                  <TableCell className='font-medium border-[2px] underline text-blue-500 border-[#ced4da] cursor-pointer' onClick={() => {setArea('Brand')}}>
                     {data.brand}
                   </TableCell>
-                  <TableCell className='font-medium  border-[2px] underline text-blue-500 border-[#ced4da]' onClick={() => {setArea('Brand')}}>
+                  <TableCell className='font-medium  border-[2px] underline text-blue-500 border-[#ced4da] cursor-pointer' onClick={() => {setArea('Brand')}}>
                    {data.model}
                   </TableCell>
                   <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>

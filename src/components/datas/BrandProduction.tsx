@@ -356,7 +356,7 @@ export default function BrandProduction() {
                 })}
               </div>
 
-              <ScrollArea className='max-h-[170px] '>
+              <ScrollArea className='h-[150px] '>
                 {activatedLetter === "first letter" ? (
                   <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 pt-3 justify-between'>
                     {firstletterBrandName?.map((data, i) => {
