@@ -29,8 +29,16 @@ import { maisonAuctionEventsArea } from "@/app/atoms/atoms";
 import { useAtom } from "jotai";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { ScrollArea } from "../ui/scroll-area";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import truncateString from "@/app/hooks/useTruncate";
 export default function MaisonAuctionEvents() {
-  const [, setArea ]= useAtom(maisonAuctionEventsArea)
+  const [, setArea] = useAtom(maisonAuctionEventsArea);
   // const [data, setData] = React.useState()
 
   const dataPlaceholder = [
@@ -283,28 +291,6 @@ export default function MaisonAuctionEvents() {
     },
   ];
 
-  // const {} = useQuery({
-  //   queryKey: ['table'],
-
-  //   queryFn: async () => {
-  //     const { data } = await axios.get(
-  //       ``,
-  //       {
-  //         headers: {
-  //           Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmM2YxMTUxMi1kZDhlLTQ4ZGEtYTQ3NS1mMWY4NGViNGI1ZDUiLCJleHAiOjE2OTI4Mjc2MDJ9.40Cc8Rzjl9UQJR3-2mK02HPireOnGPzS2MK3uW9U3kg`,
-  //         },
-  //       }
-  //     );
-  //     return data;
-  //   },
-
-
-  //   onSuccess: (data) => {
-  //     setData(data)
-  //     console.log(data)
-  //   },
-  // });
-
   return (
     <div className='overflow-auto'>
       <Filters />
@@ -313,7 +299,7 @@ export default function MaisonAuctionEvents() {
         <Table className=''>
           <TableHeader>
             <TableRow className=' border-black'>
-              <TableHead  className='font-semibold lg:text-sm text-black bg-[#cfe2ff] cursor-pointer border-[2px] border-[#ced4da]'>
+              <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] cursor-pointer border-[2px] border-[#ced4da]'>
                 Maison
               </TableHead>
               <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da] '>
@@ -333,7 +319,7 @@ export default function MaisonAuctionEvents() {
               <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]  '>
                 Nr vehicles
               </TableHead>
-             
+
               <TableHead className='font-semibold lg:text-sm text-black bg-[#cfe2ff] border-[2px] border-[#ced4da]  '>
                 % sold
               </TableHead>
@@ -351,27 +337,132 @@ export default function MaisonAuctionEvents() {
 
           <TableBody>
             {dataPlaceholder.map((data, i) => {
-              return <TableRow key={data.maison} className={`${i % 2 === 1 ? "bg-[#dee2e6]" : "bg-white"}`}>
-                <TableCell className='font-medium border-[2px] border-[#ced4da] text-blue-500 underline cursor-pointer' onClick={() => {setArea('Maison')}}>{data.maison}</TableCell>
-                <TableCell className='font-medium border-[2px] border-[#ced4da] text-blue-500 underline cursor-pointer' onClick={() => {setArea('Maison')}}>{data.auction_event}</TableCell>
-                <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>{data.auction_country}</TableCell>
-                <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>{data.auction_city}</TableCell>
-                <TableCell className='font-medium  border-[2px] border-[#ced4da] text-blue-500 underline cursor-pointer' onClick={() => {setArea('Auction Events')}}>{data.date}</TableCell>
-                <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>{data.nr_vehicles}</TableCell>
-                <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>{data.sold}</TableCell>
-                <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>{data.total_sales}</TableCell>
-                <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>{data.avg_sales}</TableCell>
-                <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>{data.top_sold}</TableCell>
-              </TableRow>;
+              return (
+                <TableRow
+                  key={i}
+                  className={`${i % 2 === 1 ? "bg-[#dee2e6]" : "bg-white"}`}>
+                  <TableCell
+                    className='font-medium border-[2px] border-[#ced4da] text-blue-500 underline cursor-pointer'
+                    onClick={() => {
+                      setArea("Maison");
+                    }}>
+                    {data.maison}
+                  </TableCell>
+                  <TableCell
+                    className='font-medium border-[2px] border-[#ced4da] text-blue-500 underline cursor-pointer'
+                    onClick={() => {
+                      setArea("Maison");
+                    }}>
+                    {data.auction_event}
+                  </TableCell>
+                  <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>
+                    {data.auction_country}
+                  </TableCell>
+                  <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>
+                    {data.auction_city}
+                  </TableCell>
+                  <TableCell
+                    className='font-medium  border-[2px] border-[#ced4da] text-blue-500 underline cursor-pointer'
+                    onClick={() => {
+                      setArea("Auction Events");
+                    }}>
+                    {data.date}
+                  </TableCell>
+                  <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>
+                    {data.nr_vehicles}
+                  </TableCell>
+                  <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>
+                    {data.sold}
+                  </TableCell>
+                  <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>
+                    {data.total_sales}
+                  </TableCell>
+                  <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>
+                    {data.avg_sales}
+                  </TableCell>
+                  <TableCell className='font-medium text-black border-[2px] border-[#ced4da]'>
+                    {data.top_sold}
+                  </TableCell>
+                </TableRow>
+              );
             })}
           </TableBody>
         </Table>
       </div>
-    </div> 
+    </div>
   );
 }
 
 const Filters = () => {
+  const [endpoint, setEndpoint] = React.useState<Array<string>>([]);
+  const [Areas, setAreas] = React.useState<Array<{ area: string }>>([]);
+  const [AuctionCountrys, setAuctionCountrys] = React.useState<
+    Array<{ name: string }>
+  >([]);
+  const [AuctionCitys, setAuctionCity] = React.useState<
+    Array<{ name: string }>
+  >([]);
+  const [AuctionEvents, setAuctionEvents] = React.useState<
+    Array<{ name_event: string }>
+  >([]);
+  const [Maisons, setMaisons] = React.useState<
+    Array<{ name: string }>
+  >([]);
+  const [AuctionYears, setAuctionYears] = React.useState<
+    Array<{ year: string }>
+  >([]);
+  const { refetch } = useQuery({
+    queryKey: ["filter"],
+
+    queryFn: async () => {
+      const { data } = await axios.get(
+        `https://pastauction.com/api/v1/filter/${endpoint[0]}/${endpoint[1]}/?page=1&size=50`,
+        {
+          headers: {
+            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmM2YxMTUxMi1kZDhlLTQ4ZGEtYTQ3NS1mMWY4NGViNGI1ZDUiLCJleHAiOjE2OTI4Mjc2MDJ9.40Cc8Rzjl9UQJR3-2mK02HPireOnGPzS2MK3uW9U3kg`,
+          },
+        }
+      );
+      return data;
+    },
+    enabled: false,
+
+    onSuccess: (data) => {
+      switch (endpoint[2]) {
+        case "area":
+          setAreas(data.items);
+          break;
+
+        case "country":
+          setAuctionCountrys(data.items);
+          break;
+
+        case "city":
+          setAuctionCity(data.items);
+          break;
+        case "auction events":
+          setAuctionEvents(data.items);
+          break;
+        case 'maison':
+          setMaisons(data.items)
+          break;
+        case 'year':
+          setAuctionYears(data.items)
+
+      }
+    },
+  });
+
+  const handleClick = (bidwatcher: string, section: string, key: string) => {
+    setEndpoint([bidwatcher, section, key]);
+  };
+
+  React.useEffect(() => {
+    if (endpoint.length > 1) {
+      refetch();
+    }
+  }, [endpoint]);
+
   const [openOrder, setOpenOrder] = React.useState(false);
   const [valueOrder, setValueOrder] = React.useState("");
 
@@ -395,48 +486,16 @@ const Filters = () => {
 
   const [openAuctionYear, setOpenAuctionYear] = React.useState(false);
   const [valueAuctionYear, setValueAuctionYear] = React.useState("");
-  const Areas = [
-    {
-      value: "Area",
-      label: "Area",
-    },
-  ];
-  const AuctionCountrys = [
-    {
-      value: "Auction Country",
-      label: "Auction Country",
-    },
-  ];
-  const AuctionCitys = [
-    {
-      value: "Auction City",
-      label: "Auction City",
-    },
-  ];
-  const Maisons = [
-    {
-      value: "Maison",
-      label: "Maison",
-    },
-  ];
+
+
   const MaisonCountrys = [
     {
       value: "Maison Country",
       label: "Maison Country",
     },
   ];
-  const AuctionEvents = [
-    {
-      value: "auction event",
-      label: "auction events",
-    },
-  ];
-  const AuctionYears = [
-    {
-      value: "auction year",
-      label: "auction years",
-    },
-  ];
+
+
   const orders = [
     {
       value: "Auction event",
@@ -457,7 +516,12 @@ const Filters = () => {
               variant='blackWide'
               role='combobox'
               aria-expanded={openArea}
-              className='w-full  justify-between border-gray-400 border-[1.4px] bg-white text-sm text-gray-600 font-medium hover:bg-white hover:text-black '>
+              className='w-full  justify-between border-gray-400 
+              border-[1.4px] bg-white text-sm text-gray-600 font-medium
+               hover:bg-white hover:text-black '
+              onClick={() => {
+                handleClick("bidwatcher_auction", "area", "area");
+              }}>
               <span className='capitalize  '>
                 {valueArea ? valueArea : "Area"}
               </span>
@@ -467,27 +531,23 @@ const Filters = () => {
           <PopoverContent className='w-[150px] p-0'>
             <Command>
               <CommandInput placeholder='Search Areas...' />
-              <CommandEmpty>No brand found.</CommandEmpty>
+              <CommandEmpty>No areas found.</CommandEmpty>
+              <ScrollArea className='h-[250px]'>
               <CommandGroup>
-                {Areas.map((area) => (
+                {Areas?.map((area, i) => (
                   <CommandItem
-                    key={area.value}
+                    key={i}
                     onSelect={(currentValue) => {
                       setValueArea(
                         currentValue === valueArea ? "" : currentValue
                       );
                       setOpenArea(false);
                     }}>
-                    <Check
-                      className={cn(
-                        "mr-2 h-4 w-4",
-                        valueArea === area.value ? "opacity-100" : "opacity-0"
-                      )}
-                    />
-                    {area.label}
+                    {area.area}
                   </CommandItem>
                 ))}
               </CommandGroup>
+              </ScrollArea>
             </Command>
           </PopoverContent>
         </Popover>
@@ -498,7 +558,12 @@ const Filters = () => {
               variant='blackWide'
               role='combobox'
               aria-expanded={openAuctionCountry}
-              className='w-full  justify-between border-gray-400 border-[1.4px] bg-white text-sm text-gray-600 font-medium hover:bg-white hover:text-black '>
+              className='w-full  justify-between border-gray-400 
+              border-[1.4px] bg-white text-sm text-gray-600 
+              font-medium hover:bg-white hover:text-black '
+              onClick={() => {
+                handleClick("bidwatcher_country", "name", "country");
+              }}>
               <span className='capitalize  '>
                 {valueAuctionCountry ? valueAuctionCountry : "Auction Country"}
               </span>
@@ -509,28 +574,32 @@ const Filters = () => {
             <Command>
               <CommandInput placeholder='Search Auction Countrys...' />
               <CommandEmpty>No Auction Country found.</CommandEmpty>
-              <CommandGroup>
-                {AuctionCountrys.map((auctionCountry) => (
-                  <CommandItem
-                    key={auctionCountry.value}
-                    onSelect={(currentValue) => {
-                      setValueAuctionCountry(
-                        currentValue === valueAuctionCountry ? "" : currentValue
-                      );
-                      setOpenAuctionCountry(false);
-                    }}>
-                    <Check
-                      className={cn(
-                        "mr-2 h-4 w-4",
-                        valueAuctionCountry === auctionCountry.value
-                          ? "opacity-100"
-                          : "opacity-0"
-                      )}
-                    />
-                    {auctionCountry.label}
-                  </CommandItem>
-                ))}
-              </CommandGroup>
+              <ScrollArea className='h-[250px] '>
+                <CommandGroup>
+                  {AuctionCountrys.map((auctionCountry, i) => (
+                    <CommandItem
+                      key={i}
+                      onSelect={(currentValue) => {
+                        setValueAuctionCountry(
+                          currentValue === valueAuctionCountry
+                            ? ""
+                            : currentValue
+                        );
+                        setOpenAuctionCountry(false);
+                      }}>
+                      <Check
+                        className={cn(
+                          "mr-2 h-4 w-4",
+                          valueAuctionCountry === auctionCountry.name
+                            ? "opacity-100"
+                            : "opacity-0"
+                        )}
+                      />
+                      {auctionCountry.name}
+                    </CommandItem>
+                  ))}
+                </CommandGroup>
+              </ScrollArea>
             </Command>
           </PopoverContent>
         </Popover>
@@ -541,7 +610,11 @@ const Filters = () => {
               variant='blackWide'
               role='combobox'
               aria-expanded={openAuctionCity}
-              className='w-full  justify-between border-gray-400 border-[1.4px] bg-white text-sm text-gray-600 font-medium hover:bg-white hover:text-black '>
+              className='w-full  justify-between border-gray-400 
+              border-[1.4px] bg-white text-sm text-gray-600 font-medium hover:bg-white hover:text-black '
+              onClick={() => {
+                handleClick("bidwatcher_city", "name", "city");
+              }}>
               <span className='capitalize  '>
                 {valueAuctionCity ? valueAuctionCity : "Auction City"}
               </span>
@@ -552,28 +625,30 @@ const Filters = () => {
             <Command>
               <CommandInput placeholder='Search Auction Citys...' />
               <CommandEmpty>No Auction City found.</CommandEmpty>
-              <CommandGroup>
-                {AuctionCitys.map((auctionCity) => (
-                  <CommandItem
-                    key={auctionCity.value}
-                    onSelect={(currentValue) => {
-                      setValueAuctionCity(
-                        currentValue === valueAuctionCity ? "" : currentValue
-                      );
-                      setOpenAuctionCity(false);
-                    }}>
-                    <Check
-                      className={cn(
-                        "mr-2 h-4 w-4",
-                        valueAuctionCity === auctionCity.value
-                          ? "opacity-100"
-                          : "opacity-0"
-                      )}
-                    />
-                    {auctionCity.label}
-                  </CommandItem>
-                ))}
-              </CommandGroup>
+              <ScrollArea className='h-[250px]'>
+                <CommandGroup>
+                  {AuctionCitys.map((auctionCity) => (
+                    <CommandItem
+                      key={auctionCity.name}
+                      onSelect={(currentValue) => {
+                        setValueAuctionCity(
+                          currentValue === valueAuctionCity ? "" : currentValue
+                        );
+                        setOpenAuctionCity(false);
+                      }}>
+                      <Check
+                        className={cn(
+                          "mr-2 h-4 w-4",
+                          valueAuctionCity === auctionCity.name
+                            ? "opacity-100"
+                            : "opacity-0"
+                        )}
+                      />
+                      {auctionCity.name}
+                    </CommandItem>
+                  ))}
+                </CommandGroup>
+              </ScrollArea>
             </Command>
           </PopoverContent>
         </Popover>
@@ -584,7 +659,16 @@ const Filters = () => {
               variant='blackWide'
               role='combobox'
               aria-expanded={openAuctionEvent}
-              className='w-full  justify-between border-gray-400 border-[1.4px] bg-white text-sm text-gray-600 font-medium hover:bg-white hover:text-black '>
+              className='w-full  justify-between
+               border-gray-400 border-[1.4px] 
+               bg-white text-sm text-gray-600 font-medium hover:bg-white hover:text-black '
+              onClick={() => {
+                handleClick(
+                  "bidwatcher_auction",
+                  "name_event",
+                  "auction events"
+                );
+              }}>
               <span className='capitalize  '>
                 {valueAuctionEvent ? valueAuctionEvent : "Auction Events"}
               </span>
@@ -595,28 +679,43 @@ const Filters = () => {
             <Command>
               <CommandInput placeholder='Search Auction Eventss...' />
               <CommandEmpty>No Auction Events found.</CommandEmpty>
-              <CommandGroup>
-                {AuctionEvents.map((auctionEvent) => (
-                  <CommandItem
-                    key={auctionEvent.value}
-                    onSelect={(currentValue) => {
-                      setValueAuctionEvent(
-                        currentValue === valueAuctionEvent ? "" : currentValue
-                      );
-                      setOpenAuctionEvent(false);
-                    }}>
-                    <Check
-                      className={cn(
-                        "mr-2 h-4 w-4",
-                        valueAuctionEvent === auctionEvent.value
-                          ? "opacity-100"
-                          : "opacity-0"
-                      )}
-                    />
-                    {auctionEvent.label}
-                  </CommandItem>
-                ))}
-              </CommandGroup>
+              <ScrollArea className='h-[250px]'>
+                <CommandGroup>
+                  {AuctionEvents.map((auctionEvent) => (
+                    <CommandItem
+                      key={auctionEvent.name_event}
+                      onSelect={(currentValue) => {
+                        setValueAuctionEvent(
+                          currentValue === valueAuctionEvent ? "" : currentValue
+                        );
+                        setOpenAuctionEvent(false);
+                      }}>
+                      <Check
+                        className={cn(
+                          "mr-2 h-4 w-4",
+                          valueAuctionEvent === auctionEvent.name_event
+                            ? "opacity-100"
+                            : "opacity-0"
+                        )}
+                      />
+
+                      <TooltipProvider>
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                           
+                           <p className="text-black"> {truncateString(auctionEvent.name_event, 12)}</p>
+                             
+                           
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p> {auctionEvent.name_event}</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
+                    </CommandItem>
+                  ))}
+                </CommandGroup>
+              </ScrollArea>
             </Command>
           </PopoverContent>
         </Popover>
@@ -627,7 +726,7 @@ const Filters = () => {
               variant='blackWide'
               role='combobox'
               aria-expanded={openMaison}
-              className='w-full  justify-between border-gray-400 border-[1.4px] bg-white text-sm text-gray-600 font-medium hover:bg-white hover:text-black '>
+              className='w-full  justify-between border-gray-400 border-[1.4px] bg-white text-sm text-gray-600 font-medium hover:bg-white hover:text-black ' onClick={() => {handleClick('bidwatcher_maison', 'name', 'maison')}}>
               <span className='capitalize  '>
                 {valueMaison ? valueMaison : "Maison"}
               </span>
@@ -638,10 +737,11 @@ const Filters = () => {
             <Command>
               <CommandInput placeholder='Search Maisons...' />
               <CommandEmpty>No Maison found.</CommandEmpty>
+              <ScrollArea className="h-[250px]">
               <CommandGroup>
                 {Maisons.map((Maison) => (
                   <CommandItem
-                    key={Maison.value}
+                    key={Maison.name}
                     onSelect={(currentValue) => {
                       setValueMaison(
                         currentValue === valueMaison ? "" : currentValue
@@ -651,18 +751,33 @@ const Filters = () => {
                     <Check
                       className={cn(
                         "mr-2 h-4 w-4",
-                        valueMaison === Maison.value
+                        valueMaison === Maison.name
                           ? "opacity-100"
                           : "opacity-0"
                       )}
                     />
-                    {Maison.label}
+                    <TooltipProvider>
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                           
+                           <p className="text-black"> {truncateString(Maison.name, 12)}</p>
+                             
+                           
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p> {Maison.name}</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
                   </CommandItem>
                 ))}
               </CommandGroup>
+              </ScrollArea>
+
             </Command>
           </PopoverContent>
         </Popover>
+
         <Popover open={openMaisonCountry} onOpenChange={setOpenMaisonCountry}>
           <PopoverTrigger asChild>
             <Button
@@ -712,7 +827,7 @@ const Filters = () => {
               variant='blackWide'
               role='combobox'
               aria-expanded={openAuctionYear}
-              className='w-full  justify-between border-gray-400 border-[1.4px] bg-white text-sm text-gray-600 font-medium hover:bg-white hover:text-black '>
+              className='w-full  justify-between border-gray-400 border-[1.4px] bg-white text-sm text-gray-600 font-medium hover:bg-white hover:text-black ' onClick={() => {handleClick('bidwatcher_auction', 'year', 'year')}}>
               <span className='capitalize  '>
                 {valueAuctionYear ? valueAuctionYear : "Auction Year"}
               </span>
@@ -723,10 +838,11 @@ const Filters = () => {
             <Command>
               <CommandInput placeholder='Search Auction Years...' />
               <CommandEmpty>No Auction Year found.</CommandEmpty>
-              <CommandGroup>
+              <ScrollArea className='h-[250px]'>
+                <CommandGroup>
                 {AuctionYears.map((auctionYear) => (
                   <CommandItem
-                    key={auctionYear.value}
+                    key={auctionYear.year}
                     onSelect={(currentValue) => {
                       setValueAuctionYear(
                         currentValue === valueAuctionYear ? "" : currentValue
@@ -736,15 +852,16 @@ const Filters = () => {
                     <Check
                       className={cn(
                         "mr-2 h-4 w-4",
-                        valueAuctionYear === auctionYear.value
+                        valueAuctionYear === auctionYear.year
                           ? "opacity-100"
                           : "opacity-0"
                       )}
                     />
-                    {auctionYear.label}
+                    {auctionYear.year}
                   </CommandItem>
                 ))}
               </CommandGroup>
+              </ScrollArea>
             </Command>
           </PopoverContent>
         </Popover>
