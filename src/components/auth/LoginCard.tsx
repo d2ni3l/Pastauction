@@ -22,15 +22,19 @@ import { useForm } from "react-hook-form";
 import { loginSchema } from "../../app/validators/auth";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-
+import { setCookie, getCookie } from 'cookies-next';
 type Input = z.infer<typeof loginSchema>;
 
 import React, { useEffect,  useState } from "react";
 import { useRouter } from "next/navigation";
 import { login } from "@/app/hooks/usePostData";
+import { useAtom } from "jotai";
+import { selectionAreaModal } from "@/app/atoms/atoms";
 export default function LoginCard() {
   const [showPassword, setShowPassword] = useState(true);
   const [invalid, setInvalid] = useState(false);
+  const [loading, setLoading] = useState(false)
+  // const [selectionAreamodal, setselectionAreamodal] = useAtom(selectionAreaModal);
 
   const form = useForm<Input>({
     resolver: zodResolver(loginSchema),
@@ -40,23 +44,31 @@ export default function LoginCard() {
     },
   });
 
-  const { mutate, data, error } = login();
+  const { mutate, data, error, isLoading } = login();
   const router = useRouter();
 
   const onSubmit = (info: Input) => {
+
     mutate(info);
   };
+  
 
   useEffect(() => {
     if (error) {
       setInvalid(true);
     }
     if (data?.data?.access_token) {
-      router.push("/dashboard");
+      // login success
+       router.push("/dashboard");
+       setCookie('loggedin', true);
+      // setselectionAreamodal(true)
+
     }
+    setLoading(isLoading)
+
 
     
-  }, [error, data])
+  }, [error, data, isLoading])
 
   return (
     <div className='w-full'>
@@ -169,8 +181,8 @@ export default function LoginCard() {
                 )}
               />
               <div className='flex justify-center items-center'>
-                <Button className='px-32' variant='blackWide' type='submit'>
-                  Sign In
+                <Button className='px-32 flex gap-2' variant='blackWide' type='submit'>
+                  Sign In {loading && <Image  src='/images/loadingspinner.svg' alt='loading spinner' width='15' height='15' />}
                 </Button>
               </div>
               <div className='text-xs flex justify-center py-5 gap-1'>

@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { montserrat } from "./fonts";
+// import ProviderSession from "@/components/ProviderSession";
 import ReactQueryProvider from "@/components/ReactQueryProvider";
 export const metadata: Metadata = {
   title: "Past Auction",
@@ -15,7 +16,9 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <ReactQueryProvider>
-        <body className={montserrat.className}>{children}</body>
+        {/* <ProviderSession> */}
+          <body className={montserrat.className}>{children}</body>
+        {/* </ProviderSession> */}
       </ReactQueryProvider>
     </html>
   );

@@ -22,7 +22,7 @@ import { useForm } from "react-hook-form";
 import { registerSchema } from "../../app/validators/auth";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { privacyPolicy } from "@/app/atoms/atoms";
+import { completeProfileModal, privacyPolicy, selectionAreaModal } from "@/app/atoms/atoms";
 type Input = z.infer<typeof registerSchema>;
 import { useAtom } from "jotai";
 import axios from "axios";
@@ -32,6 +32,12 @@ import { useMutation } from "@tanstack/react-query";
 export default function SigninCard() {
   const [invalid, setInvalid] = useState(false)
   const [modal, setModal] = useAtom(privacyPolicy);
+  const [loading, setLoading] = useState(false)
+  const [selectionAreamodal, setselectionAreamodal] = useAtom(selectionAreaModal);
+  const [, setCompleteProfileModal] = useAtom(completeProfileModal)
+
+  
+
 
   const form = useForm<Input>({
     resolver: zodResolver(registerSchema),
@@ -56,7 +62,7 @@ export default function SigninCard() {
   
   const router = useRouter();
 
-const { mutate, data, error } = useMutation({
+const { mutate, data, error, isLoading } = useMutation({
   mutationFn:  (data: Input) => {
      return axios.post('https://pastauction.com/api/v1/sign_up', data)
   },
@@ -73,10 +79,14 @@ const { mutate, data, error } = useMutation({
     }
     if (data?.data) {
       router.push("/dashboard");
+      setCompleteProfileModal(true)
+      
     }
 
+    setLoading(isLoading)
+
     
-  }, [error, data])
+  }, [error, data, isLoading])
   return (
     <>
       <Card className='md:w-[450px] rounded-r-[60px] w-full '>
@@ -201,9 +211,9 @@ const { mutate, data, error } = useMutation({
                 )}
               />
           
-              <div className='flex justify-center items-center pt-5'>
-                <Button className='px-32' variant='blackWide' type='submit'>
-                  Get Started
+              <div className='flex justify-center items-center pt-5 focus:scale-[.95] transition-all '>
+                <Button className='px-32 flex gap-2' variant='blackWide' type='submit'>
+                  Get Started {loading && <Image  src='/images/loadingspinner.svg' alt='loading spinner' width='15' height='15' />}
                 </Button>
               </div>
               {/* <div className='text-xs flex justify-center py-2 gap-2'>

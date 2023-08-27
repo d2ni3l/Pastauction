@@ -4,10 +4,8 @@ import React from "react";
 import { Button } from "../ui/button";
 import { useAtom } from "jotai";
 import { completeProfileModal } from "@/app/atoms/atoms";
-import { selectionAreaModal } from "@/app/atoms/atoms";
 export default function CompleteProfileModal() {
   const [modal, setModal] = useAtom(completeProfileModal);
-  const [selectedModal, setSelectedModal] = useAtom(selectionAreaModal);
   return (
     <div
       id='staticModal'
@@ -21,7 +19,7 @@ export default function CompleteProfileModal() {
               src='/images/x.svg'
               onClick={() => {
                 setModal((prev) => (prev = false));
-                setSelectedModal(true);
+               
               }}
               alt='password saved'
               width='15'

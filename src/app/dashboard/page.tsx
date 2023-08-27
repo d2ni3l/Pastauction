@@ -16,7 +16,7 @@ import DashboardSelectionArea from "@/components/dashboard/DashboardSelectionAre
 
 export default function page() {
   const [completeprofileModal, setCompleteProfileModal] = useAtom(completeProfileModal);
-  const [selectionAreamodal, setselectionAreamodal] = useAtom(selectionAreaModal);
+  const [selectionAreamodal, ] = useAtom(selectionAreaModal);
   const [mobileSidebar, setMobileSideBar] = useState(false);
   return (
     <>
