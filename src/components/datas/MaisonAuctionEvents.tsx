@@ -411,7 +411,7 @@ const Filters = () => {
   const [AuctionYears, setAuctionYears] = React.useState<
     Array<{ year: string }>
   >([]);
-  const { refetch } = useQuery({
+  const { refetch: fetchInitial } = useQuery({
     queryKey: ["filter"],
 
     queryFn: async () => {
@@ -459,8 +459,10 @@ const Filters = () => {
 
   React.useEffect(() => {
     if (endpoint.length > 1) {
-      refetch();
+      fetchInitial();
     }
+
+
   }, [endpoint]);
 
   const [openOrder, setOpenOrder] = React.useState(false);
