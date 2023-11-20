@@ -122,11 +122,14 @@ const DeleteVehicle = ({ deleteVehicle, setDeleteVehicle }: DeleteVehicle) => {
 
           <div className='flex flex-col items-center justify-center'>
             <div className='scale-[.8] sm:scale-[1]'>
+              <div className="max-w-[310px]">
               <VehicleCards
                 deleteVehicle={deleteVehicle}
                 noMod={true}
                 setDeleteVehicle={setDeleteVehicle}
+                widthCustom
               />
+              </div>
             </div>
 
             <div className='pt-8 flex gap-3 pb-5'>

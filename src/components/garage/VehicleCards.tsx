@@ -11,12 +11,14 @@ interface VehicleCard {
   setDeleteVehicle: Dispatch<SetStateAction<boolean>>;
   deleteVehicle: boolean;
   noMod?: boolean;
+  widthCustom?: boolean
 }
 
 export default function VehicleCards({
   setDeleteVehicle,
   deleteVehicle,
   noMod,
+  widthCustom
 }: VehicleCard) {
   const swiperRef = useRef();
   const router = useRouter()
@@ -45,21 +47,21 @@ export default function VehicleCards({
           loop={true}>
           <SwiperSlide>
             <div
-              className='h-[250px] w-full  background-img   rounded-t-lg'
+              className={`h-[250px] background-img rounded-t-lg ${widthCustom ? 'w-[360px] xl:w-[370px]' : 'w-full'}`}
               style={{
                 backgroundImage: `url(${backgroundImages[0].url})`,
               }}></div>
           </SwiperSlide>
           <SwiperSlide>
             <div
-              className='h-[250px] w-full  background-img  rounded-t-lg '
+              className={`h-[250px] background-img rounded-t-lg ${widthCustom ? 'w-[360px] xl:w-[370px]' : 'w-full'}`}
               style={{
                 backgroundImage: `url(${backgroundImages[1].url})`,
               }}></div>
           </SwiperSlide>
           <SwiperSlide>
             <div
-              className='h-[250px] w-full background-img   rounded-t-lg '
+              className={`h-[250px] background-img rounded-t-lg ${widthCustom ? 'w-[360px] xl:w-[370px]' : 'w-full'}`}
               style={{
                 backgroundImage: `url(${backgroundImages[2].url})`,
               }}></div>

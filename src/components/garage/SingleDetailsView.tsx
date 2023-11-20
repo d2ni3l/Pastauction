@@ -71,7 +71,10 @@ export default function SingleDetailsView() {
         noMod={true}
         setDeleteVehicle={setDeleteVehicle}
         deleteVehicle={deleteVehicle}
+        widthCustom
       />
+
+      
 
       <div className='pb-5 pt-10  flex justify-center'>
         <h2 className='text-xl font-semibold text-black'>Reporting view</h2>

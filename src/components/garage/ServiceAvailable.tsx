@@ -6,7 +6,7 @@ export default function ServiceAvailable() {
     <div className="mx-5">
       <div className='pt-5'></div>
       <div className='flex flex-col gap-6'>
-        <h1 className='font-semibold text-xl'>Sevices available</h1>
+        <h1 className='font-semibold text-2xl'>Sevices available</h1>
         <p className='text-gray-600 text-sm '>
           Click on the available services to obtain more detailed information
           about the vehicles
