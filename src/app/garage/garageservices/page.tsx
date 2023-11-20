@@ -38,7 +38,7 @@ export default function page() {
         </Link>
 
         <div className='flex flex-col gap-4 justify-center items-center '>
-          <h1 className='font-semibold sm:text-2xl text-lg'>My garage</h1>
+          <h1 className='font-semibold sm:text-2xl text-xl'>My garage</h1>
           <p className='text-gray-500 sm:text-sm text-xs'>
             Use the search filter to filter your vehicles.
            

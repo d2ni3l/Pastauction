@@ -33,8 +33,8 @@ export default function VehicleCards({
   ];
 
   return (
-    <div>
-      <div className='wrapper max-w-[360px] xl:max-w-[400px]  rounded-t-lg overflow-hidden relative'>
+    <div className="w-full ">
+      <div className='wrapper   rounded-t-lg overflow-hidden relative'>
         <Swiper
           spaceBetween={0.5}
           slidesPerView={1}
@@ -45,21 +45,21 @@ export default function VehicleCards({
           loop={true}>
           <SwiperSlide>
             <div
-              className='h-[250px] w-[360px] xl:w-[400px]   background-img   rounded-t-lg'
+              className='h-[250px] w-full  background-img   rounded-t-lg'
               style={{
                 backgroundImage: `url(${backgroundImages[0].url})`,
               }}></div>
           </SwiperSlide>
           <SwiperSlide>
             <div
-              className='h-[250px] w-[360px] xl:w-[400px]   background-img  rounded-t-lg '
+              className='h-[250px] w-full  background-img  rounded-t-lg '
               style={{
                 backgroundImage: `url(${backgroundImages[1].url})`,
               }}></div>
           </SwiperSlide>
           <SwiperSlide>
             <div
-              className='h-[250px] w-[360px] xl:w-[400px]  background-img   rounded-t-lg '
+              className='h-[250px] w-full background-img   rounded-t-lg '
               style={{
                 backgroundImage: `url(${backgroundImages[2].url})`,
               }}></div>

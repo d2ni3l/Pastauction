@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 import Link from "next/link";
 export default function DashboardFooter() {
   return (
-    <div className='bg-transparent mt-7  rounded-lg mx-5 '>
+    <div className='bg-transparent mt-7  rounded-lg mx-3 '>
       <div className="flex-col flex justify-between sm:flex-row">
       <div className='flex gap-12'>
         <div className='flex flex-col gap-1 justify-center items-center group'>

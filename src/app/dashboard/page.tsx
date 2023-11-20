@@ -59,7 +59,7 @@ export default function page() {
           </div>
         </div>
 
-        <div className='lg:ml-[16rem]  pb-12'>
+        <div className='lg:ml-[16rem]  pb-12 '>
           <DashboardFooter />
         </div>
       </div>
