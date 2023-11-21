@@ -8,16 +8,20 @@ import UpgradePlan from "@/components/dashboard/UpgradePlan";
 import WalletInterface from "@/components/dashboard/WalletInterface";
 import DashboardFooter from "@/components/dashboard/DashboardFooter";
 import { useAtom } from "jotai";
-import { completeProfileModal } from "../atoms/atoms";
+import { completeProfileModal, currentUserAtom } from "../atoms/atoms";
 import { selectionAreaModal } from "../atoms/atoms";
 import CompleteProfileModal from "@/components/dashboard/CompleteProfileModal";
 import { inter } from "../fonts";
 import DashboardSelectionArea from "@/components/dashboard/DashboardSelectionArea";
 
 export default function page() {
+
   const [completeprofileModal, setCompleteProfileModal] = useAtom(completeProfileModal);
   const [selectionAreamodal, ] = useAtom(selectionAreaModal);
   const [mobileSidebar, setMobileSideBar] = useState(false);
+  const [user,] = useAtom(currentUserAtom)
+
+  console.log(JSON.parse(user as string))
   return (
     <>
     {completeprofileModal && (

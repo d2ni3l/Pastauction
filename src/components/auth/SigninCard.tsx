@@ -1,3 +1,5 @@
+'use client'
+
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
@@ -22,7 +24,7 @@ import { useForm } from "react-hook-form";
 import { registerSchema } from "../../app/validators/auth";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { completeProfileModal, privacyPolicy, selectionAreaModal } from "@/app/atoms/atoms";
+import { completeProfileModal, currentUserAtom, privacyPolicy, selectionAreaModal } from "@/app/atoms/atoms";
 type Input = z.infer<typeof registerSchema>;
 import { useAtom } from "jotai";
 import axios from "axios";
@@ -35,6 +37,7 @@ export default function SigninCard() {
   const [loading, setLoading] = useState(false)
   const [selectionAreamodal, setselectionAreamodal] = useAtom(selectionAreaModal);
   const [, setCompleteProfileModal] = useAtom(completeProfileModal)
+  const [currentUser, setCurrentUser] = useAtom(currentUserAtom)
 
   
 
@@ -78,8 +81,10 @@ const { mutate, data, error, isLoading } = useMutation({
       setInvalid(true);
     }
     if (data?.data) {
+      localStorage.setItem('user', JSON.stringify(data.data))
       router.push("/dashboard");
       setCompleteProfileModal(true)
+      setCurrentUser(localStorage.getItem('user'))
       
     }
 
@@ -87,6 +92,18 @@ const { mutate, data, error, isLoading } = useMutation({
 
     
   }, [error, data, isLoading])
+
+  console.log(JSON.parse(currentUser as string))
+
+  
+
+ 
+
+
+  
+
+  
+
   return (
     <>
       <Card className='md:w-[450px] rounded-r-[60px] w-full '>

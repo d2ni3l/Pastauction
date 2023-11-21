@@ -1,3 +1,5 @@
+'use client'
+
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
@@ -29,12 +31,14 @@ import React, { useEffect,  useState } from "react";
 import { useRouter } from "next/navigation";
 import { login } from "@/app/hooks/usePostData";
 import { useAtom } from "jotai";
-import { selectionAreaModal } from "@/app/atoms/atoms";
+import { currentUserAtom, selectionAreaModal, } from "@/app/atoms/atoms";
 export default function LoginCard() {
   const [showPassword, setShowPassword] = useState(true);
   const [invalid, setInvalid] = useState(false);
   const [loading, setLoading] = useState(false)
   // const [selectionAreamodal, setselectionAreamodal] = useAtom(selectionAreaModal);
+  const [currentUser, setCurrentUser] = useAtom(currentUserAtom)
+
 
   const form = useForm<Input>({
     resolver: zodResolver(loginSchema),
@@ -50,6 +54,8 @@ export default function LoginCard() {
   const onSubmit = (info: Input) => {
 
     mutate(info);
+  
+
   };
   
 
@@ -59,8 +65,10 @@ export default function LoginCard() {
     }
     if (data?.data?.access_token) {
       // login success
+      localStorage.setItem('user', JSON.stringify(data.data))
        router.push("/dashboard");
-       setCookie('loggedin', true);
+       setCurrentUser(localStorage.getItem('user'))
+      
       // setselectionAreamodal(true)
 
     }
@@ -69,6 +77,13 @@ export default function LoginCard() {
 
     
   }, [error, data, isLoading])
+
+
+  console.log(JSON.parse(currentUser as string))
+
+
+  
+
 
   return (
     <div className='w-full'>

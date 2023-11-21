@@ -10,8 +10,9 @@ const chatBubbleModal = atom(false)
 const currencyChangeModal = atom(false)
 const infoAreaModal = atom(false)
 const maisonAuctionEventsArea = atom('Maison & Auction Events')
+const currentUserAtom = atom(window?.localStorage.getItem('user'))
 
-
+  
 //
 const HiddenSideNavPage = atom('data')
 export {
@@ -24,6 +25,9 @@ export {
     currencyChangeModal,
     infoAreaModal,
     HiddenSideNavPage,
-    maisonAuctionEventsArea
+    maisonAuctionEventsArea,
+    currentUserAtom,
+    
+    
 }
 
