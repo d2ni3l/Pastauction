@@ -1,3 +1,4 @@
+'use client'
 import {atom} from 'jotai'
 
 
@@ -10,7 +11,10 @@ const chatBubbleModal = atom(false)
 const currencyChangeModal = atom(false)
 const infoAreaModal = atom(false)
 const maisonAuctionEventsArea = atom('Maison & Auction Events')
-const currentUserAtom = atom(window?.localStorage.getItem('user'))
+
+
+
+const currentUserAtom = atom({} || null)
 
   
 //

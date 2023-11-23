@@ -3,11 +3,11 @@ import type { Metadata } from "next";
 import { montserrat } from "./fonts";
 // import ProviderSession from "@/components/ProviderSession";
 import ReactQueryProvider from "@/components/ReactQueryProvider";
-import { currentUserAtom } from "./atoms/atoms";
 export const metadata: Metadata = {
   title: "Past Auction",
   description: "For Classic Cars Lovers",
 };
+import UserProvider from "@/components/UserProvider";
 
 
 export default function RootLayout({
@@ -21,7 +21,9 @@ export default function RootLayout({
     <html lang='en'>
       <ReactQueryProvider>
         {/* <ProviderSession> */}
-          <body className={montserrat.className}>{children}</body>
+        <UserProvider>
+        <body className={montserrat.className}>{children}</body>
+        </UserProvider>
         {/* </ProviderSession> */} 
       </ReactQueryProvider>
     </html>

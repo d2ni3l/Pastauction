@@ -3,12 +3,17 @@ import React, { useState } from "react";
 import { DashbordSidebar } from "@/components/dashboard/DashbordSidebar";
 import DashboardNavbar from "@/components/dashboard/DashboardNavbar";
 import GarageArea from "@/components/garage/GarageArea";
+import { useAtom } from "jotai";
 import GarageInfoCard from "@/components/garage/GarageInfoCard";
 import Link from "next/link";
 import Image from "next/image";
+import { currentUserAtom } from "../atoms/atoms";
 export default function page() {
   //im garage
   const [mobileSidebar, setMobileSideBar] = useState(false);
+  const [currentUser,] = useAtom(currentUserAtom)
+
+  console.log(currentUser)
   return (
     <div className='bg-[#f8f9fa] overflow-x-hidden w-screen h-screen'>
       <DashboardNavbar
