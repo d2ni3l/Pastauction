@@ -411,6 +411,8 @@ const Filters = () => {
   const [AuctionYears, setAuctionYears] = React.useState<
     Array<{ year: string }>
   >([]);
+
+  
   const { refetch: fetchInitial } = useQuery({
     queryKey: ["filter"],
 

@@ -29,6 +29,8 @@ type Input = z.infer<typeof forgotPasswordSchema>;
 
 import React, { useState } from "react";
 import Image from "next/image";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 export default function ForgotPassword() {
   const [showPassword, setShowPassword] = useState(true);
@@ -40,38 +42,32 @@ export default function ForgotPassword() {
     },
   });
 
-  async function postData(url = "", data = {}) {
-    const response = await fetch(url, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-    });
+ 
 
-    return await response.json();
-}
-//   const onSubmit = (data: Input) => {
-    
+const router = useRouter()
 
-//     postData("https://pastauction.com/api/v1/login", data)
-//     .then((response) => {
-//         console.log(response);
-//     })
-//     .catch((error) => {
-//         console.error("Error:", error);
-//     });
+const handleSubmit = (info: Input) => {
+  
+
+  mutate(info.email)
+  console.log(`https://pastauction.com/api/v1/reset_password?email=${info.email}`)
 
 
   
-//   };
-const router = useRouter()
-const handleSubmit = () => {
-  router.push('/auth/checkemail')
-
  }  
 
- console.log(form.watch())
+ const { mutate, data, error, isLoading } = useMutation({
+  mutationFn:  (info : string) => {
+     return axios.post(`https://pastauction.com/api/v1/reset_password?email=${info}`)
+  },
+  
+})
+
+
+
+
+
+
  return (
     <div className={inter.className}>
       <Card className='md:w-[590px]  w-screen rounded-r-[60px] relative'>

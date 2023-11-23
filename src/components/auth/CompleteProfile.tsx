@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
@@ -34,14 +35,14 @@ type Input = z.infer<typeof completeProfile>;
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import {useAtom} from 'jotai'
-import { deleteImage } from "@/app/atoms/atoms";
+import { currentUserAtom, deleteImage } from "@/app/atoms/atoms";
 import { completeProfileModal } from "@/app/atoms/atoms";
 export default function CompleteProfile() {
   const [filebase64, setFileBase64] = useState<string>('')
   const [deleteImageModal, setDeleteImageModal] = useAtom(deleteImage)
+  const [currentUser,] = useAtom(currentUserAtom)
   const [,setModal] = useAtom(completeProfileModal)
 
-  console.log(deleteImageModal)
  
  // validate image 
  
@@ -60,17 +61,9 @@ export default function CompleteProfile() {
     },
   });
 
-  // async function postData(url = "", data = {}) {
-  //   const response = await fetch(url, {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(data),
-  //   });
+  console.log(currentUser)
 
-  //   return await response.json();
-  // }
+  
 
   const router = useRouter();
   const onSubmit = (data: Input) => {
