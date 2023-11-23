@@ -8,9 +8,11 @@ export default function UserProvider({children}: {children : ReactElement}) {
     const [currentUser, setCurrentUser] = useAtom(currentUserAtom)
 
     useEffect(() => {
-   
-        setCurrentUser(window.localStorage.getItem('user'))
-    }, [currentUser])
+             setCurrentUser(JSON.parse(window.localStorage.getItem('user')!))
+
+
+    }, [])
+
   return (
     <>{children}</>
   )

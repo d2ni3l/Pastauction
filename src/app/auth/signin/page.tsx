@@ -12,7 +12,6 @@ import PrivacyPolicy from "@/components/PrivacyPolicy";
 
 export default function page() {
   const [activate, setActivate] = useAtom(privacyPolicy)
-    console.log(activate)
   return (
     <div className={inter.className}>
       <div className='w-screen sm:bg-black  h-screen sign-background flex items-center justify-start '>

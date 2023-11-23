@@ -93,8 +93,6 @@ const { mutate, data, error, isLoading } = useMutation({
     
   }, [error, data, isLoading])
 
-  console.log(JSON.parse(currentUser as string))
-
   
 
  

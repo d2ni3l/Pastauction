@@ -21,7 +21,6 @@ export default function page() {
   const [mobileSidebar, setMobileSideBar] = useState(false);
   const [user,] = useAtom(currentUserAtom)
 
-  console.log(JSON.parse(user as string))
   return (
     <>
     {completeprofileModal && (

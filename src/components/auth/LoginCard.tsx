@@ -79,7 +79,6 @@ export default function LoginCard() {
   }, [error, data, isLoading])
 
 
-  console.log(JSON.parse(currentUser as string))
 
 
   
