@@ -50,8 +50,8 @@ const handleSubmit = (info: Input) => {
   
 
   mutate(info.email)
-  console.log(`https://pastauction.com/api/v1/reset_password?email=${info.email}`)
 
+  sendToLogin()
 
   
  }  
@@ -60,8 +60,19 @@ const handleSubmit = (info: Input) => {
   mutationFn:  (info : string) => {
      return axios.post(`https://pastauction.com/api/v1/reset_password?email=${info}`)
   },
+
+  
   
 })
+const sendToLogin = () => {
+  if(data){
+    setTimeout(() => {
+      router.push('/auth/login')
+    }, 1000)
+  }
+}
+
+
 
 
 
