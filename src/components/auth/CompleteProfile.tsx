@@ -63,6 +63,11 @@ export default function CompleteProfile() {
 
   console.log(currentUser)
 
+// i wanna take currentUser an obj and merge with form new input and send to api
+
+
+  console.log(form.watch())
+
   
 
   const router = useRouter();

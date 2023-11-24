@@ -31,9 +31,12 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { forgottedPassword } from "@/app/atoms/atoms";
+import { useAtom } from "jotai";
 
 export default function ForgotPassword() {
   const [showPassword, setShowPassword] = useState(true);
+  const [, setForgottedPassword] = useAtom(forgottedPassword)
 
   const form = useForm<Input>({
     resolver: zodResolver(forgotPasswordSchema),
@@ -68,6 +71,7 @@ const sendToLogin = () => {
   if(data){
     setTimeout(() => {
       router.push('/auth/login')
+      setForgottedPassword(true)
     }, 1000)
   }
 }

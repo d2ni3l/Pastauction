@@ -8,11 +8,12 @@ import UpgradePlan from "@/components/dashboard/UpgradePlan";
 import WalletInterface from "@/components/dashboard/WalletInterface";
 import DashboardFooter from "@/components/dashboard/DashboardFooter";
 import { useAtom } from "jotai";
-import { completeProfileModal, currentUserAtom } from "../atoms/atoms";
+import { completeProfileModal, currentUserAtom, newPasswordAtom } from "../atoms/atoms";
 import { selectionAreaModal } from "../atoms/atoms";
 import CompleteProfileModal from "@/components/dashboard/CompleteProfileModal";
 import { inter } from "../fonts";
 import DashboardSelectionArea from "@/components/dashboard/DashboardSelectionArea";
+import NewpasswordModal from "@/components/NewPasswordModal";
 
 export default function page() {
 
@@ -20,6 +21,11 @@ export default function page() {
   const [selectionAreamodal, ] = useAtom(selectionAreaModal);
   const [mobileSidebar, setMobileSideBar] = useState(false);
   const [user,] = useAtom(currentUserAtom)
+  const [newPassword,] = useAtom(newPasswordAtom)
+
+  console.log(user)
+
+  
 
   return (
     <>
@@ -28,6 +34,15 @@ export default function page() {
           <CompleteProfileModal />
         </div>
       )}
+
+      { newPassword && (
+        <div className={inter.className}>
+          <NewpasswordModal/>
+
+        </div>
+      )
+
+      }
 
  {
        selectionAreamodal && (

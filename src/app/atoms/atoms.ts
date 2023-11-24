@@ -12,7 +12,8 @@ const currencyChangeModal = atom(false)
 const infoAreaModal = atom(false)
 const maisonAuctionEventsArea = atom('Maison & Auction Events')
 
-
+const forgottedPassword = atom(false)
+const newPasswordAtom = atom(true)
 
 const currentUserAtom = atom({} || null)
 
@@ -31,7 +32,8 @@ export {
     HiddenSideNavPage,
     maisonAuctionEventsArea,
     currentUserAtom,
-    
+    forgottedPassword,
+    newPasswordAtom
     
 }
 

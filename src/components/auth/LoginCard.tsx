@@ -24,20 +24,22 @@ import { useForm } from "react-hook-form";
 import { loginSchema } from "../../app/validators/auth";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { setCookie, getCookie } from 'cookies-next';
-type Input = z.infer<typeof loginSchema>;
-
 import React, { useEffect,  useState } from "react";
 import { useRouter } from "next/navigation";
 import { login } from "@/app/hooks/usePostData";
 import { useAtom } from "jotai";
-import { currentUserAtom, selectionAreaModal, } from "@/app/atoms/atoms";
+import { currentUserAtom, forgottedPassword, newPasswordAtom, selectionAreaModal, } from "@/app/atoms/atoms";
+
+type Input = z.infer<typeof loginSchema>;
 export default function LoginCard() {
   const [showPassword, setShowPassword] = useState(true);
   const [invalid, setInvalid] = useState(false);
   const [loading, setLoading] = useState(false)
   // const [selectionAreamodal, setselectionAreamodal] = useAtom(selectionAreaModal);
   const [currentUser, setCurrentUser] = useAtom(currentUserAtom)
+
+  const [forgotPassword, setForgottedPassword ] = useAtom(forgottedPassword)
+  const [, setNewPassword] = useAtom(newPasswordAtom)
 
 
   const form = useForm<Input>({
@@ -52,6 +54,8 @@ export default function LoginCard() {
   const router = useRouter();
 
   const onSubmit = (info: Input) => {
+
+    
 
     mutate(info);
   
@@ -69,20 +73,15 @@ export default function LoginCard() {
        router.push("/dashboard");
        setCurrentUser(localStorage.getItem('user'))
       
-      // setselectionAreamodal(true)
-
+      
+    // 
+      if(forgotPassword){
+        setForgottedPassword(false)
+        setNewPassword(true)
+      }
     }
     setLoading(isLoading)
-
-
-    
   }, [error, data, isLoading])
-
-
-
-
-  
-
 
   return (
     <div className='w-full'>
@@ -91,11 +90,13 @@ export default function LoginCard() {
           <CardTitle className='font-medium py-2 text-2xl md:text-4xl'>
             Sign In{" "}
           </CardTitle>
-          <CardDescription>Welcome back! Login to your account</CardDescription>
+          <CardDescription>{forgotPassword ? ( <span className='text-center font-medium flex justify-center'>If mail exists...message has been sent! Check your email inbox and spam</span> ) : 'Welcome back! Login to your account'}</CardDescription>
         </CardHeader>
         <CardContent>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-2'>
+              { forgotPassword ? '' : (
+             <>
               <div className='flex justify-center items-center gap-4'>
                 <button
                   type='button'
@@ -131,6 +132,7 @@ export default function LoginCard() {
               <div className='flex justify-center items-center pt-2 pb-2'>
                 <span className='text-base font-medium'>Or</span>
               </div>
+             </>)}
               <FormField
                 control={form.control}
                 name='email'
