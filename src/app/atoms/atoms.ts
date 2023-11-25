@@ -13,9 +13,13 @@ const infoAreaModal = atom(false)
 const maisonAuctionEventsArea = atom('Maison & Auction Events')
 
 const forgottedPassword = atom(false)
-const newPasswordAtom = atom(true)
+const newPasswordAtom = atom(false)
+const resettedPasswordAtom = atom(false)
 
-const currentUserAtom = atom({} || null)
+let user : any = {}
+
+const currentUserAtom = atom(user || null)
+
 
   
 //
@@ -33,7 +37,8 @@ export {
     maisonAuctionEventsArea,
     currentUserAtom,
     forgottedPassword,
-    newPasswordAtom
+    newPasswordAtom,
+    resettedPasswordAtom
     
 }
 

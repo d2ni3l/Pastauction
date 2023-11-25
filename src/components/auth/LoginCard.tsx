@@ -68,10 +68,11 @@ export default function LoginCard() {
       setInvalid(true);
     }
     if (data?.data?.access_token) {
+
       // login success
       localStorage.setItem('user', JSON.stringify(data.data))
        router.push("/dashboard");
-       setCurrentUser(localStorage.getItem('user'))
+       setCurrentUser(JSON.parse(localStorage.getItem('user')!))
       
       
     // 

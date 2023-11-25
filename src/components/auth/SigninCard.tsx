@@ -84,7 +84,7 @@ const { mutate, data, error, isLoading } = useMutation({
       localStorage.setItem('user', JSON.stringify(data.data))
       router.push("/dashboard");
       setCompleteProfileModal(true)
-      setCurrentUser(localStorage.getItem('user'))
+      setCurrentUser(JSON.parse(localStorage.getItem('user')!))
       
     }
 

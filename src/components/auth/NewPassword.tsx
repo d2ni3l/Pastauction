@@ -24,40 +24,90 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { inter } from "@/app/fonts";
 type Input = z.infer<typeof newPassword>;
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
+import { currentUserAtom, newPasswordAtom, resettedPasswordAtom } from "@/app/atoms/atoms";
+import { useAtom } from "jotai";
+
 export default function NewPassword() {
+const [currentUser, setCurrentUser] = useAtom(currentUserAtom)
+const [resettedPassword, setResettedPassword] = useAtom(resettedPasswordAtom)
   const [showPassword, setShowPassword] = useState(true);
-  const [match, setMatch] = useState(false);
+  const [invalid, setInvalid] = useState(false)
+  const [, setNewPassword] = useAtom(newPasswordAtom)
+
+
 
   const form = useForm<Input>({
     resolver: zodResolver(newPassword),
     defaultValues: {
       password: "",
-      confirm: "",
+      user_category: 19,
+      gender: '',
+      first_name: '',
+      surname: '',
+      address: '',
+      city: '',
+      country: '',
+      birthdate: '2023-09-01',
+      phone: '',
+      vat: '',
+      nickname: '',
+      currency: '',
     },
   });
 
-  async function postData(url = "", data = {}) {
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-
-    return await response.json();
-  }
+  
   const  router = useRouter()
-  const handleSubmit = (data: Input) => {
-    console.log("im submiteed");
-    router.push('/auth/passwordchanged')
+
+  const onSubmit = (data: Input) => {
+
+mutate(data)    
+    
+   
 
   };
 
-  console.log(form.watch());
+
+
+  const { mutate, data, error, isLoading } = useMutation({
+    mutationFn: (data : Input) => {
+      return axios.put(`https://pastauction.com/api/v1/user_info_update`, data,  {
+        headers: {
+          Authorization: `Bearer ${currentUser?.access_token}`,  
+
+        },
+      }
+      );
+    },
+  });
+
+  console.log(currentUser)
+
+  console.log(data, error)
+
+  useEffect(() => {
+   if(data){
+    setResettedPassword(true)
+    router.push('/dashboard')
+    localStorage.setItem('user', JSON.stringify(data.data))
+    setNewPassword(false)
+
+    
+
+   }
+
+   if (error){
+    setInvalid(true)
+   }
+  }, [data, error])
+
+
+ 
   return (
     <div className={inter.className}>
       <Card className='md:w-[590px]  w-screen rounded-r-[60px] relative'>
@@ -75,15 +125,17 @@ export default function NewPassword() {
           <CardTitle className='font-[500] py-2 text-xl md:text-4xl pt-24 '>
             Enter a new password
           </CardTitle>
-          <CardDescription className='text-gray-600 text-sm ml-12  text-left pt-2 pb-3 font-medium'>
-            We help you to recover it. Fill in your email and we will send you
-            the instrutions to restore it.
+          {invalid && (
+            <CardDescription className='text-red-600 font-medium'>
+              Internal server error! Pls try again.
           </CardDescription>
+          )}
+          
         </CardHeader>
         <CardContent>
           <Form {...form}>
             <form
-              onSubmit={form.handleSubmit(handleSubmit)}
+              onSubmit={form.handleSubmit(onSubmit)}
               className='px-12 space-y-7 justify-start items-center flex flex-col'>
               <FormField
                 control={form.control}
@@ -91,7 +143,7 @@ export default function NewPassword() {
                 render={({ field }) => (
                   <FormItem className='w-full'>
                     <FormLabel className='md:text-base text-base font-medium'>
-                      password
+                      Password
                     </FormLabel>
                     <div className='flex relative items-center'>
                       <FormControl>
@@ -122,11 +174,11 @@ export default function NewPassword() {
               />
               <FormField
                 control={form.control}
-                name='confirm'
+                name='password'
                 render={({ field }) => (
                   <FormItem className='w-full'>
                     <FormLabel className='md:text-base text-base font-medium'>
-                      Repeat password
+                      Repeated Password
                     </FormLabel>
                     <div className='flex relative items-center'>
                       <FormControl>
@@ -160,13 +212,16 @@ export default function NewPassword() {
                 <Button
                   className='md:w-[445px] w-full  text-md md:text-lg py-2  tracking-wide '
                   variant='blackWide'
-                  type='submit'>
+                  type='submit'
+                  
+                  >
                   Save
                 </Button>
               </div>
               <div className='pb-24'></div>
             </form>
           </Form>
+          
         </CardContent>
       </Card>
     </div>
