@@ -39,6 +39,8 @@ import { accessTokenAtom, currentUserAtom, deleteImage } from "@/app/atoms/atoms
 import { completeProfileModal } from "@/app/atoms/atoms";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
+
+
 export default function CompleteProfile() {
   const [filebase64, setFileBase64] = useState<string>("");
   const [deleteImageModal, setDeleteImageModal] = useAtom(deleteImage);
