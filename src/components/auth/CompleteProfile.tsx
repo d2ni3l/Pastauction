@@ -45,6 +45,7 @@ export default function CompleteProfile() {
   const [currentUser, setCurrentUser] = useAtom(currentUserAtom);
   const [, setModal] = useAtom(completeProfileModal);
   const [accessToken,] = useAtom(accessTokenAtom)
+  const [completedProfile, setCompletedProfile] = useState(false)
 
   // validate image
 
@@ -75,12 +76,9 @@ export default function CompleteProfile() {
 
   const onSubmit = (data: Input) => {
    mutate(data)
-  //   router.push("/dashboard");
-  //   setModal(false);
-
-
-
   };
+
+
 
   function convertFile(files: FileList | null) {
     if (files) {
@@ -115,9 +113,17 @@ export default function CompleteProfile() {
     if(data?.data){
       localStorage.setItem('user', JSON.stringify(data?.data))
       setCurrentUser(JSON.parse(localStorage.getItem('user')!))
-      console.log(data?.data)
+      setCompletedProfile(true)
     }
   }, [data])
+
+  // useEffect(() => {
+  //   if(filebase64){
+
+  //   }
+  // })
+
+  
 
   return (
     <div className='w-full'>
@@ -127,6 +133,12 @@ export default function CompleteProfile() {
           setFileBase64={setFileBase64}
         />
       )}
+
+      {
+        completedProfile && (
+          <CompletedProfileModal setCompletedProfile={setCompletedProfile}/>
+        )
+      }
 
       <Card className='md:w-[450px] rounded-r-[60px] w-full'>
         <CardHeader className='items-start'>
@@ -341,6 +353,7 @@ interface DeleteImageModal {
   setDeleteImageModal: (arg0: boolean) => void;
   setFileBase64: (arg0: string) => void;
 }
+
 const DeleteImageModal = ({
   setFileBase64,
   setDeleteImageModal,
@@ -406,3 +419,64 @@ const DeleteImageModal = ({
     </div>
   );
 };
+
+
+interface CompletedProfileProps{
+  setCompletedProfile: (arg0: boolean) => void
+}
+
+const CompletedProfileModal = ({setCompletedProfile}: CompletedProfileProps) => {
+ const  router = useRouter()
+  return (
+    <div className='fixed bg-black/50 top-0 left-0 right-0  p-4 overflow-x-hidden w-screen overflow-y-auto md:inset-0  h-full z-50'>
+      <div className='relative w-full  h-full flex justify-center items-center'>
+        <div className='relative max-w-sm  sm:max-w-sm bg-white rounded-lg shadow p-10'>
+          <div className='flex justify-end'>
+            <Image
+              src='/images/x.svg'
+              onClick={() => {
+                setCompletedProfile(false)
+              
+              }}
+              alt='password saved'
+              width='15'
+              height='15'
+              className='hover:scale-[.9] transition-all duration-300 cursor-pointer'
+            />
+          </div>
+
+          <div className='flex flex-col items-center justify-center'>
+            <div>
+              <Image
+                src='/images/savedcheckedmark.svg'
+                alt='password saved'
+                width='60'
+                height='60'
+              />
+            </div>
+
+            <div className='flex flex-col gap-3 pt-4 items-center'>
+              <h2 className='font-semibold text-lg text-black'>Profile Completed</h2>
+              <p className='text-xs text-gray-600 text-center tracking-wide'>
+               You have completed the data with your personal info. 
+              </p>
+            </div>
+
+            <div className='pt-8 flex gap-3'>
+              
+
+             <Link href='/dashboard'>
+             <Button
+                
+                variant='blackWide'
+                className='px-10'>
+                <span className='text-sm'>Go to dashboard</span>
+              </Button>
+             </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
