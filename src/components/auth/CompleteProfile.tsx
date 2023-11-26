@@ -30,12 +30,12 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-type Input = z.infer<typeof completeProfile>;
+
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAtom } from "jotai";
-import { currentUserAtom, deleteImage } from "@/app/atoms/atoms";
+import { accessTokenAtom, currentUserAtom, deleteImage } from "@/app/atoms/atoms";
 import { completeProfileModal } from "@/app/atoms/atoms";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
@@ -44,9 +44,12 @@ export default function CompleteProfile() {
   const [deleteImageModal, setDeleteImageModal] = useAtom(deleteImage);
   const [currentUser] = useAtom(currentUserAtom);
   const [, setModal] = useAtom(completeProfileModal);
+  const [accessToken,] = useAtom(accessTokenAtom)
 
   // validate image
 
+  type Input = z.infer<typeof completeProfile>;
+  
   const form = useForm<Input>({
     resolver: zodResolver(completeProfile),
     defaultValues: {
@@ -66,17 +69,18 @@ export default function CompleteProfile() {
     },
   });
 
-  console.log(currentUser);
 
 
   const router = useRouter();
 
   const onSubmit = (data: Input) => {
-  //  mutate(data)
+   mutate(data)
   //   router.push("/dashboard");
   //   setModal(false);
 
-  console.log('hello')
+  console.log('i am working 👍')
+
+
   };
 
   function convertFile(files: FileList | null) {
@@ -93,13 +97,11 @@ export default function CompleteProfile() {
     }
   }
 
-  console.log(form.watch())
-
  const { mutate, data, error, isLoading } = useMutation({
     mutationFn: (data : Input) => {
       return axios.put(`https://pastauction.com/api/v1/user_info_update`, data,  {
         headers: {
-          Authorization: `Bearer ${currentUser?.access_token}`,  
+          Authorization: `Bearer ${localStorage.getItem('accessToken')}`,  
 
         },
       }
@@ -107,6 +109,7 @@ export default function CompleteProfile() {
     },
   });
 
+  console.log(data)
 
   return (
     <div className='w-full'>

@@ -36,8 +36,6 @@ export default function LoginCard() {
   const [invalid, setInvalid] = useState(false);
   const [loading, setLoading] = useState(false)
   // const [selectionAreamodal, setselectionAreamodal] = useAtom(selectionAreaModal);
-  const [currentUser, setCurrentUser] = useAtom(currentUserAtom)
-
   const [forgotPassword, setForgottedPassword ] = useAtom(forgottedPassword)
   const [, setNewPassword] = useAtom(newPasswordAtom)
   const [accessToken, setAccessToken] = useAtom(accessTokenAtom)
@@ -72,10 +70,9 @@ export default function LoginCard() {
 
       // login success
       localStorage.setItem('user', JSON.stringify(data.data))
-       router.push("/dashboard");
-       setCurrentUser(JSON.parse(localStorage.getItem('user')!))
+      //  router.push("/dashboard");
 
-       setAccessToken(data?.data?.access_token)
+       setAccessToken(localStorage.setItem('accessToken', data?.data?.access_token))
 
 
       
@@ -89,7 +86,7 @@ export default function LoginCard() {
     setLoading(isLoading)
   }, [error, data, isLoading])
 
-
+console.log(data?.data)
   return (
     <div className='w-full'>
       <Card className='md:w-[450px] rounded-r-[60px] w-full'>

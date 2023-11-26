@@ -19,7 +19,9 @@ const resettedPasswordAtom = atom(false)
 let user : any = {}
 
 const currentUserAtom = atom(user || null)
-const accessTokenAtom = atom('')
+
+let accessToken : any = {}
+const accessTokenAtom = atom(accessToken)
 
 
   

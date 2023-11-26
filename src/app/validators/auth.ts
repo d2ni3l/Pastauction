@@ -59,7 +59,7 @@ export const newPassword = z.object({
 export const completeProfile = z.object({
    
     
-    password: z.string().min(6).max(255),
+    password: z.string(),
     user_category: z.number(),
   gender: z.string(),
   first_name: z.string(),
