@@ -19,6 +19,7 @@ const resettedPasswordAtom = atom(false)
 let user : any = {}
 
 const currentUserAtom = atom(user || null)
+const accessTokenAtom = atom('')
 
 
   
@@ -38,7 +39,8 @@ export {
     currentUserAtom,
     forgottedPassword,
     newPasswordAtom,
-    resettedPasswordAtom
+    resettedPasswordAtom,
+    accessTokenAtom
     
 }
 

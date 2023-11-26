@@ -28,7 +28,7 @@ import React, { useEffect,  useState } from "react";
 import { useRouter } from "next/navigation";
 import { login } from "@/app/hooks/usePostData";
 import { useAtom } from "jotai";
-import { currentUserAtom, forgottedPassword, newPasswordAtom, selectionAreaModal, } from "@/app/atoms/atoms";
+import { accessTokenAtom, currentUserAtom, forgottedPassword, newPasswordAtom, selectionAreaModal, } from "@/app/atoms/atoms";
 
 type Input = z.infer<typeof loginSchema>;
 export default function LoginCard() {
@@ -40,6 +40,7 @@ export default function LoginCard() {
 
   const [forgotPassword, setForgottedPassword ] = useAtom(forgottedPassword)
   const [, setNewPassword] = useAtom(newPasswordAtom)
+  const [accessToken, setAccessToken] = useAtom(accessTokenAtom)
 
 
   const form = useForm<Input>({
@@ -73,6 +74,10 @@ export default function LoginCard() {
       localStorage.setItem('user', JSON.stringify(data.data))
        router.push("/dashboard");
        setCurrentUser(JSON.parse(localStorage.getItem('user')!))
+
+       setAccessToken(data?.data?.access_token)
+
+
       
       
     // 
@@ -83,6 +88,7 @@ export default function LoginCard() {
     }
     setLoading(isLoading)
   }, [error, data, isLoading])
+
 
   return (
     <div className='w-full'>

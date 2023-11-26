@@ -59,13 +59,19 @@ export const newPassword = z.object({
 export const completeProfile = z.object({
    
     
-    image: z.string(),
-    mr: z.string(),
-    firstname: z.string().min(3),
-    surname: z.string().min(3),
-    date: z.string(),
-    country: z.string(),
-    city: z.string()
+    password: z.string().min(6).max(255),
+    user_category: z.number(),
+  gender: z.string(),
+  first_name: z.string(),
+  surname: z.string(),
+  address: z.string(),
+  city: z.string(),
+  country: z.string(),
+  birthdate: z.string(),
+  phone: z.string(),
+  vat: z.string(),
+  nickname: z.string(),
+  currency: z.string(),
 })
 
 
