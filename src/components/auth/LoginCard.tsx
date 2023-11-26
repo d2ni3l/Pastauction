@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -24,22 +24,29 @@ import { useForm } from "react-hook-form";
 import { loginSchema } from "../../app/validators/auth";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import React, { useEffect,  useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { login } from "@/app/hooks/usePostData";
 import { useAtom } from "jotai";
-import { accessTokenAtom, currentUserAtom, forgottedPassword, newPasswordAtom, selectionAreaModal, } from "@/app/atoms/atoms";
+import {
+  accessTokenAtom,
+  currentUserAtom,
+  forgottedPassword,
+  newPasswordAtom,
+  selectionAreaModal,
+} from "@/app/atoms/atoms";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 type Input = z.infer<typeof loginSchema>;
 export default function LoginCard() {
   const [showPassword, setShowPassword] = useState(true);
   const [invalid, setInvalid] = useState(false);
-  const [loading, setLoading] = useState(false)
-  // const [selectionAreamodal, setselectionAreamodal] = useAtom(selectionAreaModal);
-  const [forgotPassword, setForgottedPassword ] = useAtom(forgottedPassword)
-  const [, setNewPassword] = useAtom(newPasswordAtom)
-  const [accessToken, setAccessToken] = useAtom(accessTokenAtom)
-
+  const [loading, setLoading] = useState(false);
+  const [forgotPassword, setForgottedPassword] = useAtom(forgottedPassword);
+  const [, setNewPassword] = useAtom(newPasswordAtom);
+  const [currentUser, setCurrentUser] = useAtom(currentUserAtom);
+  const [accessToken, setAccessToken] = useAtom(accessTokenAtom);
 
   const form = useForm<Input>({
     resolver: zodResolver(loginSchema),
@@ -53,40 +60,56 @@ export default function LoginCard() {
   const router = useRouter();
 
   const onSubmit = (info: Input) => {
-
-    
-
     mutate(info);
-  
-
   };
-  
+
+  const { refetch: fetchInitial } = useQuery({
+    queryKey: ["getUser"],
+
+    queryFn: async () => {
+      const { data } = await axios.get(
+        `https://pastauction.com/api/v1/user_info`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+        }
+      );
+      return data;
+    },
+    enabled: false,
+
+    onSuccess: (data) => {
+      localStorage.setItem("user", JSON.stringify(data));
+      setCurrentUser(JSON.parse(localStorage.getItem('user')!))
+    },
+  });
 
   useEffect(() => {
     if (error) {
       setInvalid(true);
     }
     if (data?.data?.access_token) {
-
       // login success
-      localStorage.setItem('user', JSON.stringify(data.data))
-      //  router.push("/dashboard");
 
-       setAccessToken(localStorage.setItem('accessToken', data?.data?.access_token))
+      fetchInitial();
+
+      setAccessToken(
+        localStorage.setItem("accessToken", data?.data?.access_token)
+      );
 
 
-      
-      
-    // 
-      if(forgotPassword){
-        setForgottedPassword(false)
-        setNewPassword(true)
+      router.push("/dashboard");
+
+      //
+      if (forgotPassword) {
+        setForgottedPassword(false);
+        setNewPassword(true);
       }
     }
-    setLoading(isLoading)
-  }, [error, data, isLoading])
+    setLoading(isLoading);
+  }, [error, data, isLoading]);
 
-console.log(data?.data)
   return (
     <div className='w-full'>
       <Card className='md:w-[450px] rounded-r-[60px] w-full'>
@@ -94,49 +117,61 @@ console.log(data?.data)
           <CardTitle className='font-medium py-2 text-2xl md:text-4xl'>
             Sign In{" "}
           </CardTitle>
-          <CardDescription>{forgotPassword ? ( <span className='text-center font-medium flex justify-center'>If mail exists...message has been sent! Check your email inbox and spam</span> ) : 'Welcome back! Login to your account'}</CardDescription>
+          <CardDescription>
+            {forgotPassword ? (
+              <span className='text-center font-medium flex justify-center'>
+                If mail exists...message has been sent! Check your email inbox
+                and spam
+              </span>
+            ) : (
+              "Welcome back! Login to your account"
+            )}
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-2'>
-              { forgotPassword ? '' : (
-             <>
-              <div className='flex justify-center items-center gap-4'>
-                <button
-                  type='button'
-                  className='flex justify-center items-center bg-white hover:scale-[.9] transition-all duration-300 shadow-xl rounded-lg py-4 px-9 '>
-                  <Image
-                    src='/images/google-logo.svg'
-                    alt='google signin'
-                    width={20}
-                    height={20}
-                  />
-                </button>
-                <button
-                  type='button'
-                  className='flex justify-center items-center bg-black hover:scale-[.9] transition-all duration-300 shadow-xl rounded-lg py-4 px-9'>
-                  <Image
-                    src='/images/apple-logo.svg'
-                    alt='google signin'
-                    width={20}
-                    height={20}
-                  />
-                </button>
-                <button
-                  type='button'
-                  className='flex justify-center items-center bg-blue-700 hover:scale-[.9] transition-all duration-300 shadow-xl rounded-lg py-4 px-9'>
-                  <Image
-                    src='/images/facebook-logo.svg'
-                    alt='google signin'
-                    width={20}
-                    height={20}
-                  />
-                </button>
-              </div>
-              <div className='flex justify-center items-center pt-2 pb-2'>
-                <span className='text-base font-medium'>Or</span>
-              </div>
-             </>)}
+              {forgotPassword ? (
+                ""
+              ) : (
+                <>
+                  <div className='flex justify-center items-center gap-4'>
+                    <button
+                      type='button'
+                      className='flex justify-center items-center bg-white hover:scale-[.9] transition-all duration-300 shadow-xl rounded-lg py-4 px-9 '>
+                      <Image
+                        src='/images/google-logo.svg'
+                        alt='google signin'
+                        width={20}
+                        height={20}
+                      />
+                    </button>
+                    <button
+                      type='button'
+                      className='flex justify-center items-center bg-black hover:scale-[.9] transition-all duration-300 shadow-xl rounded-lg py-4 px-9'>
+                      <Image
+                        src='/images/apple-logo.svg'
+                        alt='google signin'
+                        width={20}
+                        height={20}
+                      />
+                    </button>
+                    <button
+                      type='button'
+                      className='flex justify-center items-center bg-blue-700 hover:scale-[.9] transition-all duration-300 shadow-xl rounded-lg py-4 px-9'>
+                      <Image
+                        src='/images/facebook-logo.svg'
+                        alt='google signin'
+                        width={20}
+                        height={20}
+                      />
+                    </button>
+                  </div>
+                  <div className='flex justify-center items-center pt-2 pb-2'>
+                    <span className='text-base font-medium'>Or</span>
+                  </div>
+                </>
+              )}
               <FormField
                 control={form.control}
                 name='email'
@@ -201,8 +236,19 @@ console.log(data?.data)
                 )}
               />
               <div className='flex justify-center items-center'>
-                <Button className='px-32 flex gap-2' variant='blackWide' type='submit'>
-                  Sign In {loading && <Image  src='/images/loadingspinner.svg' alt='loading spinner' width='15' height='15' />}
+                <Button
+                  className='px-32 flex gap-2'
+                  variant='blackWide'
+                  type='submit'>
+                  Sign In{" "}
+                  {loading && (
+                    <Image
+                      src='/images/loadingspinner.svg'
+                      alt='loading spinner'
+                      width='15'
+                      height='15'
+                    />
+                  )}
                 </Button>
               </div>
               <div className='text-xs flex justify-center py-5 gap-1'>

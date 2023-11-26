@@ -32,7 +32,7 @@ import {
 
 
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAtom } from "jotai";
 import { accessTokenAtom, currentUserAtom, deleteImage } from "@/app/atoms/atoms";
@@ -42,7 +42,7 @@ import axios from "axios";
 export default function CompleteProfile() {
   const [filebase64, setFileBase64] = useState<string>("");
   const [deleteImageModal, setDeleteImageModal] = useAtom(deleteImage);
-  const [currentUser] = useAtom(currentUserAtom);
+  const [currentUser, setCurrentUser] = useAtom(currentUserAtom);
   const [, setModal] = useAtom(completeProfileModal);
   const [accessToken,] = useAtom(accessTokenAtom)
 
@@ -78,7 +78,6 @@ export default function CompleteProfile() {
   //   router.push("/dashboard");
   //   setModal(false);
 
-  console.log('i am working 👍')
 
 
   };
@@ -109,7 +108,16 @@ export default function CompleteProfile() {
     },
   });
 
-  console.log(data)
+
+
+  useEffect(() => {
+  
+    if(data?.data){
+      localStorage.setItem('user', JSON.stringify(data?.data))
+      setCurrentUser(JSON.parse(localStorage.getItem('user')!))
+      console.log(data?.data)
+    }
+  }, [data])
 
   return (
     <div className='w-full'>

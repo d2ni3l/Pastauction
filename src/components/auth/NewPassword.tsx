@@ -78,7 +78,7 @@ mutate(data)
     mutationFn: (data : Input) => {
       return axios.put(`https://pastauction.com/api/v1/user_info_update`, data,  {
         headers: {
-          Authorization: `Bearer ${currentUser?.access_token}`,  
+          Authorization: `Bearer ${localStorage.getItem('accessToken')}`,  
 
         },
       }
@@ -86,15 +86,14 @@ mutate(data)
     },
   });
 
-  console.log(currentUser)
 
-  console.log(data, error)
 
   useEffect(() => {
    if(data){
     setResettedPassword(true)
     router.push('/dashboard')
     localStorage.setItem('user', JSON.stringify(data.data))
+    setCurrentUser(JSON.parse(localStorage.getItem('user')!))
     setNewPassword(false)
 
     

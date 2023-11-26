@@ -7,7 +7,6 @@ export const metadata: Metadata = {
   title: "Past Auction",
   description: "For Classic Cars Lovers",
 };
-import UserProvider from "@/components/UserProvider";
 
 
 export default function RootLayout({
@@ -21,9 +20,9 @@ export default function RootLayout({
     <html lang='en'>
       <ReactQueryProvider>
         {/* <ProviderSession> */}
-        <UserProvider>
+        
         <body className={montserrat.className}>{children}</body>
-        </UserProvider>
+        
         {/* </ProviderSession> */} 
       </ReactQueryProvider>
     </html>
