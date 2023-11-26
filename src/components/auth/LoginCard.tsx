@@ -28,8 +28,10 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { login } from "@/app/hooks/usePostData";
 import { useAtom } from "jotai";
+import { AxiosError } from "axios";
 import {
   accessTokenAtom,
+  confirmIdentityAtom,
   currentUserAtom,
   forgottedPassword,
   newPasswordAtom,
@@ -47,6 +49,8 @@ export default function LoginCard() {
   const [, setNewPassword] = useAtom(newPasswordAtom);
   const [currentUser, setCurrentUser] = useAtom(currentUserAtom);
   const [accessToken, setAccessToken] = useAtom(accessTokenAtom);
+  const [confirmIdentity, setConfirmIdentity] = useAtom(confirmIdentityAtom)
+  const [emailInvalid, setEmailInvalid] = useState(false)
 
   const form = useForm<Input>({
     resolver: zodResolver(loginSchema),
@@ -58,6 +62,8 @@ export default function LoginCard() {
 
   const { mutate, data, error, isLoading } = login();
   const router = useRouter();
+
+
 
   const onSubmit = (info: Input) => {
     mutate(info);
@@ -97,6 +103,7 @@ export default function LoginCard() {
       setAccessToken(
         localStorage.setItem("accessToken", data?.data?.access_token)
       );
+      setConfirmIdentity(false)
 
 
       router.push("/dashboard");
@@ -108,7 +115,16 @@ export default function LoginCard() {
       }
     }
     setLoading(isLoading);
+
+
+   
+    
   }, [error, data, isLoading]);
+
+
+
+
+
 
   return (
     <div className='w-full'>
@@ -117,14 +133,18 @@ export default function LoginCard() {
           <CardTitle className='font-medium py-2 text-2xl md:text-4xl'>
             Sign In{" "}
           </CardTitle>
-          <CardDescription>
-            {forgotPassword ? (
+          <CardDescription className='text-[15px]'>
+            {forgotPassword &&(
               <span className='text-center font-medium flex justify-center'>
                 If mail exists...message has been sent! Check your email inbox
                 and spam
               </span>
-            ) : (
-              "Welcome back! Login to your account"
+            )}
+            {!confirmIdentity && !forgotPassword && ( <span>Welcome back! Login to your account</span> )}
+            {confirmIdentity && (
+              <span className='text-center font-medium flex justify-center'>
+                Confirm your identity, click on the link we sent to your email address...
+              </span>
             )}
           </CardDescription>
         </CardHeader>

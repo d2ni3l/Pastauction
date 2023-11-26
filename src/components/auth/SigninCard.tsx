@@ -24,7 +24,7 @@ import { useForm } from "react-hook-form";
 import { registerSchema } from "../../app/validators/auth";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { completeProfileModal, currentUserAtom, privacyPolicy, selectionAreaModal } from "@/app/atoms/atoms";
+import { completeProfileModal, confirmIdentityAtom, currentUserAtom, privacyPolicy, selectionAreaModal } from "@/app/atoms/atoms";
 type Input = z.infer<typeof registerSchema>;
 import { useAtom } from "jotai";
 import axios from "axios";
@@ -38,6 +38,7 @@ export default function SigninCard() {
   const [selectionAreamodal, setselectionAreamodal] = useAtom(selectionAreaModal);
   const [, setCompleteProfileModal] = useAtom(completeProfileModal)
   const [currentUser, setCurrentUser] = useAtom(currentUserAtom)
+  const [confirmIdentity, setConfirmIdentity] = useAtom(confirmIdentityAtom)
 
   
 
@@ -82,8 +83,10 @@ const { mutate, data, error, isLoading } = useMutation({
     }
     if (data?.data) {
       localStorage.setItem('user', JSON.stringify(data.data))
-      // send 
-      router.push("/dashboard");
+      // send to login page 
+      setConfirmIdentity(true)
+      router.push("/auth/login");
+
       
       
     }
