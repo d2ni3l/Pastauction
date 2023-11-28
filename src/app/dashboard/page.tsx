@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import DashboardIntro from "@/components/dashboard/DashboardIntro";
 import UpgradePlan from "@/components/dashboard/UpgradePlan";
 import WalletInterface from "@/components/dashboard/WalletInterface";
-import DashboardFooter from "@/components/dashboard/DashboardFooter";
+import DashboardFooter, { DashboardFooterProps } from "@/components/dashboard/DashboardFooter";
 import { useAtom } from "jotai";
 import { completeProfileModal, currentUserAtom, newPasswordAtom, resettedPasswordAtom } from "../atoms/atoms";
 import { selectionAreaModal } from "../atoms/atoms";
@@ -15,6 +15,8 @@ import { inter } from "../fonts";
 import DashboardSelectionArea from "@/components/dashboard/DashboardSelectionArea";
 import NewpasswordModal from "@/components/NewPasswordModal";
 import PasswordResettedModal from "@/components/auth/PasswordResettedModal";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 export default function page() {
 
@@ -25,8 +27,34 @@ export default function page() {
   const [newPassword,] = useAtom(newPasswordAtom)
   const [resettedPassword,] = useAtom(resettedPasswordAtom)
 
-  console.log(user)
+  const [garage, setGarage] = useState({ items : [], 
+    total: 0,
+    page: 0,
+    size: 0,
+    pages: 0})
 
+ 
+
+  const { refetch: fetchInitial } = useQuery({
+    queryKey: ["getGarage"],
+
+    queryFn: async () => {
+      const { data } = await axios.get(
+        `https://pastauction.com/api/v1/garage_set/query?page=1&size=50`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+        }
+      );
+      return data;
+    },
+    enabled: true,
+
+    onSuccess: (data) => {
+      setGarage(data)
+    },
+  });
   
 
   return (
@@ -42,9 +70,7 @@ export default function page() {
           <NewpasswordModal/>
 
         </div>
-      )
-
-      }
+      )}
       {  resettedPassword && (
 
         <div className={inter.className}>
@@ -89,7 +115,7 @@ export default function page() {
         </div>
 
         <div className='lg:ml-[16rem]  pb-12 '>
-          <DashboardFooter />
+          <DashboardFooter garageItems={garage} />
         </div>
       </div>
       </div>

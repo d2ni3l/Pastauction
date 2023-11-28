@@ -119,8 +119,21 @@ export default function CompleteProfile() {
   // const handlePostImage = () => {
   //   const formData = new FormData();
   //   formData.append("profile-pic", fileInput);
+
+  
    
-  //    getImage(formData);
+     
+
+  //    axios.post(
+  //           `https://pastauction.com/api/v1/profile_image/`,
+  //           formData,
+  //           {
+  //             headers: {
+  //               Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+  //               "Content-Type": "multipart/form-data",
+  //             },
+  //           }
+  //         ).then((res) => console.log(res)).catch((err) => console.log(err))
   // };
 
 
@@ -144,7 +157,7 @@ export default function CompleteProfile() {
   //   },
   // });
 
-  // console.log(ImageError, imageData);
+ 
 
   return (
     <div className='w-full'>
@@ -223,7 +236,7 @@ export default function CompleteProfile() {
               {/* <button
                 className='bg-red-400 p-4 rounded-md'
                 type='button'
-                onClick={handlePostImage}>
+                onClick={()}>
                 post image
               </button> */}
               <div className='flex justify-center items-center pt-1 pb-1'>
