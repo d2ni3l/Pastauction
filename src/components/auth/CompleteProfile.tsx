@@ -30,63 +30,61 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-
-
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAtom } from "jotai";
-import { accessTokenAtom, currentUserAtom, deleteImage } from "@/app/atoms/atoms";
+import {
+  accessTokenAtom,
+  currentUserAtom,
+  deleteImage,
+} from "@/app/atoms/atoms";
 import { completeProfileModal } from "@/app/atoms/atoms";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
-
 
 export default function CompleteProfile() {
   const [filebase64, setFileBase64] = useState<string>("");
   const [deleteImageModal, setDeleteImageModal] = useAtom(deleteImage);
   const [currentUser, setCurrentUser] = useAtom(currentUserAtom);
   const [, setModal] = useAtom(completeProfileModal);
-  const [accessToken,] = useAtom(accessTokenAtom)
-  const [completedProfile, setCompletedProfile] = useState(false)
-
+  const [accessToken] = useAtom(accessTokenAtom);
+  const [completedProfile, setCompletedProfile] = useState(false);
+  const [fileInput, setFileInput] = useState<any>("");
   // validate image
 
   type Input = z.infer<typeof completeProfile>;
-  
+
   const form = useForm<Input>({
     resolver: zodResolver(completeProfile),
     defaultValues: {
       password: "",
       user_category: 19,
-      gender: '',
-      first_name: '',
-      surname: '',
-      address: '',
-      city: '',
-      country: '',
-      birthdate: '2023-09-01',
-      phone: '',
-      vat: '',
-      nickname: '',
-      currency: '',
+      gender: "",
+      first_name: "",
+      surname: "",
+      address: "",
+      city: "",
+      country: "",
+      birthdate: "2023-09-01",
+      phone: "",
+      vat: "",
+      nickname: "",
+      currency: "",
     },
   });
-
-
 
   const router = useRouter();
 
   const onSubmit = (data: Input) => {
-   mutate(data)
+    mutate(data);
   };
 
-
-
   function convertFile(files: FileList | null) {
+    setFileInput(files?.[0]);
+
     if (files) {
       const fileRef = files[0] || "";
       const fileType: string = fileRef.type || "";
-      console.log("This file upload is of type:", fileType);
       const reader = new FileReader();
       reader.readAsBinaryString(fileRef);
       reader.onload = (ev: any) => {
@@ -96,36 +94,57 @@ export default function CompleteProfile() {
     }
   }
 
- const { mutate, data, error, isLoading } = useMutation({
-    mutationFn: (data : Input) => {
-      return axios.put(`https://pastauction.com/api/v1/user_info_update`, data,  {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('accessToken')}`,  
-
-        },
-      }
+  const { mutate, data, error, isLoading } = useMutation({
+    mutationFn: (data: Input) => {
+      return axios.put(
+        `https://pastauction.com/api/v1/user_info_update`,
+        data,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+        }
       );
     },
   });
 
-
-
   useEffect(() => {
-  
-    if(data?.data){
-      localStorage.setItem('user', JSON.stringify(data?.data))
-      setCurrentUser(JSON.parse(localStorage.getItem('user')!))
-      setCompletedProfile(true)
+    if (data?.data) {
+      localStorage.setItem("user", JSON.stringify(data?.data));
+      setCurrentUser(JSON.parse(localStorage.getItem("user")!));
+      setCompletedProfile(true);
     }
-  }, [data])
+  }, [data]);
 
-  // useEffect(() => {
-  //   if(filebase64){
+  // const handlePostImage = () => {
+  //   const formData = new FormData();
+  //   formData.append("profile-pic", fileInput);
+   
+  //    getImage(formData);
+  // };
 
-  //   }
-  // })
 
-  
+
+  // const {
+  //   mutate: getImage,
+  //   data: imageData,
+  //   error: ImageError,
+  // } = useMutation({
+  //   mutationFn: (formData: FormData) => {
+  //     return axios.post(
+  //       `https://pastauction.com/api/v1/profile_image/`,
+  //       formData,
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+  //           "Content-Type": "multipart/form-data",
+  //         },
+  //       }
+  //     );
+  //   },
+  // });
+
+  // console.log(ImageError, imageData);
 
   return (
     <div className='w-full'>
@@ -136,11 +155,9 @@ export default function CompleteProfile() {
         />
       )}
 
-      {
-        completedProfile && (
-          <CompletedProfileModal setCompletedProfile={setCompletedProfile}/>
-        )
-      }
+      {completedProfile && (
+        <CompletedProfileModal setCompletedProfile={setCompletedProfile} />
+      )}
 
       <Card className='md:w-[450px] rounded-r-[60px] w-full'>
         <CardHeader className='items-start'>
@@ -202,6 +219,13 @@ export default function CompleteProfile() {
                   </div>
                 )}
               </div>
+
+              {/* <button
+                className='bg-red-400 p-4 rounded-md'
+                type='button'
+                onClick={handlePostImage}>
+                post image
+              </button> */}
               <div className='flex justify-center items-center pt-1 pb-1'>
                 <span className='text-gray-600 font-medium text-xs'>
                   Select your image profile
@@ -422,13 +446,14 @@ const DeleteImageModal = ({
   );
 };
 
-
-interface CompletedProfileProps{
-  setCompletedProfile: (arg0: boolean) => void
+interface CompletedProfileProps {
+  setCompletedProfile: (arg0: boolean) => void;
 }
 
-const CompletedProfileModal = ({setCompletedProfile}: CompletedProfileProps) => {
- const  router = useRouter()
+const CompletedProfileModal = ({
+  setCompletedProfile,
+}: CompletedProfileProps) => {
+  const router = useRouter();
   return (
     <div className='fixed bg-black/50 top-0 left-0 right-0  p-4 overflow-x-hidden w-screen overflow-y-auto md:inset-0  h-full z-50'>
       <div className='relative w-full  h-full flex justify-center items-center'>
@@ -437,8 +462,7 @@ const CompletedProfileModal = ({setCompletedProfile}: CompletedProfileProps) => 
             <Image
               src='/images/x.svg'
               onClick={() => {
-                setCompletedProfile(false)
-              
+                setCompletedProfile(false);
               }}
               alt='password saved'
               width='15'
@@ -458,27 +482,24 @@ const CompletedProfileModal = ({setCompletedProfile}: CompletedProfileProps) => 
             </div>
 
             <div className='flex flex-col gap-3 pt-4 items-center'>
-              <h2 className='font-semibold text-lg text-black'>Profile Completed</h2>
+              <h2 className='font-semibold text-lg text-black'>
+                Profile Completed
+              </h2>
               <p className='text-xs text-gray-600 text-center tracking-wide'>
-               You have completed the data with your personal info. 
+                You have completed the data with your personal info.
               </p>
             </div>
 
             <div className='pt-8 flex gap-3'>
-              
-
-             <Link href='/dashboard'>
-             <Button
-                
-                variant='blackWide'
-                className='px-10'>
-                <span className='text-sm'>Go to dashboard</span>
-              </Button>
-             </Link>
+              <Link href='/dashboard'>
+                <Button variant='blackWide' className='px-10'>
+                  <span className='text-sm'>Go to dashboard</span>
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

@@ -87,6 +87,7 @@ export default function LoginCard() {
 
     onSuccess: (data) => {
       localStorage.setItem("user", JSON.stringify(data));
+     
       setCurrentUser(JSON.parse(localStorage.getItem('user')!))
     },
   });
@@ -99,14 +100,17 @@ export default function LoginCard() {
       // login success
 
       fetchInitial();
-
       setAccessToken(
         localStorage.setItem("accessToken", data?.data?.access_token)
       );
+
+     
       setConfirmIdentity(false)
 
+      router.push('/dashboard')
 
-      router.push("/dashboard");
+
+      
 
       //
       if (forgotPassword) {
@@ -120,7 +124,6 @@ export default function LoginCard() {
    
     
   }, [error, data, isLoading]);
-
 
 
 
