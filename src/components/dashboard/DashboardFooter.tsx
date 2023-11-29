@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 import Link from "next/link";
 
 export interface DashboardFooterProps {
-  garageItems: {
+  garageItems?: {
     items: never[];
     total: number;
     page: number;
@@ -13,7 +13,10 @@ export interface DashboardFooterProps {
     pages: number;
   };
 }
+
+
 export default function DashboardFooter({ garageItems }: DashboardFooterProps) {
+ 
   return (
     <div className='bg-transparent mt-7  rounded-lg mx-3 '>
       <div className='flex-col flex justify-between sm:flex-row'>
@@ -38,22 +41,18 @@ export default function DashboardFooter({ garageItems }: DashboardFooterProps) {
           </div>
         </div>
 
-        
-
-        {
-          garageItems.items.length > 0 && (
-            <Link href='/garage'>
+      {!garageItems?.items  ? (
+          <Link href='/garage'>
             <Button
               className='px-12 max-w-[210px] mt-6 sm:mt-0'
               variant='blackWide'>
               View more
             </Button>
           </Link>
-          )
-        }
+        ) : null}
       </div>
       <div className='pt-5'></div>
-      {garageItems.items.length === 0 ? (
+      {garageItems?.items?.length === 0 ? (
         <DashboardGarageNoItems />
       ) : (
         <DashboardGarageItems />

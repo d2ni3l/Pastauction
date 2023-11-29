@@ -8,7 +8,7 @@ export default function DashboardGarageNoItems({
   items,
 }: DashboardGarageItemsProps) {
   return (
-    <div className='bg-white rounded-md'>
+    <div className='bg-white rounded-md shadow-md'>
       <div className='flex justify-center '>
         <div className='flex flex-col p-14 py-20 gap-5'>
           <h4 className='text-center text-sm text-gray-600 font-medium'>
