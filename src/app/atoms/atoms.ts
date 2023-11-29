@@ -4,7 +4,7 @@ import {atom} from 'jotai'
 
 const privacyPolicy = atom(false)
 const completeProfileModal = atom(false)
-const deleteImage = atom(false)
+const deleteImageAtom = atom(false)
 const selectionAreaModal = atom(false)
 const alertUpgradePlan = atom(true)
 const chatBubbleModal = atom(false)
@@ -30,7 +30,7 @@ const confirmIdentityAtom = atom(false)
 export {
     privacyPolicy,
     completeProfileModal,
-    deleteImage,
+    deleteImageAtom,
     selectionAreaModal,
     alertUpgradePlan,
     chatBubbleModal,

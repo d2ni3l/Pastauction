@@ -36,7 +36,7 @@ import { useAtom } from "jotai";
 import {
   accessTokenAtom,
   currentUserAtom,
-  deleteImage,
+  deleteImageAtom,
 } from "@/app/atoms/atoms";
 import { completeProfileModal } from "@/app/atoms/atoms";
 import { useMutation } from "@tanstack/react-query";
@@ -44,7 +44,7 @@ import axios from "axios";
 
 export default function CompleteProfile() {
   const [filebase64, setFileBase64] = useState<string>("");
-  const [deleteImageModal, setDeleteImageModal] = useAtom(deleteImage);
+  const [deleteImageModal, setDeleteImageModal] = useAtom(deleteImageAtom);
   const [currentUser, setCurrentUser] = useAtom(currentUserAtom);
   const [, setModal] = useAtom(completeProfileModal);
   const [accessToken] = useAtom(accessTokenAtom);
@@ -116,50 +116,53 @@ export default function CompleteProfile() {
     }
   }, [data]);
 
-  const handlePostImage = () => {
+  const {
+    mutate: getImage,
+    data: imageData,
+    error: imageError,
+  } = useMutation({
+    mutationFn: (formData: FormData) => {
+      return axios.post(
+        `https://pastauction.com/api/v1/profile_image/`,
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+    },
+  });
+
+  const {
+    mutate: deleteImage,
+    data: deleteImageData,
+    error: deleteImageError,
+  } = useMutation({
+    mutationFn: () => {
+      return axios.delete(`https://pastauction.com/api/v1/profile_image/`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          "Content-Type": "multipart/form-data",
+        },
+      });
+    },
+  });
+
+  useEffect(() => {
     const formData = new FormData();
-    console.log(fileInput)
-    
-    formData.append('file', new File([fileInput], fileInput.name))
+    console.log(fileInput);
 
+    formData.append("file", new File([fileInput], fileInput.name));
+    getImage(formData);
+  }, [filebase64]);
 
-   
-     
-
-     axios.post(
-            `https://pastauction.com/api/v1/profile_image/`,
-            formData,
-            {
-              headers: {
-                Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-                "Content-Type": "multipart/form-data",
-              },
-            }
-          ).then((res) => console.log(res)).catch((err) => console.log(err))
+  const handleDeleteImage = () => {
+    setFileBase64("");
+    setDeleteImageModal(false);
+    deleteImage();
   };
-
-
-
-  // const {
-  //   mutate: getImage,
-  //   data: imageData,
-  //   error: imageError,
-  // } = useMutation({
-  //   mutationFn: (formData: FormData) => {
-  //     return axios.post(
-  //       `https://pastauction.com/api/v1/profile_image/`,
-  //       formData,
-  //       {
-  //         headers: {
-  //           Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-  //           "Content-Type": "multipart/form-data",
-  //         },
-  //       }
-  //     );
-  //   },
-  // });
-
-
 
   return (
     <div className='w-full'>
@@ -167,6 +170,7 @@ export default function CompleteProfile() {
         <DeleteImageModal
           setDeleteImageModal={setDeleteImageModal}
           setFileBase64={setFileBase64}
+          handleDeleteImage={handleDeleteImage}
         />
       )}
 
@@ -235,12 +239,6 @@ export default function CompleteProfile() {
                 )}
               </div>
 
-              <button
-                className='bg-red-400 p-4 rounded-md'
-                type='button'
-                onClick={handlePostImage}>
-                post image
-              </button>
               <div className='flex justify-center items-center pt-1 pb-1'>
                 <span className='text-gray-600 font-medium text-xs'>
                   Select your image profile
@@ -393,11 +391,13 @@ export default function CompleteProfile() {
 interface DeleteImageModal {
   setDeleteImageModal: (arg0: boolean) => void;
   setFileBase64: (arg0: string) => void;
+  handleDeleteImage: () => void;
 }
 
 const DeleteImageModal = ({
   setFileBase64,
   setDeleteImageModal,
+  handleDeleteImage,
 }: DeleteImageModal) => {
   return (
     <div className='fixed bg-black/50 top-0 left-0 right-0  p-4 overflow-x-hidden w-screen overflow-y-auto md:inset-0  h-full z-50'>
@@ -445,10 +445,7 @@ const DeleteImageModal = ({
               </Button>
 
               <Button
-                onClick={() => {
-                  setFileBase64("");
-                  setDeleteImageModal(false);
-                }}
+                onClick={handleDeleteImage}
                 variant='blackWide'
                 className='px-10'>
                 <span className='text-sm'>Delete</span>
