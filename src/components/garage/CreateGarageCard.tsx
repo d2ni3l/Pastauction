@@ -32,17 +32,20 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "../ui/textarea";
-import {useRouter} from 'next/navigation'
+import { useRouter } from "next/navigation";
 
 type Input = z.infer<typeof garageSchema>;
 export default function CreateGarageCard() {
+
+  
   const form = useForm<Input>({
     resolver: zodResolver(garageSchema),
     defaultValues: {
-      vehicle_desc: "",
-      garage_image: "",
+      name: "",
+      description: "",
+      photo: "",
       country: "",
-      vehicle_capacity: "",
+      vehicle_capacity: 0,
     },
   });
 
@@ -62,9 +65,9 @@ export default function CreateGarageCard() {
     }
   }
   console.log(form.watch());
-  const router = useRouter()
+  const router = useRouter();
   const onSubmit = () => {
-    router.push('/garage/')
+    // router.push("/garage/");
   };
 
   return (
@@ -133,7 +136,7 @@ export default function CreateGarageCard() {
                     className=' pt-12 space-y-3 '>
                     <FormField
                       control={form.control}
-                      name='garage_name'
+                      name='name'
                       render={({ field }) => (
                         <FormItem className='space-y-0'>
                           <FormLabel className='text-xs'>Name garage</FormLabel>
@@ -199,7 +202,7 @@ export default function CreateGarageCard() {
                     />
                     <FormField
                       control={form.control}
-                      name='vehicle_desc'
+                      name='description'
                       render={({ field }) => (
                         <FormItem className='space-y-0'>
                           <FormLabel className='text-xs'>

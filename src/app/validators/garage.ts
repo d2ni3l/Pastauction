@@ -3,11 +3,11 @@ import {z} from 'zod'
 
 
 export const garageSchema = z.object({
-     garage_name : z.string().min(3).max(255),
+     name : z.string().min(3).max(255),
     country: z.string(),
-    vehicle_desc: z.string(),
-    vehicle_capacity: z.string(),
-    garage_image: z.string(),
+    description: z.string(),
+    vehicle_capacity: z.number(),
+    photo: z.string(),
     
 
 
