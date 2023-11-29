@@ -20,10 +20,10 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <ReactQueryProvider>
-        <ToasterProvider/>
+       
         {/* <ProviderSession> */}
         
-        <body className={montserrat.className}>{children}</body>
+        <body className={montserrat.className}> <ToasterProvider/>{children}</body>
         
         {/* </ProviderSession> */} 
       </ReactQueryProvider>

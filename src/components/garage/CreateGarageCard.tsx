@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { garageSchema } from "@/app/validators/garage";
 import Image from "next/image";
 
@@ -35,6 +35,7 @@ import { Textarea } from "../ui/textarea";
 import { useRouter } from "next/navigation";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 type Input = z.infer<typeof garageSchema>;
 export default function CreateGarageCard() {
@@ -68,15 +69,13 @@ export default function CreateGarageCard() {
   const router = useRouter();
 
   const onSubmit = (data: Input) => {
-    // router.push("/garage/");
 
     let newData = { ...data, photo: filebase64 };
 
     if(!filebase64){
-      return
+      return toast.error('An image is required')
     }
 
-    console.log(newData);
 
    mutate(newData)
   };
@@ -95,8 +94,15 @@ export default function CreateGarageCard() {
     },
   });
 
-  console.log(data, error);
+useEffect(() => {
+ if (data?.data){
 
+  // post successfull
+  toast.success('garage created successfully')
+  router.push("/garage/");
+
+ }
+}, [data])
 
   return (
     <>
@@ -129,7 +135,7 @@ export default function CreateGarageCard() {
                         onClick={() => {
                           setFileBase64("");
                         }}
-                        className='absolute -bottom-[5px]  cursor-pointer  -right-[4px] '
+                        className='absolute bottom-[5px]  cursor-pointer  right-[4px] '
                       />
                     </div>
                   ) : (
