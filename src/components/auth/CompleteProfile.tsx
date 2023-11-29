@@ -116,32 +116,34 @@ export default function CompleteProfile() {
     }
   }, [data]);
 
-  // const handlePostImage = () => {
-  //   const formData = new FormData();
-  //   formData.append("profile-pic", fileInput);
+  const handlePostImage = () => {
+    const formData = new FormData();
+    console.log(fileInput)
+    
+    formData.append('file', new File([fileInput], fileInput.name))
 
-  
+
    
      
 
-  //    axios.post(
-  //           `https://pastauction.com/api/v1/profile_image/`,
-  //           formData,
-  //           {
-  //             headers: {
-  //               Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-  //               "Content-Type": "multipart/form-data",
-  //             },
-  //           }
-  //         ).then((res) => console.log(res)).catch((err) => console.log(err))
-  // };
+     axios.post(
+            `https://pastauction.com/api/v1/profile_image/`,
+            formData,
+            {
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+                "Content-Type": "multipart/form-data",
+              },
+            }
+          ).then((res) => console.log(res)).catch((err) => console.log(err))
+  };
 
 
 
   // const {
   //   mutate: getImage,
   //   data: imageData,
-  //   error: ImageError,
+  //   error: imageError,
   // } = useMutation({
   //   mutationFn: (formData: FormData) => {
   //     return axios.post(
@@ -157,7 +159,7 @@ export default function CompleteProfile() {
   //   },
   // });
 
- 
+
 
   return (
     <div className='w-full'>
@@ -233,12 +235,12 @@ export default function CompleteProfile() {
                 )}
               </div>
 
-              {/* <button
+              <button
                 className='bg-red-400 p-4 rounded-md'
                 type='button'
-                onClick={()}>
+                onClick={handlePostImage}>
                 post image
-              </button> */}
+              </button>
               <div className='flex justify-center items-center pt-1 pb-1'>
                 <span className='text-gray-600 font-medium text-xs'>
                   Select your image profile
