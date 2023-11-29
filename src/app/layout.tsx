@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { montserrat } from "./fonts";
 // import ProviderSession from "@/components/ProviderSession";
 import ReactQueryProvider from "@/components/ReactQueryProvider";
+import ToasterProvider from "./providers/ToastProvider";
 export const metadata: Metadata = {
   title: "Past Auction",
   description: "For Classic Cars Lovers",
@@ -19,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <ReactQueryProvider>
+        <ToasterProvider/>
         {/* <ProviderSession> */}
         
         <body className={montserrat.className}>{children}</body>

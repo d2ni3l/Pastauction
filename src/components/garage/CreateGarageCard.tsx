@@ -33,11 +33,11 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "../ui/textarea";
 import { useRouter } from "next/navigation";
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
 
 type Input = z.infer<typeof garageSchema>;
 export default function CreateGarageCard() {
-
-  
   const form = useForm<Input>({
     resolver: zodResolver(garageSchema),
     defaultValues: {
@@ -64,11 +64,39 @@ export default function CreateGarageCard() {
       };
     }
   }
-  console.log(form.watch());
+
   const router = useRouter();
-  const onSubmit = () => {
+
+  const onSubmit = (data: Input) => {
     // router.push("/garage/");
+
+    let newData = { ...data, photo: filebase64 };
+
+    if(!filebase64){
+      return
+    }
+
+    console.log(newData);
+
+   mutate(newData)
   };
+
+  const { mutate, data, error } = useMutation({
+    mutationFn: (data: Input) => {
+      return axios.post(
+        `https://pastauction.com/api/v1/garage_set/create`,
+        data,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+        }
+      );
+    },
+  });
+
+  console.log(data, error);
+
 
   return (
     <>
@@ -101,7 +129,7 @@ export default function CreateGarageCard() {
                         onClick={() => {
                           setFileBase64("");
                         }}
-                        className='absolute -bottom-[1px]  cursor-pointer  -right-[1px] '
+                        className='absolute -bottom-[5px]  cursor-pointer  -right-[4px] '
                       />
                     </div>
                   ) : (
