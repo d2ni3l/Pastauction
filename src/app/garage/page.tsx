@@ -7,13 +7,34 @@ import { useAtom } from "jotai";
 import GarageInfoCard from "@/components/garage/GarageInfoCard";
 import Link from "next/link";
 import Image from "next/image";
-import { currentUserAtom } from "../atoms/atoms";
-export default function page() {
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+export default function GaragePage() {
   //im garage
   const [mobileSidebar, setMobileSideBar] = useState(false);
-  const [currentUser,] = useAtom(currentUserAtom)
+ 
 
-  console.log(currentUser)
+  const { refetch, data, error } = useQuery({
+    queryKey: ["getGarageSet"],
+
+    queryFn: async () => {
+      const { data } = await axios.get(
+        `https://pastauction.com/api/v1/garage_set/query?page=1&size=1`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+        }
+      );
+      return data;
+    },
+    enabled: true,
+
+    
+  });
+
+  
+
   return (
     <div className='bg-[#f8f9fa] overflow-x-hidden w-screen h-screen'>
       <DashboardNavbar
@@ -51,7 +72,7 @@ export default function page() {
           </p>
         </div>
                   <div className="pt-10"></div>
-        <GarageInfoCard/>
+        <GarageInfoCard garageInfo={data?.items}/>
 
         <GarageArea />
       </div>

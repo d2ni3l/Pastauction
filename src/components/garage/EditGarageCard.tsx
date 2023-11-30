@@ -1,5 +1,6 @@
+'use client'
 import React, { useEffect, useState } from "react";
-import { garageSchema } from "@/app/validators/garage";
+import { editGarageSchema, garageSchema } from "@/app/validators/garage";
 import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
@@ -33,20 +34,23 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "../ui/textarea";
 import { useRouter } from "next/navigation";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import toast from "react-hot-toast";
 
-type Input = z.infer<typeof garageSchema>;
-export default function CreateGarageCard() {
+type Input = z.infer<typeof editGarageSchema>;
+
+export default function EditGarageCard({id}: {id : string | undefined}) {
   const form = useForm<Input>({
-    resolver: zodResolver(garageSchema),
+    resolver: zodResolver(editGarageSchema),
     defaultValues: {
       name: "",
       description: "",
       photo: "",
       country: "",
       vehicle_capacity: 0,
+      id: id,
+
     },
   });
 
@@ -68,9 +72,10 @@ export default function CreateGarageCard() {
 
   const router = useRouter();
 
+
   const onSubmit = (data: Input) => {
 
-    let newData = { ...data, photo: filebase64 };
+    let newData = { ...data, photo: filebase64, };
 
     if(!filebase64){
       return toast.error('An image is required')
@@ -83,7 +88,7 @@ export default function CreateGarageCard() {
   const { mutate, data, error } = useMutation({
     mutationFn: (data: Input) => {
       return axios.post(
-        `https://pastauction.com/api/v1/garage_set/create`,
+        `https://pastauction.com/api/v1/garage_set/update`,
         data,
         {
           headers: {
@@ -94,6 +99,7 @@ export default function CreateGarageCard() {
     },
   });
 
+  
  
 
 useEffect(() => {
@@ -101,7 +107,7 @@ useEffect(() => {
 
   // post successfull
   toast.success('garage created successfully')
-  router.push(`/garage?id=${data?.data?.id}`);
+   router.push(`/garage?id=${data?.data?.id}`);
 
  }
 }, [data])

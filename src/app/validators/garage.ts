@@ -14,6 +14,19 @@ export const garageSchema = z.object({
 })
 
 
+export const editGarageSchema = z.object({
+    name : z.string().min(3).max(255),
+   country: z.string(),
+   description: z.string(),
+   vehicle_capacity: z.number(),
+   photo: z.string(),
+   id: z.string()
+   
+
+
+})
+
+
 export const addVehicleSchema = z.object({
     had_before : z.string(),
     year: z.string(),

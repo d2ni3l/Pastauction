@@ -7,8 +7,11 @@ import GarageArea from "@/components/garage/GarageArea";
 import Image from "next/image";
 import Link from "next/link";
 import CreateGarageCard from "@/components/garage/CreateGarageCard";
+
 export default function page() {
   const [mobileSidebar, setMobileSideBar] = useState(false);
+
+  
   return (
     <div className='bg-[#f8f9fa] overflow-x-hidden w-screen h-screen'>
       <DashboardNavbar
