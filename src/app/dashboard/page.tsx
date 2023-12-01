@@ -53,6 +53,7 @@ export default function page() {
 
     onSuccess: (data) => {
       setGarage(data)
+      console.log(garage)
     },
   });
   

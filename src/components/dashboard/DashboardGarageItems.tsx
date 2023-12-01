@@ -2,7 +2,17 @@ import { inter } from "@/app/fonts";
 import Image from "next/image";
 import React from "react";
 import {useRouter} from 'next/navigation'
-export default function DashboardGarageItems() {
+
+export interface DashboardGarageItemsProps {
+  garageInfo?: {
+    items: never[];
+    total: number;
+    page: number;
+    size: number;
+    pages: number;
+  };
+}
+export default function DashboardGarageItems({garageInfo}: DashboardGarageItemsProps) {
  const router = useRouter()
   return (
     <div className={inter.className} >

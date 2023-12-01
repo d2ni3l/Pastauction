@@ -55,7 +55,7 @@ export default function DashboardFooter({ garageItems }: DashboardFooterProps) {
       {garageItems?.items?.length === 0 ? (
         <DashboardGarageNoItems />
       ) : (
-        <DashboardGarageItems />
+        <DashboardGarageItems garageInfo={garageItems} />
       )}
     </div>
   );
