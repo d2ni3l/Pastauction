@@ -26,21 +26,26 @@ export default function page() {
   const [user,] = useAtom(currentUserAtom)
   const [newPassword,] = useAtom(newPasswordAtom)
   const [resettedPassword,] = useAtom(resettedPasswordAtom)
-
-  const [garage, setGarage] = useState({ items : [], 
-    total: 0,
-    page: 0,
-    size: 0,
-    pages: 0})
+  const [garage, setGarage] = useState<garageSet>()
 
  
 
-  const { refetch: fetchInitial } = useQuery({
+ interface garageSet {
+  garageInfo?: {
+    items: [{name : string, description: string, vehicle_capacity: number, country: string, id: number}];
+    total: number;
+    page: number;
+    size: number;
+    pages: number;
+  };
+ }
+
+  const { refetch: fetchInitial, data } = useQuery({
     queryKey: ["getGarage"],
 
     queryFn: async () => {
       const { data } = await axios.get(
-        `https://pastauction.com/api/v1/garage_set/query?page=1&size=50`,
+        `https://pastauction.com/api/v1/garage_set/query`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -51,9 +56,9 @@ export default function page() {
     },
     enabled: true,
 
-    onSuccess: (data) => {
+    onSuccess: (data: garageSet) => {
       setGarage(data)
-      console.log(garage)
+      
     },
   });
   
@@ -116,7 +121,7 @@ export default function page() {
         </div>
 
         <div className='lg:ml-[16rem]  pb-12 '>
-          <DashboardFooter garageItems={garage} />
+          <DashboardFooter garageInfo={garage} />
         </div>
       </div>
       </div>

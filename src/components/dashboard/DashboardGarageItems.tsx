@@ -5,7 +5,7 @@ import {useRouter} from 'next/navigation'
 
 export interface DashboardGarageItemsProps {
   garageInfo?: {
-    items: never[];
+    items: [{name : string, description: string, vehicle_capacity: number, country: string, id: number}];
     total: number;
     page: number;
     size: number;
@@ -26,7 +26,7 @@ export default function DashboardGarageItems({garageInfo}: DashboardGarageItemsP
             className='rounded-t-lg'
           />
           <div className='flex flex-col bg-white px-7 rounded-b-lg'>
-            <h1 className='font-semibold text-xl pt-5'>Garage 1 full stack</h1>
+            <h1 className='font-semibold text-xl pt-5'></h1>
             <p className=' text-gray-600 pt-3'>
               The best types of antique cars
             </p>
